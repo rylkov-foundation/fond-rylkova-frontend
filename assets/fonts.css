@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Vollkorn';
+  src:
+    url('./fonts/Vollkorn-VariableFont_wght.ttf') format('truetype-variations'),
+    url('./fonts/Vollkorn-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'VollkornItalic';
+  src:
+    url('./fonts/Vollkorn-Italic-VariableFont_wght.ttf') format('truetype-variations'),
+    url('./fonts/Vollkorn-Italic-VariableFont_wght.ttf') format('truetype');
+}
