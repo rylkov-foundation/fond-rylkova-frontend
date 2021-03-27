@@ -27,7 +27,6 @@ export default {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    color: #313131;
   }
 
   .about__name {
