@@ -11,3 +11,19 @@
     url('./fonts/Vollkorn-Italic-VariableFont_wght.ttf') format('truetype-variations'),
     url('./fonts/Vollkorn-Italic-VariableFont_wght.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Tomorrow';
+  font-style:  normal;
+  font-weight: 400;
+  src:
+    url('./fonts/Tomorrow Wind.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DrukCyr';
+  font-style:  normal;
+  font-weight: 500;
+  src:
+    url('./fonts/DrukCyr-Medium.ttf') format('truetype');
+}
