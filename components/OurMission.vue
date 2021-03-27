@@ -1,8 +1,8 @@
 <template>
   <section class="mission">
-    <p class="mission__header">
+    <h1 class="mission__header">
       Фонд содействия защите&nbsp;здоровья и соци&shy;альной справедливости имени Андрея<br class="mission__header-br"> Рылькова
-    </p>
+    </h1>
     <p class="mission__our-mission">
       <span class="mark">Наша</span>
       <br>
@@ -39,7 +39,9 @@ export default {
     background-color: #b23438;
     font-size: 23px;
     line-height: 20px;
+    font-weight: normal;
     padding: 18px 39px 13px 14px;
+    margin: 0;
   }
 
   .mission__our-mission {
