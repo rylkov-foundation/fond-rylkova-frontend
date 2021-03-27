@@ -3,12 +3,16 @@
     <h1 class="mission__header">
       Фонд содействия защите&nbsp;здоровья и соци&shy;альной справедливости имени Андрея<br class="mission__header-br"> Рылькова
     </h1>
-    <p class="mission__our-mission">
-      <span class="mark">Наша</span>
-      <br>
-      <span class="mark mark_long">миссия</span>
-      способствовать развитию&nbsp;наркополитики, основанной на&nbsp;гуманности, терпимости, защите здоро&shy;вья, достоинства и прав человека.
-    </p>
+    <div class="mission__container">
+      <h2 class="mission__subtitle">
+        <span class="mark">Наша</span>
+        <br>
+        <span class="mark mark_long">миссия</span>
+      </h2>
+      <p class="mission__our-mission">
+        способствовать развитию&nbsp;наркополитики, основанной на&nbsp;гуманности, терпимости, защите здоро&shy;вья, достоинства и прав человека.
+      </p>
+    </div>
     <p class="mission__principles">
       Работа ФАР строится на принципах горизон&shy;тального управления и разви&shy;тия проектов на&nbsp;основе инициатив людей, употребляющих наркотики, активистов и активисток, профессио&shy;налов и профессионалок в области об&shy;щественного здравоохранения и защиты прав человека.
     </p>
@@ -44,8 +48,18 @@ export default {
     margin: 0;
   }
 
+  .mission__container {
+    padding: 23px 0 0 18px;
+  }
+
+  .mission__subtitle {
+    float: left;
+    margin-bottom: -10px;
+    margin-right: 8px;
+  }
+
   .mission__our-mission {
-    margin: 30px 14px 0 18px;
+    margin: 35px 14px 0 0;
     line-height: 17px;
   }
 
@@ -147,6 +161,10 @@ export default {
       padding: 30px 30px 35px 30px;
     }
 
+    .mission__container {
+      padding: 47px 0 0 50px;
+    }
+
     .mark {
       font-size: 52px;
       line-height: 45px;
@@ -167,8 +185,12 @@ export default {
       left: -7px;
     }
 
+    .mission__subtitle {
+      margin-right: 11px;
+    }
+
     .mission__our-mission {
-      margin: 46px 78px 0 50px;
+      margin: 56px 45px 0 0;
       font-size: 32px;
       line-height: 34px;
     }
