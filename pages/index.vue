@@ -3,6 +3,7 @@
     <MainHeader />
     <MainAbout />
     <Main />
+    <OurMission />
   </div>
 </template>
 

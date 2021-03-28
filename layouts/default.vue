@@ -6,8 +6,9 @@
 
 <style>
 html {
-  font-family: Vollkorn, VollkornItalic, serif;
+  font-family: Vollkorn, Times, serif;
   font-size: 16px;
+  color: #313131;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
