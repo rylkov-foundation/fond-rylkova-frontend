@@ -118,10 +118,8 @@ export default {
   .main__text_position_top {
     position: absolute;
     bottom: -4px;
-    right: -3px;
-    letter-spacing: 2px;
-    font-size: 16px;
-    word-spacing: -3px;
+    right: 0;
+    font-size: 17px;
   }
 
   .main__image-block {
@@ -149,8 +147,6 @@ export default {
     align-self: center;
     position: relative;
     top: 1px;
-    left: 2px;
-    letter-spacing: 1px;
   }
 
   @media screen and (min-width: 768px) {
@@ -195,14 +191,13 @@ export default {
     .main__text {
       font-size: 35px;
       line-height: 34px;
-      letter-spacing: 2px;
     }
 
     .main__text_position_top {
-      bottom: 3px;
-      right: -175px;
-      font-size: 34px;
-      letter-spacing: 3px;
+      bottom: 2px;
+      line-height: 40px;
+      right: -171px;
+      font-size: 36px;
     }
 
     .main__image-block {
@@ -226,10 +221,9 @@ export default {
     .main__text_position_bottom {
       position: relative;
       left: 11px;
-      top: -43px;
-      font-size: 32px;
-      letter-spacing: 3px;
-      word-spacing: -2px;
+      top: -46px;
+      font-size: 34px;
+      line-height: 38px;
     }
   }
 
@@ -300,8 +294,6 @@ export default {
     .main__text_position_top {
       right: 219px;
       bottom: 65px;
-      letter-spacing: 1px;
-      word-spacing: 3px;
     }
 
     .main__arrow {
@@ -325,8 +317,6 @@ export default {
       position: relative;
       top: -68px;
       left: 9px;
-      letter-spacing: 1px;
-      word-spacing: 1px;
     }
   }
 </style>
