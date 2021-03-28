@@ -109,8 +109,6 @@ export default {
     font-weight: 600;
     border-bottom: 2px solid #b23438;
     margin: 19px auto 0 16px;
-    letter-spacing: 1px;
-    word-spacing: -1px;
     z-index: 1;
   }
 
@@ -208,11 +206,10 @@ export default {
     }
 
     .link {
-      font-size: 32px;
-      line-height: 40px;
-      margin: 9px 52px 0 auto;
-      letter-spacing: 3px;
-      word-spacing: -2px;
+      font-size: 34px;
+      line-height: 38px;
+      margin: 8px 49px 0 auto;
+      letter-spacing: 1px;
     }
 
     .mission__footer {

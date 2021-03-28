@@ -46,7 +46,8 @@ export default {
   }
 
   .about__text {
-    font-family: VollkornItalic, serif;
+    font-family: Vollkorn, serif;
+    font-style: italic;
     font-size: 25px;
     text-align: left;
     line-height: 23px;
