@@ -21,7 +21,8 @@
       <div class="main__image-block">
         <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
       </div>
-      <a class="main__text main__text_position_bottom" href="#">Получить помощь
+      <a class="main__text main__text_position_bottom" href="#">
+        Получить помощь
         <span class="main__arrow">&gt;</span>
       </a>
     </div>
@@ -116,12 +117,11 @@ export default {
 
   .main__text_position_top {
     position: absolute;
-    bottom: -5px;
-    right: 0;
-  }
-
-  .main__arrow {
-    padding-left: 7px;
+    bottom: -4px;
+    right: -3px;
+    letter-spacing: 2px;
+    font-size: 16px;
+    word-spacing: -3px;
   }
 
   .main__image-block {
@@ -140,8 +140,17 @@ export default {
     margin: auto;
   }
 
+  .main__arrow {
+    position: relative;
+    left: -3px;
+  }
+
   .main__text_position_bottom {
     align-self: center;
+    position: relative;
+    top: 1px;
+    left: 2px;
+    letter-spacing: 1px;
   }
 
   @media screen and (min-width: 768px) {
@@ -191,7 +200,9 @@ export default {
 
     .main__text_position_top {
       bottom: 3px;
-      right: -176px;
+      right: -175px;
+      font-size: 34px;
+      letter-spacing: 3px;
     }
 
     .main__image-block {
@@ -207,100 +218,115 @@ export default {
       background-size: 80%;
     }
 
-    .main__text_position_bottom {
-      position: relative;
-      top: -45px;
+    .main__eye {
+      width: 79%;
+      padding: 5% 0 6% 14px;
     }
 
-    @media screen and (min-width: 1280px) {
-      .main__red-block {
-        height: 93px;
-      }
+    .main__text_position_bottom {
+      position: relative;
+      left: 11px;
+      top: -43px;
+      font-size: 32px;
+      letter-spacing: 3px;
+      word-spacing: -2px;
+    }
+  }
 
-      .main__grey-block {
-        background-color: #cbcbcb;
-        height: 315px;
-        display: grid;
-        grid-template-columns: 816px 385px;
-        grid-template-rows: 314px auto;
-        grid-template-areas:
-          "eye money"
-          "eye help";
-        grid-column-gap: 20px;
-      }
+  @media screen and (min-width: 1280px) {
+    .main__red-block {
+      height: 93px;
+    }
 
-      .main__money-block {
-        grid-area: money;
-        display: grid;
-        grid-template-columns: 274px auto;
-        grid-template-rows: 70px 152px;
-        grid-template-areas:
-          "big small"
-          "big medium";
-        grid-column-gap: 21px;
-        grid-row-gap: 15px;
-        top: -35px;
-        margin: 0;
-      }
+    .main__grey-block {
+      background-color: #cbcbcb;
+      height: 315px;
+      display: grid;
+      grid-template-columns: 816px 385px;
+      grid-template-rows: 314px auto;
+      grid-template-areas:
+        "eye money"
+        "eye help";
+      grid-column-gap: 20px;
+    }
 
-      .main__money-sign {
-        font-size: 153px;
-        line-height: 123px;
-      }
+    .main__money-block {
+      grid-area: money;
+      display: grid;
+      grid-template-columns: 274px auto;
+      grid-template-rows: 70px 152px;
+      grid-template-areas:
+        "big small"
+        "big medium";
+      grid-column-gap: 21px;
+      grid-row-gap: 15px;
+      top: -35px;
+      margin: 0;
+    }
 
-      .main__number_size_big {
-        grid-area: big;
-        align-self: start;
-        font-size: 218px;
-        line-height: 168px;
-        padding: 0 0 0 13px;
-      }
+    .main__money-sign {
+      font-size: 153px;
+      line-height: 123px;
+    }
 
-      .main__number_size_medium {
-        grid-area: medium;
-        align-self: start;
-        font-size: 145px;
-        line-height: 90px;
-      }
+    .main__number_size_big {
+      grid-area: big;
+      align-self: start;
+      font-size: 218px;
+      line-height: 168px;
+      padding: 0 0 0 13px;
+      border-radius: 20px;
+    }
 
-      .main__number_size_small {
-        align-self: start;
-        grid-area: small;
-        font-size: 123px;
-        line-height: 70px;
-      }
+    .main__number_size_medium {
+      grid-area: medium;
+      align-self: start;
+      font-size: 145px;
+      line-height: 90px;
+    }
 
-      .main__text {
-        font-size: 22px;
-        line-height: 20px;
-      }
+    .main__number_size_small {
+      align-self: start;
+      grid-area: small;
+      font-size: 123px;
+      line-height: 70px;
+    }
 
-      .main__text_position_top {
-        right: 208px;
-        bottom: 70px;
-      }
+    .main__text {
+      font-size: 22px;
+      line-height: 20px;
+    }
 
-      .main__arrow {
-        padding-left: 0;
-      }
+    .main__text_position_top {
+      right: 219px;
+      bottom: 65px;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+    }
 
-      .main__image-block {
-        grid-area: eye;
-        width: 816px;
-        max-width: 816px;
-        height: 413px;
-        position: relative;
-        top: -95px;
-      }
+    .main__arrow {
+      position: relative;
+      left: 1px;
+    }
 
-      .main__text_position_bottom {
-        grid-area: help;
-        align-self: start;
-        justify-self: start;
-        position: relative;
-        top: -70px;
-        left: 7px;
-      }
+    .main__image-block {
+      grid-area: eye;
+      width: 816px;
+      max-width: 816px;
+      height: 413px;
+      position: relative;
+      top: -95px;
+    }
+
+    .main__text_position_bottom {
+      grid-area: help;
+      align-self: start;
+      justify-self: start;
+      position: relative;
+      top: -68px;
+      left: 9px;
+      letter-spacing: 1px;
+      word-spacing: 1px;
     }
   }
 </style>
