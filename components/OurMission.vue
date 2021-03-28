@@ -111,6 +111,12 @@ export default {
     margin: 19px auto 0 16px;
     letter-spacing: 1px;
     word-spacing: -1px;
+    z-index: 1;
+  }
+
+  .link:hover {
+    cursor: pointer;
+    opacity: 0.7;
   }
 
   .mission__road {
