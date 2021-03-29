@@ -18,7 +18,7 @@
       </p>
     </div>
     <p class="footer__copyright">
-      ФАР 2021
+      ФАР {{ (new Date().getFullYear()) }}
     </p>
   </footer>
 </template>
