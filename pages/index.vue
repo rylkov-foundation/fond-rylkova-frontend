@@ -4,6 +4,7 @@
     <MainAbout />
     <Main />
     <OurMission />
+    <Results />
   </div>
 </template>
 
