@@ -1,11 +1,21 @@
 @font-face {
+  font-family: 'Roboto';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Roboto'),
+    url('~/assets/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Tomorrow';
   font-style:  normal;
   font-weight: 400;
   font-display: swap;
   src:
     local('Tomorrow'),
-    url('~/assets/fonts/Tomorrow Wind.ttf') format('truetype');
+    url('~/assets/fonts/TomorrowWind.ttf') format('truetype');
 }
 
 @font-face {
