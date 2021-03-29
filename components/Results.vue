@@ -11,7 +11,7 @@
       <button class="results__arrow results__arrow-direction_forward" />
     </div>
     <Result />
-    <a class="link">Получить помощь
+    <a class="link" href="#">Получить помощь
       <span class="link__arrow">&gt;</span>
     </a>
     <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo ">
@@ -67,6 +67,11 @@ export default {
   height: 24px;
 }
 
+.results__arrow:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 .results__arrow-direction_back {
   margin-right: 30px;
 }
@@ -108,6 +113,10 @@ export default {
   padding: 0;
   align-self: start;
   margin-left: 13px;
+}
+
+.link:hover {
+  opacity: 0.7;
 }
 
 @media screen and (min-width: 768px) {
