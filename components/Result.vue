@@ -109,6 +109,9 @@ export default {
       max-width: 360px;
     }
 
+    /*
+    TODO change the font to css-lock
+     */
     .result__text {
       font-size: 30px;
       line-height: 30px;
