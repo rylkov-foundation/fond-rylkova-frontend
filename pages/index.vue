@@ -5,6 +5,7 @@
     <Main />
     <OurMission />
     <Results />
+    <Help />
     <Footer />
   </div>
 </template>
