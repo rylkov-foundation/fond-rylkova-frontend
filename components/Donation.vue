@@ -156,10 +156,11 @@ export default {
     position: relative;
     top: 9px;
     right: 2px;
-    font-weight: 400;
+    font-weight: 900;
     font-size: 42px;
     letter-spacing: 0;
     font-family: Vollkorn, Times, serif;
+    text-shadow: none;
   }
 
   .donation__smile {
@@ -179,10 +180,13 @@ export default {
 
   .form {
     margin: 30px auto 0;
+    width: fit-content;
   }
 
   .form__slider-container {
+    width: fit-content;
     text-align: center;
+    margin: 0 auto;
   }
 
   .form__slider-button {
@@ -199,7 +203,8 @@ export default {
   .form__payment-options-container {
     display: flex;
     justify-content: center;
-    margin: 26px 0 0;
+    margin: 26px auto 0;
+    width: fit-content;
   }
 
   .form__payment-options-button {
@@ -216,7 +221,8 @@ export default {
   }
 
   .form__amount-container {
-    margin: 11px 15px 0;
+    width: fit-content;
+    margin: 11px auto 0;
     display: grid;
     grid-template-areas:
       "thousand five-hundred"
@@ -308,17 +314,20 @@ export default {
 
   .form__input_personal {
     color: #b23438;
-    width: 90vw;
-    margin: 11px 16px;
+    width: 287px;
+    margin: 11px auto;
     padding-left: 11px;
     font-size: 18px;
+    display: block;
+    font-family: Vollkorn, Times, serif;
   }
 
   .form__input_personal:last-of-type {
-    margin-top: 8px;
+    margin-top: 20px;
   }
 
   .form__input_personal::placeholder {
+    font-family: Vollkorn, Times, serif;
     color: #b23438;
     font-size: 19px;
     line-height: 14px;
@@ -328,9 +337,9 @@ export default {
     background-color: #b23438;
     padding: 0;
     border: none;
-    margin: 13px auto 9px;
-    width: 68vw;
-    height: 18vw;
+    margin: 23px auto 9px;
+    width: 218px;
+    height: 58px;
     border-radius: 50%;
     display: block;
     color: white;
@@ -338,5 +347,152 @@ export default {
 
   .form__link-offer {
     color: #727272;
+  }
+
+  @media screen and (min-width: 768px) {
+    .donation {
+      padding-bottom: 50px;
+    }
+
+    .donation__title {
+      font-size: 87px;
+      line-height: 77px;
+      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+      margin: 25px 0 0 51px;
+      width: 60vw;
+    }
+
+    .donation__title-mark {
+      top: 1px;
+      right: 8px;
+      font-size: 90px;
+    }
+
+    .donation__image-container {
+      width: 263px;
+      overflow: unset;
+      top: -52px;
+      right: 14px;
+    }
+
+    .donation__smile {
+      width: 100%;
+      position: unset;
+    }
+
+    .form {
+      margin: 12px auto 0;
+    }
+
+    .switch {
+      left: -6px;
+      top: 21px;
+      width: 121px;
+      height: 61px;
+      border: 4px solid black;
+      border-radius: 30px;
+      margin-left: 22px;
+      margin-right: 22px;
+    }
+
+    .form__slider-button {
+      font-size: 29px;
+      line-height: 34px;
+      border-bottom: 2px solid #b23438;
+      margin-left: 0;
+      margin-right: 10px;
+    }
+
+    .switch__slider::before {
+      height: 55px;
+      width: 55px;
+    }
+
+    .switch__input:checked + .switch__slider::before {
+      transform: translateX(60px);
+    }
+
+    .form__payment-options-container {
+      margin: 37px auto 0;
+    }
+
+    .form__payment-options-button {
+      font-size: 30px;
+      line-height: 35px;
+      padding: 18px 0;
+      width: 189px;
+    }
+
+    .form__amount-container {
+      margin: 27px auto 0;
+      grid-template-rows: repeat(2, 168px);
+      grid-template-columns: repeat(2, 273px);
+      gap: 18px 30px;
+    }
+
+    .form__amount-options-button {
+      font-size: 218px;
+      padding: 11px 0 0 7px;
+    }
+
+    .form__amount-options-button_light {
+      padding-left: 20px;
+    }
+
+    .form__money-sign {
+      font-size: 166px;
+      top: -13px;
+      left: -6px;
+    }
+
+    .form__money-sign_light {
+      left: -12px;
+    }
+
+    .form__text-amount-container {
+      left: -13px;
+    }
+
+    .form__input {
+      font-size: 30px;
+      line-height: 40px;
+      border-bottom: 2px solid #727272;
+    }
+
+    .form__input::placeholder {
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    .form__label-agree {
+      font-size: 22px;
+      line-height: 25px;
+      margin: 41px 0 21px;
+      padding-left: 18px;
+    }
+
+    .form__input_personal {
+      width: 572px;
+      margin-top: 21px;
+      padding-left: 20px;
+      font-size: 38px;
+      line-height: 41px;
+    }
+
+    .form__input_personal:last-of-type {
+      margin-top: 36px;
+    }
+
+    .form__submit {
+      font-size: 32px;
+      width: 431px;
+      height: 112px;
+      margin-top: 46px;
+      margin-bottom: 28px;
+    }
+
+    .donation__privacy-policy {
+      font-size: 22px;
+    }
   }
 </style>
