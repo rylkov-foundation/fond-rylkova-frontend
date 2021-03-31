@@ -30,7 +30,7 @@ export default {
     display: flex;
     flex-direction: column;
     position: relative;
-    min-height: 506px;
+    min-height: 504px;
   }
 
   .results__title {

@@ -6,6 +6,7 @@
     <OurMission />
     <Results />
     <Help />
+    <Donation />
     <Footer />
   </div>
 </template>

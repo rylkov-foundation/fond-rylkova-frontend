@@ -5,7 +5,7 @@
       <div class="main__money-block">
         <p class="main__number main__number_size_big">
           1000
-          <span class="main__money-sign">&#8381;</span>
+          <span class="form__money-sign">&#8381;</span>
         </p>
         <p class="main__number main__number_size_small">
           200
@@ -66,7 +66,7 @@ export default {
     padding: 0;
   }
 
-  .main__money-sign {
+  .form__money-sign {
     font-family: 'DrukCyr', 'Times New Roman', serif;
     font-size: 94px;
     line-height: 86px;
@@ -165,7 +165,7 @@ export default {
       top: -62px;
     }
 
-    .main__money-sign {
+    .form__money-sign {
       font-size: 153px;
       line-height: 139px;
       margin-left: -15px;
@@ -259,7 +259,7 @@ export default {
       margin: 0;
     }
 
-    .main__money-sign {
+    .form__money-sign {
       font-size: 153px;
       line-height: 123px;
     }

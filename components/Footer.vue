@@ -33,7 +33,7 @@ export default {
   .footer {
     display: flex;
     flex-direction: column;
-    font-family: Roboto, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     color: #727272;
     font-size: 11px;
     line-height: 14px;
