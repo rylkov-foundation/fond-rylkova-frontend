@@ -7,6 +7,9 @@
       Если вы употребляете  наркотики и вам нужна помощь по вопросам здоровья, защиты прав, консультации психолога,
       профилактические материалы и тд, свяжитесь с нами
     </p>
+    <div class="help__block">
+      <img src="~/assets/images/blade.svg" class="help__image">
+    </div>
     <a class="link" href="#">Подробнее
       <span class="link__arrow">&gt;</span>
     </a>
@@ -36,7 +39,6 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .help__title {
@@ -53,6 +55,20 @@ export default {
   line-height: calc(0.0692 * 100vw + 8.8571px);
   padding: 17px 0 0 13px;
   margin-bottom: 25px;
+}
+
+.help__block {
+  overflow: hidden;
+  position: absolute;
+  height: 180px;
+  top: -13px;
+  right: 0;
+}
+
+.help__image {
+  height: 100%;
+  position: relative;
+  right: -53px;
 }
 
 .help__text {
@@ -183,6 +199,15 @@ export default {
 
   .help__email-block {
     margin-bottom: 55px;
+  }
+
+  .help__block {
+    height: 380px;
+    top: -35px;
+  }
+
+  .help__image {
+    right: -48px;
   }
 
   .help__email {
