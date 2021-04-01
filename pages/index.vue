@@ -7,6 +7,7 @@
     <Results />
     <Help />
     <Footer />
+    <VPopup />
   </div>
 </template>
 
