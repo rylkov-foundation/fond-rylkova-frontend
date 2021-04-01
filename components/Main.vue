@@ -168,7 +168,7 @@ export default {
       top: -62px;
     }
 
-    .form__money-sign {
+    .main__money-sign {
       font-size: 153px;
       line-height: 139px;
       margin-left: -15px;
@@ -277,7 +277,7 @@ export default {
       margin: 0;
     }
 
-    .form__money-sign {
+    .main__money-sign {
       font-size: 153px;
       line-height: 123px;
     }
