@@ -114,13 +114,11 @@ export default {
     left: -1px;
     bottom: -1px;
     background-color: #b23438;
-    transition: 0.4s;
+    transition: transform 0.4s;
     border-radius: 50%;
   }
 
   .switch__input:checked + .switch__slider::before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
 
