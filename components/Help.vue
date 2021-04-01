@@ -77,6 +77,10 @@ export default {
   margin: 22px 20px 36px 19px;
 }
 
+.link:hover {
+  opacity: 0.7;
+}
+
 .help__telephone-block {
   background-color: #000;
   border-radius: 50%;

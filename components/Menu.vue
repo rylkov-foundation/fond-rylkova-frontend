@@ -1,16 +1,27 @@
 <template>
   <section class="menu">
+    <nav class="menu__navigation">
+      <ul class="menu__list">
+        <li class="menu__list-item">
+          о нас
+        </li>
+        <li class="menu__list-item">
+          поддержать ФАР
+        </li>
+        <li class="menu__list-item">
+          получить помощь
+        </li>
+        <li class="menu__list-item">
+          контакты
+        </li>
+      </ul>
+    </nav>
     <div class="menu__block">
       <img class="menu__burger-image" src="~/assets/images/burger.png">
       <p class="menu__text">
         Меню
       </p>
     </div>
-    <nav class="menu__navigation">
-      <ul class="menu__list">
-        <li class="menu__list-item"></li>
-      </ul>
-    </nav>
   </section>
 </template>
 
@@ -23,11 +34,12 @@ export default {
 <style scoped>
 .menu {
   position: fixed;
-  top: 0;
-  right: 2px;
+  top: 4px;
+  right: 3px;
   background-color: #000;
   min-height: 149px;
   display: flex;
+  z-index: 10;
 }
 
 .menu__block {
@@ -56,7 +68,8 @@ export default {
 }
 
 .menu__navigation {
-  display: none;
+  display: block;
+  min-width: 190px;
 }
 
 </style>
