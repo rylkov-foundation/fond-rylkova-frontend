@@ -44,6 +44,8 @@
           <input type="number" min="1" class="form__input" placeholder="Другая сумма">
           <label class="form__label-agree">
             <input type="checkbox" class="form__agree">
+            <span class="form__checkbox-agree" />
+            <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
             <span class="form__text-agree">Согласен с <a href="#" class="form__link-offer">офертой</a></span>
           </label>
         </div>
@@ -321,12 +323,38 @@ export default {
   }
 
   .form__label-agree {
-    font-size: 11px;
     margin: 17px 0 9px;
+    font-size: 11px;
+    position: relative;
   }
 
   .form__agree {
+    appearance: none;
+  }
+
+  .form__checkbox-agree {
     background-color: #cbcbcb;
+    border: 1px solid #727272;
+    border-radius: 4px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+  }
+
+  .form__checkbox-agree-mark {
+    position: absolute;
+    left: 2px;
+    top: -7px;
+    width: 17px;
+    height: 17px;
+    object-fit: cover;
+    display: none;
+  }
+
+  .form__agree:checked ~ .form__checkbox-agree-mark {
+    display: inline;
   }
 
   .form__text-agree {
@@ -334,6 +362,7 @@ export default {
     margin-top: 1px;
     position: relative;
     bottom: 2px;
+    left: 17px;
     color: #727272;
   }
 
@@ -508,6 +537,18 @@ export default {
       line-height: 25px;
       margin: 41px 0 21px;
       padding-left: 18px;
+    }
+
+    .form__checkbox-agree {
+      width: 30px;
+      height: 30px;
+    }
+
+    .form__checkbox-agree-mark {
+      left: 4px;
+      top: -9px;
+      width: 33px;
+      height: 33px;
     }
 
     .form__input_personal {
