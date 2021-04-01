@@ -90,7 +90,7 @@ export default {
   border-bottom: 2px solid #b23438;
   padding: 0;
   align-self: start;
-  margin: 22px 20px 36px 19px;
+  margin: 18px 20px 36px 19px;
 }
 
 .help__telephone-block {
