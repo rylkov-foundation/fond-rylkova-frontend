@@ -41,7 +41,7 @@
           200<span class="form__money-sign form__money-sign_light">&#8381;</span>
         </button>
         <div class="form__text-amount-container">
-          <input type="number" class="form__input" placeholder="Другая сумма">
+          <input type="number" min="1" class="form__input" placeholder="Другая сумма">
           <label class="form__label-agree">
             <input type="checkbox" class="form__agree">
             <span class="form__text-agree">Согласен с <a href="#" class="form__link-offer">офертой</a></span>
@@ -102,7 +102,7 @@ export default {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: 0.4s;
+    transition: transform 0.4s;
     border-radius: 34px;
   }
 
@@ -174,6 +174,10 @@ export default {
     line-height: 19px;
     color: #727272;
     text-align: center;
+  }
+
+  .donation__privacy-policy:hover {
+    opacity: 0.7;
   }
 
   .form {
@@ -286,6 +290,19 @@ export default {
     padding: 0;
   }
 
+  .form__input::-webkit-outer-spin-button,
+  .form__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .form__input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  .form__input:focus {
+    outline: none;
+  }
+
   .form__input::placeholder {
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
@@ -345,6 +362,10 @@ export default {
 
   .form__link-offer {
     color: #727272;
+  }
+
+  .form__link-offer:hover {
+    opacity: 0.7;
   }
 
   @media screen and (min-width: 768px) {
