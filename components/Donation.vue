@@ -222,6 +222,11 @@ export default {
     margin: 0 3px;
   }
 
+  .form__payment-options-button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
   .form__amount-container {
     width: fit-content;
     margin: 11px auto 0;
@@ -247,6 +252,11 @@ export default {
     align-items: center;
     display: flex;
     justify-content: space-around;
+  }
+
+  .form__amount-options-button:hover {
+    opacity: 0.7;
+    cursor: pointer;
   }
 
   .form__amount-options-button_light {
@@ -420,6 +430,11 @@ export default {
       border-bottom: 2px solid #b23438;
       margin-left: 0;
       margin-right: 10px;
+    }
+
+    .form__slider-button:hover {
+      opacity: 0.7;
+      cursor: pointer;
     }
 
     .switch__slider::before {
