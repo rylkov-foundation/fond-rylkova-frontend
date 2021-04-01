@@ -254,6 +254,7 @@ export default {
     align-items: center;
     display: flex;
     justify-content: space-around;
+    overflow: hidden;
   }
 
   .form__amount-options-button:hover {
