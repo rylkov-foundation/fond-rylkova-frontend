@@ -176,4 +176,98 @@ export default {
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+  .menu {
+    right: 10px;
+    min-height: 231px;
+  }
+
+  .menu__block {
+    max-width: 59px;
+    top: -166px;
+  }
+
+  .menu__burger-image {
+    height: 34px;
+    width: 39px;
+    top: -73px;
+  }
+
+  .menu__text {
+    font-size: 45px;
+    line-height: 41px;
+  }
+
+  .menu__navigation {
+    min-width: 297px;
+  }
+
+  .menu__list {
+    padding: 11px 7px 0 22px;
+  }
+
+  .menu__list-item {
+    font-size: 25px;
+    line-height: 46px;
+  }
+
+  .menu__sublist {
+    list-style: none;
+    padding: 0;
+    margin: 11px -18px 14px 0;
+  }
+
+  .menu__sublist-link {
+    font-size: 22px;
+    line-height: 33px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .menu {
+    top: 15px;
+    min-height: 188px;
+  }
+
+  .menu__block {
+    max-width: 53px;
+    top: -139px;
+  }
+
+  .menu__burger-image {
+    height: 28px;
+    width: 31px;
+    top: -59px;
+  }
+
+  .menu__text {
+    font-size: 36px;
+    line-height: 33px;
+  }
+
+  .menu__navigation {
+    min-width: 189px;
+  }
+
+  .menu__list {
+    padding: 4px 13px 0 13px;
+  }
+
+  .menu__list-item {
+    font-size: 20px;
+    line-height: 42px;
+  }
+
+  .menu__sublist {
+    list-style: none;
+    padding: 0;
+    margin: 11px -18px 10px 0;
+  }
+
+  .menu__sublist-link {
+    font-size: 17px;
+    line-height: 26px;
+  }
+}
+
 </style>
