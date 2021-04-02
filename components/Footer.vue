@@ -14,7 +14,7 @@
         Материалы изданы и (или) распространены некоммер&shy;ческой организацией, выполняющей, по мнению Минюста России, функции иностранного агента
       </p>
       <p class="footer__license">
-        За исключением специально оговоренных случаев, содержание сайта залицензировано под <span class="footer__underline">Creative Commons Attribution 3.0 License</span>
+        За исключением специально оговоренных случаев, содержание сайта залицензировано под <a href="#" class="footer__license-link">Creative Commons Attribution 3.0 License</a>
       </p>
     </div>
     <p class="footer__copyright">
@@ -33,7 +33,7 @@ export default {
   .footer {
     display: flex;
     flex-direction: column;
-    font-family: Roboto, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     color: #727272;
     font-size: 11px;
     line-height: 14px;
@@ -64,8 +64,13 @@ export default {
     text-align: left;
   }
 
-  .footer__underline {
+  .footer__license-link {
     text-decoration: underline;
+    color: inherit;
+  }
+
+  .footer__license-link:hover {
+    opacity: 0.7;
   }
 
   .footer__copyright {

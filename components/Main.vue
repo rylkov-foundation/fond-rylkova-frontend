@@ -3,17 +3,17 @@
     <div class="main__red-block" />
     <div class="main__grey-block">
       <div class="main__money-block">
-        <p class="main__number main__number_size_big">
+        <button type="button" class="main__number main__number_size_big">
           1000
           <span class="main__money-sign">&#8381;</span>
-        </p>
-        <p class="main__number main__number_size_small">
+        </button>
+        <button type="button" class="main__number main__number_size_small">
           200
-        </p>
-        <p class="main__number main__number_size_medium">
+        </button>
+        <button type="button" class="main__number main__number_size_medium">
           500
-        </p>
-        <a class="main__text main__text_position_top" href="#">
+        </button>
+        <a class="link link_position_top" href="#">
           Поддержать
           <span class="main__arrow">&gt;</span>
         </a>
@@ -21,7 +21,7 @@
       <div class="main__image-block">
         <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
       </div>
-      <a class="main__text main__text_position_bottom" href="#">
+      <a class="link link_position_bottom" href="#">
         Получить помощь
         <span class="main__arrow">&gt;</span>
       </a>
@@ -52,29 +52,44 @@ export default {
   .main__money-block {
     display: flex;
     justify-content: space-between;
-    margin: 0 17px 0 15px;
+    margin: 0 17px 0 22px;
     position: relative;
-    top: -33px;
+    top: -37px;
     max-width: 320px;
   }
 
   .main__number {
-    font-family: 'Tomorrow', 'Times New Roman', fantasy;
+    font-family: 'Tomorrow', 'Times', fantasy;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
     padding: 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+  }
+
+  .main__number:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .main__number:active {
+    border: 2px solid #000;
+    color: black;
+    border-radius: 15%;
+    padding: 0 7px 0 5px;
   }
 
   .main__money-sign {
-    font-family: 'DrukCyr', 'Times New Roman', serif;
+    font-family: 'DrukCyr', 'Times', serif;
     font-size: 94px;
     line-height: 86px;
     font-weight: 500;
     font-style: normal;
     color: rgba(0, 0, 0, 0);
     -webkit-text-stroke: 1px black;
-    margin-left: -9px;
+    margin-left: -5px;
   }
 
   .main__number_size_big {
@@ -82,9 +97,6 @@ export default {
     font-size: 122px;
     line-height: 70px;
     position: relative;
-    border: 2px solid #000;
-    border-radius: 15%;
-    padding: 0 7px 0 5px;
   }
 
   .main__number_size_medium {
@@ -98,13 +110,13 @@ export default {
     font-size: 80px;
     line-height: 73px;
     position: relative;
-    padding-left: 5px;
+    padding-left: 13px;
   }
 
-  .main__text {
-    font-family: 'Vollkorn', 'Times New Roman', serif;
-    font-size: 17px;
-    line-height: 20px;
+  .link {
+    font-family: 'Vollkorn', 'Times', serif;
+    font-size: calc(0.0424 * 100vw + 3.4286px);
+    line-height: calc(0.0446 * 100vw + 5.7143px);
     font-weight: bold;
     color: #b23438;
     text-decoration: none;
@@ -112,15 +124,14 @@ export default {
     padding: 0;
   }
 
-  .main__text:hover {
+  .link:hover {
     opacity: 0.7;
   }
 
-  .main__text_position_top {
+  .link_position_top {
     position: absolute;
-    bottom: -4px;
+    bottom: -7px;
     right: 0;
-    font-size: 17px;
   }
 
   .main__image-block {
@@ -144,23 +155,15 @@ export default {
     left: -3px;
   }
 
-  .main__text_position_bottom {
+  .link_position_bottom {
     align-self: center;
     position: relative;
     top: 1px;
   }
 
-  @media screen and (min-width: 768px) {
-    .main__red-block {
-      height: 78px;
-    }
-
-    .main__grey-block {
-      height: 550px;
-    }
-
+  @media screen and (min-width: 500px) {
     .main__money-block {
-      margin: 0 0 0 55px;
+      margin: 0 0 0 5px;
       max-width: 490px;
       top: -62px;
     }
@@ -188,14 +191,29 @@ export default {
       font-size: 123px;
       line-height: 112px;
     }
+  }
 
-    .main__text {
+  @media screen and (min-width: 768px) {
+    .main__red-block {
+      height: 78px;
+    }
+
+    .main__grey-block {
+      height: 550px;
+    }
+
+    .main__money-block {
+      align-items: start;
+      margin: 0 0 0 55px;
+    }
+
+    .link {
       font-size: 35px;
       line-height: 34px;
     }
 
-    .main__text_position_top {
-      bottom: 2px;
+    .link_position_top {
+      bottom: -4px;
       line-height: 40px;
       right: -171px;
       font-size: 36px;
@@ -219,10 +237,10 @@ export default {
       padding: 5% 0 6% 14px;
     }
 
-    .main__text_position_bottom {
+    .link_position_bottom {
       position: relative;
       left: 11px;
-      top: -46px;
+      top: -40px;
       font-size: 34px;
       line-height: 38px;
     }
@@ -287,12 +305,12 @@ export default {
       line-height: 70px;
     }
 
-    .main__text {
+    .link {
       font-size: 22px;
       line-height: 20px;
     }
 
-    .main__text_position_top {
+    .link_position_top {
       right: 219px;
       bottom: 65px;
     }
@@ -311,7 +329,7 @@ export default {
       top: -95px;
     }
 
-    .main__text_position_bottom {
+    .link_position_bottom {
       grid-area: help;
       align-self: start;
       justify-self: start;
