@@ -100,7 +100,7 @@ export default {
   .help__telephone-block {
     background-color: #000;
     border-radius: 50%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,7 +123,7 @@ export default {
   .help__email-block {
     background-color: #cbcbcb;
     border-radius: 50%;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
     margin-bottom: 175px;
     display: flex;
@@ -228,6 +228,13 @@ export default {
 
     .logo {
       display: none;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .help {
+      grid-area: help;
+      width: 569px;
     }
   }
 </style>

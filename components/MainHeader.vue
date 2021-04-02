@@ -17,7 +17,7 @@ export default {
     background-color: #b23438;
     overflow: hidden;
     height: 40px;
-    max-width: 100vw;
+    max-width: 100%;
   }
 
   .header__text {

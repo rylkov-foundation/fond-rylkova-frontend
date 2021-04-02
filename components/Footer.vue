@@ -38,6 +38,7 @@ export default {
     font-size: 11px;
     line-height: 14px;
     text-align: center;
+    width: 100%;
   }
 
   .footer__title {
@@ -191,7 +192,7 @@ export default {
       justify-content: space-between;
       position: relative;
       top: -16px;
-      width: 100vw;
+      width: 100%;
     }
 
     .footer__social-links {

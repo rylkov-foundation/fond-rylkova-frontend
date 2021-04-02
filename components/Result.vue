@@ -1,14 +1,17 @@
 <template>
   <article class="result results__result">
-    <img class="result__image" src="~/assets/images/stamp.svg" alt="рамка">
-    <span class="result__number">758</span>
-    <h3 class="result__title">
-      Спасено жизней
-    </h3>
-    <p class="result__text">
-      при помощи выданного нами Налоксона (средство от передозировок опиатами),
-      консультации, обучение по вопросам профилактики передозировок
-    </p>
+    <div class="result__frame">
+      <span class="result__number">758</span>
+    </div>
+    <div class="result__content">
+      <h3 class="result__title">
+        Спасено жизней
+      </h3>
+      <p class="result__text">
+        при помощи выданного нами Налоксона (средство от передозировок опиатами),
+        консультации, обучение по вопросам профилактики передозировок
+      </p>
+    </div>
   </article>
 </template>
 
@@ -28,26 +31,36 @@ export default {
     grid-template-areas:
       "image title"
       "image text";
-    grid-template-columns: 142px auto;
+    grid-template-columns: 38% auto;
     overflow: hidden;
     position: relative;
   }
 
-  .result__image {
+  .result__frame {
+    background-image: url("~/assets/images/stamp.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     grid-area: image;
     height: 197px;
     position: relative;
     left: -55px;
+    display: flex;
   }
+
+  /*
+  .result__content {
+
+  }
+  */
 
   .result__number {
     font-family: Tomorrow, Times, fantasy;
     font-size: 115px;
     line-height: 83px;
-    position: absolute;
-    top: 30%;
-    left: 15px;
+    margin: auto;
     color: #fff;
+    text-align: center;
   }
 
   .result__title {
@@ -84,11 +97,13 @@ export default {
       margin-bottom: 15px;
     }
 
+    /*
     .result {
       grid-template-columns: 379px auto;
     }
+    */
 
-    .result__image {
+    .result__frame {
       height: 416px;
       left: -60px;
     }
@@ -116,6 +131,50 @@ export default {
       font-size: 30px;
       line-height: 30px;
       margin-left: 5px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .result {
+      overflow: unset;
+    }
+
+    .result__title {
+      font-size: 39px;
+      line-height: 38px;
+    }
+
+    .result__text {
+      font-size: 21px;
+    }
+
+    .result__frame {
+      height: 292px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .result__frame {
+      width: 292px;
+      height: 292px;
+      left: -82px;
+    }
+
+    .result__number {
+      font-size: 169px;
+      line-height: 140px;
+    }
+
+    .result__title {
+      text-align: left;
+      margin: 10px 102px 0 14px;
+      padding-bottom: 13px;
+    }
+
+    .result__text {
+      margin-left: 17px;
+      line-height: 21px;
+      margin-top: 22px;
     }
   }
 </style>

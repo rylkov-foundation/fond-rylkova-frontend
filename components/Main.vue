@@ -36,10 +36,14 @@ export default {
 </script>
 
 <style scoped>
+  .main {
+    width: 100%;
+  }
+
   .main__red-block {
     background-color: #b23438;
     height: 51px;
-    width: 100vw;
+    width: 100%;
   }
 
   .main__grey-block {

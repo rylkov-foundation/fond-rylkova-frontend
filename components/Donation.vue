@@ -576,4 +576,24 @@ export default {
       font-size: 22px;
     }
   }
+
+  @media screen and (min-width: 1280px) {
+    .donation {
+      grid-area: donation;
+      width: 615px;
+      margin-left: auto;
+    }
+
+    .donation__title {
+      font-size: 56px;
+      line-height: 64px;
+      letter-spacing: 6px;
+      width: auto;
+      margin: 3px 68px 0 124px;
+    }
+
+    .donation__title-mark {
+      font-size: 63px;
+    }
+  }
 </style>
