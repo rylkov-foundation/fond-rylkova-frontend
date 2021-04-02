@@ -743,12 +743,12 @@ export default {
       left: 0;
       bottom: 0;
       width: 100%;
+      height: 100px;
       margin-bottom: 0;
     }
 
     .donation__privacy-policy {
-      margin-top: 26px;
-      margin-left: 98px;
+      margin: 26px 0 63px 98px;
       font-size: 18px;
       line-height: 31px;
       text-align: left;

@@ -178,7 +178,9 @@ export default {
   @media screen and (min-width: 1280px) {
     .results {
       grid-area: results;
-      width: 569px;
+      width: 100%;
+      z-index: 1;
+      min-height: unset;
     }
 
     .results__crystal {

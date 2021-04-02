@@ -21,9 +21,10 @@ export default {
       grid-template-areas:
         "mission results"
         "donation help";
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 50%);
       grid-template-columns: 55% 45%;
       gap: 0;
+      overflow: hidden;
     }
   }
 </style>

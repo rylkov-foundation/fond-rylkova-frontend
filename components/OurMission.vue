@@ -246,6 +246,7 @@ export default {
     .mission {
       grid-area: mission;
       background-color: #cbcbcb;
+      width: 100%;
     }
 
     .mission__header {
