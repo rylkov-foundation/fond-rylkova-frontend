@@ -1,32 +1,8 @@
 <template>
   <div class="popup">
-    <div class="popup__content popup__content_cookie">
-      <h4 class="popup__title">
-        Cookies.
-      </h4>
-      <p class="popup__text">
-        Сайт использует куки-файлы.
-      </p>
-      <a href="#" class="popup__link">Понятно</a>
-    </div>
-    <div class="popup__content popup__content_agent">
-      <h4 class="popup__title popup__title_agent">
-        Подтвердите действие на странице rylkov-fond.org.
-      </h4>
-      <p class="popup__text">
-        Данные материалы изданы и (или) распространяются некоммерческой организацией, выполняющей функции иностранного агента.
-      </p>
-      <a href="#" class="popup__link">Скачать материал</a>
-    </div>
-    <div class="popup__content popup__content_news">
-      <h4 class="popup__title popup__title_news">
-        Срочная новость
-      </h4>
-      <p class="popup__text popup__text_news">
-        В Никола-Ленивце на Масленицу устроили «Великое лежание» и сожгли «Замок корона-людоеда».
-      </p>
-      <a href="#" class="popup__link">Перейти ></a>
-    </div>
+    <PopupCookie />
+    <PopupAgent />
+    <PopupNews />
   </div>
 </template>
 
@@ -36,7 +12,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .popup {
     position: fixed;
     bottom: 50px;
@@ -54,16 +30,6 @@ export default {
     letter-spacing: normal;
     line-height: 12.73px;
     margin-bottom: 12px;
-  }
-
-  .popup__title_agent {
-    font-size: 13px;
-  }
-
-  .popup__title_news {
-    font-size: 17px;
-    color: #fff;
-    line-height: 18.48px;
   }
 
   .popup__text {
@@ -97,10 +63,6 @@ export default {
     box-sizing: border-box;
   }
 
-  .popup__content_news {
-    background-color: #000;
-  }
-
   @media screen and (min-width: 768px) {
     .popup {
       bottom: 50px;
@@ -117,15 +79,6 @@ export default {
       font-size: 40px;
       line-height: 26.18px;
       margin-bottom: 28px;
-    }
-
-    .popup__title_agent {
-      font-size: 26px;
-    }
-
-    .popup__title_news {
-      font-size: 34px;
-      line-height: 38px;
     }
 
     .popup__text {
@@ -151,17 +104,6 @@ export default {
       font-size: 25px;
       line-height: 16.44px;
       margin-bottom: 17px;
-    }
-
-    .popup__title_agent {
-      font-size: 16px;
-      line-height: 16.44px;
-      margin-bottom: 10px;
-    }
-
-    .popup__title_news {
-      font-size: 24px;
-      line-height: 23.81px;
     }
 
     .popup__text {
