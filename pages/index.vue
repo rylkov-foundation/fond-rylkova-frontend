@@ -8,6 +8,7 @@
     <Help />
     <Donation />
     <Footer />
+    <VPopup />
   </div>
 </template>
 
