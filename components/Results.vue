@@ -4,23 +4,60 @@
       Итоги нашей работы в 2020
     </h2>
     <div class="results__slider">
-      <button class="results__arrow results__arrow-direction_back" />
+      <button class="results__arrow results__arrow-direction_back" @click="prevSlide" />
       <ul class="results__slider-list">
-        <li v-for="result of 7" :key="result" class="results__slider-list-item" />
+        <li v-for="item of resultsData.length" :key="item" class="results__bullet" :class="{ results__bullet_active: item-1 === currentSlide}" />
       </ul>
-      <button class="results__arrow results__arrow-direction_forward" />
+      <button class="results__arrow results__arrow-direction_forward" @click="nextSlide" />
     </div>
-    <Result />
+    <div class="results__carousel">
+      <div
+        class="results__carousel-wrapper"
+        :style="{ 'margin-left':'-'+ (100*currentSlide)+'%'}"
+      >
+        <Result
+          v-for="item in resultsData"
+          :key="item.id"
+          :data="item"
+        />
+      </div>
+    </div>
     <a class="link" href="#">Получить помощь
       <span class="link__arrow">&gt;</span>
     </a>
-    <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo ">
+    <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Results'
+  name: 'Results',
+  data () {
+    return {
+      resultsData: [
+        { id: 1, quantity: 758, title: 'Спасено жизней', text: 'при помощи выданного нами Налоксона (средство от передозировок опиатами), консультации, обучение по вопросам профилактики передозировок' },
+        { id: 2, quantity: 3779, title: 'Получили помощь', text: 'уличной социальной службы ФАР: чистые шприцы, презервативы, тесты на ВИЧ, поддержку и направления' },
+        { id: 3, quantity: 640, title: 'Юридические вопросы', text: 'консультаций для людей, подвергшихся правовому преследованию в связи с наркотиками ' },
+        { id: 4, quantity: '??', title: 'Поддержка на судах', text: 'человек получили помощь в судах и при ведении уголовных дел, связанных с наркотиками' },
+        { id: 5, quantity: 706, title: 'Служба поддержки психического здоровья', text: 'консультаций по вопросам зависимости и проблемного употребления веществ, психологическая поддержка' },
+        { id: 6, quantity: 256, title: 'Консультации по медицинским вопросам', text: 'консультаций медицинских специалистов по постинъекционным осложнениям' },
+        { id: 7, quantity: 1017, title: 'Тестирование на ВИЧ', text: 'человек получили наборы и консультации по самотестированию' }
+      ],
+      currentSlide: 0
+    }
+  },
+  methods: {
+    prevSlide () {
+      if (this.currentSlide > 0) {
+        this.currentSlide--
+      }
+    },
+    nextSlide () {
+      if (this.currentSlide < (this.resultsData.length - 1)) {
+        this.currentSlide++
+      }
+    }
+  }
 }
 </script>
 
@@ -86,13 +123,28 @@ export default {
     padding: 0;
   }
 
-  .results__slider-list-item {
+  .results__bullet {
     display: block;
     background-color: #fff;
     border-radius: 50%;
     width: 10px;
     height: 10px;
     margin-left: 10px;
+  }
+
+  .results__bullet_active {
+    background-color: #b23438;
+  }
+
+  .results__carousel {
+    overflow: hidden;
+    max-width: 100vw;
+    margin: 0 auto 0 0;
+  }
+
+  .results__carousel-wrapper {
+    display: flex;
+    margin-left: auto;
   }
 
   .logo {
@@ -148,7 +200,7 @@ export default {
       margin-left: 50px;
     }
 
-    .results__slider-list-item {
+    .results__bullet {
       width: 20px;
       height: 20px;
       margin-left: 25px;

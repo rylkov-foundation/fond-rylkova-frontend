@@ -1,20 +1,30 @@
 <template>
   <article class="result results__result">
-    <img class="result__image" src="~/assets/images/stamp.svg" alt="рамка">
-    <span class="result__number">758</span>
-    <h3 class="result__title">
-      Спасено жизней
-    </h3>
-    <p class="result__text">
-      при помощи выданного нами Налоксона (средство от передозировок опиатами),
-      консультации, обучение по вопросам профилактики передозировок
-    </p>
+    <div class="result__image">
+      <p class="result__number">
+        {{ data.quantity }}
+      </p>
+    </div>
+    <div class="result__block">
+      <h3 class="result__title">
+        {{ data.title }}
+      </h3>
+      <p class="result__text">
+        {{ data.text }}
+      </p>
+    </div>
   </article>
 </template>
 
 <script>
 export default {
-  name: 'Result'
+  name: 'Result',
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  }
 }
 </script>
 
@@ -25,29 +35,38 @@ export default {
 
   .result {
     display: grid;
-    grid-template-areas:
-      "image title"
-      "image text";
+    grid-template-areas: "image text";
     grid-template-columns: 142px auto;
-    overflow: hidden;
     position: relative;
+    width: 100vw;
   }
 
   .result__image {
     grid-area: image;
     height: 197px;
+    width: 197px;
     position: relative;
-    left: -55px;
+    background-image: url("~/assets/images/stamp.svg");
+    background-size: 100%;
+    background-position: -55px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .result__number {
     font-family: Tomorrow, Times, fantasy;
     font-size: 115px;
     line-height: 83px;
-    position: absolute;
-    top: 30%;
-    left: 15px;
     color: #fff;
+    margin-left: -97px;
+  }
+
+  .result__block {
+    grid-area: text;
+    width: calc(100vw - 142px);
+    z-index: 1;
   }
 
   .result__title {
@@ -59,18 +78,19 @@ export default {
     text-transform: uppercase;
     border-bottom: 2px solid #fff;
     margin: 12px 0 0 3px;
-    max-width: 91%;
     align-self: start;
+    word-wrap: break-word;
+    word-break: break-word;
   }
 
   .result__text {
-    grid-area: text;
     align-self: start;
     font-family: Vollkorn, Times, serif;
     font-size: calc(0.035714286 * 100vw + 2.57142848px);
     font-weight: 400;
     line-height: calc(0.033482143 * 100vw + 4.28571424px);
-    margin-left: 5px;
+    margin: 12px 0 0 5px;
+    min-width: 173px;
   }
 
   @media screen and (min-width: 440px) {
@@ -90,17 +110,20 @@ export default {
 
     .result__image {
       height: 416px;
-      left: -60px;
+      width: 416px;
+    }
+
+    .result__block {
+      width: calc(100vw - 379px);
     }
 
     .result__number {
       font-size: 279px;
       line-height: 200px;
-      top: 27%;
-      left: 55px;
     }
 
     .result__title {
+      text-align: left;
       font-size: 64px;
       line-height: 60px;
       border-bottom: 2px solid #fff;
