@@ -223,5 +223,9 @@ export default {
       margin-left: 142px;
       line-height: 25px;
     }
+
+    .logo {
+      display: none;
+    }
   }
 </style>
