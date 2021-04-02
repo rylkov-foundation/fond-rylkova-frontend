@@ -1,73 +1,85 @@
 <template>
   <section class="menu">
-    <nav class="menu__navigation">
-      <ul class="menu__list">
-        <li class="menu__list-item">
-          <p class="menu__list-text">
-            о нас
-            <span>&#8594;</span>
-          </p>
-          <ul class="menu__sublist">
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">кто такой Андрей Рыльков</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">миссия и стратегии</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">команда ФАР</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">проекты и отчёты</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">годовые отчёты</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">учредительные документы</a>
-            </li>
-          </ul>
-        </li>
-        <li class="menu__list-item">
-          <p class="menu__list-text">
-            поддержать ФАР
-            <span>&#8594;</span>
-          </p>
-          <ul class="menu__sublist">
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">сделать пожертвование</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">волонтёрство в ФАР</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">стажировка в ФАР</a>
-            </li>
-            <li class="menu__sublist-item">
-              <a class="menu__sublist-link" href="#">партнёрство с ФАР</a>
-            </li>
-          </ul>
-        </li>
-        <li class="menu__list-item">
-          <a class="menu__link" href="#">получить помощь</a>
-        </li>
-        <li class="menu__list-item">
-          <a class="menu__link" href="#">контакты</a>
-        </li>
-      </ul>
-    </nav>
+    <transition name="show">
+      <nav v-if="isShown" class="menu__navigation">
+        <ul class="menu__list">
+          <li class="menu__list-item" @click="isShownAbout = !isShownAbout">
+            <p class="menu__list-text">
+              о нас
+              <span class="menu__arrow" :class="{ menu__arrow_rotated: isShownAbout }">&#8594;</span>
+            </p>
+            <transition name="show-sublist">
+              <ul v-if="isShownAbout" class="menu__sublist">
+                <li v-for="aboutItem in aboutList" :key="aboutItem" class="menu__sublist-item">
+                  <a class="menu__sublist-link" href="#"> {{ aboutItem }} </a>
+                </li>
+              </ul>
+            </transition>
+          </li>
+          <li class="menu__list-item" @click="isShownSupport = !isShownSupport">
+            <p class="menu__list-text">
+              поддержать ФАР
+              <span class="menu__arrow" :class="{ menu__arrow_rotated: isShownSupport }">&#8594;</span>
+            </p>
+            <transition name="show-sublist">
+              <ul v-if="isShownSupport" class="menu__sublist">
+                <li v-for="supportItem in supportList" :key="supportItem" class="menu__sublist-item">
+                  <a class="menu__sublist-link" href="#"> {{ supportItem }}</a>
+                </li>
+              </ul>
+            </transition>
+          </li>
+          <li class="menu__list-item">
+            <a class="menu__link" href="#">получить помощь</a>
+          </li>
+          <li class="menu__list-item">
+            <a class="menu__link" href="#">контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </transition>
     <div class="menu__block">
-      <img class="menu__burger-image" src="~/assets/images/burger.png">
-      <p class="menu__text">
-        Меню
-      </p>
+      <button class="menu__button" @click="show">
+        <img class="menu__burger-image" src="~/assets/images/burger.png">
+        <p class="menu__text">
+          Меню
+        </p>
+      </button>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Menu'
+  name: 'Menu',
+  data () {
+    return {
+      isShown: false,
+      isShownAbout: false,
+      isShownSupport: false,
+      aboutList: ['кто такой Андрей Рыльков',
+        'миссия и стратегии',
+        'команда ФАР',
+        'проекты и отчёты',
+        'годовые отчёты',
+        'учредительные документы'],
+      supportList: ['сделать пожертвование',
+        'волонтёрство в ФАР',
+        'стажировка в ФАР',
+        'партнёрство с ФАР']
+    }
+  },
+  methods: {
+    show () {
+      this.isShown = !this.isShown
+      if (this.isShownAbout) {
+        this.isShownAbout = false
+      }
+      if (this.isShownSupport) {
+        this.isShownSupport = false
+      }
+    }
+  }
 }
 </script>
 
@@ -76,27 +88,36 @@ export default {
   position: fixed;
   top: 4px;
   right: 3px;
-  background-color: #000;
   min-height: 149px;
   display: flex;
   z-index: 10;
 }
 
 .menu__block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 38px;
+  width: 38px;
+  background-color: #000;
+}
+
+.menu__button {
+  background-color: transparent;
+  height: 149px;
+  width: 100%;
   position: relative;
-  top: -107px;
+  outline: none;
+  border: none;
+}
+
+.menu__button:hover {
+  cursor: pointer;
 }
 
 .menu__burger-image {
   height: 22px;
   width: 25px;
-  position: relative;
-  top: -45px;
+  position: absolute;
+  top: 8px;
+  right: 50%;
+  transform: translateX(50%);
 }
 
 .menu__text {
@@ -107,11 +128,24 @@ export default {
   font-weight: 400;
   line-height: 26px;
   color: #fff;
+  position: absolute;
+  bottom: 49px;
+  right: -31px;
+}
+
+.menu__arrow {
+  transition: transform 200ms linear;
+}
+
+.menu__arrow_rotated {
+  transform: rotate(90deg);
 }
 
 .menu__navigation {
   display: block;
   min-width: 190px;
+  background-color: #000;
+  z-index: 1;
 }
 
 .menu__list {
@@ -183,19 +217,24 @@ export default {
   }
 
   .menu__block {
-    max-width: 59px;
-    top: -166px;
+    width: 59px;
+  }
+
+  .menu__button {
+    height: 231px;
   }
 
   .menu__burger-image {
     height: 34px;
     width: 39px;
-    top: -73px;
+    top: 12px;
   }
 
   .menu__text {
     font-size: 45px;
     line-height: 41px;
+    top: 96px;
+    right: -70px;
   }
 
   .menu__navigation {
@@ -230,19 +269,24 @@ export default {
   }
 
   .menu__block {
-    max-width: 53px;
-    top: -139px;
+    width: 48px;
+  }
+
+  .menu__button {
+    height: 188px;
   }
 
   .menu__burger-image {
     height: 28px;
     width: 31px;
-    top: -59px;
+    top: 8px;
   }
 
   .menu__text {
     font-size: 36px;
     line-height: 33px;
+    top: 81px;
+    right: -52px;
   }
 
   .menu__navigation {
@@ -268,6 +312,28 @@ export default {
     font-size: 17px;
     line-height: 26px;
   }
+}
+
+.show-enter,
+.show-leave-to {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.show-enter-active,
+.show-leave-active {
+  transition: all 700ms;
+}
+
+.show-sublist-enter,
+.show-sublist-leave-to {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+
+.show-sublist-enter-active,
+.show-sublist-leave-active {
+  transition: all 700ms;
 }
 
 </style>
