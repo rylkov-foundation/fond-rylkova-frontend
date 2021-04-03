@@ -177,6 +177,9 @@ export default {
     .footer {
       font-size: 17px;
       line-height: 19px;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .footer__title {
