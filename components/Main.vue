@@ -1,33 +1,37 @@
 <template>
   <section class="main">
-    <div class="main__red-block" />
-    <div class="main__grey-block">
-      <div class="main__money-block">
-        <button type="button" class="main__number main__number_size_big">
-          1000
-          <span class="main__money-sign">&#8381;</span>
-        </button>
-        <button type="button" class="main__number main__number_size_small">
-          200
-        </button>
-        <button type="button" class="main__number main__number_size_medium">
-          500
-        </button>
-        <a class="link link_position_top" href="#">
-          Поддержать
+    <div class="main__wrapper main__wrapper_color_red">
+      <div class="main__red-block" />
+    </div>
+    <div class="main__wrapper main__wrapper_color_grey">
+      <div class="main__grey-block">
+        <div class="main__money-block">
+          <button type="button" class="main__number main__number_size_big">
+            1000
+            <span class="main__money-sign">&#8381;</span>
+          </button>
+          <button type="button" class="main__number main__number_size_small">
+            200
+          </button>
+          <button type="button" class="main__number main__number_size_medium">
+            500
+          </button>
+          <a class="link link_position_top" href="#">
+            Поддержать
+            <span class="main__arrow">&gt;</span>
+          </a>
+        </div>
+        <div class="main__image-block">
+          <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
+        </div>
+        <a class="link link_position_bottom" href="#">
+          Получить помощь
           <span class="main__arrow">&gt;</span>
         </a>
+        <button type="button" class="main__language" @click="changeLanguage">
+          {{ languages[languageIndex] }}
+        </button>
       </div>
-      <div class="main__image-block">
-        <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
-      </div>
-      <a class="link link_position_bottom" href="#">
-        Получить помощь
-        <span class="main__arrow">&gt;</span>
-      </a>
-      <button type="button" class="main__language" @click="changeLanguage">
-        {{ languages[languageIndex] }}
-      </button>
     </div>
   </section>
 </template>
@@ -54,22 +58,28 @@ export default {
 </script>
 
 <style scoped>
-  .main {
-    width: 100%;
+  .main__wrapper_color_red {
+    background-color: #b23438;
+    width: 100vw;
   }
 
   .main__red-block {
-    background-color: #b23438;
     height: 51px;
-    width: 100%;
+    max-width: 1280px;
+  }
+
+  .main__wrapper_color_grey {
+    background-color: #cbcbcb;
+    width: 100vw;
   }
 
   .main__grey-block {
-    background-color: #cbcbcb;
+    max-width: 1280px;
     display: flex;
     flex-direction: column;
     padding-bottom: 17px;
     position: relative;
+    margin: 0 auto;
   }
 
   .main__money-block {

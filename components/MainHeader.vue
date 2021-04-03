@@ -1,8 +1,6 @@
 <template>
   <header class="header">
-    <p class="header__text">
-      Фонд имени Андрея Рылькова Фонд имени Андрея Рылькова
-    </p>
+    <div class="header__text" />
   </header>
 </template>
 
@@ -22,20 +20,11 @@ export default {
 
   .header__text {
     color: #b23438;
-    text-shadow:
-      -1px -1px 0 white,
-      1px -1px 0 white,
-      -1px 1px 0 white,
-      1px 1px 0 white;
-    font-family: Vollkorn, serif;
-    font-size: 39px;
-    word-spacing: -4px;
-    transform: scaleX(1.2);
-    text-align: center;
-    white-space: nowrap;
-    position: relative;
-    left: -181px;
-    top: 12px;
+    background-image: url("./assets/images/title.svg");
+    background-repeat: repeat-x;
+    width: 100vw;
+    height: 100%;
+    background-position: -133% -215%;
   }
 
   @media screen and (min-width: 768px) {
@@ -44,9 +33,8 @@ export default {
     }
 
     .header__text {
-      font-size: 60px;
-      left: -88px;
-      top: 22px;
+      background-size: 127%;
+      background-position: 77% 21px;
     }
   }
 
@@ -56,10 +44,8 @@ export default {
     }
 
     .header__text {
-      font-size: 56px;
-      letter-spacing: 0.5px;
-      left: -141px;
-      top: 11px;
+      background-size: 70%;
+      background-position: -250px 12px;
     }
   }
 </style>
