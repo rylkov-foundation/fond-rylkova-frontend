@@ -39,9 +39,12 @@
       </nav>
     </transition>
     <div class="menu__block">
-      <button class="menu__button" @click="show">
+      <button class="menu__button" :class="{ menu__button_scrolled: isScrollOver230}" @click="show">
         <img class="menu__burger-image" src="~/assets/images/burger.png">
-        <p class="menu__text">
+        <p v-show="!isScrollOver230" class="menu__text">
+          Меню
+        </p>
+        <p v-show="isShown && isScrollOver230" class="menu__text menu__text_shown">
           Меню
         </p>
       </button>
@@ -57,6 +60,7 @@ export default {
       isShown: false,
       isShownAbout: false,
       isShownSupport: false,
+      isScrollOver230: false,
       aboutList: ['кто такой Андрей Рыльков',
         'миссия и стратегии',
         'команда ФАР',
@@ -69,6 +73,14 @@ export default {
         'партнёрство с ФАР']
     }
   },
+  mounted () {
+    // Setup the event listener and execute it once in case we are already scrolled
+    window.addEventListener('scroll', this.scrollHandler)
+    this.scrollHandler()
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.scrollHandler)
+  },
   methods: {
     show () {
       this.isShown = !this.isShown
@@ -78,6 +90,9 @@ export default {
       if (this.isShownSupport) {
         this.isShownSupport = false
       }
+    },
+    scrollHandler (e) {
+      this.isScrollOver230 = window.pageYOffset > 230
     }
   }
 }
@@ -88,7 +103,6 @@ export default {
   position: fixed;
   top: 4px;
   right: 3px;
-  min-height: 149px;
   display: flex;
   z-index: 10;
 }
@@ -109,6 +123,10 @@ export default {
 
 .menu__button:hover {
   cursor: pointer;
+}
+
+.menu__button_scrolled {
+  height: 37px;
 }
 
 .menu__burger-image {
@@ -133,6 +151,11 @@ export default {
   right: -31px;
 }
 
+.menu__text_shown {
+  bottom: -63px;
+  right: -31px;
+}
+
 .menu__arrow {
   transition: transform 200ms linear;
 }
@@ -144,6 +167,7 @@ export default {
 .menu__navigation {
   display: block;
   min-width: 190px;
+  min-height: 149px;
   background-color: #000;
   z-index: 1;
 }
@@ -213,7 +237,6 @@ export default {
 @media screen and (min-width: 768px) {
   .menu {
     right: 10px;
-    min-height: 231px;
   }
 
   .menu__block {
@@ -222,6 +245,10 @@ export default {
 
   .menu__button {
     height: 231px;
+  }
+
+  .menu__button_scrolled {
+    height: 58px;
   }
 
   .menu__burger-image {
@@ -237,8 +264,14 @@ export default {
     right: -70px;
   }
 
+  .menu__text_shown {
+    top: 135px;
+    right: -25px;
+  }
+
   .menu__navigation {
     min-width: 297px;
+    min-height: 235px;
   }
 
   .menu__list {
@@ -265,7 +298,6 @@ export default {
 @media screen and (min-width: 1280px) {
   .menu {
     top: 15px;
-    min-height: 188px;
   }
 
   .menu__block {
@@ -274,6 +306,10 @@ export default {
 
   .menu__button {
     height: 188px;
+  }
+
+  .menu__button_scrolled {
+    height: 45px;
   }
 
   .menu__burger-image {
@@ -289,8 +325,14 @@ export default {
     right: -52px;
   }
 
+  .menu__text_shown {
+    top: 109px;
+    right: -24px;
+  }
+
   .menu__navigation {
     min-width: 189px;
+    min-height: 188px;
   }
 
   .menu__list {
