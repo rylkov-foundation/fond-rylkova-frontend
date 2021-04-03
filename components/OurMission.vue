@@ -100,7 +100,7 @@ export default {
   }
 
   .mission__principles {
-    margin: 13px 14px 0 18px;
+    margin: 13px 14px 22px 18px;
     line-height: 17px;
     word-spacing: 0;
   }
@@ -140,7 +140,6 @@ export default {
   }
 
   .mission__footer {
-    margin-top: -8px;
     display: flex;
     width: 100%;
   }
@@ -206,13 +205,13 @@ export default {
     .mission__principles {
       font-size: 32px;
       line-height: 34px;
-      margin: 16px 50px 0 50px;
+      margin: 16px 50px 19px 50px;
     }
 
     .link {
       font-size: 34px;
       line-height: 38px;
-      margin: 8px 49px 0 auto;
+      margin: 8px 49px 0 406px;
       letter-spacing: 1px;
     }
 

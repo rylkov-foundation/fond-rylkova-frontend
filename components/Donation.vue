@@ -421,10 +421,6 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .donation {
-      padding-bottom: 50px;
-    }
-
     .donation__title {
       font-size: 87px;
       line-height: 77px;
@@ -581,6 +577,7 @@ export default {
 
     .donation__privacy-policy {
       font-size: 22px;
+      margin-bottom: 40px;
     }
   }
 

@@ -66,8 +66,9 @@ export default {
 
 <style scoped>
   .results {
-    margin-right: auto;
-    background-color: #b23438;
+    background-color: #cbcbcb;
+    position: relative;
+    min-height: 502px;
   }
 
   .results__crystal {
@@ -86,7 +87,7 @@ export default {
       1px -1px 0 #000,
       -1px 1px 0 #000,
       1px 1px 0 #000;
-    margin: 22px 0 25px 13px;
+    padding: 22px 0 25px 13px;
   }
 
   .results__slider {
@@ -183,7 +184,7 @@ export default {
     .results__title {
       font-size: 90px;
       line-height: 63px;
-      margin: 65px 0 33px 48px;
+      padding: 65px 0 33px 48px;
     }
 
     .results__slider {
@@ -230,9 +231,11 @@ export default {
     .results {
       grid-area: results;
       width: 100%;
-      z-index: 1;
+      z-index: 3;
       min-height: unset;
       overflow: visible;
+      margin-right: auto;
+      background-color: #b23438;
     }
 
     .results__container {
@@ -257,7 +260,7 @@ export default {
     .results__title {
       font-size: 60px;
       line-height: 45px;
-      margin: 34px 0 26px 37px;
+      padding: 34px 0 26px 37px;
     }
 
     .results__slider {

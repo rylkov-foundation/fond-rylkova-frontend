@@ -122,6 +122,8 @@ export default {
       font-size: 279px;
       line-height: 200px;
       margin-left: 0;
+      position: relative;
+      left: -55px;
     }
 
     .result__title {
@@ -156,6 +158,7 @@ export default {
     .result__number {
       font-size: 169px;
       line-height: 140px;
+      position: unset;
     }
 
     .result__block {
