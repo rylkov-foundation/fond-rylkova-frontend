@@ -1,18 +1,35 @@
 <template>
-  <div class="popup__content popup__content_news">
+  <div
+    v-if="PopupNewsVisible"
+    class="popup__content popup__content_news"
+  >
     <h3 class="popup__title popup__title_news">
       Срочная новость
     </h3>
     <p class="popup__text popup__text_news">
       В Никола-Ленивце на Масленицу устроили «Великое лежание» и сожгли «Замок корона-людоеда».
     </p>
-    <a href="#" class="popup__link">Перейти &gt;</a>
+    <a
+      href="#"
+      class="popup__link"
+      @click="hidePopup"
+    >Перейти &gt;</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PopupNews'
+  name: 'PopupNews',
+  data () {
+    return {
+      PopupNewsVisible: true
+    }
+  },
+  methods: {
+    hidePopup () {
+      this.PopupNewsVisible = !this.PopupNewsVisible
+    }
+  }
 }
 </script>
 

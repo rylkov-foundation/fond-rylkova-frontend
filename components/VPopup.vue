@@ -22,6 +22,10 @@ export default {
     gap: 15px;
   }
 
+  .popup:empty {
+    display: none;
+  }
+
   .popup__title {
     font-family: 'Vollkorn', Times, serif;
     font-size: 17px;
@@ -51,6 +55,7 @@ export default {
     color: #b23438;
     text-decoration: none;
     border-bottom: 2px solid #b23438;
+    cursor: pointer;
   }
 
   .popup__content {

@@ -1,18 +1,35 @@
 <template>
-  <div class="popup__content popup__content_agent">
+  <div
+    v-if="PopupAgentVisible"
+    class="popup__content popup__content_agent"
+  >
     <h3 class="popup__title popup__title_agent">
       Подтвердите действие на странице rylkov-fond.org.
     </h3>
     <p class="popup__text">
       Данные материалы изданы и (или) распространяются некоммерческой организацией, выполняющей функции иностранного агента.
     </p>
-    <a href="#" class="popup__link">Скачать материал</a>
+    <a
+      href="#"
+      class="popup__link"
+      @click="hidePopup"
+    >Скачать материал</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PopupAgent'
+  name: 'PopupAgent',
+  data () {
+    return {
+      PopupAgentVisible: true
+    }
+  },
+  methods: {
+    hidePopup () {
+      this.PopupAgentVisible = !this.PopupAgentVisible
+    }
+  }
 }
 </script>
 
