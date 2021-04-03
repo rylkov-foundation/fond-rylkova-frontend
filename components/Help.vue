@@ -40,7 +40,7 @@ export default {
     display: flex;
     flex-direction: column;
   }
-
+  
   .help__title {
     background-color: #b23438;
     min-height: 91px;

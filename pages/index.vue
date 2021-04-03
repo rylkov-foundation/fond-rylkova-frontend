@@ -1,10 +1,12 @@
 <template>
   <div class="container">
     <MainHeader />
+    <Menu />
     <MainAbout />
     <Main />
     <Container />
     <Footer />
+    <VPopup />
   </div>
 </template>
 
