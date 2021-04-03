@@ -66,8 +66,7 @@ export default {
 
 <style scoped>
   .results {
-    margin-right: auto;
-    background-color: #b23438;
+    background-color: #cbcbcb;
   }
 
   .results__crystal {
@@ -233,6 +232,8 @@ export default {
       z-index: 1;
       min-height: unset;
       overflow: visible;
+      margin-right: auto;
+      background-color: #b23438;
     }
 
     .results__container {

@@ -100,7 +100,7 @@ export default {
   }
 
   .mission__principles {
-    margin: 13px 14px 0 18px;
+    margin: 13px 14px 22px 18px;
     line-height: 17px;
     word-spacing: 0;
   }
