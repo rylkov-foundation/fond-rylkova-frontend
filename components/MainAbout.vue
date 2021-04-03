@@ -89,8 +89,10 @@ export default {
   @media screen and (min-width: 1280px) {
     .about__text {
       font-size: 36px;
-      margin: 61px auto 81px 183px;
+      margin: 61px auto 81px;
       line-height: 34px;
+      max-width: 860px;
+      padding-right: 180px;
     }
 
     .about__name::after {
@@ -101,7 +103,7 @@ export default {
     }
 
     .about__drop {
-      margin: auto 18px 0 auto;
+      margin: auto 18px 0 0;
       width: 38px;
       height: 64px;
       position: relative;
