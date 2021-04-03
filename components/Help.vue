@@ -265,6 +265,7 @@ export default {
       padding: 12px 0 0 42px;
       min-height: 126px;
       margin-bottom: 0;
+      z-index: 1;
     }
 
     .help__text {
