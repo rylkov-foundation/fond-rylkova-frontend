@@ -1,8 +1,10 @@
 <template>
   <section class="mission">
-    <h1 class="mission__header">
-      Фонд содействия защите&nbsp;здоровья и соци&shy;альной справедливости имени Андрея<br class="mission__header-br"> Рылькова
-    </h1>
+    <div class="mission__header-container">
+      <h1 class="mission__header">
+        Фонд содействия защите&nbsp;здоровья и соци&shy;альной справедливости имени Андрея<br class="mission__header-br"> Рылькова
+      </h1>
+    </div>
     <div class="mission__container">
       <div class="mission__mission-container">
         <h2 class="mission__subtitle">
@@ -242,10 +244,16 @@ export default {
       width: 100%;
     }
 
+    .mission__header-container {
+      background-color: #b23438;
+    }
+
     .mission__header {
       font-size: 36px;
       line-height: 27px;
       padding: 25px 50px;
+      max-width: 710px;
+      margin-left: auto;
     }
 
     .mission__container {
