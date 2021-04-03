@@ -100,7 +100,7 @@ export default {
   .help__telephone-block {
     background-color: #000;
     border-radius: 50%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,7 +123,7 @@ export default {
   .help__email-block {
     background-color: #cbcbcb;
     border-radius: 50%;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
     margin-bottom: 175px;
     display: flex;
@@ -228,6 +228,72 @@ export default {
 
     .logo {
       display: none;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .help {
+      grid-area: help;
+      width: 100%;
+    }
+
+    .help__title {
+      font-size: 61px;
+      line-height: 45px;
+      padding: 12px 0 0 42px;
+      min-height: 126px;
+      margin-bottom: 0;
+    }
+
+    .help__text {
+      font-size: 22px;
+      line-height: 22px;
+      margin: 43px 156px 0 139px;
+    }
+
+    .help__block {
+      top: -77px;
+      right: -45px;
+      height: 302px;
+    }
+
+    .link {
+      font-size: 22px;
+      line-height: 26px;
+      margin-top: 68px;
+      margin-left: 143px;
+    }
+
+    .help__telephone-block {
+      margin-top: auto;
+    }
+
+    .help__telephone-number {
+      font-size: 75px;
+      line-height: 38px;
+    }
+
+    .help__email-block {
+      margin-top: 2px;
+      margin-bottom: 0;
+    }
+
+    .help__email {
+      font-size: 25px;
+      line-height: 46px;
+    }
+
+    .help__contacts {
+      right: -36px;
+      top: 400px;
+      letter-spacing: 3px;
+    }
+
+    .logo {
+      display: block;
+      top: 381px;
+      right: 41px;
+      width: 149px;
     }
   }
 </style>

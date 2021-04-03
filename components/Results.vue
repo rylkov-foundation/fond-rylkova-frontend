@@ -1,5 +1,6 @@
 <template>
   <section class="results">
+    <div class="results__crystal" />
     <h2 class="results__title">
       Итоги нашей работы в 2020
     </h2>
@@ -68,6 +69,10 @@ export default {
     flex-direction: column;
     position: relative;
     min-height: 504px;
+  }
+
+  .results__crystal {
+    display: none;
   }
 
   .results__title {
@@ -219,6 +224,79 @@ export default {
       font-size: 34px;
       line-height: 45px;
       margin-left: 45px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .results {
+      grid-area: results;
+      width: 100%;
+      z-index: 1;
+      min-height: unset;
+      overflow: visible;
+    }
+
+    .results__crystal {
+      display: block;
+      background-color: white;
+      background-image: url("~/assets/images/crystal.svg");
+      background-position: center;
+      background-repeat: repeat-x;
+      background-size: 20%;
+      height: 125px;
+    }
+
+    .results__title {
+      font-size: 60px;
+      line-height: 45px;
+      margin: 34px 0 26px 37px;
+    }
+
+    .results__slider {
+      margin-left: 20px;
+      margin-bottom: 29px;
+    }
+
+    .results__arrow {
+      width: 35px;
+      height: 35px;
+    }
+
+    .results__bullet {
+      width: 15px;
+      height: 15px;
+      margin-left: 15px;
+    }
+
+    .results__slider-list-item {
+      width: 14px;
+      height: 14px;
+      margin-left: 18px;
+    }
+
+    .results__carousel {
+      left: -82px;
+      position: relative;
+      max-width: 650px;
+    }
+
+    .results__carousel-wrapper {
+      max-width: 650px;
+    }
+
+    .results__arrow-direction_back {
+      margin-right: 40px;
+    }
+
+    .link {
+      font-size: 22px;
+      margin-top: 10px;
+      margin-left: 142px;
+      line-height: 25px;
+    }
+
+    .logo {
+      display: none;
     }
   }
 </style>

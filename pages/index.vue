@@ -3,10 +3,7 @@
     <MainHeader />
     <MainAbout />
     <Main />
-    <OurMission />
-    <Results />
-    <Help />
-    <Donation />
+    <Container />
     <Footer />
   </div>
 </template>
@@ -18,12 +15,12 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
+  .container {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 </style>

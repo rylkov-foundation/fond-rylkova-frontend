@@ -1,6 +1,6 @@
 <template>
   <article class="result results__result">
-    <div class="result__image">
+    <div class="result__frame">
       <p class="result__number">
         {{ data.quantity }}
       </p>
@@ -41,7 +41,7 @@ export default {
     width: 100vw;
   }
 
-  .result__image {
+  .result__frame {
     grid-area: image;
     height: 197px;
     width: 197px;
@@ -61,6 +61,7 @@ export default {
     line-height: 83px;
     color: #fff;
     margin-left: -97px;
+    text-align: center;
   }
 
   .result__block {
@@ -108,7 +109,7 @@ export default {
       grid-template-columns: 379px auto;
     }
 
-    .result__image {
+    .result__frame {
       height: 416px;
       width: 416px;
     }
@@ -120,6 +121,7 @@ export default {
     .result__number {
       font-size: 279px;
       line-height: 200px;
+      margin-left: 0;
     }
 
     .result__title {
@@ -132,13 +134,47 @@ export default {
       max-width: 360px;
     }
 
-    /*
-    TODO change the font to css-lock
-     */
     .result__text {
       font-size: 30px;
       line-height: 30px;
       margin-left: 5px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .result {
+      grid-template-columns: 292px 357px;
+    }
+
+    .result__frame {
+      width: 292px;
+      height: 292px;
+      background-position: 0;
+      z-index: 1;
+    }
+
+    .result__number {
+      font-size: 169px;
+      line-height: 140px;
+    }
+
+    .result__block {
+      width: 330px;
+    }
+
+    .result__title {
+      text-align: left;
+      margin: 10px 0 0 14px;
+      padding-bottom: 13px;
+      font-size: 39px;
+      line-height: 39px;
+    }
+
+    .result__text {
+      margin-left: 17px;
+      line-height: 21px;
+      margin-top: 22px;
+      font-size: 21px;
     }
   }
 </style>
