@@ -31,13 +31,13 @@
         </button>
       </div>
       <div class="form__amount-container">
-        <button class="form__amount-options-button">
+        <button class="form__amount-options-button form__amount-options-button_thousand">
           1000<span class="form__money-sign">&#8381;</span>
         </button>
-        <button class="form__amount-options-button form__amount-options-button_light">
+        <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_five-hundred">
           500<span class="form__money-sign form__money-sign_light">&#8381;</span>
         </button>
-        <button class="form__amount-options-button form__amount-options-button_light">
+        <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_two-hundred">
           200<span class="form__money-sign form__money-sign_light">&#8381;</span>
         </button>
         <div class="form__text-amount-container">
@@ -574,6 +574,184 @@ export default {
 
     .donation__privacy-policy {
       font-size: 22px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .donation {
+      grid-area: donation;
+      width: 615px;
+      margin-left: auto;
+    }
+
+    .donation__title {
+      font-size: 56px;
+      line-height: 64px;
+      letter-spacing: 6px;
+      width: auto;
+      margin: 3px 68px 0 124px;
+    }
+
+    .donation__title-mark {
+      font-size: 63px;
+    }
+
+    .donation__image-container {
+      top: -58px;
+      left: -123px;
+      width: 235px;
+    }
+
+    .form {
+      margin-top: 0;
+    }
+
+    .form__slider-container {
+      position: relative;
+      top: -19px;
+      left: 7px;
+    }
+
+    .form__slider-button {
+      font-size: 24px;
+      line-height: 22px;
+      margin: 0;
+    }
+
+    .switch {
+      left: -12px;
+      top: 17px;
+      width: 97px;
+      height: 49px;
+      margin-right: 0;
+      margin-left: 24px;
+    }
+
+    .switch__slider::before {
+      height: 43px;
+      width: 43px;
+    }
+
+    .switch__input:checked + .switch__slider::before {
+      transform: translateX(47px);
+    }
+
+    .form__payment-options-container {
+      margin-top: 13px;
+    }
+
+    .form__payment-options-button {
+      font-size: 23px;
+      line-height: 39px;
+      padding: 7px 0;
+      width: 146px;
+    }
+
+    .form__amount-container {
+      grid-template-areas:
+        "two-hundred thousand five-hundred"
+        "custom-amount custom-amount custom-amount";
+      grid-template-rows: repeat(2, auto);
+      grid-template-columns: repeat(3, 144px);
+      gap: 8px 9px;
+    }
+
+    .form__amount-options-button {
+      font-size: 115px;
+      line-height: 105px;
+      width: 100%;
+      height: 90px;
+      padding: 6px 0 0 6px;
+    }
+
+    .form__amount-options-button_thousand {
+      grid-area: thousand;
+    }
+
+    .form__amount-options-button_five-hundred {
+      grid-area: five-hundred;
+    }
+
+    .form__amount-options-button_two-hundred {
+      grid-area: two-hundred;
+    }
+
+    .form__amount-options-button_light {
+      padding: 6px 0 0 12px;
+    }
+
+    .form__money-sign {
+      font-size: 88px;
+      line-height: 81px;
+      top: -7px;
+      left: -3px;
+    }
+
+    .form__money-sign_light {
+      left: -5px;
+    }
+
+    .form__text-amount-container {
+      flex-direction: row;
+      width: 450px;
+      justify-content: space-between;
+      margin-top: 26px;
+    }
+
+    .form__input {
+      width: 228px;
+      font-size: 24px;
+      line-height: 31px;
+      margin-left: 16px;
+    }
+
+    .form__input::placeholder {
+      font-size: 24px;
+      line-height: 31px;
+    }
+
+    .form__label-agree {
+      margin: 0;
+      top: 13px;
+    }
+
+    .form__checkbox-agree {
+      width: 24px;
+      height: 24px;
+      top: -3px;
+      left: 8px;
+    }
+
+    .form__text-agree {
+      font-size: 18px;
+      line-height: 31px;
+      bottom: 4px;
+    }
+
+    .form__input_personal {
+      margin: 22px 0 0 5px;
+      width: 447px;
+      font-size: 29px;
+    }
+
+    .form__input_personal:last-of-type {
+      margin-top: 18px;
+    }
+
+    .form__submit {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      margin-bottom: 0;
+    }
+
+    .donation__privacy-policy {
+      margin: 26px 0 63px 98px;
+      font-size: 18px;
+      line-height: 31px;
+      text-align: left;
     }
   }
 </style>

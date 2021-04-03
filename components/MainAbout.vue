@@ -26,7 +26,7 @@ export default {
   .about {
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    width: 100%;
   }
 
   .about__name {

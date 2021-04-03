@@ -4,24 +4,26 @@
       Фонд содействия защите&nbsp;здоровья и соци&shy;альной справедливости имени Андрея<br class="mission__header-br"> Рылькова
     </h1>
     <div class="mission__container">
-      <h2 class="mission__subtitle">
-        <span class="mark">Наша</span>
-        <br>
-        <span class="mark mark_long">миссия</span>
-      </h2>
-      <p class="mission__our-mission">
-        способствовать развитию&nbsp;наркополитики, основанной на&nbsp;гуманности, терпимости, защите здоро&shy;вья, достоинства и прав человека.
+      <div class="mission__mission-container">
+        <h2 class="mission__subtitle">
+          <span class="mark">Наша</span>
+          <br>
+          <span class="mark mark_long">миссия</span>
+        </h2>
+        <p class="mission__our-mission">
+          способствовать развитию наркополитики, основанной на&nbsp;гуманности, терпимости, защите здоро&shy;вья, достоинства и прав человека.
+        </p>
+      </div>
+      <p class="mission__principles">
+        Работа ФАР строится на принципах горизон&shy;тального управления и разви&shy;тия проектов на&nbsp;основе инициатив людей, употребляющих наркотики, активистов и активисток, профессио&shy;налов и профес&shy;сионалок в области об&shy;щественного здравоохранения и защиты прав человека.
       </p>
+      <a href="#" class="link">Подробнее о нас &gt;</a>
+      <div class="mission__footer">
+        <img src="~/assets/images/road.png" alt="Дорога" class="mission__road">
+        <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
+      </div>
+      <img src="~/assets/images/crystal.svg" alt="Кристал" class="mission__crystal">
     </div>
-    <p class="mission__principles">
-      Работа ФАР строится на принципах горизон&shy;тального управления и разви&shy;тия проектов на&nbsp;основе инициатив людей, употребляющих наркотики, активистов и активисток, профессио&shy;налов и профессионалок в области об&shy;щественного здравоохранения и защиты прав человека.
-    </p>
-    <a href="#" class="link">Подробнее о нас &gt;</a>
-    <div class="mission__footer">
-      <img src="~/assets/images/road.png" alt="Дорога" class="mission__road">
-      <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
-    </div>
-    <img src="~/assets/images/crystal.png" alt="Кристал" class="mission__crystal">
   </section>
 </template>
 
@@ -38,6 +40,13 @@ export default {
     position: relative;
   }
 
+  /*
+  .mission__container {
+    display: flex;
+    flex-direction: column;
+  }
+  */
+
   .mission__header {
     color: white;
     background-color: #b23438;
@@ -48,7 +57,7 @@ export default {
     margin: 0;
   }
 
-  .mission__container {
+  .mission__mission-container {
     padding: 23px 0 0 18px;
   }
 
@@ -138,7 +147,7 @@ export default {
   .mission__footer {
     margin-top: -8px;
     display: flex;
-    width: 100vw;
+    width: 100%;
   }
 
   @media screen and (min-width: 420px) {
@@ -165,7 +174,7 @@ export default {
       padding: 30px 30px 35px 30px;
     }
 
-    .mission__container {
+    .mission__mission-container {
       padding: 47px 0 0 50px;
     }
 
@@ -230,6 +239,84 @@ export default {
       width: 200px;
       right: 22px;
       top: 110px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .mission {
+      grid-area: mission;
+      background-color: #cbcbcb;
+      width: 100%;
+    }
+
+    .mission__header {
+      font-size: 36px;
+      line-height: 27px;
+      padding: 25px 50px;
+    }
+
+    .mission__container {
+      width: 615px;
+      margin-left: auto;
+      background-color: white;
+    }
+
+    .mission__mission-container {
+      padding: 40px 0 0 91px;
+    }
+
+    .mark {
+      font-size: 22px;
+      line-height: 22px;
+      letter-spacing: 0;
+    }
+
+    .mark::before {
+      left: 1px;
+      top: 17px;
+      width: 80px;
+      height: 7px;
+    }
+
+    .mark_long::before {
+      width: 105px;
+      top: 17px;
+    }
+
+    .mission__our-mission {
+      font-size: 22px;
+      line-height: 22px;
+      margin-top: 27px;
+      margin-right: 85px;
+    }
+
+    .mission__principles {
+      font-size: 22px;
+      line-height: 22px;
+      margin: 16px 102px 0 92px;
+    }
+
+    .link {
+      display: none;
+    }
+
+    .mission__road {
+      width: 350px;
+    }
+
+    .mission__footer {
+      margin-top: -51px;
+      position: relative;
+    }
+
+    .logo {
+      width: 147px;
+      right: 110px;
+      bottom: 53px;
+    }
+
+    .mission__crystal {
+      display: none;
     }
   }
 </style>
