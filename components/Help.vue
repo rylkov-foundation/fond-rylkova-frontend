@@ -1,30 +1,33 @@
 <template>
   <section class="help">
-    <h2 class="help__title">
-      Получить помощь
-    </h2>
-    <p class="help__text">
-      Если вы употребляете  наркотики и вам нужна помощь по вопросам здоровья, защиты прав, консультации психолога,
-      профилактические материалы и тд, свяжитесь с нами
-    </p>
-    <div class="help__block">
-      <img src="~/assets/images/blade.svg" class="help__image">
-    </div>
-    <a class="link" href="#">Подробнее
-      <span class="link__arrow">&gt;</span>
-    </a>
-    <div class="help__telephone-block">
-      <a class="help__telephone-number" href="tel:+79268879087">+7-(926)-887-90-87</a>
-    </div>
-    <div class="help__email-block">
-      <a class="help__email" href="mailto:rylkov.foundation@gmail.com" target="_blank">
-        rylkov.foundation@gmail.com
+    <div class="help__container">
+      <h2 class="help__title">
+        Получить помощь
+      </h2>
+      <p class="help__text">
+        Если вы употребляете  наркотики и вам нужна помощь по вопросам здоровья, защиты прав, консультации психолога,
+        профилактические материалы и тд, свяжитесь с нами
+      </p>
+      <div class="help__block">
+        <img src="~/assets/images/blade.svg" class="help__image">
+      </div>
+      <a class="link" href="#">Подробнее
+        <span class="link__arrow">&gt;</span>
       </a>
+      <div class="help__telephone-block">
+        <a class="help__telephone-number" href="tel:+79268879087">+7-(926)-887-90-87</a>
+      </div>
+      <div class="help__email-block">
+        <a class="help__email" href="mailto:rylkov.foundation@gmail.com" target="_blank">
+          rylkov.foundation@gmail.com
+        </a>
+      </div>
+      <p class="help__contacts">
+        telegram/whatsapp/mail
+      </p>
+      <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
     </div>
-    <p class="help__contacts">
-      telegram/whatsapp/mail
-    </p>
-    <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
+    <div class="help__right-block" />
   </section>
 </template>
 
@@ -36,11 +39,16 @@ export default {
 
 <style scoped>
   .help {
+    display: flex;
+  }
+
+  .help__container {
     position: relative;
     display: flex;
     flex-direction: column;
+    background-color: white;
   }
-  
+
   .help__title {
     background-color: #b23438;
     min-height: 91px;
@@ -235,6 +243,20 @@ export default {
     .help {
       grid-area: help;
       width: 100%;
+      background-color: #cbcbcb;
+      z-index: 1;
+    }
+
+    .help__container {
+      width: 576px;
+      min-width: 576px;
+    }
+
+    .help__right-block {
+      height: 126px;
+      width: 100%;
+      margin: 0 auto auto;
+      background-color: white;
     }
 
     .help__title {
@@ -255,6 +277,7 @@ export default {
       top: -77px;
       right: -45px;
       height: 302px;
+      overflow: unset;
     }
 
     .link {

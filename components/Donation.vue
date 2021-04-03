@@ -1,62 +1,64 @@
 <template>
   <section class="donation">
-    <h2 class="donation__title">
-      Поддер&shy;жать <span class="donation__title-mark">фар</span>
-    </h2>
-    <div class="donation__image-container">
-      <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
-    </div>
-    <form action="" class="form">
-      <div class="form__slider-container">
-        <button class="form__slider-button">
-          Регулярно
-        </button>
-        <label class="switch">
-          <input class="switch__input" type="checkbox">
-          <span class="switch__slider" />
-        </label>
-        <button class="form__slider-button">
-          Однократно
-        </button>
+    <div class="donation__container">
+      <h2 class="donation__title">
+        Поддер&shy;жать <span class="donation__title-mark">фар</span>
+      </h2>
+      <div class="donation__image-container">
+        <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
       </div>
-      <div class="form__payment-options-container">
-        <button class="form__payment-options-button">
-          Карта
-        </button>
-        <button class="form__payment-options-button">
-          ЮMoney
-        </button>
-        <button class="form__payment-options-button">
-          Терминал
-        </button>
-      </div>
-      <div class="form__amount-container">
-        <button class="form__amount-options-button form__amount-options-button_thousand">
-          1000<span class="form__money-sign">&#8381;</span>
-        </button>
-        <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_five-hundred">
-          500<span class="form__money-sign form__money-sign_light">&#8381;</span>
-        </button>
-        <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_two-hundred">
-          200<span class="form__money-sign form__money-sign_light">&#8381;</span>
-        </button>
-        <div class="form__text-amount-container">
-          <input type="number" min="1" class="form__input" placeholder="Другая сумма">
-          <label class="form__label-agree">
-            <input type="checkbox" class="form__agree">
-            <span class="form__checkbox-agree" />
-            <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
-            <span class="form__text-agree">Согласен с <a href="#" class="form__link-offer">офертой</a></span>
+      <form action="" class="form">
+        <div class="form__slider-container">
+          <button class="form__slider-button">
+            Регулярно
+          </button>
+          <label class="switch">
+            <input class="switch__input" type="checkbox">
+            <span class="switch__slider" />
           </label>
+          <button class="form__slider-button">
+            Однократно
+          </button>
         </div>
-      </div>
-      <input type="text" class="form__input form__input_personal" placeholder="Имя">
-      <input type="email" class="form__input form__input_personal" placeholder="Email">
-      <button type="submit" class="form__submit">
-        Перейти к оплате
-      </button>
-    </form>
-    <a href="#" class="donation__privacy-policy">Политика конфеденциальности</a>
+        <div class="form__payment-options-container">
+          <button class="form__payment-options-button">
+            Карта
+          </button>
+          <button class="form__payment-options-button">
+            ЮMoney
+          </button>
+          <button class="form__payment-options-button">
+            Терминал
+          </button>
+        </div>
+        <div class="form__amount-container">
+          <button class="form__amount-options-button form__amount-options-button_thousand">
+            1000<span class="form__money-sign">&#8381;</span>
+          </button>
+          <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_five-hundred">
+            500<span class="form__money-sign form__money-sign_light">&#8381;</span>
+          </button>
+          <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_two-hundred">
+            200<span class="form__money-sign form__money-sign_light">&#8381;</span>
+          </button>
+          <div class="form__text-amount-container">
+            <input type="number" min="1" class="form__input" placeholder="Другая сумма">
+            <label class="form__label-agree">
+              <input type="checkbox" class="form__agree">
+              <span class="form__checkbox-agree" />
+              <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
+              <span class="form__text-agree">Согласен с <a href="#" class="form__link-offer">офертой</a></span>
+            </label>
+          </div>
+        </div>
+        <input type="text" class="form__input form__input_personal" placeholder="Имя">
+        <input type="email" class="form__input form__input_personal" placeholder="Email">
+        <button type="submit" class="form__submit">
+          Перейти к оплате
+        </button>
+      </form>
+      <a href="#" class="donation__privacy-policy">Политика конфеденциальности</a>
+    </div>
   </section>
 </template>
 
@@ -125,12 +127,17 @@ export default {
   }
 
   .donation {
+    background-color: black;
+  }
+
+  .donation__container {
     display: flex;
     flex-direction: column;
     width: 100vw;
     background-color: #cbcbcb;
     position: relative;
     padding-bottom: 12px;
+    margin-left: auto;
   }
 
   .donation__title {
@@ -580,8 +587,14 @@ export default {
   @media screen and (min-width: 1280px) {
     .donation {
       grid-area: donation;
+      padding: 0;
+    }
+
+    .donation__container {
       width: 615px;
+      min-height: 716px;
       margin-left: auto;
+      padding: 0;
     }
 
     .donation__title {

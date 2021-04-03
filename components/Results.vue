@@ -1,32 +1,34 @@
 <template>
   <section class="results">
-    <div class="results__crystal" />
-    <h2 class="results__title">
-      Итоги нашей работы в 2020
-    </h2>
-    <div class="results__slider">
-      <button class="results__arrow results__arrow-direction_back" @click="prevSlide" />
-      <ul class="results__slider-list">
-        <li v-for="item of resultsData.length" :key="item" class="results__bullet" :class="{ results__bullet_active: item-1 === currentSlide}" />
-      </ul>
-      <button class="results__arrow results__arrow-direction_forward" @click="nextSlide" />
-    </div>
-    <div class="results__carousel">
-      <div
-        class="results__carousel-wrapper"
-        :style="{ 'margin-left':'-'+ (100*currentSlide)+'%'}"
-      >
-        <Result
-          v-for="item in resultsData"
-          :key="item.id"
-          :data="item"
-        />
+    <div class="results__container">
+      <div class="results__crystal" />
+      <h2 class="results__title">
+        Итоги нашей работы в 2020
+      </h2>
+      <div class="results__slider">
+        <button class="results__arrow results__arrow-direction_back" @click="prevSlide" />
+        <ul class="results__slider-list">
+          <li v-for="item of resultsData.length" :key="item" class="results__bullet" :class="{ results__bullet_active: item-1 === currentSlide}" />
+        </ul>
+        <button class="results__arrow results__arrow-direction_forward" @click="nextSlide" />
       </div>
+      <div class="results__carousel">
+        <div
+          class="results__carousel-wrapper"
+          :style="{ 'margin-left':'-'+ (100*currentSlide)+'%'}"
+        >
+          <Result
+            v-for="item in resultsData"
+            :key="item.id"
+            :data="item"
+          />
+        </div>
+      </div>
+      <a class="link" href="#">Получить помощь
+        <span class="link__arrow">&gt;</span>
+      </a>
+      <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
     </div>
-    <a class="link" href="#">Получить помощь
-      <span class="link__arrow">&gt;</span>
-    </a>
-    <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
   </section>
 </template>
 
@@ -64,11 +66,8 @@ export default {
 
 <style scoped>
   .results {
-    background-color: #cbcbcb;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 504px;
+    margin-right: auto;
+    background-color: #b23438;
   }
 
   .results__crystal {
@@ -234,6 +233,15 @@ export default {
       z-index: 1;
       min-height: unset;
       overflow: visible;
+    }
+
+    .results__container {
+      background-color: #cbcbcb;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      min-height: 716px;
+      max-width: 576px;
     }
 
     .results__crystal {

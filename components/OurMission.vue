@@ -40,13 +40,6 @@ export default {
     position: relative;
   }
 
-  /*
-  .mission__container {
-    display: flex;
-    flex-direction: column;
-  }
-  */
-
   .mission__header {
     color: white;
     background-color: #b23438;
@@ -259,6 +252,7 @@ export default {
       width: 615px;
       margin-left: auto;
       background-color: white;
+      min-height: 586px;
     }
 
     .mission__mission-container {
