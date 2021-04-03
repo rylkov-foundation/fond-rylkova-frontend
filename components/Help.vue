@@ -77,6 +77,7 @@ export default {
     height: 100%;
     position: relative;
     right: -53px;
+    z-index: 4;
   }
 
   .help__text {
@@ -244,7 +245,6 @@ export default {
       grid-area: help;
       width: 100%;
       background-color: #cbcbcb;
-      z-index: 1;
     }
 
     .help__container {
