@@ -33,8 +33,8 @@ export default {
     }
 
     .header__text {
-      background-size: 127%;
-      background-position: 77% 21px;
+      background-size: 926px;
+      background-position: -150px 28px;
     }
   }
 
@@ -44,7 +44,7 @@ export default {
     }
 
     .header__text {
-      background-size: 70%;
+      background-size: 900px;
       background-position: -250px 12px;
     }
   }
