@@ -306,7 +306,7 @@ export default {
     }
 
     .mission__footer {
-      margin-top: -51px;
+      margin-top: -47px;
       position: relative;
     }
 
