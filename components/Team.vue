@@ -18,13 +18,20 @@
         :index="index"
       />
     </ul>
-    <div class="team__colour-container team__colour-container_colour_red" />
+    <div class="team__colour-container team__colour-container_colour_red">
+      <Drop :style="dropPosition" class="team__drop" />
+    </div>
   </section>
 </template>
 
 <script>
+import Drop from '@/components/Drop'
+
 export default {
   name: 'Team',
+  components: {
+    Drop
+  },
   data () {
     return {
       teamMembers: [
@@ -60,7 +67,13 @@ export default {
             '(2002), "Шкаф" (2005). В 1999-2001 гг. литературный редактор информационного проекта снижения вреда "мозг"' +
             '(Москва). В 2001 г. проходил стажировку в контактно-консультационном центре для наркозависимых MisFit'
         }
-      ]
+      ],
+      dropPosition: {
+        position: 'absolute',
+        top: '420px',
+        left: '60px',
+        transform: 'translateX(-24px)'
+      }
     }
   }
 }
@@ -126,6 +139,10 @@ export default {
   flex-direction: column;
   list-style: none;
   padding: 0;
+}
+
+.team__drop {
+  display: none;
 }
 
 @media screen and (min-width: 500px) {
@@ -204,6 +221,7 @@ export default {
   .team__colour-container_colour_red {
     grid-area: red;
     background-color: #b23438;
+    position: relative;
   }
 
   .team__image {
@@ -234,6 +252,14 @@ export default {
     width: 117px;
     height: 86px;
     top: 445px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .team__drop {
+    display: block;
+    width: 36px;
+    height: 62px;
   }
 }
 </style>
