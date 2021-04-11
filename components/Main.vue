@@ -28,9 +28,7 @@
           Получить помощь
           <span class="main__arrow">&gt;</span>
         </a>
-        <button type="button" class="main__language" @click="changeLanguage">
-          {{ languages[languageIndex] }}
-        </button>
+        <LanguageButton :style="buttonPosition" />
       </div>
     </div>
   </section>
@@ -41,16 +39,9 @@ export default {
   name: 'Main',
   data () {
     return {
-      languages: ['en', 'ру'],
-      languageIndex: 0
-    }
-  },
-  methods: {
-    changeLanguage () {
-      if (this.languageIndex === 0) {
-        this.languageIndex = 1
-      } else {
-        this.languageIndex = 0
+      buttonPosition: {
+        bottom: '15px',
+        left: '19px'
       }
     }
   }
@@ -194,33 +185,6 @@ export default {
     top: 1px;
   }
 
-  .main__language {
-    position: absolute;
-    bottom: 15px;
-    left: 19px;
-    font-family: 'Roboto', 'Times', serif;
-    font-size: 17px;
-    line-height: 17px;
-    background-color: #000;
-    font-weight: 400;
-    font-style: italic;
-    border: none;
-    outline: none;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-  }
-
-  .main__language:hover {
-    opacity: 0.7;
-    cursor: pointer;
-  }
-
   @media screen and (min-width: 500px) {
     .main__money-block {
       margin: 0 0 0 5px;
@@ -303,13 +267,6 @@ export default {
       top: -40px;
       font-size: 34px;
       line-height: 38px;
-    }
-
-    .main__language {
-      font-size: 30px;
-      line-height: 30px;
-      width: 50px;
-      height: 50px;
     }
   }
 
