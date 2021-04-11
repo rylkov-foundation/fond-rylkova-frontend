@@ -80,4 +80,12 @@ export default {
     height: 50px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .button-language_page_additional {
+    top: 636px;
+    left: 20px;
+    z-index: 1;
+  }
+}
 </style>

@@ -1,12 +1,15 @@
 <template>
   <section class="team">
+    <div class="team__colour-container team__colour-container_colour_black" />
     <div class="team__container">
       <h2 class="team__title">
         Ко&shy;манда <span class="team__title-bold">ФАР</span>
       </h2>
       <div class="team__image" />
     </div>
-    <img src="@/assets/images/logo.svg" alt="Логотип" class="logo">
+    <div class="team__colour-container team__colour-container_colour_white" />
+    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <div class="team__colour-container team__colour-container_colour_grey" />
     <ul class="team__list">
       <TeamMember
         v-for="(member,index) in teamMembers"
@@ -15,6 +18,7 @@
         :index="index"
       />
     </ul>
+    <div class="team__colour-container team__colour-container_colour_red" />
   </section>
 </template>
 
@@ -159,6 +163,77 @@ export default {
   .team__image {
     height: 259px;
     width: 272px;
+  }
+}
+
+@media screen and (min-width: 1087px) {
+  .team {
+    display: grid;
+    grid-template-columns: auto 1087px auto;
+    grid-template-areas:
+      "black team-title white"
+      "grey list red";
+  }
+
+  .team__container {
+    grid-area: team-title;
+    max-width: 1087px;
+    margin-bottom: 44px;
+  }
+
+  .team__colour-container {
+    width: calc((100vw - 1087px) / 2);
+    height: auto;
+  }
+
+  .team__colour-container_colour_black {
+    grid-area: black;
+    background-color: #000;
+  }
+
+  .team__colour-container_colour_white {
+    grid-area: white;
+    background-color: #fff;
+  }
+
+  .team__colour-container_colour_grey {
+    grid-area: grey;
+    background-color: #cbcbcb;
+  }
+
+  .team__colour-container_colour_red {
+    grid-area: red;
+    background-color: #b23438;
+  }
+
+  .team__image {
+    width: 387px;
+    height: 376px;
+  }
+
+  .team__title {
+    max-width: 705px;
+    width: 705px;
+    font-size: 140px;
+    line-height: 121px;
+    background-size: 600px;
+    background-position:
+      268px 49px,
+      153px 123px,
+      217px 203px,
+      185px 279px;
+  }
+
+  .team__list {
+    grid-area: list;
+  }
+
+  .logo {
+    z-index: 13;
+    right: 17px;
+    width: 117px;
+    height: 86px;
+    top: 445px;
   }
 }
 </style>
