@@ -29,12 +29,32 @@
       и обязательствами, которе могут служить в дальнейшем базой для национальной адвокации и принятия решений
       различных судебных инстанций, включая ЕСПЧ.
     </p>
+    <div class="about-us__colour-container about-us__colour-container_colour_white" />
+    <div class="about-us__colour-container about-us__colour-container_colour_red" />
+    <div class="about-us__colour-container about-us__colour-container_colour_grey">
+      <Drop :style="dropPosition" class="about-us__drop" />
+    </div>
   </section>
 </template>
 
 <script>
+import Drop from '@/components/Drop'
+
 export default {
-  name: 'AboutUs'
+  name: 'AboutUs',
+  components: {
+    Drop
+  },
+  data () {
+    return {
+      dropPosition: {
+        position: 'absolute',
+        top: '50%',
+        left: '60px',
+        transform: 'translateX(-24px)'
+      }
+    }
+  }
 }
 </script>
 
@@ -63,14 +83,15 @@ export default {
     font-style: italic;
     font-weight: 400;
     line-height: 71px;
+    position: relative;
   }
 
   .about-us__title-text::before {
     content: '';
     position: absolute;
     background-color: #b23438;
-    left: 19px;
-    top: 82px;
+    left: -5px;
+    top: 55px;
     width: 104px;
     height: 17px;
   }
@@ -79,8 +100,8 @@ export default {
     content: '';
     position: absolute;
     background-color: #b23438;
-    left: 18px;
-    top: 154px;
+    left: -3px;
+    top: 128px;
     width: 137px;
     height: 17px;
   }
@@ -99,6 +120,10 @@ export default {
     position: absolute;
     right: 61px;
     top: 265px;
+  }
+
+  .about-us__drop {
+    display: none;
   }
 
   @media screen and (min-width: 768px) {
@@ -123,11 +148,8 @@ export default {
     }
 
     .about-us__title-text::after {
-      content: '';
-      position: absolute;
-      background-color: #b23438;
-      left: 45px;
-      top: 196px;
+      left: 8px;
+      top: 91px;
       width: 352px;
       height: 23px;
     }
@@ -141,6 +163,86 @@ export default {
     .logo {
       right: 19px;
       top: 538px;
+    }
+  }
+
+  @media screen and (min-width: 1087px) {
+    .about-us {
+      display: grid;
+      grid-template-columns: auto 1087px auto;
+      grid-template-areas:
+        "title title white"
+        "red text grey";
+    }
+
+    .about-us__title {
+      grid-area: title;
+      height: 418px;
+      padding: 152px 0 0 79px;
+      margin-bottom: 0;
+      max-width: 1186px;
+      width: 100%;
+      background-position: left;
+      justify-self: right;
+    }
+
+    .about-us__title-text {
+      grid-area: text;
+      max-width: none;
+      font-size: 247px;
+      line-height: 178px;
+      word-spacing: -23px;
+      letter-spacing: -11px;
+    }
+
+    .about-us__title-text::after {
+      left: 28px;
+      top: 127px;
+      width: 479px;
+      height: 34px;
+    }
+
+    .about-us__text {
+      padding-top: 44px;
+      font-size: 22px;
+      line-height: 29px;
+      max-width: 981px;
+    }
+
+    .logo {
+      z-index: 5;
+      right: 28px;
+      top: 545px;
+      width: 113px;
+    }
+
+    .about-us__colour-container {
+      width: calc((100vw - 1087px) / 2);
+      height: auto;
+    }
+
+    .about-us__colour-container_colour_white {
+      grid-area: white;
+      background-color: #fff;
+    }
+
+    .about-us__colour-container_colour_grey {
+      grid-area: grey;
+      background-color: #cbcbcb;
+      position: relative;
+    }
+
+    .about-us__colour-container_colour_red {
+      grid-area: red;
+      background-color: #b23438;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .about-us__drop {
+      display: block;
+      width: 36px;
+      height: 62px;
     }
   }
 </style>
