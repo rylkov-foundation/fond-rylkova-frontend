@@ -43,7 +43,7 @@ export default {
   }
 
   .mission__header {
-    color: white;
+    color: #fff;
     background-color: #b23438;
     font-size: 23px;
     line-height: 20px;
@@ -258,7 +258,7 @@ export default {
     .mission__container {
       width: 615px;
       margin-left: auto;
-      background-color: white;
+      background-color: #fff;
       min-height: 586px;
     }
 

@@ -83,7 +83,7 @@ export default {
   }
 
   .main__number {
-    font-family: 'Tomorrow', 'Times', fantasy;
+    font-family: 'Tomorrow', 'Times', fantasy, serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
@@ -100,7 +100,7 @@ export default {
 
   .main__number:active {
     border: 2px solid #000;
-    color: black;
+    color: #000;
     border-radius: 15%;
     padding: 0 7px 0 5px;
   }

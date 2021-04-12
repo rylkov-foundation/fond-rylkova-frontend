@@ -56,7 +56,7 @@ export default {
   }
 
   .result__number {
-    font-family: Tomorrow, Times, fantasy;
+    font-family: Tomorrow, Times, fantasy, serif;
     font-size: 115px;
     line-height: 83px;
     color: #fff;
@@ -145,7 +145,7 @@ export default {
 
   @media screen and (min-width: 1280px) {
     .result {
-      grid-template-columns: 292px 357px;
+      grid-template-columns: 292px 358px;
     }
 
     .result__frame {

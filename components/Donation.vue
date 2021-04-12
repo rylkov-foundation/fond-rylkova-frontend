@@ -127,7 +127,7 @@ export default {
   }
 
   .donation {
-    background-color: black;
+    background-color: #000;
   }
 
   .donation__container {
@@ -159,7 +159,7 @@ export default {
 
   .donation__title-mark {
     text-transform: uppercase;
-    color: black;
+    color: #000;
     position: relative;
     top: 9px;
     right: 2px;
@@ -222,7 +222,7 @@ export default {
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
     line-height: 19px;
-    background-color: white;
+    background-color: #fff;
     border: none;
     border-radius: 18px;
     padding: 8px 0;
@@ -249,7 +249,7 @@ export default {
   }
 
   .form__amount-options-button {
-    font-family: 'Tomorrow', 'Times New Roman', fantasy;
+    font-family: 'Tomorrow', 'Times', fantasy, serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
@@ -270,13 +270,13 @@ export default {
   }
 
   .form__amount-options-button_light {
-    background-color: white;
+    background-color: #fff;
     color: #cbcbcb;
     border-color: #cbcbcb;
   }
 
   .form__money-sign {
-    font-family: 'DrukCyr', 'Times New Roman', serif;
+    font-family: 'DrukCyr', 'Times', serif;
     font-size: 82px;
     line-height: 77px;
     color: rgba(0, 0, 0, 0);
@@ -404,7 +404,7 @@ export default {
     height: 58px;
     border-radius: 50%;
     display: block;
-    color: white;
+    color: #fff;
   }
 
   .form__submit:hover {

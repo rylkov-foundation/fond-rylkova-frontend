@@ -48,7 +48,7 @@ export default {
   }
 
   .popup__link {
-    font-family: 'Vollkorn', 'Times New Roman', serif;
+    font-family: 'Vollkorn', 'Times', serif;
     font-size: 17px;
     line-height: 24.34px;
     font-weight: bold;

@@ -6,11 +6,11 @@
         Итоги нашей работы в 2020
       </h2>
       <div class="results__slider">
-        <button class="results__arrow results__arrow-direction_back" @click="prevSlide" />
+        <button class="results__arrow results__arrow_direction_back" @click="prevSlide" />
         <ul class="results__slider-list">
           <li v-for="item of resultsData.length" :key="item" class="results__bullet" :class="{ results__bullet_active: item-1 === currentSlide}" />
         </ul>
-        <button class="results__arrow results__arrow-direction_forward" @click="nextSlide" />
+        <button class="results__arrow results__arrow_direction_forward" @click="nextSlide" />
       </div>
       <div class="results__carousel">
         <div
@@ -114,11 +114,11 @@ export default {
     cursor: pointer;
   }
 
-  .results__arrow-direction_back {
+  .results__arrow_direction_back {
     margin-right: 30px;
   }
 
-  .results__arrow-direction_forward {
+  .results__arrow_direction_forward {
     margin-left: 32px;
     transform: rotate(180deg);
   }
@@ -160,7 +160,7 @@ export default {
   }
 
   .link {
-    font-family: 'Vollkorn', 'Times New Roman', serif;
+    font-family: 'Vollkorn', 'Times', serif;
     font-size: calc(0.037946429 * 100vw + 4.85714272px);
     line-height: calc(0.055803571 * 100vw + 2.14285728px);
     font-weight: bold;
@@ -197,11 +197,11 @@ export default {
       height: 44px;
     }
 
-    .results__arrow-direction_back {
+    .results__arrow_direction_back {
       margin-right: 50px;
     }
 
-    .results__arrow-direction_forward {
+    .results__arrow_direction_forward {
       margin-left: 50px;
     }
 
@@ -217,9 +217,6 @@ export default {
       bottom: 59px;
     }
 
-    /*
-    TODO change the font to css-lock
-     */
     .link {
       font-size: 34px;
       line-height: 45px;
@@ -249,7 +246,7 @@ export default {
 
     .results__crystal {
       display: block;
-      background-color: white;
+      background-color: #fff;
       background-image: url("~/assets/images/crystal.svg");
       background-position: center;
       background-repeat: repeat-x;
@@ -295,7 +292,7 @@ export default {
       max-width: 650px;
     }
 
-    .results__arrow-direction_back {
+    .results__arrow_direction_back {
       margin-right: 40px;
     }
 
