@@ -74,7 +74,6 @@ export default {
     }
   },
   mounted () {
-    // Setup the event listener and execute it once in case we are already scrolled
     window.addEventListener('scroll', this.scrollHandler)
     this.scrollHandler()
   },
