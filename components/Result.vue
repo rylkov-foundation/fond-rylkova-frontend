@@ -145,7 +145,7 @@ export default {
 
   @media screen and (min-width: 1280px) {
     .result {
-      grid-template-columns: 292px 357px;
+      grid-template-columns: 292px 358px;
     }
 
     .result__frame {
