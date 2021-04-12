@@ -41,6 +41,8 @@ export default {
 <style scoped>
   .about-us {
     position: relative;
+    border-bottom: 1px solid #a2a2a2;
+    padding-bottom: 56px;
   }
 
   .about-us__title {
@@ -48,12 +50,6 @@ export default {
     height: 340px;
     background-position: center;
     background-size: cover;
-    color: #fff;
-    font-family: Vollkorn, Times, serif;
-    font-size: 115px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 71px;
     padding: 27px 0 0 23px;
     margin-bottom: 32px;
   }
@@ -61,6 +57,12 @@ export default {
   .about-us__title-text {
     display: block;
     max-width: 160px;
+    color: #fff;
+    font-family: Vollkorn, Times, serif;
+    font-size: 115px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 71px;
   }
 
   .about-us__title-text::before {
@@ -97,5 +99,48 @@ export default {
     position: absolute;
     right: 61px;
     top: 265px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .about-us__title {
+      height: 293px;
+      padding: 104px 0 0 36px;
+    }
+
+    .about-us__title-text {
+      max-width: 450px;
+      color: transparent;
+      -webkit-text-stroke: 1px #fff;
+      font-size: 173px;
+      font-style: normal;
+      line-height: 125px;
+      word-spacing: -5px;
+      letter-spacing: -11px;
+    }
+
+    .about-us__title-text::before {
+      display: none;
+    }
+
+    .about-us__title-text::after {
+      content: '';
+      position: absolute;
+      background-color: #b23438;
+      left: 45px;
+      top: 196px;
+      width: 352px;
+      height: 23px;
+    }
+
+    .about-us__text {
+      font-size: 15px;
+      line-height: 20px;
+      max-width: 90%;
+    }
+
+    .logo {
+      right: 19px;
+      top: 538px;
+    }
   }
 </style>
