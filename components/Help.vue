@@ -46,7 +46,7 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #fff;
   }
 
   .help__title {
@@ -256,7 +256,7 @@ export default {
       height: 126px;
       width: 100%;
       margin: 0 auto auto;
-      background-color: white;
+      background-color: #fff;
     }
 
     .help__title {

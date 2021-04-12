@@ -246,7 +246,7 @@ export default {
 
     .results__crystal {
       display: block;
-      background-color: white;
+      background-color: #fff;
       background-image: url("~/assets/images/crystal.svg");
       background-position: center;
       background-repeat: repeat-x;

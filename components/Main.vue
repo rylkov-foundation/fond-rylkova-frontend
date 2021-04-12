@@ -109,7 +109,7 @@ export default {
 
   .main__number:active {
     border: 2px solid #000;
-    color: black;
+    color: #000;
     border-radius: 15%;
     padding: 0 7px 0 5px;
   }
