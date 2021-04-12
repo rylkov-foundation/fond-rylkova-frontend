@@ -249,7 +249,7 @@ export default {
   }
 
   .form__amount-options-button {
-    font-family: 'Tomorrow', 'Times New Roman', fantasy;
+    font-family: 'Tomorrow', 'Times', fantasy, serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
@@ -276,7 +276,7 @@ export default {
   }
 
   .form__money-sign {
-    font-family: 'DrukCyr', 'Times New Roman', serif;
+    font-family: 'DrukCyr', 'Times', serif;
     font-size: 82px;
     line-height: 77px;
     color: rgba(0, 0, 0, 0);

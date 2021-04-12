@@ -90,7 +90,7 @@ export default {
 
   .link {
     display: block;
-    font-family: 'Vollkorn', 'Times New Roman', serif;
+    font-family: 'Vollkorn', 'Times', serif;
     font-size: calc(0.037946429 * 100vw + 4.85714272px);
     line-height: calc(0.055803571 * 100vw + 2.14285728px);
     font-weight: bold;
@@ -118,7 +118,7 @@ export default {
   .help__telephone-number {
     padding: 5% 0;
     text-align: center;
-    font-family: Tomorrow, Times, fantasy;
+    font-family: Tomorrow, Times, fantasy, serif;
     font-size: calc(0.1563 * 100vw + 1px);
     line-height: calc(0.1116 * 100vw + 1.2857px);
     color: #fff;

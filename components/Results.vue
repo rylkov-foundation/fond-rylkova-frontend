@@ -160,7 +160,7 @@ export default {
   }
 
   .link {
-    font-family: 'Vollkorn', 'Times New Roman', serif;
+    font-family: 'Vollkorn', 'Times', serif;
     font-size: calc(0.037946429 * 100vw + 4.85714272px);
     line-height: calc(0.055803571 * 100vw + 2.14285728px);
     font-weight: bold;

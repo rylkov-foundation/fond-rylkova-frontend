@@ -92,7 +92,7 @@ export default {
   }
 
   .main__number {
-    font-family: 'Tomorrow', 'Times', fantasy;
+    font-family: 'Tomorrow', 'Times', fantasy, serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;

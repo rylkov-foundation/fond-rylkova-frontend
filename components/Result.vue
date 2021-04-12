@@ -56,7 +56,7 @@ export default {
   }
 
   .result__number {
-    font-family: Tomorrow, Times, fantasy;
+    font-family: Tomorrow, Times, fantasy, serif;
     font-size: 115px;
     line-height: 83px;
     color: #fff;

@@ -33,16 +33,14 @@ export default {
   .footer {
     display: flex;
     flex-direction: column;
-    font-family: Roboto, Arial, sans-serif;
     color: #727272;
-    font-size: 11px;
-    line-height: 14px;
     text-align: center;
     width: 100%;
   }
 
   .footer__title {
-    font-size: inherit;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 11px;
     text-transform: uppercase;
     line-height: 19px;
     font-weight: 400;
@@ -57,15 +55,24 @@ export default {
   }
 
   .footer__foreign-agent {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 14px;
     margin: 0 40px 15px 30px;
   }
 
   .footer__license {
     margin: 0 40px 21px 39px;
     text-align: left;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 14px;
   }
 
   .footer__license-link {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 14px;
     text-decoration: underline;
     color: inherit;
   }
@@ -75,6 +82,9 @@ export default {
   }
 
   .footer__copyright {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 14px;
     margin: 0 auto 26px;
   }
 
@@ -127,11 +137,6 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .footer {
-      font-size: 29px;
-      line-height: 37px;
-    }
-
     .footer__title {
       font-size: 29px;
       margin-top: 76px;
@@ -159,14 +164,25 @@ export default {
     }
 
     .footer__foreign-agent {
+      font-size: 29px;
+      line-height: 37px;
       margin: 0 40px 43px 34px;
     }
 
     .footer__license {
+      font-size: 29px;
+      line-height: 37px;
       margin: 0 40px 56px 72px;
     }
 
+    .footer__license-link {
+      font-size: 29px;
+      line-height: 37px;
+    }
+
     .footer__copyright {
+      font-size: 29px;
+      line-height: 37px;
       margin-bottom: 166px;
       position: relative;
       left: 9px;
@@ -175,8 +191,6 @@ export default {
 
   @media screen and (min-width: 1280px) {
     .footer {
-      font-size: 17px;
-      line-height: 19px;
       max-width: 1280px;
       margin-left: auto;
       margin-right: auto;
@@ -222,6 +236,8 @@ export default {
     }
 
     .footer__foreign-agent {
+      font-size: 17px;
+      line-height: 19px;
       order: 3;
       margin: 0 73px 0 0;
       max-width: 456px;
@@ -230,11 +246,18 @@ export default {
     }
 
     .footer__license {
+      font-size: 17px;
+      line-height: 19px;
       order: 1;
       margin: 0 0 0 108px;
       max-width: 422px;
       text-align: right;
       word-spacing: -3px;
+    }
+
+    .footer__license-link {
+      font-size: 17px;
+      line-height: 19px;
     }
 
     .footer__copyright {
