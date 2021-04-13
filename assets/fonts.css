@@ -75,3 +75,15 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Vollkorn';
+  src:
+    local('Vollkorn ExtraBold'),
+    local('Vollkorn-ExtraBold'),
+    url('~/assets/fonts/Vollkornextrabold.woff2') format('woff2'),
+    url('~/assets/fonts/Vollkornextrabold.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
