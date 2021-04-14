@@ -1,15 +1,32 @@
 <template>
   <section class="info">
     <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
-    <div class="info__container">
-      <h2 class="info__title">
-        Кто такой
-      </h2>
-      <h2 class="info__title-rylkov">
-        Андрей Рыльков
-      </h2>
+    <div class="info__wrapper">
+      <div class="info__container">
+        <p class="info__rylkov">
+          Рыльков
+        </p>
+        <p class="info__rylkov">
+          Андрей Рыльков
+        </p>
+        <h2 class="info__title">
+          Кто такой
+        </h2>
+        <h2 class="info__title-rylkov">
+          Андрей Рыльков
+        </h2>
+        <p class="info__rylkov">
+          Андрей Рыльков
+        </p>
+        <p class="info__rylkov">
+          Андрей Рыльков
+        </p>
+        <p class="info__rylkov">
+          Андрей
+        </p>
+      </div>
+      <img src="@/assets/images/Рыльков.png" alt="Рыльков" class="info__image">
     </div>
-    <img src="@/assets/images/Рыльков.png" alt="Рыльков" class="info__image">
     <div class="info__text-container">
       <p class="info__link-description">
         Прочитать еще про Ирокеза можно <a class="info__link" href="#">здесь>></a>
@@ -24,21 +41,23 @@
         наркотиков «Колодец», объединил практически всех активистов, работающих в области ВИЧ/СПИДа в движение
         ФронтЭЙДЗ, основной целью которого было обеспечение доступности лечения ВИЧ в России.
       </p>
-      <p class="info__video-description">
-        Предлагаем так же вашему внимание короткое видео о деятельности движения ФронтЭЙДЗ.
-      </p>
-      <p class="info__video-description">
-        Где-то на пятной минуте – говорит Андрей Рыльков.
-      </p>
-      <iframe
-        class="info__video"
-        src="https://www.youtube.com/embed/_y0q9kKJOZw"
-        title="YouTube"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      >
-        Ваш браузер не поддерживает плавающие фреймы
-      </iframe>
+      <div class="info__video-container">
+        <p class="info__video-description">
+          Предлагаем так же вашему внимание короткое видео о деятельности движения ФронтЭЙДЗ.
+        </p>
+        <p class="info__video-description">
+          Где-то на пятной минуте – говорит Андрей Рыльков.
+        </p>
+        <iframe
+          class="info__video"
+          src="https://www.youtube.com/embed/_y0q9kKJOZw"
+          title="YouTube"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+          Ваш браузер не поддерживает плавающие фреймы
+        </iframe>
+      </div>
       <p class="info__text">
         «Мы будем жить – это наша политика» – девиз ФронтЭЙДЗ, придавший силы в борьбе за доступ к лечению, медикаментам, жизни
         и достоинству для многих из нас. Андрей умер в октябре 2006 года, но для нас он всегда останется самым
@@ -63,6 +82,7 @@ export default {
     display: block;
     overflow: hidden;
     position: relative;
+    border-bottom: 1px solid #989898;
   }
 
   .info__container {
@@ -83,6 +103,10 @@ export default {
     text-align: left;
     margin: 0 10px 9px 0;
     letter-spacing: -3px;
+  }
+
+  .info__rylkov {
+    display: none;
   }
 
   .info__title-rylkov {
@@ -146,14 +170,19 @@ export default {
     word-break: break-all;
   }
 
-  .info__text-container p:nth-of-type(3n) {
-    margin: 49px 0 16px 0;
+  .info__video-container {
+    margin: 49px 0 0;
+  }
+
+  .info__video-container p:first-of-type {
+    margin: 0 0 16px;
   }
 
   .info__video {
     height: 205px;
     width: 100%;
     margin: 24px 0 10px 0;
+    border: none;
   }
 
   .logo {
@@ -161,5 +190,111 @@ export default {
     position: absolute;
     right: 7px;
     top: 626px;
+  }
+
+  @media screen and (min-width: 470px) {
+    .info__image {
+      object-fit: contain;
+      object-position: center;
+      background-color: #000;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .info__wrapper {
+      display: flex;
+      width: 100vw;
+    }
+
+    .info__rylkov {
+      display: block;
+      font-family: 'Vollkorn', Times, serif;
+      font-size: 41px;
+      line-height: 39px;
+      color: #b23438;
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+      max-width: 186px;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .info__image {
+      width: 453px;
+      height: 366px;
+      object-fit: cover;
+      object-position: right;
+    }
+
+    .info__container {
+      padding: 0;
+      position: relative;
+      width: 41%;
+      overflow: hidden;
+      top: -13px;
+    }
+
+    .info__title {
+      margin: 0;
+      position: absolute;
+      top: 60px;
+      right: 146px;
+    }
+
+    .info__title-rylkov {
+      margin: 0 -4px 0 0;
+    }
+
+    .info__text-container {
+      max-width: 93%;
+      margin: 5px auto 47px;
+    }
+
+    .info__text-container p:last-child {
+      margin-top: 10px;
+    }
+
+    .info__link-description {
+      max-width: 420px;
+      margin: 0 0 8px auto;
+    }
+
+    .info__text {
+      line-height: 20px;
+      font-size: 15px;
+    }
+
+    .info__video-description {
+      display: block;
+      font-family: Vollkorn, Times, serif;
+      font-weight: 600;
+      line-height: 14px;
+      font-size: 15px;
+      color: #b23438;
+      word-break: break-all;
+    }
+
+    .info__video-container {
+      margin: 12px 0 0 27px;
+      width: 345px;
+      float: right;
+    }
+
+    .info__video-container p:first-of-type {
+      margin: 0 0 22px;
+    }
+
+    .info__video {
+      height: 277px;
+      width: 345px;
+      margin: 2px 0 10px 0;
+    }
+
+    .logo {
+      top: 517px;
+    }
   }
 </style>
