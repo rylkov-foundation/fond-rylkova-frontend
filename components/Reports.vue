@@ -149,4 +149,53 @@ export default {
       width: 36%;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    .reports__container {
+      min-height: 261px;
+    }
+
+    .reports__title {
+      font-size: 75px;
+      line-height: 53px;
+      font-weight: 600;
+      width: 81%;
+      max-width: 603px;
+      margin: 36px 0 29px 20px;
+      word-break: normal;
+    }
+
+    .reports__title::before {
+      height: 17px;
+      width: 82%;
+      top: 44px;
+      left: 9px;
+    }
+
+    .reports__title::after {
+      height: 17px;
+      width: 95%;
+      top: 95px;
+      left: 6px;
+    }
+
+    .reports__line {
+      height: 17px;
+    }
+
+    .reports__line_number_tree {
+      top: 143px;
+      left: 9px;
+      width: 89%;
+    }
+
+    .reports__subtitle {
+      max-width: 40%;
+    }
+
+    .reports__image {
+      right: 8px;
+      top: 112px;
+    }
+  }
 </style>

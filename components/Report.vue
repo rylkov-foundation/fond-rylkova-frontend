@@ -8,7 +8,10 @@
       :alt="report.title"
       class="report__image"
     >
-    <div class="report__text-container">
+    <div
+      class="report__text-container"
+      :class="{ 'report__text-container_color_white': ($attrs.index+1)%2 === 0}"
+    >
       <h3
         class="report__title"
         :class="{ 'report__title_color_white': ($attrs.index+1)%2 === 0}"
@@ -110,5 +113,64 @@ export default {
 
   .report__text_color_white {
     color: #615858;
+  }
+
+  @media screen and (min-width: 768px) {
+    .report {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .report_color_white {
+      background-color: #fff;
+      border-bottom: 2px solid #b23438;
+    }
+
+    .report__image {
+      height: auto;
+      width: calc(100% / 2);
+    }
+
+    .report__text-container {
+      margin-bottom: 0;
+    }
+
+    .report__text-container_color_white {
+      order: -1;
+    }
+
+    .report__title {
+      margin: 21px 0 16px 21px;
+    }
+
+    .report__title_color_white {
+      text-align: right;
+      margin: 21px 21px 16px 0;
+    }
+
+    .report__date {
+      margin: 0 0 8px 24px;
+      padding-bottom: 10px;
+      color: #b3a2a3;
+    }
+
+    .report__date_color_white {
+      color: #000;
+      text-align: right;
+      margin: 0 24px 8px auto;
+      border-color: #b23438;
+    }
+
+    .report__text {
+      font-size: 15px;
+      line-height: 18px;
+      margin-left: 24px;
+    }
+
+    .report__text_color_white {
+      text-align: right;
+      margin-left: 0;
+      margin-right: 24px;
+    }
   }
 </style>
