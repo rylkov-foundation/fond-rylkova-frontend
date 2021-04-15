@@ -173,4 +173,39 @@ export default {
       margin-right: 24px;
     }
   }
+
+  @media screen and (min-width: 1087px) {
+    .report__title {
+      font-size: 34px;
+      line-height: 34px;
+      margin: 30px 0 20px 31px;
+    }
+
+    .report__title_color_white {
+      margin: 30px 31px 20px 0;
+    }
+
+    .report__date {
+      font-size: 23px;
+      line-height: 19px;
+      margin: 0 0 13px 33px;
+      padding-bottom: 15px;
+    }
+
+    .report__date_color_white {
+      margin: 0 33px 13px auto;
+    }
+
+    .report__text {
+      font-size: 22px;
+      line-height: 25px;
+      margin-left: 33px;
+    }
+
+    .report__text_color_white {
+      text-align: right;
+      margin-left: 0;
+      margin-right: 24px;
+    }
+  }
 </style>

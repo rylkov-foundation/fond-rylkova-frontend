@@ -1,5 +1,12 @@
 <template>
   <section class="reports">
+    <div class="reports__colour-container reports__colour-container_colour_black-top" />
+    <div class="reports__colour-container reports__colour-container_colour_grey-top" />
+    <div class="reports__colour-container reports__colour-container_colour_black-bottom">
+      <Drop :style="dropPosition" class="reports__drop" />
+    </div>
+    <div class="reports__colour-container reports__colour-container_colour_grey-bottom" />
+    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="reports__container">
       <h2 class="reports__title">
         Финансовые и содержательные годовые  отчеты
@@ -23,8 +30,13 @@
 </template>
 
 <script>
+import Drop from '@/components/Drop'
+
 export default {
   name: 'Reports',
+  components: {
+    Drop
+  },
   data () {
     return {
       reportsData: [
@@ -42,7 +54,13 @@ export default {
           date: 'Январь 16th, 2020',
           text: 'Мы собрали самые важные данные, которые отражают проделанную нами работу за 2018 год, и сделали красивую инфографику'
         }
-      ]
+      ],
+      dropPosition: {
+        position: 'absolute',
+        top: '420px',
+        left: '60px',
+        transform: 'translateX(-24px)'
+      }
     }
   }
 }
@@ -53,6 +71,10 @@ export default {
     overflow: hidden;
     position: relative;
     width: 100vw;
+  }
+
+  .logo {
+    display: none;
   }
 
   .reports__container {
@@ -132,6 +154,10 @@ export default {
     padding: 0;
   }
 
+  .reports__drop {
+    display: none;
+  }
+
   @media screen and (min-width: 354px) {
     .reports__line_number_four {
       width: 49%;
@@ -153,6 +179,14 @@ export default {
   @media screen and (min-width: 768px) {
     .reports__container {
       min-height: 261px;
+    }
+
+    .logo {
+      display: block;
+      width: 82px;
+      position: absolute;
+      right: 2px;
+      top: 353px;
     }
 
     .reports__title {
@@ -196,6 +230,113 @@ export default {
     .reports__image {
       right: 8px;
       top: 112px;
+    }
+  }
+
+  @media screen and (min-width: 1087px) {
+    .reports {
+      display: grid;
+      grid-template-columns: auto 1087px auto;
+      grid-template-areas:
+        "black-top title grey-top"
+        "grey-bottom list black-bottom";
+    }
+
+    .reports__colour-container {
+      width: calc((100vw - 1087px) / 2);
+      height: auto;
+    }
+
+    .reports__colour-container_colour_black-top {
+      grid-area: black-top;
+      background-color: #000;
+    }
+
+    .reports__colour-container_colour_grey-top {
+      grid-area: grey-top;
+      background-color: #c8c8c8;
+    }
+
+    .reports__colour-container_colour_black-bottom {
+      grid-area: black-bottom;
+      background-color: #000;
+      position: relative;
+    }
+
+    .reports__colour-container_colour_grey-bottom {
+      grid-area: grey-bottom;
+      background-color: #c8c8c8;
+    }
+
+    .reports__container {
+      grid-area: title;
+      min-height: 423px;
+    }
+
+    .reports__list {
+      grid-area: list;
+      padding-bottom: 100px;
+      border-bottom: 1px solid #737373;
+    }
+
+    .reports__title {
+      font-size: 106px;
+      line-height: 75px;
+      width: 869px;
+      max-width: 869px;
+      margin: 52px 0 41px 20px;
+    }
+
+    .reports__title::before {
+      height: 25px;
+      top: 60px;
+      left: 13px;
+    }
+
+    .reports__title::after {
+      height: 25px;
+      top: 130px;
+      left: 13px;
+    }
+
+    .reports__line {
+      height: 25px;
+    }
+
+    .reports__line_number_tree {
+      top: 201px;
+      left: 12px;
+      width: 87%;
+    }
+
+    .reports__subtitle {
+      max-width: 450px;
+      font-size: 22px;
+      line-height: 24px;
+    }
+
+    .reports__image {
+      right: 115px;
+      top: 164px;
+      width: 245px;
+      height: 245px;
+    }
+
+    .logo {
+      z-index: 13;
+      right: 17px;
+      width: 117px;
+      height: 86px;
+      top: 521px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .reports__drop {
+      display: block;
+      width: 36px;
+      height: 62px;
+      fill: #b23438;
     }
   }
 </style>
