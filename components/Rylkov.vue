@@ -1,5 +1,11 @@
 <template>
   <section class="info">
+    <div class="info__colour-container info__colour-container_colour_white" />
+    <div class="info__colour-container info__colour-container_colour_black" />
+    <div class="info__colour-container info__colour-container_colour_red" />
+    <div class="info__colour-container info__colour-container_colour_grey">
+      <Drop :style="dropPosition" class="info__drop" />
+    </div>
     <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="info__wrapper">
       <div class="info__container">
@@ -72,8 +78,23 @@
 </template>
 
 <script>
+import Drop from '@/components/Drop'
+
 export default {
-  name: 'Rylkov'
+  name: 'Rylkov',
+  components: {
+    Drop
+  },
+  data () {
+    return {
+      dropPosition: {
+        position: 'absolute',
+        top: '50%',
+        left: '60px',
+        transform: 'translateX(-24px)'
+      }
+    }
+  }
 }
 </script>
 
@@ -189,7 +210,11 @@ export default {
     width: 82px;
     position: absolute;
     right: 7px;
-    top: 626px;
+    top: 521px;
+  }
+
+  .info__drop {
+    display: none;
   }
 
   @media screen and (min-width: 470px) {
@@ -204,6 +229,8 @@ export default {
     .info__wrapper {
       display: flex;
       width: 100vw;
+      justify-content: center;
+      background-color: #b23438;
     }
 
     .info__rylkov {
@@ -234,7 +261,7 @@ export default {
       position: relative;
       width: 41%;
       overflow: hidden;
-      top: -13px;
+      margin-top: -13px;
     }
 
     .info__title {
@@ -267,16 +294,6 @@ export default {
       font-size: 15px;
     }
 
-    .info__video-description {
-      display: block;
-      font-family: Vollkorn, Times, serif;
-      font-weight: 600;
-      line-height: 14px;
-      font-size: 15px;
-      color: #b23438;
-      word-break: break-all;
-    }
-
     .info__video-container {
       margin: 12px 0 0 27px;
       width: 345px;
@@ -294,7 +311,142 @@ export default {
     }
 
     .logo {
-      top: 517px;
+      top: 333px;
+    }
+  }
+
+  @media screen and (min-width: 1087px) {
+    .info {
+      display: grid;
+      grid-template-columns: auto 1087px auto;
+      grid-template-areas:
+        "black title white"
+        "red text grey";
+    }
+
+    .info__wrapper {
+      width: 1087px;
+    }
+
+    .info__rylkov {
+      font-size: 59px;
+      line-height: 52px;
+      max-width: 266px;
+      text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+    }
+
+    .info__image {
+      width: 654px;
+      height: 523px;
+    }
+
+    .info__container {
+      margin-top: -13px;
+      width: 448px;
+      top: 0;
+    }
+
+    .info__title {
+      top: 81px;
+      right: 259px;
+      font-size: 67px;
+      line-height: 48px;
+    }
+
+    .info__title-rylkov {
+      font-size: 59px;
+      line-height: 55px;
+      max-width: 288px;
+    }
+
+    .info__text-container {
+      max-width: 94%;
+      margin: 5px auto 54px;
+    }
+
+    .info__text-container p:last-child {
+      margin-top: 17px;
+    }
+
+    .info__link-description {
+      max-width: 596px;
+      margin: 18px 0 12px auto;
+      line-height: 24px;
+      font-size: 22px;
+    }
+
+    .info__link {
+      line-height: 24px;
+      font-size: 22px;
+    }
+
+    .info__text {
+      line-height: 29px;
+      font-size: 22px;
+    }
+
+    .info__video-description {
+      line-height: 20px;
+      font-size: 22px;
+    }
+
+    .info__video-container {
+      margin: 21px 0 0 27px;
+      width: 494px;
+    }
+
+    .info__video-container p:first-of-type {
+      margin: 0 0 8px;
+    }
+
+    .info__video {
+      height: 396px;
+      width: 494px;
+      margin: 2px 0 10px 0;
+    }
+
+    .logo {
+      width: 116px;
+      right: 20px;
+      top: 542px;
+    }
+
+    .info__colour-container {
+      width: calc((100vw - 1087px) / 2);
+      height: auto;
+    }
+
+    .info__colour-container_colour_white {
+      grid-area: white;
+      background-color: #fff;
+    }
+
+    .info__colour-container_colour_grey {
+      grid-area: grey;
+      background-color: #cbcbcb;
+      position: relative;
+    }
+
+    .info__colour-container_colour_red {
+      grid-area: red;
+      background-color: #b23438;
+    }
+
+    .info__colour-container_colour_black {
+      grid-area: black;
+      background-color: #000;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .info__drop {
+      display: block;
+      width: 36px;
+      height: 62px;
     }
   }
 </style>
