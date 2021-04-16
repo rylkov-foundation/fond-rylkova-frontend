@@ -6,7 +6,11 @@
     <Main />
     <Container />
     <Footer />
-    <VPopup />
+    <div class="popup">
+      <PopupCookie />
+      <PopupAgent />
+      <PopupNews />
+    </div>
   </div>
 </template>
 
@@ -25,5 +29,14 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+  }
+
+  .popup {
+    position: fixed;
+    bottom: 50px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 </style>
