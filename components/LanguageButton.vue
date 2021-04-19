@@ -2,7 +2,7 @@
   <button
     type="button"
     class="button-language"
-    :class="isAdditionalPage && 'button-language_page_additional'"
+    :class="isAdditionalPage && 'button-language_page_additional' || isNotFoundPage && 'button-language_page_not-found'"
     @click="changeLanguage"
   >
     {{ languages[languageIndex] }}
@@ -14,6 +14,10 @@ export default {
   name: 'LanguageButton',
   props: {
     isAdditionalPage: {
+      type: Boolean,
+      default: () => false
+    },
+    isNotFoundPage: {
       type: Boolean,
       default: () => false
     }
@@ -67,6 +71,12 @@ export default {
   font-size: 21px;
 }
 
+.button-language_page_not-found {
+  left: 0;
+  width: 40px;
+  height: 40px;
+}
+
 .button-language:hover {
   opacity: 0.7;
   cursor: pointer;
@@ -85,6 +95,14 @@ export default {
   .button-language_page_additional {
     top: 636px;
     left: 20px;
+    z-index: 1;
+  }
+
+  .button-language_page_not-found {
+    top: 636px;
+    left: 17px;
+    width: 55px;
+    height: 55px;
     z-index: 1;
   }
 }
