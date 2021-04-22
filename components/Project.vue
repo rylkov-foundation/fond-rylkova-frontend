@@ -1,21 +1,36 @@
 <template>
   <li
     class="project"
-    :class="{ 'project_color_white': ($attrs.index+1)%2 === 0}"
+    :class="{ 'project_position_even': ($attrs.index+1)%2 === 0}"
   >
-    <h3 class="project__title">
+    <h3
+      class="project__title"
+      :class="{ 'project__title_position_even': ($attrs.index+1)%2 === 0}"
+    >
       {{ project.title }}
     </h3>
-    <p class="project__date">
-      {{ project.date }}
-    </p>
-    <p class="project__description">
-      {{ project.text }}
-    </p>
+    <div
+      class="project__text-container"
+      :class="{ 'project__text-container_position_even': ($attrs.index+1)%2 === 0}"
+    >
+      <p
+        class="project__date"
+        :class="{ 'project__date_position_even': ($attrs.index+1)%2 === 0}"
+      >
+        {{ project.date }}
+      </p>
+      <p
+        class="project__description"
+        :class="{ 'project__description_position_even': ($attrs.index+1)%2 === 0}"
+      >
+        {{ project.text }}
+      </p>
+    </div>
     <img
       :src="require(`../assets/images/${project.imageLink}`)"
       :alt="project.name"
       class="project__photo"
+      :class="{ 'project__photo_position_even': ($attrs.index+1)%2 === 0}"
     >
   </li>
 </template>
@@ -39,7 +54,7 @@ export default {
     background-color: #c8c8c8;
   }
 
-  .project_color_white {
+  .project_position_even {
     background-color: #fff;
   }
 
@@ -101,6 +116,69 @@ export default {
     .project__photo {
       width: 292px;
       margin: 10px 0 46px 46px;
+    }
+  }
+
+  @media screen and (min-width: 1087px) {
+    .project {
+      flex-direction: row;
+    }
+
+    .project__text-container {
+      margin: 42px 0 0 53px;
+    }
+
+    .project__text-container_position_even {
+      order: -1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin: 42px 53px 0 0;
+    }
+
+    .project__title {
+      font-size: 40px;
+      line-height: 39px;
+      margin: 43px 0 35px 0;
+      text-align: right;
+    }
+
+    .project__title_position_even {
+      text-align: left;
+    }
+
+    .project__date {
+      font-size: 23px;
+      line-height: 19px;
+      margin: 0 0 5px 0;
+      border-bottom: 2px solid #fff;
+      width: max-content;
+      padding-bottom: 10px;
+    }
+
+    .project__date_position_even {
+      border-color: #c7c7c7;
+    }
+
+    .project__description {
+      font-size: 22px;
+      line-height: 29px;
+      margin: 0;
+    }
+
+    .project__description_position_even {
+      text-align: right;
+    }
+
+    .project__photo {
+      order: -1;
+      width: 183px;
+      margin: 42px 0 40px 30px;
+    }
+
+    .project__photo_position_even {
+      order: 5;
+      margin: 0;
     }
   }
 </style>

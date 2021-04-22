@@ -72,4 +72,10 @@ export default {
   }
 }
 
+@media screen and (min-width: 1087px) {
+  .support {
+    display: none;
+  }
+}
+
 </style>

@@ -1,14 +1,22 @@
 <template>
   <section class="projects">
-    <Drop :style="dropPosition" class="projects__drop" />
+    <div class="projects__colour-container projects__colour-container_colour_black-top" />
+    <div class="projects__colour-container projects__colour-container_colour_white" />
+    <div class="projects__colour-container projects__colour-container_colour_red" />
+    <div class="projects__colour-container projects__colour-container_colour_black-bottom">
+      <Drop :style="dropPosition" class="projects__drop" />
+    </div>
     <Support />
+    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="projects__container">
-      <h2 class="projects__title">
-        Текущие проекты
-      </h2>
-      <p class="projects__subtitle">
-        В данном разделе  представлена информация  о реализующихся  в настоящее время проектах фонда
-      </p>
+      <div class="projects__title-container">
+        <h2 class="projects__title">
+          Текущие проекты
+        </h2>
+        <p class="projects__subtitle">
+          В данном разделе  представлена информация  о реализующихся  в настоящее время проектах фонда
+        </p>
+      </div>
       <div class="projects__background" />
     </div>
     <ul class="projects__list">
@@ -67,6 +75,10 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.logo {
+  display: none;
 }
 
 .projects__container {
@@ -170,6 +182,105 @@ export default {
     height: 340px;
     width: 750px;
     margin: 0 0 5px 1px;
+  }
+}
+
+@media screen and (min-width: 1087px) {
+  .projects {
+    display: grid;
+    grid-template-columns: auto 1087px auto;
+    grid-template-areas:
+      "black-top title white"
+      "red list black-bottom";
+  }
+
+  .projects__colour-container {
+    width: calc((100vw - 1087px) / 2);
+    height: auto;
+  }
+
+  .projects__colour-container_colour_black-top {
+    grid-area: black-top;
+    background-color: #000;
+  }
+
+  .projects__colour-container_colour_white {
+    grid-area: white;
+    background-color: #fff;
+  }
+
+  .projects__colour-container_colour_black-bottom {
+    grid-area: black-bottom;
+    background-color: #000;
+    position: relative;
+  }
+
+  .projects__colour-container_colour_red {
+    grid-area: red;
+    background-color: #b23438;
+  }
+
+  .projects__container {
+    grid-area: title;
+    display: flex;
+    max-height: 370px;
+  }
+
+  .projects__title {
+    font-size: 107px;
+    line-height: 75px;
+    margin: 57px 0 38px 21px;
+    letter-spacing: -5px;
+    max-width: 410px;
+  }
+
+  .projects__title::before {
+    top: 55px;
+    left: 11px;
+    height: 24px;
+    width: 366px;
+  }
+
+  .projects__title::after {
+    top: 132px;
+    left: 12px;
+    height: 24px;
+    width: 388px;
+  }
+
+  .projects__subtitle {
+    font-size: 22px;
+    line-height: 24px;
+    margin: 0 0 18px 33px;
+    max-width: 60%;
+  }
+
+  .projects__background {
+    background-image: url("./assets/images/project-back3.png");
+    background-size: unset;
+    height: 340px;
+    width: 928px;
+    margin: 30px 29px 0 0;
+    z-index: 10;
+  }
+
+  .logo {
+    display: block;
+    position: absolute;
+    z-index: 13;
+    right: 36px;
+    width: 117px;
+    height: 86px;
+    top: 426px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .projects__drop {
+    display: block;
+    width: 36px;
+    height: 62px;
+    fill: #fff;
   }
 }
 </style>
