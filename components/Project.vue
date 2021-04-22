@@ -68,7 +68,7 @@ export default {
     font-size: 14px;
     line-height: 16px;
     font-weight: 400;
-    color: #000;
+    color: #514747;
     max-width: 88%;
     margin: 0 0 0 17px;
   }
@@ -77,5 +77,30 @@ export default {
     object-fit: contain;
     width: 142px;
     margin: 9px 0 28px 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .project__title {
+      font-size: 46px;
+      line-height: 48px;
+      margin: 60px 0 24px 49px;
+    }
+
+    .project__date {
+      font-size: 38px;
+      line-height: 27px;
+      margin: 0 0 27px 47px;
+    }
+
+    .project__description {
+      font-size: 32px;
+      line-height: 34px;
+      margin: 0 0 0 47px;
+    }
+
+    .project__photo {
+      width: 292px;
+      margin: 10px 0 46px 46px;
+    }
   }
 </style>

@@ -126,9 +126,50 @@ export default {
 .projects__list {
   padding: 0;
   list-style: none;
+  border-bottom: 3px solid #c7c7c7;
 }
 
 .projects__drop {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .projects__title {
+    font-size: 160px;
+    line-height: 140px;
+    margin: 38px 0 72px 41px;
+    letter-spacing: -12px;
+    max-width: 584px;
+  }
+
+  .projects__title::before {
+    top: 102px;
+    left: 19px;
+    height: 35px;
+    width: 557px;
+  }
+
+  .projects__title::after {
+    top: 214px;
+    left: 17px;
+    height: 35px;
+    width: 556px;
+  }
+
+  .projects__subtitle {
+    font-size: 38px;
+    line-height: 36px;
+    font-style: normal;
+    margin: 0 0 18px 55px;
+    max-width: 74%;
+  }
+
+  .projects__background {
+    background-image: url("./assets/images/project-back2.png");
+    background-size: contain;
+    height: 340px;
+    width: 750px;
+    margin: 0 0 5px 1px;
+  }
 }
 </style>
