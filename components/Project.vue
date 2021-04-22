@@ -125,7 +125,7 @@ export default {
     }
 
     .project__text-container {
-      margin: 42px 0 0 53px;
+      margin: 42px 0 40px 53px;
     }
 
     .project__text-container_position_even {
@@ -133,7 +133,7 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      margin: 42px 53px 0 0;
+      margin: 42px 53px 40px 0;
     }
 
     .project__title {
