@@ -131,4 +131,56 @@ export default {
     min-width: 105px;
     height: 25px;
   }
+
+  @media screen and (min-width: 768px) {
+    .email-form {
+      max-width: 85%;
+    }
+
+    .email-form__theme {
+      font-size: 47px;
+      line-height: 17px;
+      padding-left: 25px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
+
+    .email-form__input {
+      height: 41px;
+      width: 478px;
+      font-size: 35px;
+      line-height: 35px;
+    }
+
+    .email-form__textarea {
+      height: 220px;
+      font-size: 38px;
+      line-height: 48px;
+      padding: 17px 0 0 20px;
+      margin-bottom: 12px;
+    }
+
+    .email-form__label {
+      font-size: 31px;
+      line-height: 16px;
+      padding-left: 29px;
+      margin-bottom: 12px;
+    }
+
+    .email-form__container {
+      margin: 24px 0 39px 0;
+    }
+
+    .email-form__arrows {
+      font-size: 52px;
+      line-height: 15px;
+    }
+
+    .email-form__submit-button {
+      font-size: 31px;
+      line-height: 33px;
+      min-width: 245px;
+      height: 65px;
+    }
+  }
 </style>

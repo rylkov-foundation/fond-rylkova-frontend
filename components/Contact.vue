@@ -90,4 +90,34 @@ export default {
   .contact__telephone-number_number_three {
     background-color: #000;
   }
+
+  @media screen and (min-width: 768px) {
+    .contact {
+      margin: 0 49px 15px 0;
+    }
+
+    .contact__image {
+      width: 250px;
+    }
+
+    .contact__name {
+      font-size: 47px;
+      line-height: 40px;
+      margin-top: -104px;
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+
+    .contact__description {
+      font-size: 30px;
+      line-height: 45px;
+    }
+
+    .contact__telephone-number {
+      font-size: 32px;
+      line-height: 24px;
+      width: 276px;
+      height: 62px;
+    }
+  }
   </style>

@@ -204,4 +204,69 @@ export default {
   border-bottom: 2px solid #c7c7c7;
   padding-bottom: 27px;
 }
+
+@media screen and (min-width: 768px) {
+  .contacts__title {
+    font-size: 220px;
+    line-height: 122px;
+    margin: 88px 0 41px 43px;
+    max-width: 89%;
+  }
+
+  .contacts__title::before {
+    top: 78px;
+    left: 9px;
+    width: 574px;
+    height: 38px;
+  }
+
+  .contacts__title::after {
+    bottom: 7px;
+    width: 415px;
+    height: 38px;
+  }
+
+  .contacts__text {
+    font-family: Vollkorn, Times, serif;
+    font-size: 36px;
+    line-height: 32px;
+    font-style: normal;
+    margin: 51px auto 0;
+    max-width: 85%;
+  }
+
+  .contacts__telephone-block {
+    width: 84%;
+    margin: 5px auto 0;
+  }
+
+  .contacts__telephone-number {
+    font-size: 95px;
+    line-height: 69px;
+  }
+
+  .contacts__email-block {
+    width: 84%;
+  }
+
+  .contacts__email {
+    font-size: 32px;
+    line-height: 59px;
+    padding: 6% 0;
+  }
+
+  .contacts__list {
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: center;
+    margin: 48px 0 69px;
+  }
+
+  .contacts__info {
+    font-size: 33px;
+    line-height: 34px;
+    border-bottom: none;
+  }
+}
 </style>
