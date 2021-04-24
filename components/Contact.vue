@@ -1,0 +1,93 @@
+<template>
+  <li class="contact">
+    <img
+      class="contact__image"
+      :src="require(`../assets/images/${contact.imageLink}`)"
+      :alt="contact.name"
+    >
+    <h3 class="contact__name">
+      {{ contact.name }}
+    </h3>
+    <p class="contact__description">
+      {{ contact.position }}
+    </p>
+    <a
+      class="contact__telephone-number"
+      :class="{ 'contact__telephone-number_number_two': ($attrs.index+1)%2 === 0,
+                'contact__telephone-number_number_three': ($attrs.index+1)%3 === 0}"
+      :href="'tel:'+contact.telephone"
+    >{{ contact.telephone }}
+    </a>
+  </li>
+</template>
+
+<script>
+export default {
+  name: 'Contact',
+  props: {
+    contact: {
+      type: Object,
+      default: () => {}
+    }
+  }
+}
+</script>
+
+<style scoped>
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 15px;
+  }
+
+  .contact__image {
+    border-radius: 50%;
+    width: 125px;
+  }
+
+  .contact__name {
+    color: #b23438;
+    font-family: Vollkorn, Times, serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 20px;
+    width: min-content;
+    text-align: center;
+    margin-top: -53px;
+    border-bottom: 3px solid #c7c7c7;
+    background: linear-gradient(to top, #fff 50%, transparent);
+    padding-top: 20px;
+  }
+
+  .contact__description {
+    color: #000;
+    font-family: Vollkorn, Times, serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  .contact__telephone-number {
+    background-color: #b23438;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    font-family: Vollkorn, Times, serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 12px;
+    width: 139px;
+    height: 30px;
+    text-align: center;
+    padding-top: 5%;
+  }
+
+  .contact__telephone-number_number_two {
+    background-color: #7f7f7f;
+  }
+
+  .contact__telephone-number_number_three {
+    background-color: #000;
+  }
+  </style>
