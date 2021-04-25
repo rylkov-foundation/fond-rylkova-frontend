@@ -55,7 +55,8 @@ export default {
     border: 1px solid #838383;
     outline: none;
     border-radius: 10px;
-    width: 204px;
+    min-width: 204px;
+    width: 64%;
     font-family: Vollkorn, Times, serif;
     font-size: 15px;
     line-height: 15px;
@@ -132,6 +133,11 @@ export default {
     height: 25px;
   }
 
+  .email-form__submit-button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 768px) {
     .email-form {
       max-width: 85%;
@@ -181,6 +187,61 @@ export default {
       line-height: 33px;
       min-width: 245px;
       height: 65px;
+    }
+  }
+
+  @media screen and (min-width: 1098px) {
+    .email-form {
+      width: 485px;
+    }
+
+    .email-form__theme {
+      font-size: 36px;
+      line-height: 17px;
+      padding-left: 0;
+      align-items: flex-end;
+      margin: 0 0 14px -27px;
+    }
+
+    .email-form__input {
+      height: 32px;
+      width: 375px;
+      font-size: 30px;
+      line-height: 30px;
+    }
+
+    .email-form__textarea {
+      height: 190px;
+      width: 463px;
+      font-size: 30px;
+      line-height: 37px;
+      padding: 13px 0 0 12px;
+      margin-bottom: 12px;
+    }
+
+    .email-form__label {
+      font-size: 24px;
+      line-height: 8px;
+      padding-left: 0;
+      margin-bottom: 12px;
+      max-width: 462px;
+    }
+
+    .email-form__container {
+      margin: 24px 0 39px 0;
+      width: 497px;
+    }
+
+    .email-form__arrows {
+      font-size: 48px;
+      line-height: 14px;
+    }
+
+    .email-form__submit-button {
+      font-size: 24px;
+      line-height: 26px;
+      min-width: 187px;
+      height: 49px;
     }
   }
 </style>

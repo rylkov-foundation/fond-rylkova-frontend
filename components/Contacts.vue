@@ -1,48 +1,64 @@
 <template>
   <section class="contacts">
     <Support />
-    <div class="contacts__container">
-      <h2 class="contacts__title">
-        Контакты
-      </h2>
-      <EmailForm class="contacts__form" />
+    <div class="contacts__colour-container contacts__colour-container_colour_black" />
+    <div class="contacts__colour-container contacts__colour-container_colour_white" />
+    <div class="contacts__colour-container contacts__colour-container_colour_grey" />
+    <div class="contacts__colour-container contacts__colour-container_colour_red">
+      <Drop :style="dropPosition" class="contacts__drop" />
     </div>
-    <div class="contacts__black-container">
-      <p class="contacts__text">
-        Если вы уптребляете наркотики  и Вам нужна помощь по вопросам защиты прав, консультации психолога,
-        профилактические материалы и тд, тел:
+    <div class="contacts__grid-title-container">
+      <div class="contacts__container">
+        <h2 class="contacts__title">
+          Контакты
+        </h2>
+        <EmailForm class="contacts__form" />
+      </div>
+      <div class="contacts__black-container">
+        <div class="contacts__image" />
+        <p class="contacts__text">
+          Если вы уптребляете наркотики  и Вам нужна помощь по вопросам защиты прав, консультации психолога,
+          профилактические материалы и тд, тел:
+        </p>
+        <div class="contacts__telephone-block">
+          <a class="contacts__telephone-number" href="tel:+79268879087">+7-(926)-887-90-87</a>
+        </div>
+        <div class="contacts__email-block">
+          <a class="contacts__email" href="mailto:rylkov.foundation@gmail.com" target="_blank">
+            rylkov.foundation@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="contacts__grid-list-container">
+      <ul class="contacts__list">
+        <Contact
+          v-for="(contact,index) in contactData"
+          :key="contact.id"
+          :contact="contact"
+          :index="index"
+        />
+      </ul>
+      <p class="contacts__info">
+        Фонд содействия защите здоровья  и социальной справедливости им.
+        Андрея Рылькова  зарегистрировался совсем недавно, по меркам более чем 20-летней
+        истории существования ВИЧ-инфекции в Российской Федерации, существования СПИД-сервисных организаций.
+        Зарегистрировался в то время, когда многие организации стали сворачивать свою деятельность, а более
+        предприимчивые – менять цели и задачи своей работы. Сейчас ведь модно говорить о здоровом образе жизни,
+        бороться с курением, алкоголизмом, да мало ли на что еще государство дает деньги
       </p>
-      <div class="contacts__telephone-block">
-        <a class="contacts__telephone-number" href="tel:+79268879087">+7-(926)-887-90-87</a>
-      </div>
-      <div class="contacts__email-block">
-        <a class="contacts__email" href="mailto:rylkov.foundation@gmail.com" target="_blank">
-          rylkov.foundation@gmail.com
-        </a>
-      </div>
     </div>
-    <ul class="contacts__list">
-      <Contact
-        v-for="(contact,index) in contactData"
-        :key="contact.id"
-        :contact="contact"
-        :index="index"
-      />
-    </ul>
-    <p class="contacts__info">
-      Фонд содействия защите здоровья  и социальной справедливости им.
-      Андрея Рылькова  зарегистрировался совсем недавно, по меркам более чем 20-летней
-      истории существования ВИЧ-инфекции в Российской Федерации, существования СПИД-сервисных организаций.
-      Зарегистрировался в то время, когда многие организации стали сворачивать свою деятельность, а более
-      предприимчивые – менять цели и задачи своей работы. Сейчас ведь модно говорить о здоровом образе жизни,
-      бороться с курением, алкоголизмом, да мало ли на что еще государство дает деньги
-    </p>
   </section>
 </template>
 
 <script>
+import Drop from '@/components/Drop'
+
 export default {
   name: 'Contacts',
+  components: {
+    Drop
+  },
   data () {
     return {
       contactData: [
@@ -67,7 +83,13 @@ export default {
           position: 'Директорзаведения',
           telephone: '+79060741192'
         }
-      ]
+      ],
+      dropPosition: {
+        position: 'absolute',
+        top: '50%',
+        left: '60px',
+        transform: 'translateX(-24px)'
+      }
     }
   }
 }
@@ -77,6 +99,10 @@ export default {
 .contacts {
   display: flex;
   flex-direction: column;
+}
+
+.contacts__grid-title-container {
+  background-color: #cbcbcb;
 }
 
 .contacts__container {
@@ -91,7 +117,7 @@ export default {
   word-break: break-all;
   color: #fff;
   margin: 26px 0 23px 8px;
-  max-width: 89%;
+  max-width: 285px;
   position: relative;
 }
 
@@ -123,6 +149,11 @@ export default {
   background-color: #000;
   display: flex;
   flex-direction: column;
+}
+
+.contacts__image {
+  display: none;
+  position: absolute;
 }
 
 .contacts__text {
@@ -205,6 +236,24 @@ export default {
   padding-bottom: 27px;
 }
 
+.contacts__drop {
+  display: none;
+}
+
+@media screen and (min-width: 540px) {
+  .contacts__title {
+    max-width: unset;
+  }
+
+  .contacts__title::before {
+    width: 457px;
+  }
+
+  .contacts__title::after {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .contacts__title {
     font-size: 220px;
@@ -214,14 +263,15 @@ export default {
   }
 
   .contacts__title::before {
-    top: 78px;
+    top: 86px;
     left: 9px;
-    width: 574px;
+    width: 89%;
     height: 38px;
   }
 
   .contacts__title::after {
-    bottom: 7px;
+    display: block;
+    bottom: 0;
     width: 415px;
     height: 38px;
   }
@@ -267,6 +317,161 @@ export default {
     font-size: 33px;
     line-height: 34px;
     border-bottom: none;
+  }
+}
+
+@media screen and (min-width: 824px) {
+  .contacts__title::after {
+    width: 280px;
+  }
+}
+
+@media screen and (min-width: 1014px) {
+  .contacts__title::after {
+    width: 110px;
+  }
+}
+
+@media screen and (min-width: 1098px) {
+  .contacts {
+    display: grid;
+    grid-template-columns: auto 1098px auto;
+    grid-template-areas:
+      "black title white"
+      "grey list red";
+    border-bottom: 1px solid #737373;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .contacts__colour-container {
+    width: calc((100vw - 1098px) / 2);
+    height: auto;
+  }
+
+  .contacts__colour-container_colour_black {
+    grid-area: black;
+    background-color: #000;
+  }
+
+  .contacts__colour-container_colour_white {
+    grid-area: white;
+    background-color: #fff;
+  }
+
+  .contacts__colour-container_colour_grey {
+    grid-area: grey;
+    background-color: #cbcbcb;
+  }
+
+  .contacts__colour-container_colour_red {
+    grid-area: red;
+    background-color: #b23438;
+    position: relative;
+  }
+
+  .contacts__grid-title-container {
+    grid-area: title;
+    display: flex;
+  }
+
+  .contacts__grid-list-container {
+    grid-area: list;
+  }
+
+  .contacts__container {
+    width: 572px;
+  }
+
+  .contacts__title {
+    font-size: 175px;
+    line-height: 104px;
+    margin: 55px 0 23px -527px;
+    max-width: 894px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .contacts__title::before {
+    top: 80px;
+    left: 0;
+    width: 782px;
+    height: 40px;
+  }
+
+  .contacts__title::after {
+    display: none;
+  }
+
+  .contacts__form {
+    margin: 57px auto 0 auto;
+  }
+
+  .contacts__black-container {
+    order: -1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 525px;
+    position: relative;
+  }
+
+  .contacts__image {
+    background-image: url("./assets/images/road-add.png");
+    background-size: cover;
+    display: block;
+    width: 346px;
+    height: 262px;
+    top: 194px;
+    left: -138px;
+  }
+
+  .contacts__text {
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0 26px 134px 0;
+    max-width: 305px;
+  }
+
+  .contacts__telephone-block {
+    width: 100%;
+    margin: 15px auto 0;
+    z-index: 1;
+  }
+
+  .contacts__telephone-number {
+    font-size: 75px;
+    line-height: 54px;
+  }
+
+  .contacts__email-block {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .contacts__email {
+    font-size: 25px;
+    line-height: 46px;
+  }
+
+  .contacts__list {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 34px 0 21px;
+  }
+
+  .contacts__info {
+    font-size: 22px;
+    line-height: 29px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .contacts__drop {
+    display: block;
+    width: 36px;
+    height: 62px;
+    fill: #fff;
   }
 }
 </style>

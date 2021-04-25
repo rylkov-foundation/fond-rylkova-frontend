@@ -83,6 +83,11 @@ export default {
     padding-top: 5%;
   }
 
+  .contact__telephone-number:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
   .contact__telephone-number_number_two {
     background-color: #7f7f7f;
   }
@@ -120,4 +125,34 @@ export default {
       height: 62px;
     }
   }
-  </style>
+
+  @media screen and (min-width: 1098px) {
+    .contact {
+      margin: 0 43px 15px 0;
+    }
+
+    .contact__image {
+      width: 171px;
+    }
+
+    .contact__name {
+      font-size: 33px;
+      line-height: 31px;
+      margin-top: -75px;
+      padding-top: 20px;
+      padding-bottom: 0;
+    }
+
+    .contact__description {
+      font-size: 22px;
+      line-height: 25px;
+    }
+
+    .contact__telephone-number {
+      font-size: 22px;
+      line-height: 16px;
+      width: 186px;
+      height: 39px;
+    }
+  }
+</style>
