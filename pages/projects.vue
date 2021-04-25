@@ -22,5 +22,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 </style>
