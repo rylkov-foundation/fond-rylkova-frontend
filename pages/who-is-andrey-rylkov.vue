@@ -1,6 +1,6 @@
 <template>
   <div class="rylkov">
-    <MainHeader class="rylkov__header" />
+    <MainHeader />
     <LanguageButton :is-additional-page="true" />
     <Menu />
     <Rylkov />
@@ -23,15 +23,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   position: relative;
-}
-
-.rylkov__header {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .rylkov__header {
-    display: block;
-  }
+  max-width: 100%;
+  overflow: hidden;
 }
 </style>
