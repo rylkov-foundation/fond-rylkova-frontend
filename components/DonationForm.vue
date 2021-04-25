@@ -107,7 +107,6 @@ export default {
 }
 
 .form {
-  margin: 30px auto 0;
   width: fit-content;
 }
 
@@ -338,10 +337,6 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-  .form {
-    margin: 12px auto 0;
-  }
-
   .switch {
     left: -6px;
     top: 21px;
@@ -468,10 +463,6 @@ export default {
 }
 
 @media screen and (min-width: 1280px) {
-  .form {
-    margin-top: 0;
-  }
-
   .form__slider-container {
     position: relative;
     top: -19px;
