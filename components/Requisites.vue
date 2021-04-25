@@ -116,4 +116,39 @@ export default {
   color: #000;
   text-transform: none;
 }
+
+@media screen and (min-width: 768px) {
+  .requisites {
+    max-width: 663px;
+    padding: 25px 0 10px 38px;
+  }
+
+  .requisites__organization {
+    font-size: 25px;
+    line-height: 26px;
+  }
+
+  .requisites__organization:last-of-type {
+    margin: 35px 0 28px;
+  }
+
+  .requisites__title {
+    font-size: 43px;
+    line-height: 43px;
+  }
+
+  .requisites__container {
+    margin: 45px 0 83px 0;
+  }
+
+  .requisites__name {
+    font-size: 25px;
+    line-height: 26px;
+  }
+
+  .requisites__detail {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
 </style>

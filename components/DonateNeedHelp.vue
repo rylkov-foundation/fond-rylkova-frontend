@@ -23,10 +23,6 @@ export default {
 </script>
 
 <style scoped>
-.donate-need-help {
-  display: block;
-}
-
 .donate-need-help__title {
   text-transform: uppercase;
   color: #b23438;
@@ -61,5 +57,29 @@ export default {
 .donate-need-help__qr {
   width: 100px;
   height: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .donate-need-help__title {
+    font-size: 54px;
+    line-height: 68px;
+  }
+
+  .donate-need-help__text {
+    font-size: 33px;
+    line-height: 34px;
+    margin-bottom: 54px;
+    color: #353535;
+  }
+
+  .donate-need-help__wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .donate-need-help__qr {
+    width: 225px;
+    height: 225px;
+  }
 }
 </style>

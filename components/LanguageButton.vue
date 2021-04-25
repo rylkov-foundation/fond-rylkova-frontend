@@ -62,12 +62,10 @@ export default {
 }
 
 .button-language_page_additional {
-  top: 0;
+  top: 4px;
   left: 5px;
-  background-color: #fff;
-  color: #000;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   font-size: 21px;
 }
 

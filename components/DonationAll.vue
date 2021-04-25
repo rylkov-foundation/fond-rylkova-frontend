@@ -1,5 +1,6 @@
 <template>
   <section class="donation-page">
+    <Support />
     <div class="donation-page__container">
       <Smile class="donation-page__image" />
       <h2 class="donation-page__title">
@@ -111,5 +112,54 @@ export default {
     align-items: center;
     background-color: #b23438;
     padding-bottom: 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .donation-page__title {
+      font-size: 91px;
+      line-height: 62px;
+      margin: 0 0 0 47px;
+      padding-top: 54px;
+      word-break: break-word;
+      letter-spacing: -3px;
+      max-width: 94%;
+    }
+
+    .donation-page__image {
+      top: -131px;
+      right: -41px;
+      width: 270px;
+      height: 250px;
+    }
+
+    .donation-page__form {
+      margin: 9px auto 0;
+    }
+
+    .donation-page__privacy-policy {
+      font-size: 22px;
+      line-height: 39px;
+    }
+
+    .donation-page__how-to-donate {
+      font-size: 36px;
+      line-height: 36px;
+      font-style: normal;
+      padding: 43px 46px 18px 49px;
+    }
+
+    .donation-page__container-donations {
+      margin: 44px auto 0;
+    }
+
+    .donation-page__requisites-title {
+      font-size: 113px;
+      line-height: 127px;
+      padding-top: 0;
+    }
+
+    .donation-page__container-requisites {
+      padding-bottom: 50px;
+    }
   }
 </style>

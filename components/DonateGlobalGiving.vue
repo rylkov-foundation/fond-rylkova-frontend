@@ -75,4 +75,36 @@ export default {
   bottom: -37px;
   filter: invert(100%);
 }
+
+@media screen and (min-width: 768px) {
+  .donate-global-giving__fire {
+    position: absolute;
+    left: 45%;
+    top: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 130px;
+    width: 90px;
+  }
+
+  .donate-global-giving__title {
+    font-size: 54px;
+    line-height: 56px;
+    padding-top: 135px;
+  }
+
+  .donate-global-giving__text {
+    font-size: 33px;
+    line-height: 34px;
+    max-width: 85%;
+    margin: 38px auto 0;
+  }
+
+  .donate-global-giving__smile {
+    width: 600px;
+    height: 600px;
+    right: -232px;
+    bottom: -37px;
+  }
+}
 </style>

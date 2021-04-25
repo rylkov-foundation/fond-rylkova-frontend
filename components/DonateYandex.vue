@@ -42,4 +42,19 @@ export default {
   font-style: normal;
   margin-bottom: 16px;
 }
+
+@media screen and (min-width: 768px) {
+  .donate-yandex__title {
+    font-size: 54px;
+    line-height: 55px;
+    margin-bottom: 25px;
+  }
+
+  .donate-yandex__text {
+    font-size: 33px;
+    line-height: 35px;
+    margin-bottom: 49px;
+    color: #353535;
+  }
+}
 </style>
