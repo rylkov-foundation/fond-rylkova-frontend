@@ -57,4 +57,19 @@ export default {
     color: #353535;
   }
 }
+
+@media screen and (min-width: 1100px) {
+  .donate-yandex__title {
+    font-size: 39px;
+    line-height: 61px;
+    margin-bottom: 2px;
+    text-align: left;
+  }
+
+  .donate-yandex__text {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 27px;
+  }
+}
 </style>

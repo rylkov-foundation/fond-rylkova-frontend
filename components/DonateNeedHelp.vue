@@ -82,4 +82,31 @@ export default {
     height: 225px;
   }
 }
+
+@media screen and (min-width: 1100px) {
+  .donate-need-help__title {
+    font-size: 37px;
+    line-height: 49px;
+    margin-top: -11px;
+  }
+
+  .donate-need-help__text {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0;
+    width: 254px;
+  }
+
+  .donate-need-help__wrapper {
+    width: 245px;
+    height: 245px;
+    margin-right: -54px;
+    z-index: 1;
+  }
+
+  .donate-need-help__qr {
+    width: 195px;
+    height: 195px;
+  }
+}
 </style>

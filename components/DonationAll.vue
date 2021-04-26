@@ -1,37 +1,65 @@
 <template>
   <section class="donation-page">
     <Support />
-    <div class="donation-page__container">
-      <Smile class="donation-page__image" />
-      <h2 class="donation-page__title">
-        Сделать пожертвование
-      </h2>
-      <DonationForm class="donation-page__form" />
-      <a href="#" class="donation-page__privacy-policy">Политика конфеденциальности</a>
+    <div class="donation-page__colour-container donation-page__colour-container_colour_black" />
+    <div class="donation-page__colour-container donation-page__colour-container_colour_white" />
+    <div class="donation-page__colour-container donation-page__colour-container_colour_red-left" />
+    <div class="donation-page__colour-container donation-page__colour-container_colour_red-right">
+      <Drop :style="dropPosition" class="donation-page__drop" />
     </div>
-    <p class="donation-page__how-to-donate">
-      Как пожертвовать средства? Программную деятельность ФАР осуществляет
-      на средства грантов, но кроме этого мы предоставляем адресную помощь людям,
-      затронутым проблемой наркотиков, их родным и близким. На это гранты получить сложно,
-      поэтому вся эта деятельность осуществляется из частных пожертвований.
-    </p>
-    <div class="donation-page__container-donations">
-      <DonateNeedHelp />
-      <DonateYandex />
+    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <div class="donation-page__grid-container-title">
+      <div class="donation-page__container">
+        <Smile class="donation-page__image" />
+        <h2 class="donation-page__title">
+          Сделать пожертвование
+        </h2>
+        <DonationForm class="donation-page__form" :is-donation-page="true" />
+        <a href="#" class="donation-page__privacy-policy">Политика конфеденциальности</a>
+      </div>
+      <div class="donation-page__container-description">
+        <p class="donation-page__how-to-donate">
+          Как пожертвовать средства? Программную деятельность ФАР осуществляет
+          на средства грантов, но кроме этого мы предоставляем адресную помощь людям,
+          затронутым проблемой наркотиков, их родным и близким. На это гранты получить сложно,
+          поэтому вся эта деятельность осуществляется из частных пожертвований.
+        </p>
+      </div>
     </div>
-    <div class="donation-page__container-requisites">
-      <h3 class="donation-page__requisites-title">
-        реквизиты
-      </h3>
-      <Requisites />
+    <div class="donation-page__grid-container-donations">
+      <div class="donation-page__container-donations">
+        <DonateNeedHelp />
+        <DonateYandex />
+      </div>
+      <div class="donation-page__container-requisites">
+        <h3 class="donation-page__requisites-title">
+          реквизиты
+        </h3>
+        <Requisites />
+      </div>
+      <DonateGlobalGiving class="donation-page__container-global-giving" />
     </div>
-    <DonateGlobalGiving />
   </section>
 </template>
 
 <script>
+import Drop from '@/components/Drop'
+
 export default {
-  name: 'DonationAll'
+  name: 'DonationAll',
+  components: {
+    Drop
+  },
+  data () {
+    return {
+      dropPosition: {
+        position: 'absolute',
+        top: '50%',
+        left: '60px',
+        transform: 'translateX(-24px)'
+      }
+    }
+  }
 }
 </script>
 
@@ -114,6 +142,10 @@ export default {
     padding-bottom: 12px;
   }
 
+  .logo {
+    display: none;
+  }
+
   @media screen and (min-width: 768px) {
     .donation-page__title {
       font-size: 91px;
@@ -160,6 +192,146 @@ export default {
 
     .donation-page__container-requisites {
       padding-bottom: 50px;
+    }
+  }
+
+  @media screen and (min-width: 1100px) {
+    .donation-page {
+      display: grid;
+      grid-template-columns: auto 1100px auto;
+      grid-template-areas:
+        "black title white"
+        "red-left donations red-right";
+      border-bottom: 1px solid #737373;
+    }
+
+    .donation-page__colour-container {
+      width: calc((100vw - 1100px) / 2);
+      height: auto;
+    }
+
+    .donation-page__colour-container_colour_black {
+      grid-area: black;
+      background-color: #000;
+    }
+
+    .donation-page__colour-container_colour_white {
+      grid-area: white;
+      background-color: #fff;
+    }
+
+    .donation-page__colour-container_colour_red-left {
+      grid-area: red-left;
+      background-color: #b23438;
+    }
+
+    .donation-page__colour-container_colour_red-right {
+      grid-area: red-right;
+      background-color: #b23438;
+      position: relative;
+    }
+
+    .donation-page__image {
+      top: -27px;
+      right: -91px;
+      width: 218px;
+    }
+
+    .donation-page__grid-container-title {
+      grid-area: title;
+      display: flex;
+      position: relative;
+      padding-bottom: 46px;
+      background-color: #cbcbcb;
+    }
+
+    .donation-page__container {
+      width: 554px;
+    }
+
+    .donation-page__container-description {
+      order: -1;
+      background-color: #cbcbcb;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      width: 546px;
+    }
+
+    .donation-page__how-to-donate {
+      font-size: 16px;
+      line-height: 19px;
+      color: #353535;
+      padding: 0;
+      background-color: #cbcbcb;
+      width: 326px;
+      margin: 173px 90px 0 0;
+    }
+
+    .donation-page__title {
+      position: absolute;
+      top: 0;
+      left: -18px;
+      font-size: 112px;
+      line-height: 71px;
+      width: 758px;
+      word-break: break-all;
+    }
+
+    .donation-page__form {
+      width: 554px;
+      margin-top: 162px;
+    }
+
+    .donation-page__grid-container-donations {
+      grid-area: donations;
+      display: grid;
+      grid-template-columns: 507px auto;
+      grid-template-areas:
+        "needhelp-yandex global-giving"
+        "requsites global-giving";
+    }
+
+    .donation-page__container-donations {
+      grid-area: needhelp-yandex;
+    }
+
+    .donation-page__container-requisites {
+      grid-area: requsites;
+      position: relative;
+    }
+
+    .donation-page__requisites-title {
+      font-size: 61px;
+      line-height: 76px;
+      position: absolute;
+      transform: rotate(270deg);
+      left: -53px;
+      top: 149px;
+    }
+
+    .donation-page__container-global-giving {
+      grid-area: global-giving;
+    }
+
+    .logo {
+      display: block;
+      position: absolute;
+      z-index: 13;
+      right: 25px;
+      width: 117px;
+      height: 86px;
+      top: 557px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .donation-page__drop {
+      display: block;
+      width: 36px;
+      height: 62px;
+      fill: #fff;
     }
   }
 </style>

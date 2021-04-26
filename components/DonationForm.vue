@@ -45,7 +45,7 @@
     </div>
     <input type="text" class="form__input form__input_personal" placeholder="Имя">
     <input type="email" class="form__input form__input_personal" placeholder="Email">
-    <button type="submit" class="form__submit">
+    <button type="submit" class="form__submit" :class="isDonationPage && 'form__submit_page_donation'">
       Перейти к оплате
     </button>
   </form>
@@ -53,7 +53,13 @@
 
 <script>
 export default {
-  name: 'DonationForm'
+  name: 'DonationForm',
+  props: {
+    isDonationPage: {
+      type: Boolean,
+      default: () => false
+    }
+  }
 }
 </script>
 
@@ -462,7 +468,21 @@ export default {
   }
 }
 
+@media screen and (min-width: 1100px) {
+  .form__submit_page_donation {
+    position: absolute;
+    left: -360px;
+    bottom: -52px;
+    width: 297px;
+    height: 66px;
+  }
+}
+
 @media screen and (min-width: 1280px) {
+  .form {
+    position: relative;
+  }
+
   .form__slider-container {
     position: relative;
     top: -19px;
@@ -602,6 +622,14 @@ export default {
     width: 100%;
     height: 100px;
     margin-bottom: 0;
+  }
+
+  .form__submit_page_donation {
+    position: absolute;
+    left: -360px;
+    bottom: -52px;
+    width: 297px;
+    height: 66px;
   }
 }
 </style>

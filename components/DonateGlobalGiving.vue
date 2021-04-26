@@ -107,4 +107,43 @@ export default {
     bottom: -37px;
   }
 }
+
+@media screen and (min-width: 1100px) {
+  .donate-global-giving {
+    width: 593px;
+    z-index: -1;
+    justify-content: start;
+    padding-top: 35px;
+  }
+
+  .donate-global-giving__fire {
+    position: absolute;
+    left: 356px;
+    top: 18px;
+    height: 62px;
+    width: 40px;
+  }
+
+  .donate-global-giving__title {
+    font-size: 40px;
+    line-height: 49px;
+    padding-top: 0;
+    padding-left: 42px;
+    text-align: left;
+  }
+
+  .donate-global-giving__text {
+    font-size: 16px;
+    line-height: 23px;
+    max-width: 85%;
+    margin: 0 auto 0;
+  }
+
+  .donate-global-giving__smile {
+    width: 600px;
+    height: 600px;
+    right: -232px;
+    bottom: -37px;
+  }
+}
 </style>

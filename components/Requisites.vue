@@ -151,4 +151,41 @@ export default {
     line-height: 26px;
   }
 }
+
+@media screen and (min-width: 1100px) {
+  .requisites {
+    max-width: 346px;
+    padding: 16px 0 10px 20px;
+    margin: 5px 0 0 152px;
+  }
+
+  .requisites__organization {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .requisites__organization:last-of-type {
+    margin: 18px 0 14px;
+  }
+
+  .requisites__title {
+    font-size: 21px;
+    line-height: 25px;
+  }
+
+  .requisites__container {
+    margin: 21px 0 56px 0;
+    row-gap: 5px;
+  }
+
+  .requisites__name {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .requisites__detail {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
 </style>
