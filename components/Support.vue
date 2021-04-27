@@ -30,6 +30,7 @@ export default {
   top: 50%;
   background-color: #b23438;
   transform: rotate(270deg);
+  z-index: 5;
 }
 
 .support__text {
