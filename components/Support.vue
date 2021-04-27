@@ -23,58 +23,58 @@ export default {
 </script>
 
 <style scoped>
+.support {
+  position: fixed;
+  display: flex;
+  right: -61px;
+  top: 50%;
+  background-color: #b23438;
+  transform: rotate(270deg);
+}
+
+.support__text {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Vollkorn, Times, serif;
+  font-size: 19px;
+  line-height: 18px;
+  font-weight: 400;
+  margin: 3px 10px 0 8px;
+}
+
+.support__heart {
+  order: -1;
+  position: absolute;
+  bottom: -2px;
+  left: -13px;
+  transform: rotate(90deg);
+}
+
+@media screen and (min-width: 768px) {
   .support {
-    position: fixed;
-    display: flex;
-    right: -61px;
-    top: 50%;
-    background-color: #b23438;
-    transform: rotate(270deg);
+    right: -130px;
+    top: 60%;
   }
 
   .support__text {
-    text-transform: uppercase;
-    color: #fff;
-    font-family: Vollkorn, Times, serif;
-    font-size: 19px;
-    line-height: 18px;
-    font-weight: 400;
-    margin: 3px 10px 0 8px;
+    font-size: 50px;
+    line-height: 50px;
+    font-style: italic;
+    letter-spacing: -4px;
+    margin: 3px 10px 0 15px;
   }
 
   .support__heart {
-    order: -1;
-    position: absolute;
-    bottom: -2px;
-    left: -13px;
-    transform: rotate(90deg);
+    bottom: -5px;
+    left: -40px;
+    width: 60px;
+    height: 60px;
   }
+}
 
-  @media screen and (min-width: 768px) {
-    .support {
-      right: -130px;
-      top: 60%;
-    }
-
-    .support__text {
-      font-size: 50px;
-      line-height: 50px;
-      font-style: italic;
-      letter-spacing: -4px;
-      margin: 3px 10px 0 15px;
-    }
-
-    .support__heart {
-      bottom: -5px;
-      left: -40px;
-      width: 60px;
-      height: 60px;
-    }
+@media screen and (min-width: 1087px) {
+  .support {
+    display: none;
   }
-
-  @media screen and (min-width: 1087px) {
-    .support {
-      display: none;
-    }
-  }
+}
 </style>
