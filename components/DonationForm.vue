@@ -469,6 +469,10 @@ export default {
 }
 
 @media screen and (min-width: 1100px) {
+  .form {
+    position: relative;
+  }
+
   .form__submit_page_donation {
     position: absolute;
     left: -360px;
@@ -479,10 +483,6 @@ export default {
 }
 
 @media screen and (min-width: 1280px) {
-  .form {
-    position: relative;
-  }
-
   .form__slider-container {
     position: relative;
     top: -19px;

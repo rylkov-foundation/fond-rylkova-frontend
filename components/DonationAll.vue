@@ -146,6 +146,10 @@ export default {
     display: none;
   }
 
+  .donation-page__drop {
+    display: none;
+  }
+
   @media screen and (min-width: 768px) {
     .donation-page__title {
       font-size: 91px;
@@ -154,7 +158,8 @@ export default {
       padding-top: 54px;
       word-break: break-word;
       letter-spacing: -3px;
-      max-width: 94%;
+      width: 94%;
+      max-width: 995px;
     }
 
     .donation-page__image {
@@ -256,7 +261,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
-      width: 546px;
+      width: 515px;
     }
 
     .donation-page__how-to-donate {
@@ -331,7 +336,10 @@ export default {
       display: block;
       width: 36px;
       height: 62px;
-      fill: #fff;
+    }
+
+    .donation-page__container-description {
+      width: 546px;
     }
   }
 </style>
