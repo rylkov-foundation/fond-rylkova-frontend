@@ -4,7 +4,7 @@
     <div class="projects__colour-container projects__colour-container_colour_white" />
     <div class="projects__colour-container projects__colour-container_colour_red" />
     <div class="projects__colour-container projects__colour-container_colour_black-bottom">
-      <Drop :style="dropPosition" class="projects__drop" />
+      <Drop class="projects__drop" />
     </div>
     <Support />
     <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
@@ -58,13 +58,7 @@ export default {
             ' употребляющих наркотики на улицах Москвы, путем обеспечения их доступа' +
             ' к необходимым профилактическим и медицинским услугам, а также информации.'
         }
-      ],
-      dropPosition: {
-        position: 'absolute',
-        top: '420px',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
+      ]
     }
   }
 }
