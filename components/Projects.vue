@@ -263,6 +263,15 @@ export default {
     margin: 30px 29px 0 0;
     z-index: 10;
   }
+}
+
+@media screen and (min-width: 1280px) {
+  .projects__drop {
+    display: block;
+    width: 36px;
+    height: 62px;
+    fill: #fff;
+  }
 
   .logo {
     display: block;
@@ -272,15 +281,6 @@ export default {
     width: 117px;
     height: 86px;
     top: 426px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .projects__drop {
-    display: block;
-    width: 36px;
-    height: 62px;
-    fill: #fff;
   }
 }
 </style>

@@ -30,7 +30,7 @@ export default {
   top: 50%;
   background-color: #b23438;
   transform: rotate(270deg);
-  z-index: 5;
+  z-index: 15;
   text-decoration: none;
 }
 
