@@ -1,13 +1,11 @@
 <template>
   <section class="donation-page">
-    <Support />
     <div class="donation-page__colour-container donation-page__colour-container_colour_black" />
     <div class="donation-page__colour-container donation-page__colour-container_colour_white" />
     <div class="donation-page__colour-container donation-page__colour-container_colour_red-left" />
     <div class="donation-page__colour-container donation-page__colour-container_colour_red-right">
-      <Drop :style="dropPosition" class="donation-page__drop" />
+      <Drop class="donation-page__drop" />
     </div>
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="donation-page__grid-container-title">
       <div class="donation-page__container">
         <Smile class="donation-page__image" />
@@ -49,16 +47,6 @@ export default {
   name: 'DonationAll',
   components: {
     Drop
-  },
-  data () {
-    return {
-      dropPosition: {
-        position: 'absolute',
-        top: '50%',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
-    }
   }
 }
 </script>
@@ -140,10 +128,6 @@ export default {
     align-items: center;
     background-color: #b23438;
     padding-bottom: 12px;
-  }
-
-  .logo {
-    display: none;
   }
 
   .donation-page__drop {
@@ -318,16 +302,6 @@ export default {
 
     .donation-page__container-global-giving {
       grid-area: global-giving;
-    }
-
-    .logo {
-      display: block;
-      position: absolute;
-      z-index: 13;
-      right: 25px;
-      width: 117px;
-      height: 86px;
-      top: 557px;
     }
   }
 
