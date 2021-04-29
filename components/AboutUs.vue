@@ -33,7 +33,7 @@
     <div class="about-us__colour-container about-us__colour-container_colour_white" />
     <div class="about-us__colour-container about-us__colour-container_colour_red" />
     <div class="about-us__colour-container about-us__colour-container_colour_grey">
-      <Drop :style="dropPosition" class="about-us__drop" />
+      <Drop class="about-us__drop" />
     </div>
   </section>
 </template>

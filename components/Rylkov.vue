@@ -1,10 +1,11 @@
 <template>
   <section class="info">
+    <Support />
     <div class="info__colour-container info__colour-container_colour_white" />
     <div class="info__colour-container info__colour-container_colour_black" />
     <div class="info__colour-container info__colour-container_colour_red" />
     <div class="info__colour-container info__colour-container_colour_grey">
-      <Drop :style="dropPosition" class="info__drop" />
+      <Drop class="info__drop" />
     </div>
     <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="info__wrapper">
@@ -84,16 +85,6 @@ export default {
   name: 'Rylkov',
   components: {
     Drop
-  },
-  data () {
-    return {
-      dropPosition: {
-        position: 'absolute',
-        top: '50%',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
-    }
   }
 }
 </script>
@@ -110,7 +101,7 @@ export default {
     background-color: #b23438;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     padding: 14px 0 6px 0;
   }
 
@@ -122,7 +113,7 @@ export default {
     color: #fff;
     max-width: 143px;
     text-align: left;
-    margin: 0 10px 9px 0;
+    margin: 19px 10px 7px 14px;
     letter-spacing: -3px;
   }
 
@@ -137,22 +128,22 @@ export default {
     text-transform: uppercase;
     font-size: 41px;
     color: #cbcbcb;
-    text-align: right;
+    text-align: left;
     max-width: 210px;
-    margin: 0 54px 0 0;
+    margin: 0 0 0 15px;
     letter-spacing: 1px;
   }
 
   .info__image {
     width: 100%;
-    height: 355px;
+    height: 397px;
     object-fit: cover;
     object-position: left;
   }
 
   .info__text-container {
-    max-width: 80%;
-    margin: 5px auto 10px;
+    max-width: 88%;
+    margin: 20px auto 10px;
   }
 
   .info__link-description {
@@ -161,7 +152,7 @@ export default {
     line-height: 15px;
     font-size: 15px;
     max-width: 203px;
-    margin-bottom: 32px;
+    margin-bottom: 26px;
   }
 
   .info__link {
@@ -177,8 +168,8 @@ export default {
   .info__text {
     font-family: Vollkorn, Times, serif;
     font-weight: 400;
-    line-height: 15px;
-    font-size: 11px;
+    line-height: 16px;
+    font-size: 14px;
   }
 
   .info__video-description {
@@ -192,7 +183,7 @@ export default {
   }
 
   .info__video-container {
-    margin: 49px 0 0;
+    margin: 23px 0 0;
   }
 
   .info__video-container p:first-of-type {
@@ -207,10 +198,7 @@ export default {
   }
 
   .logo {
-    width: 82px;
-    position: absolute;
-    right: 7px;
-    top: 521px;
+    display: none;
   }
 
   .info__drop {
@@ -226,58 +214,34 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .info__wrapper {
-      display: flex;
-      width: 100vw;
-      justify-content: center;
-      background-color: #b23438;
-    }
-
-    .info__rylkov {
-      display: block;
-      font-family: 'Vollkorn', Times, serif;
-      font-size: 41px;
-      line-height: 39px;
-      color: #b23438;
-      text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-      max-width: 186px;
-      text-align: right;
-      text-transform: uppercase;
-    }
-
     .info__image {
-      width: 453px;
-      height: 366px;
+      width: 100%;
+      height: 623px;
       object-fit: cover;
       object-position: right;
     }
 
     .info__container {
-      padding: 0;
-      position: relative;
-      width: 41%;
-      overflow: hidden;
-      margin-top: -13px;
+      padding: 26px 0 33px 42px;
     }
 
     .info__title {
       margin: 0;
-      position: absolute;
-      top: 60px;
-      right: 146px;
+      font-size: 76px;
+      line-height: 67px;
+      max-width: unset;
     }
 
     .info__title-rylkov {
       margin: 0 -4px 0 0;
+      font-size: 90px;
+      line-height: 74px;
+      max-width: 455px;
     }
 
     .info__text-container {
-      max-width: 93%;
-      margin: 5px auto 47px;
+      max-width: 87%;
+      margin: 47px auto 47px;
     }
 
     .info__text-container p:last-child {
@@ -285,33 +249,40 @@ export default {
     }
 
     .info__link-description {
-      max-width: 420px;
-      margin: 0 0 8px auto;
+      font-size: 38px;
+      line-height: 39px;
+      max-width: 470px;
+      margin: 0 0 54px 0;
+    }
+
+    .info__link {
+      font-size: 38px;
+      line-height: 39px;
     }
 
     .info__text {
-      line-height: 20px;
-      font-size: 15px;
+      font-size: 33px;
+      line-height: 34px;
     }
 
     .info__video-container {
-      margin: 12px 0 0 27px;
-      width: 345px;
-      float: right;
+      margin: 34px auto 0;
+      width: 100%;
+    }
+
+    .info__video-description {
+      font-size: 33px;
+      line-height: 34px;
     }
 
     .info__video-container p:first-of-type {
-      margin: 0 0 22px;
+      margin: 0 0 37px;
     }
 
     .info__video {
-      height: 277px;
-      width: 345px;
-      margin: 2px 0 10px 0;
-    }
-
-    .logo {
-      top: 333px;
+      height: 530px;
+      width: 100%;
+      margin: 43px 0 40px 0;
     }
   }
 
@@ -326,9 +297,13 @@ export default {
 
     .info__wrapper {
       width: 1087px;
+      display: flex;
+      justify-content: center;
+      background-color: #b23438;
     }
 
     .info__rylkov {
+      display: block;
       font-size: 59px;
       line-height: 52px;
       max-width: 266px;
@@ -337,6 +312,10 @@ export default {
         2px -2px 0 #000,
         -2px 2px 0 #000,
         2px 2px 0 #000;
+      font-family: 'Vollkorn', Times, serif;
+      color: #b23438;
+      text-align: right;
+      text-transform: uppercase;
     }
 
     .info__image {
@@ -348,6 +327,9 @@ export default {
       margin-top: -13px;
       width: 448px;
       top: 0;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
     }
 
     .info__title {
@@ -355,6 +337,8 @@ export default {
       right: 259px;
       font-size: 67px;
       line-height: 48px;
+      margin: 0;
+      position: absolute;
     }
 
     .info__title-rylkov {
@@ -397,6 +381,7 @@ export default {
     .info__video-container {
       margin: 21px 0 0 27px;
       width: 494px;
+      float: right;
     }
 
     .info__video-container p:first-of-type {
@@ -407,12 +392,6 @@ export default {
       height: 396px;
       width: 494px;
       margin: 2px 0 10px 0;
-    }
-
-    .logo {
-      width: 116px;
-      right: 20px;
-      top: 542px;
     }
 
     .info__colour-container {
@@ -447,6 +426,15 @@ export default {
       display: block;
       width: 36px;
       height: 62px;
+    }
+
+    .logo {
+      position: absolute;
+      display: block;
+      z-index: 15;
+      width: 116px;
+      right: 20px;
+      top: 542px;
     }
   }
 </style>
