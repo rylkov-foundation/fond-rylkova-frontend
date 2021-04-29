@@ -1,6 +1,7 @@
 <template>
   <section class="team">
     <div class="team__colour-container team__colour-container_colour_black" />
+    <Support />
     <div class="team__container">
       <h2 class="team__title">
         Ко&shy;манда <span class="team__title-bold">ФАР</span>
@@ -19,7 +20,7 @@
       />
     </ul>
     <div class="team__colour-container team__colour-container_colour_red">
-      <Drop :style="dropPosition" class="team__drop" />
+      <Drop class="team__drop" />
     </div>
   </section>
 </template>
@@ -67,13 +68,7 @@ export default {
             '(2002), "Шкаф" (2005). В 1999-2001 гг. литературный редактор информационного проекта снижения вреда "мозг"' +
             '(Москва). В 2001 г. проходил стажировку в контактно-консультационном центре для наркозависимых MisFit'
         }
-      ],
-      dropPosition: {
-        position: 'absolute',
-        top: '420px',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
+      ]
     }
   }
 }
@@ -128,10 +123,7 @@ export default {
 }
 
 .logo {
-  width: 82px;
-  position: absolute;
-  right: 20px;
-  top: 509px;
+  display: none;
 }
 
 .team__list {
@@ -163,23 +155,29 @@ export default {
 
 @media screen and (min-width: 768px) {
   .team__title {
-    font-weight: bold;
-    font-size: 99px;
-    line-height: 60px;
-    max-width: calc(100% - 272px);
+    font-weight: 600;
+    font-size: 216px;
+    line-height: 172px;
+    max-width: 100%;
+    padding-bottom: 0;
+    background-size: 629px;
+    background-position:
+      -100px 77px,
+      139px 174px,
+      -69px 292px,
+      542px 403px;
   }
 
   .team__container {
-    display: flex;
-    background-color: #fff;
-    align-items: flex-end;
-    min-height: 271px;
-    margin-bottom: 22px;
+    margin: 52px 0 0 0;
+    max-height: 890px;
+    overflow: hidden;
   }
 
   .team__image {
-    height: 259px;
-    width: 272px;
+    height: 720px;
+    width: 768px;
+    background-size: cover;
   }
 }
 
@@ -196,6 +194,10 @@ export default {
     grid-area: team-title;
     max-width: 1087px;
     margin-bottom: 44px;
+    display: flex;
+    background-color: #fff;
+    align-items: flex-end;
+    min-height: 271px;
   }
 
   .team__colour-container {
@@ -245,17 +247,19 @@ export default {
   .team__list {
     grid-area: list;
   }
+}
 
+@media screen and (min-width: 1280px) {
   .logo {
+    display: block;
+    position: absolute;
     z-index: 13;
     right: 17px;
     width: 117px;
     height: 86px;
     top: 445px;
   }
-}
 
-@media screen and (min-width: 1280px) {
   .team__drop {
     display: block;
     width: 36px;
