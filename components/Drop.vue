@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="about__drop"
+    class="drop"
     viewBox="0 0 26.7 47.81"
   >
     <path
@@ -16,3 +16,30 @@ export default {
   name: 'Drop'
 }
 </script>
+
+<style scoped>
+  .drop {
+    position: absolute;
+    top: 135px;
+    right: 7px;
+    width: 35px;
+    height: 35px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .drop {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .drop {
+      display: block;
+      top: 50%;
+      left: 50%;
+      width: 36px;
+      height: 62px;
+      transform: translate(-50%, -50%);
+    }
+  }
+</style>
