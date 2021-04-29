@@ -156,7 +156,7 @@ export default {
   }
 
   .projects__title::after {
-    top: 214px;
+    top: 222px;
     left: 17px;
     height: 35px;
     width: 556px;

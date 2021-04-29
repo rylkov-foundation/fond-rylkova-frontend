@@ -5,6 +5,7 @@
         О нас
       </span>
     </h2>
+    <Support />
     <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <p class="about-us__text">
       Адвокация более гуманной наркополитики на страновом уровне, соблюдения прав человека в отношении людей,
@@ -44,16 +45,6 @@ export default {
   name: 'AboutUs',
   components: {
     Drop
-  },
-  data () {
-    return {
-      dropPosition: {
-        position: 'absolute',
-        top: '50%',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
-    }
   }
 }
 </script>
@@ -108,18 +99,15 @@ export default {
 
   .about-us__text {
     font-family: Vollkorn, Times, serif;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 15px;
-    max-width: 80%;
+    line-height: 16px;
+    max-width: 88%;
     margin: 0 auto;
   }
 
   .logo {
-    width: 82px;
-    position: absolute;
-    right: 61px;
-    top: 265px;
+    display: none;
   }
 
   .about-us__drop {
@@ -128,41 +116,37 @@ export default {
 
   @media screen and (min-width: 768px) {
     .about-us__title {
-      height: 293px;
-      padding: 104px 0 0 36px;
+      height: 715px;
+      padding: 79px 0 0 52px;
+      margin-bottom: 40px;
     }
 
     .about-us__title-text {
       max-width: 450px;
-      color: transparent;
-      -webkit-text-stroke: 1px #fff;
-      font-size: 173px;
-      font-style: normal;
-      line-height: 125px;
+      font-size: 231px;
+      line-height: 144px;
       word-spacing: -5px;
       letter-spacing: -11px;
     }
 
     .about-us__title-text::before {
-      display: none;
+      left: 2px;
+      top: 108px;
+      width: 207px;
+      height: 36px;
     }
 
     .about-us__title-text::after {
-      left: 8px;
-      top: 91px;
-      width: 352px;
-      height: 23px;
+      left: 1px;
+      top: 252px;
+      width: 276px;
+      height: 36px;
     }
 
     .about-us__text {
-      font-size: 15px;
-      line-height: 20px;
-      max-width: 90%;
-    }
-
-    .logo {
-      right: 19px;
-      top: 538px;
+      font-size: 33px;
+      line-height: 34px;
+      max-width: 87%;
     }
   }
 
@@ -195,6 +179,10 @@ export default {
       letter-spacing: -11px;
     }
 
+    .about-us__title-text::before {
+      display: none;
+    }
+
     .about-us__title-text::after {
       left: 28px;
       top: 127px;
@@ -207,13 +195,6 @@ export default {
       font-size: 22px;
       line-height: 29px;
       max-width: 981px;
-    }
-
-    .logo {
-      z-index: 5;
-      right: 28px;
-      top: 545px;
-      width: 113px;
     }
 
     .about-us__colour-container {
@@ -243,6 +224,15 @@ export default {
       display: block;
       width: 36px;
       height: 62px;
+    }
+
+    .logo {
+      position: absolute;
+      display: block;
+      z-index: 15;
+      right: 28px;
+      top: 545px;
+      width: 113px;
     }
   }
 </style>

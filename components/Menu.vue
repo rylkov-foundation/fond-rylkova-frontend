@@ -39,12 +39,12 @@
             </transition>
           </li>
           <li class="menu__list-item">
-            <router-link class="menu__link" to="">
+            <router-link class="menu__link" to="#">
               получить помощь
             </router-link>
           </li>
           <li class="menu__list-item">
-            <router-link class="menu__link" to="contacts">
+            <router-link class="menu__link" to="/contacts">
               контакты
             </router-link>
           </li>
