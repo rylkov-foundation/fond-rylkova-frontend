@@ -34,6 +34,10 @@ export default {
   text-decoration: none;
 }
 
+.support:hover {
+  opacity: 0.8;
+}
+
 .support__text {
   text-transform: uppercase;
   color: #fff;

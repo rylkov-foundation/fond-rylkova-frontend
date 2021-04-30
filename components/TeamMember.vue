@@ -177,6 +177,7 @@ export default {
       align-self: stretch;
       justify-content: flex-start;
       border-radius: 43px;
+      height: 330px;
     }
 
     .team-member__title {

@@ -15,7 +15,7 @@
             </p>
             <transition name="show-sublist">
               <ul v-if="isShownAbout" class="menu__sublist">
-                <li v-for="aboutItem in aboutList" :key="aboutItem" class="menu__sublist-item">
+                <li v-for="aboutItem in aboutList" :key="aboutItem.id" class="menu__sublist-item">
                   <router-link class="menu__sublist-link" :to="aboutItem.url">
                     {{ aboutItem.title }}
                   </router-link>
@@ -30,7 +30,7 @@
             </p>
             <transition name="show-sublist">
               <ul v-if="isShownSupport" class="menu__sublist">
-                <li v-for="supportItem in supportList" :key="supportItem" class="menu__sublist-item">
+                <li v-for="supportItem in supportList" :key="supportItem.id" class="menu__sublist-item">
                   <router-link class="menu__sublist-link" :to="supportItem.url">
                     {{ supportItem.title }}
                   </router-link>
@@ -74,16 +74,16 @@ export default {
       isShownAbout: false,
       isShownSupport: false,
       isScrollOver230: false,
-      aboutList: [{ title: 'кто такой Андрей Рыльков', url: 'who-is-andrey-rylkov' },
-        { title: 'миссия и стратегии', url: 'about-us' },
-        { title: 'команда ФАР', url: 'team' },
-        { title: 'проекты и отчёты', url: 'projects' },
-        { title: 'годовые отчёты', url: 'annual-reports' },
-        { title: 'учредительные документы', url: '' }],
-      supportList: [{ title: 'сделать пожертвование', url: 'donation' },
-        { title: 'волонтёрство в ФАР', url: '' },
-        { title: 'стажировка в ФАР', url: '' },
-        { title: 'партнёрство с ФАР', url: '' }]
+      aboutList: [{ id: 1, title: 'кто такой Андрей Рыльков', url: 'who-is-andrey-rylkov' },
+        { id: 2, title: 'миссия и стратегии', url: 'about-us' },
+        { id: 3, title: 'команда ФАР', url: 'team' },
+        { id: 4, title: 'проекты и отчёты', url: 'projects' },
+        { id: 5, title: 'годовые отчёты', url: 'annual-reports' },
+        { id: 6, title: 'учредительные документы', url: '/' }],
+      supportList: [{ id: 1, title: 'сделать пожертвование', url: 'donation' },
+        { id: 2, title: 'волонтёрство в ФАР', url: '/' },
+        { id: 3, title: 'стажировка в ФАР', url: '/' },
+        { id: 4, title: 'партнёрство с ФАР', url: '/' }]
     }
   },
   mounted () {
