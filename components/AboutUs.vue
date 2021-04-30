@@ -6,7 +6,7 @@
       </span>
     </h2>
     <Support />
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <LogoWhite />
     <p class="about-us__text">
       Адвокация более гуманной наркополитики на страновом уровне, соблюдения прав человека в отношении людей,
       употребляющих наркотики, а также обеспечения доступа в России к лечению наркозависимости и сопутствующих
@@ -104,10 +104,6 @@ export default {
     line-height: 16px;
     max-width: 88%;
     margin: 0 auto;
-  }
-
-  .logo {
-    display: none;
   }
 
   .about-us__drop {
@@ -224,15 +220,6 @@ export default {
       display: block;
       width: 36px;
       height: 62px;
-    }
-
-    .logo {
-      position: absolute;
-      display: block;
-      z-index: 15;
-      right: 28px;
-      top: 545px;
-      width: 113px;
     }
   }
 </style>

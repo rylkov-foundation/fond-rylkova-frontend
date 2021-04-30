@@ -7,7 +7,7 @@
     <div class="contacts__colour-container contacts__colour-container_colour_red">
       <Drop class="contacts__drop" />
     </div>
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <LogoWhite />
     <div class="contacts__grid-title-container">
       <div class="contacts__container">
         <h2 class="contacts__title">
@@ -233,10 +233,6 @@ export default {
 }
 
 .contacts__drop {
-  display: none;
-}
-
-.logo {
   display: none;
 }
 
@@ -471,16 +467,6 @@ export default {
     display: block;
     width: 36px;
     height: 62px;
-  }
-
-  .logo {
-    display: block;
-    position: absolute;
-    z-index: 13;
-    right: 36px;
-    width: 117px;
-    height: 86px;
-    top: 413px;
   }
 }
 </style>

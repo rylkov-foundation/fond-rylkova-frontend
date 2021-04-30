@@ -6,8 +6,8 @@
       <Drop class="reports__drop" />
     </div>
     <Support />
+    <LogoWhite />
     <div class="reports__colour-container reports__colour-container_colour_grey-bottom" />
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="reports__container">
       <h2 class="reports__title">
         Финансовые и содержательные годовые  отчеты
@@ -66,10 +66,6 @@ export default {
     overflow: hidden;
     position: relative;
     width: 100vw;
-  }
-
-  .logo {
-    display: none;
   }
 
   .reports__container {
@@ -399,16 +395,6 @@ export default {
   @media screen and (min-width: 1280px) {
     .reports__drop {
       fill: #b23438;
-    }
-
-    .logo {
-      display: block;
-      position: absolute;
-      z-index: 13;
-      right: 17px;
-      width: 117px;
-      height: 86px;
-      top: 521px;
     }
   }
 </style>

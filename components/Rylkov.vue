@@ -1,5 +1,6 @@
 <template>
   <section class="info">
+    <LogoWhite />
     <Support />
     <div class="info__colour-container info__colour-container_colour_white" />
     <div class="info__colour-container info__colour-container_colour_black" />
@@ -7,7 +8,6 @@
     <div class="info__colour-container info__colour-container_colour_grey">
       <Drop class="info__drop" />
     </div>
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="info__wrapper">
       <div class="info__container">
         <p class="info__rylkov">
@@ -195,10 +195,6 @@ export default {
     width: 100%;
     margin: 24px 0 10px 0;
     border: none;
-  }
-
-  .logo {
-    display: none;
   }
 
   .info__drop {
@@ -426,15 +422,6 @@ export default {
       display: block;
       width: 36px;
       height: 62px;
-    }
-
-    .logo {
-      position: absolute;
-      display: block;
-      z-index: 15;
-      width: 116px;
-      right: 20px;
-      top: 542px;
     }
   }
 </style>

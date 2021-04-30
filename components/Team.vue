@@ -9,7 +9,7 @@
       <div class="team__image" />
     </div>
     <div class="team__colour-container team__colour-container_colour_white" />
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <LogoWhite />
     <div class="team__colour-container team__colour-container_colour_grey" />
     <ul class="team__list">
       <TeamMember
@@ -120,10 +120,6 @@ export default {
   height: 315px;
   width: 100%;
   position: relative;
-}
-
-.logo {
-  display: none;
 }
 
 .team__list {
@@ -250,16 +246,6 @@ export default {
 }
 
 @media screen and (min-width: 1280px) {
-  .logo {
-    display: block;
-    position: absolute;
-    z-index: 13;
-    right: 17px;
-    width: 117px;
-    height: 86px;
-    top: 445px;
-  }
-
   .team__drop {
     display: block;
     width: 36px;

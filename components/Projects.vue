@@ -7,7 +7,7 @@
       <Drop class="projects__drop" />
     </div>
     <Support />
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <LogoWhite />
     <div class="projects__container">
       <div class="projects__title-container">
         <h2 class="projects__title">
@@ -69,10 +69,6 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
-}
-
-.logo {
-  display: none;
 }
 
 .projects__container {
@@ -265,16 +261,6 @@ export default {
     width: 36px;
     height: 62px;
     fill: #fff;
-  }
-
-  .logo {
-    display: block;
-    position: absolute;
-    z-index: 13;
-    right: 36px;
-    width: 117px;
-    height: 86px;
-    top: 426px;
   }
 }
 </style>
