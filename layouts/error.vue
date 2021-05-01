@@ -13,8 +13,8 @@ export default {
   layout: 'error',
   props: {
     error: {
-      type: Array,
-      default () { return [] }
+      type: Object,
+      default () { return {} }
     }
   }
 }
