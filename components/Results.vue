@@ -150,6 +150,7 @@ export default {
   .results__carousel-wrapper {
     display: flex;
     margin-left: auto;
+    transition: margin 500ms linear;
   }
 
   .logo {
@@ -251,7 +252,7 @@ export default {
       background-position: center;
       background-repeat: repeat-x;
       background-size: 20%;
-      height: 125px;
+      height: 129px;
     }
 
     .results__title {

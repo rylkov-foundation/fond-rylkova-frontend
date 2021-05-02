@@ -3,6 +3,11 @@
     <transition name="show">
       <nav v-if="isShown" class="menu__navigation">
         <ul class="menu__list">
+          <li class="menu__list-item">
+            <router-link to="/" class="menu__link">
+              Главная
+            </router-link>
+          </li>
           <li class="menu__list-item" @click="isShownAbout = !isShownAbout">
             <p class="menu__list-text">
               о нас
@@ -10,8 +15,10 @@
             </p>
             <transition name="show-sublist">
               <ul v-if="isShownAbout" class="menu__sublist">
-                <li v-for="aboutItem in aboutList" :key="aboutItem" class="menu__sublist-item">
-                  <a class="menu__sublist-link" href="#"> {{ aboutItem }} </a>
+                <li v-for="aboutItem in aboutList" :key="aboutItem.id" class="menu__sublist-item">
+                  <router-link class="menu__sublist-link" :to="aboutItem.url">
+                    {{ aboutItem.title }}
+                  </router-link>
                 </li>
               </ul>
             </transition>
@@ -23,17 +30,23 @@
             </p>
             <transition name="show-sublist">
               <ul v-if="isShownSupport" class="menu__sublist">
-                <li v-for="supportItem in supportList" :key="supportItem" class="menu__sublist-item">
-                  <a class="menu__sublist-link" href="#"> {{ supportItem }}</a>
+                <li v-for="supportItem in supportList" :key="supportItem.id" class="menu__sublist-item">
+                  <router-link class="menu__sublist-link" :to="supportItem.url">
+                    {{ supportItem.title }}
+                  </router-link>
                 </li>
               </ul>
             </transition>
           </li>
           <li class="menu__list-item">
-            <a class="menu__link" href="#">получить помощь</a>
+            <router-link class="menu__link" to="#">
+              получить помощь
+            </router-link>
           </li>
           <li class="menu__list-item">
-            <a class="menu__link" href="#">контакты</a>
+            <router-link class="menu__link" to="/contacts">
+              контакты
+            </router-link>
           </li>
         </ul>
       </nav>
@@ -61,16 +74,16 @@ export default {
       isShownAbout: false,
       isShownSupport: false,
       isScrollOver230: false,
-      aboutList: ['кто такой Андрей Рыльков',
-        'миссия и стратегии',
-        'команда ФАР',
-        'проекты и отчёты',
-        'годовые отчёты',
-        'учредительные документы'],
-      supportList: ['сделать пожертвование',
-        'волонтёрство в ФАР',
-        'стажировка в ФАР',
-        'партнёрство с ФАР']
+      aboutList: [{ id: 1, title: 'кто такой Андрей Рыльков', url: 'who-is-andrey-rylkov' },
+        { id: 2, title: 'миссия и стратегии', url: 'about-us' },
+        { id: 3, title: 'команда ФАР', url: 'team' },
+        { id: 4, title: 'проекты и отчёты', url: 'projects' },
+        { id: 5, title: 'годовые отчёты', url: 'annual-reports' },
+        { id: 6, title: 'учредительные документы', url: '/' }],
+      supportList: [{ id: 1, title: 'сделать пожертвование', url: 'donation' },
+        { id: 2, title: 'волонтёрство в ФАР', url: '/' },
+        { id: 3, title: 'стажировка в ФАР', url: '/' },
+        { id: 4, title: 'партнёрство с ФАР', url: '/' }]
     }
   },
   mounted () {
@@ -103,7 +116,7 @@ export default {
   top: 4px;
   right: 3px;
   display: flex;
-  z-index: 10;
+  z-index: 100;
 }
 
 .menu__block {
@@ -194,15 +207,14 @@ export default {
 .menu__list-text {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #fff;
-}
-
-.menu__list-item:nth-child(3n) {
-  border-bottom: 1px solid #fff;
 }
 
 .menu__list-item:hover {
   cursor: pointer;
+}
+
+.menu__list-item:not(.menu__list-item:last-child) {
+  border-bottom: 1px solid #fff;
 }
 
 .menu__link {

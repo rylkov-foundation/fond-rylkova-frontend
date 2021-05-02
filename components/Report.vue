@@ -69,8 +69,8 @@ export default {
   .report__text-container {
     display: flex;
     flex-direction: column;
-    max-width: 83%;
-    margin: 7px auto 28px;
+    max-width: 91%;
+    margin: 23px auto 28px;
   }
 
   .report__title {
@@ -116,9 +116,45 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
+    .report__text-container {
+      margin-bottom: 0;
+    }
+
+    .report__title {
+      margin: 21px 0 32px 21px;
+      font-size: 46px;
+      line-height: 46px;
+    }
+
+    .report__date {
+      margin: 0 0 19px 14px;
+      padding-bottom: 27px;
+      color: #000;
+      font-size: 38px;
+      line-height: 27px;
+    }
+
+    .report__text {
+      font-size: 32px;
+      line-height: 34px;
+      margin-left: 16px;
+      margin-bottom: 50px;
+    }
+
+    .report__image {
+      width: 768px;
+      height: auto;
+    }
+  }
+
+  @media screen and (min-width: 1087px) {
     .report {
       flex-direction: row;
       align-items: flex-start;
+    }
+
+    .report__text-container {
+      width: calc(1087px / 2);
     }
 
     .report_color_white {
@@ -126,63 +162,19 @@ export default {
       border-bottom: 2px solid #b23438;
     }
 
-    .report__image {
-      height: auto;
-      width: calc(100% / 2);
-    }
-
-    .report__text-container {
-      margin-bottom: 0;
-    }
-
     .report__text-container_color_white {
       order: -1;
     }
 
     .report__title {
-      margin: 21px 0 16px 21px;
-    }
-
-    .report__title_color_white {
-      text-align: right;
-      margin: 21px 21px 16px 0;
-    }
-
-    .report__date {
-      margin: 0 0 8px 24px;
-      padding-bottom: 10px;
-      color: #b3a2a3;
-    }
-
-    .report__date_color_white {
-      color: #000;
-      text-align: right;
-      margin: 0 24px 8px auto;
-      border-color: #b23438;
-    }
-
-    .report__text {
-      font-size: 15px;
-      line-height: 18px;
-      margin-left: 24px;
-    }
-
-    .report__text_color_white {
-      text-align: right;
-      margin-left: 0;
-      margin-right: 24px;
-    }
-  }
-
-  @media screen and (min-width: 1087px) {
-    .report__title {
       font-size: 34px;
       line-height: 34px;
-      margin: 30px 0 20px 31px;
+      margin: 16px 0 20px 31px;
     }
 
     .report__title_color_white {
       margin: 30px 31px 20px 0;
+      text-align: right;
     }
 
     .report__date {
@@ -194,18 +186,26 @@ export default {
 
     .report__date_color_white {
       margin: 0 33px 13px auto;
+      color: #000;
+      text-align: right;
+      border-color: #b23438;
     }
 
     .report__text {
       font-size: 22px;
       line-height: 25px;
       margin-left: 33px;
+      margin-bottom: 0;
     }
 
     .report__text_color_white {
       text-align: right;
       margin-left: 0;
       margin-right: 24px;
+    }
+
+    .report__image {
+      width: calc(1087px / 2);
     }
   }
 </style>

@@ -4,10 +4,10 @@
     <div class="projects__colour-container projects__colour-container_colour_white" />
     <div class="projects__colour-container projects__colour-container_colour_red" />
     <div class="projects__colour-container projects__colour-container_colour_black-bottom">
-      <Drop :style="dropPosition" class="projects__drop" />
+      <Drop class="projects__drop" />
     </div>
     <Support />
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <LogoWhite />
     <div class="projects__container">
       <div class="projects__title-container">
         <h2 class="projects__title">
@@ -58,13 +58,7 @@ export default {
             ' употребляющих наркотики на улицах Москвы, путем обеспечения их доступа' +
             ' к необходимым профилактическим и медицинским услугам, а также информации.'
         }
-      ],
-      dropPosition: {
-        position: 'absolute',
-        top: '420px',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
+      ]
     }
   }
 }
@@ -75,10 +69,6 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
-}
-
-.logo {
-  display: none;
 }
 
 .projects__container {
@@ -162,7 +152,7 @@ export default {
   }
 
   .projects__title::after {
-    top: 214px;
+    top: 222px;
     left: 17px;
     height: 35px;
     width: 556px;
@@ -262,16 +252,6 @@ export default {
     width: 928px;
     margin: 30px 29px 0 0;
     z-index: 10;
-  }
-
-  .logo {
-    display: block;
-    position: absolute;
-    z-index: 13;
-    right: 36px;
-    width: 117px;
-    height: 86px;
-    top: 426px;
   }
 }
 

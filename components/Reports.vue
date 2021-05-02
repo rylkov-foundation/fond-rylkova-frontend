@@ -3,10 +3,11 @@
     <div class="reports__colour-container reports__colour-container_colour_black-top" />
     <div class="reports__colour-container reports__colour-container_colour_grey-top" />
     <div class="reports__colour-container reports__colour-container_colour_black-bottom">
-      <Drop :style="dropPosition" class="reports__drop" />
+      <Drop class="reports__drop" />
     </div>
+    <Support />
+    <LogoWhite />
     <div class="reports__colour-container reports__colour-container_colour_grey-bottom" />
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
     <div class="reports__container">
       <h2 class="reports__title">
         Финансовые и содержательные годовые  отчеты
@@ -54,13 +55,7 @@ export default {
           date: 'Январь 16th, 2020',
           text: 'Мы собрали самые важные данные, которые отражают проделанную нами работу за 2018 год, и сделали красивую инфографику'
         }
-      ],
-      dropPosition: {
-        position: 'absolute',
-        top: '420px',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
+      ]
     }
   }
 }
@@ -73,31 +68,29 @@ export default {
     width: 100vw;
   }
 
-  .logo {
-    display: none;
-  }
-
   .reports__container {
     min-height: 300px;
   }
 
   .reports__title {
     font-family: Vollkorn, Times, serif;
-    font-size: 40px;
-    line-height: 33px;
+    font-size: 44px;
+    line-height: 36px;
     font-weight: 700;
     width: 83%;
-    max-width: 415px;
+    max-width: 290px;
     word-break: break-all;
-    margin: 32px 0 20px 12px;
+    margin: 21px 0 24px 18px;
     position: relative;
+    color: #000;
+    letter-spacing: -2px;
   }
 
   .reports__title::before {
     content: "";
     height: 12px;
     background-color: #b23438;
-    width: 90%;
+    width: 252px;
     position: absolute;
     top: 23px;
     left: 0;
@@ -107,9 +100,9 @@ export default {
     content: "";
     height: 12px;
     background-color: #b23438;
-    width: 100%;
+    width: 241px;
     position: absolute;
-    top: 55px;
+    top: 58px;
     left: 0;
   }
 
@@ -121,32 +114,32 @@ export default {
   }
 
   .reports__line_number_tree {
-    top: 92px;
+    top: 93px;
     left: 0;
-    width: 94%;
+    width: 247px;
   }
 
   .reports__line_number_four {
-    top: 119px;
+    top: 129px;
     left: 0;
-    width: 75%;
+    width: 194px;
   }
 
   .reports__subtitle {
     font-family: Vollkorn, Times, serif;
-    font-size: 15px;
-    line-height: 17px;
+    font-size: 19px;
+    line-height: 18px;
+    font-style: italic;
     font-weight: 400;
-    max-width: 43%;
-    margin: 0 0 0 33px;
+    max-width: 80%;
+    margin: 0 0 0 18px;
+    color: #484848;
   }
 
   .reports__image {
-    position: absolute;
-    right: -32px;
-    top: 136px;
-    width: 182px;
-    height: 174px;
+    width: 273px;
+    height: 281px;
+    margin: 10px 0 27px 38px;
   }
 
   .reports__list {
@@ -154,8 +147,24 @@ export default {
     padding: 0;
   }
 
-  .reports__drop {
-    display: none;
+  @media screen and (min-width: 325px) {
+    .reports__title::after {
+      width: 264px;
+    }
+
+    .reports__line_number_four {
+      width: 165px;
+    }
+  }
+
+  @media screen and (min-width: 337px) {
+    .reports__line_number_tree {
+      width: 275px;
+    }
+
+    .reports__line_number_four {
+      width: 147px;
+    }
   }
 
   @media screen and (min-width: 354px) {
@@ -164,72 +173,128 @@ export default {
     }
   }
 
-  @media screen and (min-width: 354px) {
+  @media screen and (min-width: 500px) {
+    .reports__title {
+      max-width: 418px;
+    }
+
+    .reports__title::before {
+      width: 407px;
+    }
+
+    .reports__title::after {
+      width: 396px;
+    }
+
+    .reports__line_number_tree {
+      width: 150px;
+    }
+
     .reports__line_number_four {
       display: none;
     }
   }
 
-  @media screen and (min-width: 512px) {
+  @media screen and (min-width: 620px) {
+    .reports__title {
+      max-width: 514px;
+    }
+
+    .reports__title::before {
+      width: 508px;
+    }
+
+    .reports__title::after {
+      width: 445px;
+    }
+
     .reports__line_number_tree {
-      width: 36%;
+      display: none;
     }
   }
 
   @media screen and (min-width: 768px) {
     .reports__container {
       min-height: 261px;
-    }
-
-    .logo {
-      display: block;
-      width: 82px;
-      position: absolute;
-      right: 2px;
-      top: 353px;
+      max-height: 897px;
+      overflow: hidden;
     }
 
     .reports__title {
-      font-size: 75px;
-      line-height: 53px;
+      font-size: 88px;
+      line-height: 73px;
       font-weight: 600;
       width: 81%;
       max-width: 603px;
-      margin: 36px 0 29px 20px;
-      word-break: normal;
+      margin: 51px 0 29px 46px;
     }
 
     .reports__title::before {
-      height: 17px;
-      width: 82%;
-      top: 44px;
-      left: 9px;
+      height: 23px;
+      width: 575px;
+      top: 48px;
+      left: 0;
     }
 
     .reports__title::after {
-      height: 17px;
-      width: 95%;
-      top: 95px;
-      left: 6px;
+      height: 23px;
+      width: 561px;
+      top: 115px;
+      left: -1px;
     }
 
     .reports__line {
-      height: 17px;
+      height: 23px;
     }
 
     .reports__line_number_tree {
-      top: 143px;
-      left: 9px;
-      width: 89%;
+      display: inline;
+      top: 187px;
+      left: -1px;
+      width: 555px;
+    }
+
+    .reports__line_number_four {
+      display: inline;
+      top: 265px;
+      left: -1px;
+      width: 191px;
     }
 
     .reports__subtitle {
-      max-width: 40%;
+      max-width: 85%;
+      font-size: 38px;
+      line-height: 36px;
+      font-style: normal;
+      margin: 0 0 0 47px;
     }
 
     .reports__image {
-      right: 8px;
-      top: 112px;
+      width: 520px;
+      height: 520px;
+      margin-left: 233px;
+    }
+  }
+
+  @media screen and (min-width: 950px) {
+    .reports__title {
+      max-width: 739px;
+    }
+
+    .reports__title::before {
+      width: 676px;
+    }
+
+    .reports__title::after {
+      width: 683px;
+    }
+
+    .reports__line_number_tree {
+      width: 542px;
+    }
+
+    .reports__line_number_four {
+      display: none;
     }
   }
 
@@ -282,21 +347,24 @@ export default {
     .reports__title {
       font-size: 106px;
       line-height: 75px;
-      width: 869px;
-      max-width: 869px;
+      width: 865px;
+      max-width: 865px;
       margin: 52px 0 41px 20px;
+      word-break: break-all;
     }
 
     .reports__title::before {
       height: 25px;
-      top: 60px;
+      top: 49px;
       left: 13px;
+      width: 812px;
     }
 
     .reports__title::after {
       height: 25px;
-      top: 130px;
+      top: 121px;
       left: 13px;
+      width: 824px;
     }
 
     .reports__line {
@@ -306,7 +374,7 @@ export default {
     .reports__line_number_tree {
       top: 201px;
       left: 12px;
-      width: 87%;
+      width: 656px;
     }
 
     .reports__subtitle {
@@ -316,26 +384,16 @@ export default {
     }
 
     .reports__image {
+      position: absolute;
       right: 115px;
       top: 164px;
       width: 245px;
       height: 245px;
     }
-
-    .logo {
-      z-index: 13;
-      right: 17px;
-      width: 117px;
-      height: 86px;
-      top: 521px;
-    }
   }
 
   @media screen and (min-width: 1280px) {
     .reports__drop {
-      display: block;
-      width: 36px;
-      height: 62px;
       fill: #b23438;
     }
   }

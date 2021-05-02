@@ -5,9 +5,9 @@
     <div class="contacts__colour-container contacts__colour-container_colour_white" />
     <div class="contacts__colour-container contacts__colour-container_colour_grey" />
     <div class="contacts__colour-container contacts__colour-container_colour_red">
-      <Drop :style="dropPosition" class="contacts__drop" />
+      <Drop class="contacts__drop" />
     </div>
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <LogoWhite />
     <div class="contacts__grid-title-container">
       <div class="contacts__container">
         <h2 class="contacts__title">
@@ -84,13 +84,7 @@ export default {
           position: 'Директорзаведения',
           telephone: '+79060741192'
         }
-      ],
-      dropPosition: {
-        position: 'absolute',
-        top: '50%',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
+      ]
     }
   }
 }
@@ -239,10 +233,6 @@ export default {
 }
 
 .contacts__drop {
-  display: none;
-}
-
-.logo {
   display: none;
 }
 
@@ -470,16 +460,6 @@ export default {
     font-size: 22px;
     line-height: 29px;
   }
-
-  .logo {
-    display: block;
-    position: absolute;
-    z-index: 13;
-    right: 36px;
-    width: 117px;
-    height: 86px;
-    top: 413px;
-  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -487,7 +467,6 @@ export default {
     display: block;
     width: 36px;
     height: 62px;
-    fill: #fff;
   }
 }
 </style>

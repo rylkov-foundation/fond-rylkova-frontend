@@ -618,7 +618,7 @@ export default {
   .form__submit {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -170px;
     width: 100%;
     height: 100px;
     margin-bottom: 0;

@@ -9,7 +9,7 @@
         ошибка
       </p>
     </div>
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
+    <LogoWhite />
     <div class="not-found__black" />
   </div>
 </template>
