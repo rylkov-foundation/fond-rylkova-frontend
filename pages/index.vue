@@ -34,6 +34,7 @@ export default {
   .popup {
     position: fixed;
     bottom: 50px;
+    right: 50px;
     z-index: 99;
     display: flex;
     flex-direction: column;

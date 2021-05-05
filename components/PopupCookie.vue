@@ -9,10 +9,14 @@
     <p class="popup__text">
       Сайт использует куки-файлы.
     </p>
-    <a
-      class="popup__link"
+    <button
+      type="button"
+      class="popup__button"
       @click="hidePopup"
-    >Понятно</a>
+    >
+      Понятно
+    </button>
+    <button type="button" class="popup__button-close" @click="hidePopup" />
   </div>
 </template>
 
@@ -39,7 +43,7 @@ export default {
     font-weight: bold;
     font-style: normal;
     letter-spacing: normal;
-    line-height: 12.73px;
+    line-height: 13px;
     margin-bottom: 12px;
   }
 
@@ -50,19 +54,20 @@ export default {
     font-weight: 400;
     font-style: normal;
     letter-spacing: normal;
-    line-height: 14.71px;
+    line-height: 15px;
     margin-bottom: 10px;
   }
 
-  .popup__link {
+  .popup__button {
     font-family: 'Vollkorn', 'Times', serif;
     font-size: 17px;
-    line-height: 24.34px;
+    line-height: 24px;
     font-weight: bold;
     color: #b23438;
-    text-decoration: none;
+    border: none;
     border-bottom: 2px solid #b23438;
     cursor: pointer;
+    background-color: transparent;
   }
 
   .popup__content {
@@ -75,12 +80,44 @@ export default {
     box-sizing: border-box;
   }
 
-  @media screen and (min-width: 768px) {
-    .popup {
-      bottom: 50px;
-      right: 30px;
-    }
+  .popup__button-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: none;
+  }
 
+  .popup__button-close::before {
+    position: absolute;
+    content: '';
+    top: 3px;
+    left: 0;
+    background-color: #434343;
+    height: 3px;
+    width: 20px;
+    transform: rotate(45deg);
+  }
+
+  .popup__button-close::after {
+    position: absolute;
+    content: '';
+    top: 3px;
+    left: 0;
+    background-color: #434343;
+    height: 3px;
+    width: 20px;
+    transform: rotate(135deg);
+  }
+
+  .popup__button-close:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  @media screen and (min-width: 768px) {
     .popup__content {
       width: 470px;
       min-height: 204px;
@@ -89,19 +126,38 @@ export default {
 
     .popup__title {
       font-size: 40px;
-      line-height: 26.18px;
+      line-height: 26px;
       margin-bottom: 28px;
     }
 
     .popup__text {
       font-size: 22px;
-      line-height: 30.26px;
+      line-height: 30px;
       margin-bottom: 21px;
     }
 
-    .popup__link {
+    .popup__button {
       font-size: 34px;
-      line-height: 50.07px;
+      line-height: 50px;
+    }
+
+    .popup__button-close {
+      top: 40px;
+      right: 40px;
+      height: 35px;
+      width: 35px;
+    }
+
+    .popup__button-close::before {
+      top: 10px;
+      height: 7px;
+      width: 35px;
+    }
+
+    .popup__button-close::after {
+      top: 10px;
+      height: 7px;
+      width: 35px;
     }
   }
 
@@ -114,7 +170,7 @@ export default {
 
     .popup__title {
       font-size: 25px;
-      line-height: 16.44px;
+      line-height: 16px;
       margin-bottom: 17px;
     }
 
@@ -124,9 +180,28 @@ export default {
       margin-bottom: 12px;
     }
 
-    .popup__link {
+    .popup__button {
       font-size: 22px;
-      line-height: 31.44px;
+      line-height: 31px;
+    }
+
+    .popup__button-close {
+      top: 15px;
+      right: 15px;
+      height: 20px;
+      width: 20px;
+    }
+
+    .popup__button-close::before {
+      top: 5px;
+      height: 5px;
+      width: 20px;
+    }
+
+    .popup__button-close::after {
+      top: 5px;
+      height: 5px;
+      width: 20px;
     }
   }
 </style>
