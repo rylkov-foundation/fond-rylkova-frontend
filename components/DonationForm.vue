@@ -2,14 +2,14 @@
   <form action="" class="form">
     <div class="form__slider-container">
       <button class="form__slider-button">
-        Регулярно
+        Однократно
       </button>
       <label class="switch">
         <input class="switch__input" type="checkbox">
         <span class="switch__slider" />
       </label>
       <button class="form__slider-button">
-        Однократно
+        Регулярно
       </button>
     </div>
     <div class="form__payment-options-container">

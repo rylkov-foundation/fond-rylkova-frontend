@@ -38,6 +38,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    () => {
+      require('node-schedule')
+        .scheduleJob('*/1 * * * *', () => {
+          console.log('*****CRON*****')
+        })
+    }
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -45,5 +51,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-methods', { loose: true }]
+      ]
+    }
   }
 }
