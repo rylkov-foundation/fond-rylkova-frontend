@@ -1,5 +1,5 @@
 <template>
-  <form action="" class="form">
+  <form class="form" @submit.prevent="onSubmit">
     <div class="form__slider-container">
       <button class="form__slider-button" type="button" @click="isRegularPayment = false">
         Однократно
@@ -14,27 +14,45 @@
     </div>
     <div class="form__payment-options-container">
       <label class="form__payment-options">
-        <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="card">
+        <input
+          v-model="paymentType"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-options"
+          value="bank_card"
+        >
         <span class="form__payment-options-button">Карта</span>
       </label>
       <label class="form__payment-options">
-        <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="ЮMoney">
+        <input
+          v-model="paymentType"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-options"
+          value="yoo_money"
+        >
         <span class="form__payment-options-button">ЮMoney</span>
       </label>
       <label class="form__payment-options">
-        <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="terminal">
+        <input
+          v-model="paymentType"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-options"
+          value="cash"
+        >
         <span class="form__payment-options-button">Терминал</span>
       </label>
     </div>
     <div class="form__amount-container">
       <label class="form__amount-options">
         <input
-          v-model="differentAmount"
+          v-model="radioAmount"
           type="radio"
           class="form__payment-options-radio-button"
           name="payment-amount"
           value="1000"
-          @click="changeAmount"
+          @click="onAmountCheckboxClick"
         >
         <span class="form__amount-options-button form__amount-options-button_thousand">1000
           <span class="form__money-sign">&#8381;</span>
@@ -42,12 +60,12 @@
       </label>
       <label class="form__amount-options">
         <input
-          v-model="differentAmount"
+          v-model="radioAmount"
           type="radio"
           class="form__payment-options-radio-button"
           name="payment-amount"
           value="500"
-          @click="changeAmount"
+          @click="onAmountCheckboxClick"
         >
         <span class="form__amount-options-button form__amount-options-button_five-hundred">500
           <span class="form__money-sign">&#8381;</span>
@@ -55,12 +73,12 @@
       </label>
       <label class="form__amount-options">
         <input
-          v-model="differentAmount"
+          v-model="radioAmount"
           type="radio"
           class="form__payment-options-radio-button"
           name="payment-amount"
           value="200"
-          @click="changeAmount"
+          @click="onAmountCheckboxClick"
         >
         <span class="form__amount-options-button form__amount-options-button_two-hundred">200
           <span class="form__money-sign">&#8381;</span>
@@ -68,15 +86,16 @@
       </label>
       <div class="form__text-amount-container">
         <input
-          v-model="inputAmount"
+          v-model="differentAmount"
           type="number"
-          min="1"
+          min="50"
           class="form__input"
           placeholder="Другая сумма"
-          @click="changeAmount"
+          @focus="differentAmount = radioAmount"
+          @input="onAmountInput"
         >
         <label class="form__label-agree">
-          <input type="checkbox" class="form__agree">
+          <input v-model="isContractAgreed" type="checkbox" class="form__agree" required>
           <span class="form__checkbox-agree" />
           <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
           <span class="form__text-agree">Согласен с <a href="#" class="form__link-offer">офертой</a></span>
@@ -103,18 +122,24 @@ export default {
   data () {
     return {
       isRegularPayment: false,
-      summa: 200,
-      paymentType: 'card',
-      differentAmount: true,
-      inputAmount: ''
+      radioAmount: 200,
+      differentAmount: '',
+      amount: 200,
+      paymentType: 'bank_card',
+      isContractAgreed: false
     }
   },
   methods: {
-    changeAmount () {
-      if (!this.differentAmount) {
-        this.inputAmount = ''
-      }
-      this.differentAmount = !this.differentAmount
+    onAmountInput (e) {
+      this.radioAmount = 0
+      this.amount = e.target.value
+    },
+    onAmountCheckboxClick (e) {
+      this.amount = e.target.value
+      this.differentAmount = ''
+    },
+    onSubmit () {
+      console.log(this.amount, this.isRegularPayment, this.paymentType, this.isContractAgreed)
     }
   }
 }
