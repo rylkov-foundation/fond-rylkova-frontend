@@ -1,27 +1,30 @@
 <template>
   <form action="" class="form">
     <div class="form__slider-container">
-      <button class="form__slider-button">
+      <button class="form__slider-button" type="button" @click="isRegularPayment = false">
         Однократно
       </button>
       <label class="switch">
         <input v-model="isRegularPayment" type="checkbox" class="switch__input">
         <span class="switch__slider" />
       </label>
-      <button class="form__slider-button">
+      <button class="form__slider-button" type="button" @click="isRegularPayment = true">
         Регулярно
       </button>
     </div>
     <div class="form__payment-options-container">
       <label class="form__payment-options">
         <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="card">
-        <span class="form__payment-options-button">Карта</span></label>
+        <span class="form__payment-options-button">Карта</span>
+      </label>
       <label class="form__payment-options">
         <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="ЮMoney">
-        <span class="form__payment-options-button">ЮMoney</span></label>
+        <span class="form__payment-options-button">ЮMoney</span>
+      </label>
       <label class="form__payment-options">
         <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="terminal">
-        <span class="form__payment-options-button">Терминал</span></label>
+        <span class="form__payment-options-button">Терминал</span>
+      </label>
     </div>
     <div class="form__amount-container">
       <label class="form__amount-options">
@@ -34,7 +37,8 @@
           @click="changeAmount"
         >
         <span class="form__amount-options-button form__amount-options-button_thousand">1000
-          <span class="form__money-sign">&#8381;</span></span>
+          <span class="form__money-sign">&#8381;</span>
+        </span>
       </label>
       <label class="form__amount-options">
         <input
@@ -46,7 +50,8 @@
           @click="changeAmount"
         >
         <span class="form__amount-options-button form__amount-options-button_five-hundred">500
-          <span class="form__money-sign">&#8381;</span></span>
+          <span class="form__money-sign">&#8381;</span>
+        </span>
       </label>
       <label class="form__amount-options">
         <input
@@ -58,7 +63,8 @@
           @click="changeAmount"
         >
         <span class="form__amount-options-button form__amount-options-button_two-hundred">200
-          <span class="form__money-sign">&#8381;</span></span>
+          <span class="form__money-sign">&#8381;</span>
+        </span>
       </label>
       <div class="form__text-amount-container">
         <input
