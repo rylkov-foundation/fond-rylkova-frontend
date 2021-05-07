@@ -5,7 +5,7 @@
         Однократно
       </button>
       <label class="switch">
-        <input class="switch__input" type="checkbox">
+        <input v-model="isRegularPayment" type="checkbox" class="switch__input">
         <span class="switch__slider" />
       </label>
       <button class="form__slider-button">
@@ -58,6 +58,13 @@ export default {
     isDonationPage: {
       type: Boolean,
       default: () => false
+    }
+  },
+  data () {
+    return {
+      isRegularPayment: false,
+      summa: 200,
+      paymentType: 'card'
     }
   }
 }
