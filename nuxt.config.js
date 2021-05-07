@@ -31,7 +31,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/axios'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -56,5 +57,8 @@ export default {
         ['@babel/plugin-proposal-private-methods', { loose: true }]
       ]
     }
-  }
+  },
+  serverMiddleware: [
+    { path: '/donation-query', handler: '~/server-middleware/donation.js' }
+  ]
 }

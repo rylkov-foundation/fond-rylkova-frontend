@@ -1,14 +1,14 @@
 <template>
   <form class="form" @submit.prevent="onSubmit">
     <div class="form__slider-container">
-      <button class="form__slider-button" type="button" @click="isRegularPayment = false">
+      <button class="form__slider-button" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
         Однократно
       </button>
       <label class="switch">
-        <input v-model="isRegularPayment" type="checkbox" class="switch__input">
+        <input v-model="isRegularPayment" type="checkbox" class="switch__input" @change="onSwitchIsRegularPayment">
         <span class="switch__slider" />
       </label>
-      <button class="form__slider-button" type="button" @click="isRegularPayment = true">
+      <button class="form__slider-button" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
         Регулярно
       </button>
     </div>
@@ -40,6 +40,7 @@
           class="form__payment-options-radio-button"
           name="payment-options"
           value="cash"
+          :disabled="isRegularPayment"
         >
         <span class="form__payment-options-button">Терминал</span>
       </label>
@@ -138,8 +139,32 @@ export default {
       this.amount = e.target.value
       this.differentAmount = ''
     },
+    onSwitchIsRegularPayment (e) {
+      if (e.target.name === 'toTrue') {
+        this.isRegularPayment = true
+      } else if (e.target.name === 'toFalse') {
+        this.isRegularPayment = false
+      } else if (e.target.name === 'switch') {
+        this.isRegularPayment = !this.isRegularPayment
+      }
+      if (this.isRegularPayment === true && this.paymentType === 'cash') {
+        this.paymentType = 'bank_card'
+      }
+    },
     onSubmit () {
-      console.log(this.amount, this.isRegularPayment, this.paymentType, this.isContractAgreed)
+      this.$axios
+        .post(
+          'http://localhost:3000/donation-query/',
+          {
+            isRegularPayment: this.isRegularPayment,
+            paymentType: this.paymentType,
+            amount: this.amount
+          }
+        )
+        .then((res) => {
+          window.location.href = res.data.url
+        })
+        .catch(err => console.log(err))
     }
   }
 }
