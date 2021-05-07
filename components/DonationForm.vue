@@ -50,6 +50,7 @@
       </label>
       <label class="form__amount-options">
         <input
+          id="small-amount"
           v-model="differentAmount"
           type="radio"
           class="form__payment-options-radio-button"
@@ -240,6 +241,10 @@ export default {
   grid-template-rows: repeat(2, 84px);
   grid-template-columns: repeat(2, 137px);
   gap: 9px 16px;
+}
+
+.form__amount-options {
+  position: relative;
 }
 
 .form__amount-options-button {
