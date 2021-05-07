@@ -16,7 +16,6 @@
     >
       Понятно
     </button>
-    <button type="button" class="popup__button-close" @click="hidePopup" />
   </div>
 </template>
 
@@ -80,43 +79,6 @@ export default {
     box-sizing: border-box;
   }
 
-  .popup__button-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    height: 20px;
-    width: 20px;
-    background-color: transparent;
-    border: none;
-  }
-
-  .popup__button-close::before {
-    position: absolute;
-    content: '';
-    top: 3px;
-    left: 0;
-    background-color: #434343;
-    height: 3px;
-    width: 20px;
-    transform: rotate(45deg);
-  }
-
-  .popup__button-close::after {
-    position: absolute;
-    content: '';
-    top: 3px;
-    left: 0;
-    background-color: #434343;
-    height: 3px;
-    width: 20px;
-    transform: rotate(135deg);
-  }
-
-  .popup__button-close:hover {
-    cursor: pointer;
-    opacity: 0.7;
-  }
-
   @media screen and (min-width: 768px) {
     .popup__content {
       width: 470px;
@@ -139,25 +101,6 @@ export default {
     .popup__button {
       font-size: 34px;
       line-height: 50px;
-    }
-
-    .popup__button-close {
-      top: 40px;
-      right: 40px;
-      height: 35px;
-      width: 35px;
-    }
-
-    .popup__button-close::before {
-      top: 10px;
-      height: 7px;
-      width: 35px;
-    }
-
-    .popup__button-close::after {
-      top: 10px;
-      height: 7px;
-      width: 35px;
     }
   }
 
@@ -183,25 +126,6 @@ export default {
     .popup__button {
       font-size: 22px;
       line-height: 31px;
-    }
-
-    .popup__button-close {
-      top: 15px;
-      right: 15px;
-      height: 20px;
-      width: 20px;
-    }
-
-    .popup__button-close::before {
-      top: 5px;
-      height: 5px;
-      width: 20px;
-    }
-
-    .popup__button-close::after {
-      top: 5px;
-      height: 5px;
-      width: 20px;
     }
   }
 </style>
