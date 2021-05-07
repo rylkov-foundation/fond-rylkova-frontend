@@ -42,7 +42,10 @@
           value="cash"
           :disabled="isRegularPayment"
         >
-        <span class="form__payment-options-button">Терминал</span>
+        <span
+          class="form__payment-options-button"
+          :class="isRegularPayment && 'form__payment-options-button_disabled'"
+        >Терминал</span>
       </label>
     </div>
     <div class="form__amount-container">
@@ -105,9 +108,20 @@
     </div>
     <input type="text" class="form__input form__input_personal" placeholder="Имя">
     <input type="email" class="form__input form__input_personal" placeholder="Email">
-    <button type="submit" class="form__submit" :class="isDonationPage && 'form__submit_page_donation'">
+    <button
+      type="submit"
+      class="form__submit"
+      :class="{'form__submit_page_donation': isDonationPage,
+               'form__submit_disabled': !isContractAgreed || amount <= 0}"
+      :disabled="!isContractAgreed || amount <= 0"
+    >
       Перейти к оплате
     </button>
+    <ul v-if="errors.length" class="form__errors-list">
+      <li v-for="error in errors" :key="error" class="form__errors-item">
+        {{ error }}
+      </li>
+    </ul>
   </form>
 </template>
 
@@ -127,13 +141,27 @@ export default {
       differentAmount: '',
       amount: 200,
       paymentType: 'bank_card',
-      isContractAgreed: false
+      isContractAgreed: false,
+      errors: []
     }
   },
+  watch: {
+    isContractAgreed: 'contractCheck'
+  },
   methods: {
+    contractCheck () {
+      this.errors = []
+      if (!this.isContractAgreed) {
+        this.errors.push('Необходимо принять оферту')
+      }
+    },
     onAmountInput (e) {
       this.radioAmount = 0
       this.amount = e.target.value
+      this.errors = []
+      if (this.amount <= 0) {
+        this.errors.push('Сумма не может быть меньше или равна 0')
+      }
     },
     onAmountCheckboxClick (e) {
       this.amount = e.target.value
@@ -152,6 +180,7 @@ export default {
       }
     },
     onSubmit () {
+      this.errors = []
       this.$axios
         .post(
           'http://localhost:3000/donation-query/',
@@ -164,7 +193,10 @@ export default {
         .then((res) => {
           window.location.href = res.data.url
         })
-        .catch(err => console.log(err))
+        .catch((err) => {
+          console.log(err)
+          this.errors.push('Не удалось совершить переход. Попробуйте позже')
+        })
     }
   }
 }
@@ -278,6 +310,17 @@ export default {
   right: 0;
   bottom: 0;
   opacity: 0;
+}
+
+.form__payment-options-button_disabled {
+  cursor: auto;
+  background-color: #7f7f7f;
+  color: #434343;
+}
+
+.form__payment-options-button_disabled:hover {
+  cursor: default;
+  opacity: 1;
 }
 
 .form__payment-options-radio-button:checked + .form__payment-options-button {
@@ -468,12 +511,32 @@ export default {
   cursor: pointer;
 }
 
+.form__submit_disabled {
+  background-color: #7f7f7f;
+}
+
+.form__submit_disabled:hover {
+  opacity: 1;
+  cursor: default;
+}
+
 .form__link-offer {
   color: #727272;
 }
 
 .form__link-offer:hover {
   opacity: 0.7;
+}
+
+.form__errors-list {
+  list-style: none;
+  margin-top: 5px;
+  padding: 0;
+}
+
+.form__errors-item {
+  color: #b23438;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -593,11 +656,23 @@ export default {
     margin-top: 46px;
     margin-bottom: 28px;
   }
+
+  .form__errors-item {
+    font-size: 25px;
+  }
 }
 
 @media screen and (min-width: 1100px) {
   .form {
     position: relative;
+  }
+
+  .form__submit_page_donation {
+    position: absolute;
+    left: -360px;
+    bottom: -52px;
+    width: 297px;
+    height: 66px;
   }
 }
 
@@ -733,6 +808,18 @@ export default {
     width: 100%;
     height: 100px;
     margin-bottom: 0;
+  }
+
+  .form__submit_page_donation {
+    position: absolute;
+    left: -360px;
+    bottom: -52px;
+    width: 297px;
+    height: 66px;
+  }
+
+  .form__errors-item {
+    font-size: 20px;
   }
 }
 </style>
