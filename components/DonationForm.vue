@@ -13,28 +13,62 @@
       </button>
     </div>
     <div class="form__payment-options-container">
-      <button class="form__payment-options-button">
-        Карта
-      </button>
-      <button class="form__payment-options-button">
-        ЮMoney
-      </button>
-      <button class="form__payment-options-button">
-        Терминал
-      </button>
+      <label class="form__payment-options">
+        <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="card">
+        <span class="form__payment-options-button">Карта</span></label>
+      <label class="form__payment-options">
+        <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="ЮMoney">
+        <span class="form__payment-options-button">ЮMoney</span></label>
+      <label class="form__payment-options">
+        <input type="radio" class="form__payment-options-radio-button" name="payment-options" value="terminal">
+        <span class="form__payment-options-button">Терминал</span></label>
     </div>
     <div class="form__amount-container">
-      <button class="form__amount-options-button form__amount-options-button_thousand">
-        1000<span class="form__money-sign">&#8381;</span>
-      </button>
-      <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_five-hundred">
-        500<span class="form__money-sign form__money-sign_light">&#8381;</span>
-      </button>
-      <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_two-hundred">
-        200<span class="form__money-sign form__money-sign_light">&#8381;</span>
-      </button>
+      <label class="form__amount-options">
+        <input
+          v-model="differentAmount"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-amount"
+          value="1000"
+          @click="changeAmount"
+        >
+        <span class="form__amount-options-button form__amount-options-button_thousand">1000
+          <span class="form__money-sign">&#8381;</span></span>
+      </label>
+      <label class="form__amount-options">
+        <input
+          v-model="differentAmount"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-amount"
+          value="500"
+          @click="changeAmount"
+        >
+        <span class="form__amount-options-button form__amount-options-button_five-hundred">500
+          <span class="form__money-sign">&#8381;</span></span>
+      </label>
+      <label class="form__amount-options">
+        <input
+          v-model="differentAmount"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-amount"
+          value="200"
+          @click="changeAmount"
+        >
+        <span class="form__amount-options-button form__amount-options-button_two-hundred">200
+          <span class="form__money-sign">&#8381;</span></span>
+      </label>
       <div class="form__text-amount-container">
-        <input type="number" min="1" class="form__input" placeholder="Другая сумма">
+        <input
+          v-model="inputAmount"
+          type="number"
+          min="1"
+          class="form__input"
+          placeholder="Другая сумма"
+          @click="changeAmount"
+        >
         <label class="form__label-agree">
           <input type="checkbox" class="form__agree">
           <span class="form__checkbox-agree" />
@@ -64,7 +98,17 @@ export default {
     return {
       isRegularPayment: false,
       summa: 200,
-      paymentType: 'card'
+      paymentType: 'card',
+      differentAmount: true,
+      inputAmount: ''
+    }
+  },
+  methods: {
+    changeAmount () {
+      if (!this.differentAmount) {
+        this.inputAmount = ''
+      }
+      this.differentAmount = !this.differentAmount
     }
   }
 }
@@ -147,6 +191,10 @@ export default {
   width: fit-content;
 }
 
+.form__payment-options {
+  position: relative;
+}
+
 .form__payment-options-button {
   font-family: Roboto, Arial, sans-serif;
   font-size: 15px;
@@ -158,11 +206,28 @@ export default {
   color: #313131;
   width: 92px;
   margin: 0 3px;
+  display: flex;
+  justify-content: center;
 }
 
 .form__payment-options-button:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+
+.form__payment-options-radio-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.form__payment-options-radio-button:checked + .form__payment-options-button {
+  background-color: #b23438;
+  color: #fff;
+  opacity: 1;
 }
 
 .form__amount-container {
@@ -182,15 +247,17 @@ export default {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  color: #000;
   font-size: 109px;
-  border: 2px solid #000;
+  line-height: 68px;
   border-radius: 20px;
   padding: 6px 0 0 5px;
   align-items: center;
   display: flex;
   justify-content: space-around;
   overflow: hidden;
+  background-color: #fff;
+  color: #cbcbcb;
+  border: 2px solid #cbcbcb;
 }
 
 .form__amount-options-button:hover {
@@ -198,10 +265,10 @@ export default {
   cursor: pointer;
 }
 
-.form__amount-options-button_light {
-  background-color: #fff;
-  color: #cbcbcb;
-  border-color: #cbcbcb;
+.form__payment-options-radio-button:checked + .form__amount-options-button {
+  color: #000;
+  border: 2px solid #000;
+  background-color: transparent;
 }
 
 .form__money-sign {
@@ -209,14 +276,14 @@ export default {
   font-size: 82px;
   line-height: 77px;
   color: rgba(0, 0, 0, 0);
-  -webkit-text-stroke: 1px black;
   position: relative;
   top: -7px;
   left: -5px;
+  -webkit-text-stroke: 1px #cbcbcb;
 }
 
-.form__money-sign_light {
-  -webkit-text-stroke: 1px #cbcbcb;
+.form__payment-options-radio-button:checked + .form__amount-options-button .form__money-sign {
+  -webkit-text-stroke: 1px black;
 }
 
 .form__text-amount-container {
@@ -404,20 +471,13 @@ export default {
   .form__amount-options-button {
     font-size: 218px;
     padding: 11px 0 0 7px;
-  }
-
-  .form__amount-options-button_light {
-    padding-left: 20px;
+    line-height: 150px;
   }
 
   .form__money-sign {
     font-size: 166px;
     top: -13px;
     left: -6px;
-  }
-
-  .form__money-sign_light {
-    left: -12px;
   }
 
   .form__text-amount-container {
@@ -478,14 +538,6 @@ export default {
 @media screen and (min-width: 1100px) {
   .form {
     position: relative;
-  }
-
-  .form__submit_page_donation {
-    position: absolute;
-    left: -360px;
-    bottom: -52px;
-    width: 297px;
-    height: 66px;
   }
 }
 
@@ -560,19 +612,11 @@ export default {
     grid-area: two-hundred;
   }
 
-  .form__amount-options-button_light {
-    padding: 6px 0 0 12px;
-  }
-
   .form__money-sign {
     font-size: 88px;
     line-height: 81px;
     top: -7px;
     left: -3px;
-  }
-
-  .form__money-sign_light {
-    left: -5px;
   }
 
   .form__text-amount-container {
@@ -629,14 +673,6 @@ export default {
     width: 100%;
     height: 100px;
     margin-bottom: 0;
-  }
-
-  .form__submit_page_donation {
-    position: absolute;
-    left: -360px;
-    bottom: -52px;
-    width: 297px;
-    height: 66px;
   }
 }
 </style>

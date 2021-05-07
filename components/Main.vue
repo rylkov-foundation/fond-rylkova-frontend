@@ -6,10 +6,6 @@
     <div class="main__wrapper main__wrapper_color_grey">
       <div class="main__grey-block">
         <div class="main__money-block">
-          <button type="button" class="main__number main__number_size_big">
-            1000
-            <span class="main__money-sign">&#8381;</span>
-          </button>
           <button type="button" class="main__number main__number_size_small">
             200
           </button>
