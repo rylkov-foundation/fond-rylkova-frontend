@@ -117,11 +117,12 @@
     >
       Перейти к оплате
     </button>
-    <ul v-if="errors.length" class="form__errors-list">
-      <li v-for="error in errors" :key="error" class="form__errors-item">
-        {{ error }}
-      </li>
-    </ul>
+    <p
+      class="form__error"
+      :class="error && 'form__error_visible'"
+    >
+      {{ error }}
+    </p>
   </form>
 </template>
 
@@ -142,25 +143,28 @@ export default {
       amount: 200,
       paymentType: 'bank_card',
       isContractAgreed: false,
-      errors: []
+      error: ''
     }
   },
   watch: {
     isContractAgreed: 'contractCheck'
   },
+  mounted () {
+    this.contractCheck()
+  },
   methods: {
     contractCheck () {
-      this.errors = []
+      this.error = ''
       if (!this.isContractAgreed) {
-        this.errors.push('Необходимо принять оферту')
+        this.error = 'Необходимо принять оферту'
       }
     },
     onAmountInput (e) {
       this.radioAmount = 0
       this.amount = e.target.value
-      this.errors = []
+      this.error = ''
       if (this.amount <= 0) {
-        this.errors.push('Сумма не может быть меньше или равна 0')
+        this.error = 'Сумма не может быть меньше или равна 0'
       }
     },
     onAmountCheckboxClick (e) {
@@ -180,7 +184,7 @@ export default {
       }
     },
     onSubmit () {
-      this.errors = []
+      this.error = ''
       this.$axios
         .post(
           'http://localhost:3000/donation-query/',
@@ -195,7 +199,7 @@ export default {
         })
         .catch((err) => {
           console.log(err)
-          this.errors.push('Не удалось совершить переход. Попробуйте позже')
+          this.error = 'Не удалось совершить переход. Попробуйте позже'
         })
     }
   }
@@ -528,15 +532,17 @@ export default {
   opacity: 0.7;
 }
 
-.form__errors-list {
-  list-style: none;
+.form__error {
   margin-top: 5px;
-  padding: 0;
+  opacity: 0;
+  color: #b23438;
+  font-size: 12px;
+  text-align: center;
+  height: 18px;
 }
 
-.form__errors-item {
-  color: #b23438;
-  font-size: 16px;
+.form__error_visible {
+  opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
@@ -657,8 +663,9 @@ export default {
     margin-bottom: 28px;
   }
 
-  .form__errors-item {
+  .form__error {
     font-size: 25px;
+    height: 28px;
   }
 }
 
@@ -804,7 +811,7 @@ export default {
   .form__submit {
     position: absolute;
     left: 0;
-    bottom: -170px;
+    bottom: -144px;
     width: 100%;
     height: 100px;
     margin-bottom: 0;
@@ -818,8 +825,11 @@ export default {
     height: 66px;
   }
 
-  .form__errors-item {
+  .form__error {
     font-size: 20px;
+    height: 22px;
+    padding-left: 5px;
+    text-align: left;
   }
 }
 </style>

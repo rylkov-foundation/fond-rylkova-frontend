@@ -10,9 +10,9 @@
             1000
             <span class="main__money-sign">&#8381;</span>
           </button>
-          <nuxt-link :to="{ path: ('/donation'), hash: '#small-amount' }" type="button" class="main__number main__number_size_small">
+          <button type="button" class="main__number main__number_size_small">
             200
-          </nuxt-link>
+          </button>
           <button type="button" class="main__number main__number_size_medium">
             500
           </button>

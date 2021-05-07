@@ -169,7 +169,7 @@ export default {
     }
 
     .donation__privacy-policy {
-      margin: 26px 0 63px 98px;
+      margin: 6px 0 63px 98px;
       font-size: 18px;
       line-height: 31px;
       text-align: left;
