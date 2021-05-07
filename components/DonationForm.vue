@@ -298,6 +298,10 @@ export default {
   gap: 9px 16px;
 }
 
+.form__amount-options {
+  position: relative;
+}
+
 .form__amount-options-button {
   font-family: 'Tomorrow', 'Times', fantasy, serif;
   font-style: normal;
