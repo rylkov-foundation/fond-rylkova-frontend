@@ -43,7 +43,10 @@ export default function regularDonationCronTask () {
                     currency: process.env.CURRENCY
                   },
                   payment_method_id: donation.id,
-                  description: process.env.DESCRIPTION + ' Регулярный платеж!'
+                  description: process.env.DESCRIPTION,
+                  metadata: {
+                    type: 'next regular payment'
+                  }
                 },
                 {
                   headers: {

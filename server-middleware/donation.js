@@ -32,7 +32,10 @@ app.post('/donations',
           return_url: process.env.REDIRECT_URL
         },
         description: process.env.DESCRIPTION,
-        save_payment_method: req.body.isRegularPayment
+        save_payment_method: req.body.isRegularPayment,
+        metadata: {
+          type: req.body.isRegularPayment ? 'initial regular payment' : 'once'
+        }
       },
       {
         headers: {
@@ -56,7 +59,7 @@ app.post('/donations',
 
 app.post('/results',
   (req, res) => {
-    console.log(res.body)
+    console.log(req.body)
     if (
       req.body?.object?.status === 'succeeded' &&
       req.body?.object?.payment_method?.saved === true &&
