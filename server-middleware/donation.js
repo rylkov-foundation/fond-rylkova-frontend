@@ -5,7 +5,7 @@ const axios = require('axios')
 const { v4: uuidv4 } = require('uuid')
 
 app.use(bodyParser.json())
-app.post('/',
+app.post('/donations',
   (req, res) => {
     axios.post(
       'https://api.yookassa.ru/v3/payments',
@@ -38,7 +38,16 @@ app.post('/',
       .then((payment) => {
         res.status(200).send({ ok: true, url: payment.data.confirmation.confirmation_url })
       })
-      .catch(err => res.status(500).send({ ok: false, message: 'something went wrong =(' }))
-  })
+      .catch((err) => {
+        res.status(500).send({ ok: false, message: 'something went wrong =(' })
+      })
+  }
+)
+
+app.post('/results',
+  (req, res) => {
+    console.log(req.body)
+  }
+)
 
 module.exports = app

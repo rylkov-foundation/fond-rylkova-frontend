@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -60,5 +62,14 @@ export default {
   },
   serverMiddleware: [
     { path: '/donation-query', handler: '~/server-middleware/donation.js' }
-  ]
+  ],
+  server: {
+    host: process.env.HOST || 'localhost',
+    port: process.env.PORT || 3000
+  },
+  publicRuntimeConfig: {
+    constants: {
+      baseUrl: process.env.DOMEN || 'http://localhost:3000'
+    }
+  }
 }

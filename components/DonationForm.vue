@@ -142,29 +142,28 @@ export default {
       differentAmount: '',
       amount: 200,
       paymentType: 'bank_card',
-      isContractAgreed: false,
-      error: ''
+      isContractAgreed: false
     }
   },
-  watch: {
-    isContractAgreed: 'contractCheck'
-  },
-  mounted () {
-    this.contractCheck()
+  computed: {
+    error () {
+      if (this.amount <= 50) {
+        return 'Минимальная сумма 50 рублей'
+      } else if (!this.isContractAgreed) {
+        return 'Необходимо принять оферту'
+      } else {
+        return ''
+      }
+    }
   },
   methods: {
-    contractCheck () {
-      this.error = ''
-      if (!this.isContractAgreed) {
-        this.error = 'Необходимо принять оферту'
-      }
-    },
     onAmountInput (e) {
       this.radioAmount = 0
       this.amount = e.target.value
-      this.error = ''
-      if (this.amount <= 0) {
-        this.error = 'Сумма не может быть меньше или равна 0'
+      if (this.amount <= 50) {
+        this.error = 'Минимальная сумма 50 рублей'
+      } else {
+        this.error = ''
       }
     },
     onAmountCheckboxClick (e) {
@@ -187,7 +186,7 @@ export default {
       this.error = ''
       this.$axios
         .post(
-          'http://localhost:3000/donation-query/',
+          `${this.$config.constants.baseUrl}/donation-query/donations`,
           {
             isRegularPayment: this.isRegularPayment,
             paymentType: this.paymentType,
@@ -198,8 +197,7 @@ export default {
           window.location.href = res.data.url
         })
         .catch((err) => {
-          console.log(err)
-          this.error = 'Не удалось совершить переход. Попробуйте позже'
+          this.error = err.message
         })
     }
   }
