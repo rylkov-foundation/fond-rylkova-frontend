@@ -56,6 +56,7 @@ app.post('/donations',
 
 app.post('/results',
   (req, res) => {
+    console.log(res.body)
     if (
       req.body?.object?.status === 'succeeded' &&
       req.body?.object?.payment_method?.saved === true &&
@@ -86,7 +87,7 @@ app.post('/results',
       if (req.body?.object) {
         logger.log('error', 'Ошибка: %s', JSON.stringify(req.body.object))
       }
-      res.status(400).send({ ok: false })
+      res.status(200).send({ ok: false })
     }
   }
 )
