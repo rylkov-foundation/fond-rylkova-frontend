@@ -71,14 +71,12 @@ app.post('/results',
           useUnifiedTopology: true
         })
         .then(() => {
-          Donation.create({ id: req.body.object.payment_method.id, amount: req.body.object.amount.value })
+          return Donation.create({ id: req.body.object.payment_method.id, amount: req.body.object.amount.value })
             .then((donation) => {
               logger.log('info', 'Regular donation db data: %s', JSON.stringify(donation))
               logger.log('info', 'Regular donation object: %s', JSON.stringify(req.body.object))
             })
             .then(() => res.status(200).send({ ok: true }))
-            .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))
-          return mongoose.disconnect()
         })
         .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))
     } else if (req.body?.object?.status === 'succeeded') {
