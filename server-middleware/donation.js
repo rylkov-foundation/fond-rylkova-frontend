@@ -48,7 +48,7 @@ app.post('/donations',
         res.status(200).send({ ok: true, url: payment.data.confirmation.confirmation_url })
       })
       .catch((err) => {
-        logger.log('error', 'Ошибка: %s', err.toString())
+        logger.log('error', 'Ошибка: %s', JSON.stringify(err))
         res.status(500).send({ ok: false, message: 'something went wrong =(' })
       })
   }
@@ -73,19 +73,19 @@ app.post('/results',
         .then(() => {
           Donation.create({ id: req.body.object.payment_method.id, amount: req.body.object.amount.value })
             .then((donation) => {
-              logger.log('info', 'Regular donation db data: %s', donation.toString())
-              logger.log('info', 'Regular donation object: %s', req.body.object.toString())
+              logger.log('info', 'Regular donation db data: %s', JSON.stringify(donation))
+              logger.log('info', 'Regular donation object: %s', JSON.stringify(req.body.object))
             })
             .then(() => res.status(200).send({ ok: true }))
-            .catch(err => logger.log('error', 'Ошибка: %s', err.toString()))
+            .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))
           return mongoose.disconnect()
         })
-        .catch(err => logger.log('error', 'Ошибка: %s', err.toString()))
+        .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))
     } else if (req.body?.object?.status === 'succeeded') {
-      logger.log('info', 'donation object: %s', req.body.object.toString())
+      logger.log('info', 'donation object: %s', JSON.stringify(req.body.object))
     } else {
       if (req.body?.object) {
-        logger.log('error', 'Ошибка: %s', req.body.object.toString())
+        logger.log('error', 'Ошибка: %s', JSON.stringify(req.body.object))
       }
       res.status(400).send({ ok: false })
     }
