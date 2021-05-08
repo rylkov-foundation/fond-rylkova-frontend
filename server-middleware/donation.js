@@ -64,6 +64,7 @@ app.post('/results',
       req.body?.object?.status === 'succeeded' &&
       req.body?.object?.payment_method?.saved === true &&
       req.body?.object?.payment_method?.id &&
+      req.body?.object?.metadata?.type === 'initial regular payment' &&
       req.body?.object?.amount?.value
     ) {
       mongoose.connect(
@@ -83,12 +84,36 @@ app.post('/results',
             .then(() => res.status(200).send({ ok: true }))
         })
         .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))
-    } else if (req.body?.object?.status === 'succeeded') {
+    } else if (
+      req.body?.object?.status === 'succeeded'
+    ) {
       logger.log('info', 'donation object: %s', JSON.stringify(req.body.object))
       res.status(200).send({ ok: true })
     } else {
       if (req.body?.object) {
         logger.log('error', 'Ошибка: %s', JSON.stringify(req.body.object))
+      }
+      if (
+        req.body?.object?.status !== 'succeeded' &&
+        req.body?.object?.payment_method?.saved === true &&
+        req.body?.object?.payment_method?.id &&
+        req.body?.object?.metadata?.type === 'next regular payment' &&
+        req.body?.object?.cancellation_details?.reason === 'permission_revoked'
+      ) {
+        mongoose.connect(
+          `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+          {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useFindAndModify: false,
+            useUnifiedTopology: true
+          })
+          .then(() => {
+            return Donation.findOneAndDelete({ id: req.body?.object?.payment_method?.id })
+              .then(donation =>
+                logger.log('info', 'sponsor canceled his subscription: %s', JSON.stringify(donation)))
+          })
+          .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))
       }
       res.status(200).send({ ok: false })
     }

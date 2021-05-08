@@ -23,6 +23,7 @@ export default function regularDonationCronTask () {
     .then(() => {
       Donation.find({})
         .then((donations) => {
+          console.log(donations)
           donations.forEach((donation) => {
             if (
               (
