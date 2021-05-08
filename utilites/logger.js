@@ -7,7 +7,10 @@ const logger = winston.createLogger({
     new winston.transports.File({
       filename: './logs/donation.log',
       level: 'info',
-      format: winston.format.json()
+      format: winston.format.combine(
+        winston.format.splat(),
+        winston.format.json()
+      )
     })
   ]
 })

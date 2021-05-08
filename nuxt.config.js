@@ -1,3 +1,4 @@
+import regularDonationCronTask from './utilites/regularDonationCronTask'
 require('dotenv').config()
 
 export default {
@@ -43,9 +44,7 @@ export default {
     '@nuxtjs/axios',
     () => {
       require('node-schedule')
-        .scheduleJob('*/1 * * * *', () => {
-          console.log('*****CRON*****')
-        })
+        .scheduleJob('*/1 * * * *', regularDonationCronTask)
     }
   ],
 
