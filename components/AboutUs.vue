@@ -57,7 +57,7 @@ export default {
   }
 
   .about-us__title {
-    background-image: url("./assets/images/about-us.png");
+    background-image: url("../assets/images/about-us.png");
     height: 340px;
     background-position: center;
     background-size: cover;

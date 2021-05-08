@@ -65,21 +65,21 @@ export default {
       contactData: [
         {
           id: '1',
-          imageLink: 'Дельфинов.png',
+          imageLink: 'Delphinov.png',
           name: ' Дарья  Байбакова',
           position: 'Директорзаведения',
           telephone: '+79060741192'
         },
         {
           id: '2',
-          imageLink: 'Дельфинов.png',
+          imageLink: 'Delphinov.png',
           name: ' Дарья  Байбакова',
           position: 'Директорзаведения',
           telephone: '+79060741192'
         },
         {
           id: '3',
-          imageLink: 'Дельфинов.png',
+          imageLink: 'Delphinov.png',
           name: ' Дарья  Байбакова',
           position: 'Директорзаведения',
           telephone: '+79060741192'
