@@ -72,6 +72,7 @@ app.post('/results',
         })
         .then(() => {
           Donation.create({ id: req.body.object.payment_method.id, amount: req.body.object.amount.value })
+            .then(donation => logger.log('info', 'Regular donation data: %s', donation))
             .then(() => res.status(200).send({ ok: true }))
             .catch(err => logger.log('error', 'Ошибка: %s', err))
           return mongoose.disconnect()
