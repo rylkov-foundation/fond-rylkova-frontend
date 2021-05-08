@@ -83,6 +83,7 @@ app.post('/results',
         .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))
     } else if (req.body?.object?.status === 'succeeded') {
       logger.log('info', 'donation object: %s', JSON.stringify(req.body.object))
+      res.status(200).send({ ok: true })
     } else {
       if (req.body?.object) {
         logger.log('error', 'Ошибка: %s', JSON.stringify(req.body.object))
