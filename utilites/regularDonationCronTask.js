@@ -23,9 +23,18 @@ export default function regularDonationCronTask () {
     .then(() => {
       Donation.find({})
         .then((donations) => {
-          console.log(typeof donations.lastPayment)
-          if (false) {
-            donations.forEach((donation) => {
+          donations.forEach((donation) => {
+            if (
+              (
+                donation.firstPayment.getDate() < 28 &&
+                ((new Date()) - donation.firstPayment) >= 2419200000 &&
+                (new Date()).getDate() === donation.firstPayment.getDate()
+              ) || (
+                donation.firstPayment.getDate() >= 28 &&
+                ((new Date()) - donation.firstPayment) >= 2419200000 &&
+                (new Date()).getDate() === 1
+              )
+            ) {
               axios.post(
                 'https://api.yookassa.ru/v3/payments',
                 {
@@ -49,8 +58,8 @@ export default function regularDonationCronTask () {
                 .catch((err) => {
                   logger.log('error', 'Ошибка: %s', JSON.stringify(err))
                 })
-            })
-          }
+            }
+          })
         })
     })
     .catch(err => logger.log('error', 'Ошибка: %s', JSON.stringify(err)))

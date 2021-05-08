@@ -10,7 +10,7 @@ const regularDonation = new mongoose.Schema({
     type: String,
     required: true
   },
-  lastPayment: {
+  firstPayment: {
     type: Date,
     required: true,
     default: Date.now
