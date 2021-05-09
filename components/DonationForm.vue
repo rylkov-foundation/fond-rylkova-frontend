@@ -163,7 +163,7 @@ export default {
   watch: {
     topDonationSum (val) {
       this.radioAmount = val
-      ()
+      this.amount = val
     }
   },
   methods: {
