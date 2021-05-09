@@ -53,7 +53,7 @@ export default {
           topDonationSum: Number(e.target.name)
         }
       )
-      this.$router.push('#donation')
+      this.$root.donationRef.scrollIntoView({ behavior: 'smooth', block: 'end' })
     }
   }
 }

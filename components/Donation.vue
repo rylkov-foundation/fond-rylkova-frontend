@@ -1,5 +1,5 @@
 <template>
-  <section id="donation" class="donation">
+  <section id="donation" ref="donation" class="donation">
     <div class="donation__container">
       <h2 class="donation__title">
         Поддер&shy;жать <span class="donation__title-mark">фар</span>
@@ -21,6 +21,9 @@ export default {
       type: Number,
       default: 0
     }
+  },
+  mounted () {
+    this.$root.donationRef = this.$refs.donation
   }
 }
 </script>
