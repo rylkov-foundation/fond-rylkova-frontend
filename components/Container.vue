@@ -3,13 +3,19 @@
     <OurMission />
     <Results />
     <Help />
-    <Donation />
+    <Donation :top-donation-sum="topDonationSum" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Container'
+  name: 'Container',
+  props: {
+    topDonationSum: {
+      type: Number,
+      default: 0
+    }
+  }
 }
 </script>
 

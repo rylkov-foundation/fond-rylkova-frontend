@@ -133,6 +133,10 @@ export default {
     isDonationPage: {
       type: Boolean,
       default: () => false
+    },
+    topDonationSum: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -156,15 +160,16 @@ export default {
       }
     }
   },
+  watch: {
+    topDonationSum (val) {
+      this.radioAmount = val
+      this.amount = val
+    }
+  },
   methods: {
     onAmountInput (e) {
       this.radioAmount = 0
       this.amount = e.target.value
-      if (this.amount <= 50) {
-        this.error = 'Минимальная сумма 50 рублей'
-      } else {
-        this.error = ''
-      }
     },
     onAmountCheckboxClick (e) {
       this.amount = e.target.value

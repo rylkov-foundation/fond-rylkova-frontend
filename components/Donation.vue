@@ -1,5 +1,5 @@
 <template>
-  <section class="donation">
+  <section id="donation" class="donation">
     <div class="donation__container">
       <h2 class="donation__title">
         Поддер&shy;жать <span class="donation__title-mark">фар</span>
@@ -7,7 +7,7 @@
       <div class="donation__image-container">
         <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
       </div>
-      <DonationForm class="donation__form" />
+      <DonationForm :top-donation-sum="topDonationSum" class="donation__form" />
       <a href="#" class="donation__privacy-policy">Политика конфеденциальности</a>
     </div>
   </section>
@@ -15,7 +15,13 @@
 
 <script>
 export default {
-  name: 'Donation'
+  name: 'Donation',
+  props: {
+    topDonationSum: {
+      type: Number,
+      default: 0
+    }
+  }
 }
 </script>
 
