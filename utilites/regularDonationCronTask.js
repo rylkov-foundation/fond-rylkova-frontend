@@ -23,7 +23,6 @@ export default function regularDonationCronTask () {
     .then(() => {
       Donation.find({})
         .then((donations) => {
-          console.log(donations)
           donations.forEach((donation) => {
             if (
               (
@@ -43,6 +42,7 @@ export default function regularDonationCronTask () {
                     value: String(donation.amount),
                     currency: process.env.CURRENCY
                   },
+                  capture: true,
                   payment_method_id: donation.id,
                   description: process.env.DESCRIPTION,
                   metadata: {

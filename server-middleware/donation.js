@@ -59,7 +59,6 @@ app.post('/donations',
 
 app.post('/results',
   (req, res) => {
-    console.log(req.body)
     if (
       req.body?.object?.status === 'succeeded' &&
       req.body?.object?.payment_method?.saved === true &&
@@ -109,7 +108,7 @@ app.post('/results',
             useUnifiedTopology: true
           })
           .then(() => {
-            return Donation.findOneAndDelete({ id: req.body?.object?.payment_method?.id })
+            return Donation.findOneAndDelete({ id: req.body.object.payment_method.id })
               .then(donation =>
                 logger.log('info', 'sponsor canceled his subscription: %s', JSON.stringify(donation)))
           })

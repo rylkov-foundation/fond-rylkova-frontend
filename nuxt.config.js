@@ -44,7 +44,7 @@ export default {
     '@nuxtjs/axios',
     () => {
       require('node-schedule')
-        .scheduleJob('*/1 * * * *', regularDonationCronTask)
+        .scheduleJob('0 0 * * *', regularDonationCronTask)
     }
   ],
 
