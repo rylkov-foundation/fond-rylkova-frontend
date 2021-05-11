@@ -42,6 +42,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/strapi',
     () => {
       require('node-schedule')
         .scheduleJob('0 0 * * *', regularDonationCronTask)
@@ -70,5 +71,8 @@ export default {
     constants: {
       baseUrl: process.env.DOMEN || 'http://localhost:3000'
     }
+  },
+  strapi: {
+    entities: ['contacts', 'items']
   }
 }
