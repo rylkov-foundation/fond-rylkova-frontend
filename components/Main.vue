@@ -6,17 +6,17 @@
     <div class="main__wrapper main__wrapper_color_grey">
       <div class="main__grey-block">
         <div class="main__money-block">
-          <button type="button" class="main__number main__number_size_big">
+          <button type="button" name="1000" class="main__number main__number_size_big" @click="onSumClick">
             1000
             <span class="main__money-sign">&#8381;</span>
           </button>
-          <button type="button" class="main__number main__number_size_small">
+          <button type="button" name="200" class="main__number main__number_size_small" @click="onSumClick">
             200
           </button>
-          <button type="button" class="main__number main__number_size_medium">
+          <button type="button" name="500" class="main__number main__number_size_medium" @click="onSumClick">
             500
           </button>
-          <a class="link link_position_top" href="#">
+          <a class="link link_position_top" href="#donation">
             Поддержать
             <span class="main__arrow">&gt;</span>
           </a>
@@ -43,6 +43,17 @@ export default {
         bottom: '15px',
         left: '19px'
       }
+    }
+  },
+  methods: {
+    onSumClick (e) {
+      this.$emit(
+        'clickSetTopDonationSum',
+        {
+          topDonationSum: Number(e.target.name)
+        }
+      )
+      this.$root.donationRef.scrollIntoView({ behavior: 'smooth', block: 'end' })
     }
   }
 }

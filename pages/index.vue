@@ -3,8 +3,8 @@
     <MainHeader />
     <Menu />
     <MainAbout />
-    <Main />
-    <Container />
+    <Main @clickSetTopDonationSum="setTopDonationSum" />
+    <Container :top-donation-sum="topDonationSum" />
     <Footer />
     <div class="popup">
       <PopupCookie />
@@ -16,7 +16,17 @@
 
 <script>
 export default {
-
+  name: 'Index',
+  data () {
+    return {
+      topDonationSum: 0
+    }
+  },
+  methods: {
+    setTopDonationSum (data) {
+      this.topDonationSum = data.topDonationSum
+    }
+  }
 }
 </script>
 

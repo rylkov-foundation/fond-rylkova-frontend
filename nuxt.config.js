@@ -1,3 +1,6 @@
+import regularDonationCronTask from './utilites/regularDonationCronTask'
+require('dotenv').config()
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -31,13 +34,19 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/axios'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/strapi',
+    () => {
+      require('node-schedule')
+        .scheduleJob('0 0 * * *', regularDonationCronTask)
+    }
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -45,5 +54,25 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-methods', { loose: true }]
+      ]
+    }
+  },
+  serverMiddleware: [
+    { path: '/donation-query', handler: '~/server-middleware/donation.js' }
+  ],
+  server: {
+    host: process.env.HOST || 'localhost',
+    port: process.env.PORT || 3000
+  },
+  publicRuntimeConfig: {
+    constants: {
+      baseUrl: process.env.DOMEN || 'http://localhost:3000'
+    }
+  },
+  strapi: {
+    entities: ['contacts', 'items']
   }
 }

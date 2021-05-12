@@ -1,63 +1,217 @@
 <template>
-  <form action="" class="form">
+  <form class="form" @submit.prevent="onSubmit">
     <div class="form__slider-container">
-      <button class="form__slider-button">
-        Регулярно
+      <button class="form__slider-button" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
+        Однократно
       </button>
       <label class="switch">
-        <input class="switch__input" type="checkbox">
+        <input v-model="isRegularPayment" type="checkbox" class="switch__input" @change="onSwitchIsRegularPayment">
         <span class="switch__slider" />
       </label>
-      <button class="form__slider-button">
-        Однократно
+      <button class="form__slider-button" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
+        Регулярно
       </button>
     </div>
     <div class="form__payment-options-container">
-      <button class="form__payment-options-button">
-        Карта
-      </button>
-      <button class="form__payment-options-button">
-        ЮMoney
-      </button>
-      <button class="form__payment-options-button">
-        Терминал
-      </button>
+      <label class="form__payment-options">
+        <input
+          v-model="paymentType"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-options"
+          value="bank_card"
+        >
+        <span class="form__payment-options-button">Карта</span>
+      </label>
+      <label class="form__payment-options">
+        <input
+          v-model="paymentType"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-options"
+          value="yoo_money"
+        >
+        <span class="form__payment-options-button">ЮMoney</span>
+      </label>
+      <label class="form__payment-options">
+        <input
+          v-model="paymentType"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-options"
+          value="cash"
+          :disabled="isRegularPayment"
+        >
+        <span
+          class="form__payment-options-button"
+          :class="isRegularPayment && 'form__payment-options-button_disabled'"
+        >Терминал</span>
+      </label>
     </div>
     <div class="form__amount-container">
-      <button class="form__amount-options-button form__amount-options-button_thousand">
-        1000<span class="form__money-sign">&#8381;</span>
-      </button>
-      <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_five-hundred">
-        500<span class="form__money-sign form__money-sign_light">&#8381;</span>
-      </button>
-      <button class="form__amount-options-button form__amount-options-button_light form__amount-options-button_two-hundred">
-        200<span class="form__money-sign form__money-sign_light">&#8381;</span>
-      </button>
+      <label class="form__amount-options">
+        <input
+          v-model="radioAmount"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-amount"
+          value="1000"
+          @click="onAmountCheckboxClick"
+        >
+        <span class="form__amount-options-button form__amount-options-button_thousand">1000
+          <span class="form__money-sign">&#8381;</span>
+        </span>
+      </label>
+      <label class="form__amount-options">
+        <input
+          v-model="radioAmount"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-amount"
+          value="500"
+          @click="onAmountCheckboxClick"
+        >
+        <span class="form__amount-options-button form__amount-options-button_five-hundred">500
+          <span class="form__money-sign">&#8381;</span>
+        </span>
+      </label>
+      <label class="form__amount-options">
+        <input
+          v-model="radioAmount"
+          type="radio"
+          class="form__payment-options-radio-button"
+          name="payment-amount"
+          value="200"
+          @click="onAmountCheckboxClick"
+        >
+        <span class="form__amount-options-button form__amount-options-button_two-hundred">200
+          <span class="form__money-sign">&#8381;</span>
+        </span>
+      </label>
       <div class="form__text-amount-container">
-        <input type="number" min="1" class="form__input" placeholder="Другая сумма">
+        <input
+          v-model="differentAmount"
+          type="number"
+          min="50"
+          class="form__input"
+          placeholder="Другая сумма"
+          @focus="differentAmount = radioAmount"
+          @input="onAmountInput"
+        >
         <label class="form__label-agree">
-          <input type="checkbox" class="form__agree">
+          <input v-model="isContractAgreed" type="checkbox" class="form__agree" required>
           <span class="form__checkbox-agree" />
           <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
           <span class="form__text-agree">Согласен с <a href="#" class="form__link-offer">офертой</a></span>
         </label>
       </div>
     </div>
-    <input type="text" class="form__input form__input_personal" placeholder="Имя">
-    <input type="email" class="form__input form__input_personal" placeholder="Email">
-    <button type="submit" class="form__submit" :class="isDonationPage && 'form__submit_page_donation'">
+    <input v-model="name" type="text" class="form__input form__input_personal" placeholder="Имя" required>
+    <input v-model="email" type="email" class="form__input form__input_personal" placeholder="Email" required>
+    <button
+      type="submit"
+      class="form__submit"
+      :class="{'form__submit_page_donation': isDonationPage,
+               'form__submit_disabled': error}"
+      :disabled="error !== ''"
+    >
       Перейти к оплате
     </button>
+    <p
+      class="form__error"
+      :class="error && 'form__error_visible'"
+    >
+      {{ error }}
+    </p>
   </form>
 </template>
 
 <script>
+import validator from 'validator'
+
 export default {
   name: 'DonationForm',
   props: {
     isDonationPage: {
       type: Boolean,
       default: () => false
+    },
+    topDonationSum: {
+      type: Number,
+      default: 0
+    }
+  },
+  data () {
+    return {
+      isRegularPayment: false,
+      radioAmount: 200,
+      differentAmount: '',
+      amount: 200,
+      paymentType: 'bank_card',
+      isContractAgreed: false,
+      name: '',
+      email: ''
+    }
+  },
+  computed: {
+    error () {
+      if (this.amount <= 50) {
+        return 'Минимальная сумма 50 рублей'
+      } else if (!this.isContractAgreed) {
+        return 'Необходимо принять оферту'
+      } else if (!this.name || !validator.isEmail(this.email)) {
+        return 'Необходимо ввести имя и email'
+      } else {
+        return ''
+      }
+    }
+  },
+  watch: {
+    topDonationSum (val) {
+      this.radioAmount = val
+      this.amount = val
+    }
+  },
+  methods: {
+    onAmountInput (e) {
+      this.radioAmount = 0
+      this.amount = e.target.value
+    },
+    onAmountCheckboxClick (e) {
+      this.amount = e.target.value
+      this.differentAmount = ''
+    },
+    onSwitchIsRegularPayment (e) {
+      if (e.target.name === 'toTrue') {
+        this.isRegularPayment = true
+      } else if (e.target.name === 'toFalse') {
+        this.isRegularPayment = false
+      } else if (e.target.name === 'switch') {
+        this.isRegularPayment = !this.isRegularPayment
+      }
+      if (this.isRegularPayment === true && this.paymentType === 'cash') {
+        this.paymentType = 'bank_card'
+      }
+    },
+    onSubmit () {
+      this.error = ''
+      this.$axios
+        .post(
+          `${this.$config.constants.baseUrl}/donation-query/donations`,
+          {
+            isRegularPayment: this.isRegularPayment,
+            paymentType: this.paymentType,
+            amount: this.amount,
+            name: this.name,
+            email: this.email
+          }
+        )
+        .then((res) => {
+          window.location.href = res.data.url
+        })
+        .catch((err) => {
+          this.error = err.message
+        })
     }
   }
 }
@@ -140,6 +294,10 @@ export default {
   width: fit-content;
 }
 
+.form__payment-options {
+  position: relative;
+}
+
 .form__payment-options-button {
   font-family: Roboto, Arial, sans-serif;
   font-size: 15px;
@@ -151,11 +309,39 @@ export default {
   color: #313131;
   width: 92px;
   margin: 0 3px;
+  display: flex;
+  justify-content: center;
 }
 
 .form__payment-options-button:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+
+.form__payment-options-radio-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.form__payment-options-button_disabled {
+  cursor: auto;
+  background-color: #7f7f7f;
+  color: #434343;
+}
+
+.form__payment-options-button_disabled:hover {
+  cursor: default;
+  opacity: 1;
+}
+
+.form__payment-options-radio-button:checked + .form__payment-options-button {
+  background-color: #b23438;
+  color: #fff;
+  opacity: 1;
 }
 
 .form__amount-container {
@@ -170,20 +356,26 @@ export default {
   gap: 9px 16px;
 }
 
+.form__amount-options {
+  position: relative;
+}
+
 .form__amount-options-button {
   font-family: 'Tomorrow', 'Times', fantasy, serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  color: #000;
   font-size: 109px;
-  border: 2px solid #000;
+  line-height: 68px;
   border-radius: 20px;
   padding: 6px 0 0 5px;
   align-items: center;
   display: flex;
   justify-content: space-around;
   overflow: hidden;
+  background-color: #fff;
+  color: #cbcbcb;
+  border: 2px solid #cbcbcb;
 }
 
 .form__amount-options-button:hover {
@@ -191,10 +383,10 @@ export default {
   cursor: pointer;
 }
 
-.form__amount-options-button_light {
-  background-color: #fff;
-  color: #cbcbcb;
-  border-color: #cbcbcb;
+.form__payment-options-radio-button:checked + .form__amount-options-button {
+  color: #000;
+  border: 2px solid #000;
+  background-color: transparent;
 }
 
 .form__money-sign {
@@ -202,14 +394,14 @@ export default {
   font-size: 82px;
   line-height: 77px;
   color: rgba(0, 0, 0, 0);
-  -webkit-text-stroke: 1px black;
   position: relative;
   top: -7px;
   left: -5px;
+  -webkit-text-stroke: 1px #cbcbcb;
 }
 
-.form__money-sign_light {
-  -webkit-text-stroke: 1px #cbcbcb;
+.form__payment-options-radio-button:checked + .form__amount-options-button .form__money-sign {
+  -webkit-text-stroke: 1px black;
 }
 
 .form__text-amount-container {
@@ -334,12 +526,34 @@ export default {
   cursor: pointer;
 }
 
+.form__submit_disabled {
+  background-color: #7f7f7f;
+}
+
+.form__submit_disabled:hover {
+  opacity: 1;
+  cursor: default;
+}
+
 .form__link-offer {
   color: #727272;
 }
 
 .form__link-offer:hover {
   opacity: 0.7;
+}
+
+.form__error {
+  margin-top: 5px;
+  opacity: 0;
+  color: #b23438;
+  font-size: 12px;
+  text-align: center;
+  height: 18px;
+}
+
+.form__error_visible {
+  opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
@@ -397,20 +611,13 @@ export default {
   .form__amount-options-button {
     font-size: 218px;
     padding: 11px 0 0 7px;
-  }
-
-  .form__amount-options-button_light {
-    padding-left: 20px;
+    line-height: 150px;
   }
 
   .form__money-sign {
     font-size: 166px;
     top: -13px;
     left: -6px;
-  }
-
-  .form__money-sign_light {
-    left: -12px;
   }
 
   .form__text-amount-container {
@@ -465,6 +672,11 @@ export default {
     height: 112px;
     margin-top: 46px;
     margin-bottom: 28px;
+  }
+
+  .form__error {
+    font-size: 25px;
+    height: 28px;
   }
 }
 
@@ -553,19 +765,11 @@ export default {
     grid-area: two-hundred;
   }
 
-  .form__amount-options-button_light {
-    padding: 6px 0 0 12px;
-  }
-
   .form__money-sign {
     font-size: 88px;
     line-height: 81px;
     top: -7px;
     left: -3px;
-  }
-
-  .form__money-sign_light {
-    left: -5px;
   }
 
   .form__text-amount-container {
@@ -618,7 +822,7 @@ export default {
   .form__submit {
     position: absolute;
     left: 0;
-    bottom: -170px;
+    bottom: -144px;
     width: 100%;
     height: 100px;
     margin-bottom: 0;
@@ -630,6 +834,13 @@ export default {
     bottom: -52px;
     width: 297px;
     height: 66px;
+  }
+
+  .form__error {
+    font-size: 20px;
+    height: 22px;
+    padding-left: 5px;
+    text-align: left;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="donation">
+  <section id="donation" ref="donation" class="donation">
     <div class="donation__container">
       <h2 class="donation__title">
         Поддер&shy;жать <span class="donation__title-mark">фар</span>
@@ -7,7 +7,7 @@
       <div class="donation__image-container">
         <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
       </div>
-      <DonationForm class="donation__form" />
+      <DonationForm :top-donation-sum="topDonationSum" class="donation__form" />
       <a href="#" class="donation__privacy-policy">Политика конфеденциальности</a>
     </div>
   </section>
@@ -15,7 +15,16 @@
 
 <script>
 export default {
-  name: 'Donation'
+  name: 'Donation',
+  props: {
+    topDonationSum: {
+      type: Number,
+      default: 0
+    }
+  },
+  mounted () {
+    this.$root.donationRef = this.$refs.donation
+  }
 }
 </script>
 
@@ -169,7 +178,7 @@ export default {
     }
 
     .donation__privacy-policy {
-      margin: 26px 0 63px 98px;
+      margin: 6px 0 63px 98px;
       font-size: 18px;
       line-height: 31px;
       text-align: left;
