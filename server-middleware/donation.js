@@ -31,10 +31,12 @@ app.post('/donations',
           type: 'redirect',
           return_url: process.env.REDIRECT_URL
         },
-        description: process.env.DESCRIPTION,
+        description: `${req.body.isRegularPayment ? 'initial regular payment' : 'once'} from: ${req.body.name} ${req.body.email}`,
         save_payment_method: req.body.isRegularPayment,
         metadata: {
-          type: req.body.isRegularPayment ? 'initial regular payment' : 'once'
+          type: req.body.isRegularPayment ? 'initial regular payment' : 'once',
+          name: req.body.name,
+          email: req.body.email
         }
       },
       {
@@ -75,7 +77,12 @@ app.post('/results',
           useUnifiedTopology: true
         })
         .then(() => {
-          return Donation.create({ id: req.body.object.payment_method.id, amount: req.body.object.amount.value })
+          return Donation.create({
+            id: req.body.object.payment_method.id,
+            amount: req.body.object.amount.value,
+            name: req.body?.object?.metadata?.name ? req.body.object.metadata.name : '',
+            email: req.body?.object?.metadata?.email ? req.body.object.metadata.email : ''
+          })
             .then((donation) => {
               logger.log('info', 'Regular donation db data: %s', JSON.stringify(donation))
               logger.log('info', 'Regular donation object: %s', JSON.stringify(req.body.object))

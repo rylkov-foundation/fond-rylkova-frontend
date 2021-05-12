@@ -106,14 +106,14 @@
         </label>
       </div>
     </div>
-    <input type="text" class="form__input form__input_personal" placeholder="Имя">
-    <input type="email" class="form__input form__input_personal" placeholder="Email">
+    <input v-model="name" type="text" class="form__input form__input_personal" placeholder="Имя" required>
+    <input v-model="email" type="email" class="form__input form__input_personal" placeholder="Email" required>
     <button
       type="submit"
       class="form__submit"
       :class="{'form__submit_page_donation': isDonationPage,
-               'form__submit_disabled': !isContractAgreed || amount <= 0}"
-      :disabled="!isContractAgreed || amount <= 0"
+               'form__submit_disabled': error}"
+      :disabled="error !== ''"
     >
       Перейти к оплате
     </button>
@@ -146,7 +146,9 @@ export default {
       differentAmount: '',
       amount: 200,
       paymentType: 'bank_card',
-      isContractAgreed: false
+      isContractAgreed: false,
+      name: '',
+      email: ''
     }
   },
   computed: {
@@ -155,6 +157,8 @@ export default {
         return 'Минимальная сумма 50 рублей'
       } else if (!this.isContractAgreed) {
         return 'Необходимо принять оферту'
+      } else if (!this.name || !this.isValidEmail(this.email)) {
+        return 'Необходимо ввести имя и email'
       } else {
         return ''
       }
@@ -195,7 +199,9 @@ export default {
           {
             isRegularPayment: this.isRegularPayment,
             paymentType: this.paymentType,
-            amount: this.amount
+            amount: this.amount,
+            name: this.name,
+            email: this.email
           }
         )
         .then((res) => {
@@ -204,6 +210,10 @@ export default {
         .catch((err) => {
           this.error = err.message
         })
+    },
+    isValidEmail (email) {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return re.test(email)
     }
   }
 }

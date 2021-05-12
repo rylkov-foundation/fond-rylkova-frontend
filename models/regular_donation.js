@@ -10,6 +10,14 @@ const regularDonation = new mongoose.Schema({
     type: String,
     required: true
   },
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
   firstPayment: {
     type: Date,
     required: true,

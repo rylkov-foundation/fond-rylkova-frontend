@@ -44,7 +44,7 @@ export default function regularDonationCronTask () {
                   },
                   capture: true,
                   payment_method_id: donation.id,
-                  description: process.env.DESCRIPTION,
+                  description: `next regular payment from: ${donation.name} ${donation.email}`,
                   metadata: {
                     type: 'next regular payment'
                   }
