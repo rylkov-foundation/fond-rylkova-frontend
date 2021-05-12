@@ -14,6 +14,7 @@
       class="popup__link"
       @click="hidePopup"
     >Перейти &gt;</a>
+    <button type="button" class="popup__close-button" @click="hidePopup" />
   </div>
 </template>
 
@@ -22,7 +23,7 @@ export default {
   name: 'PopupNews',
   data () {
     return {
-      PopupNewsVisible: true
+      PopupNewsVisible: false
     }
   },
   methods: {
@@ -40,7 +41,7 @@ export default {
     font-weight: bold;
     font-style: normal;
     letter-spacing: normal;
-    line-height: 12.73px;
+    line-height: 13px;
     margin-bottom: 12px;
   }
 
@@ -51,14 +52,14 @@ export default {
     font-weight: 400;
     font-style: normal;
     letter-spacing: normal;
-    line-height: 14.71px;
+    line-height: 15px;
     margin-bottom: 10px;
   }
 
   .popup__link {
     font-family: 'Vollkorn', 'Times', serif;
     font-size: 17px;
-    line-height: 24.34px;
+    line-height: 24px;
     font-weight: bold;
     color: #b23438;
     text-decoration: none;
@@ -74,14 +75,47 @@ export default {
     min-height: 100px;
     box-shadow: 0 9px 13px 1px rgba(0, 0, 0, 0.29);
     box-sizing: border-box;
+    position: relative;
+  }
+
+  .popup__close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: none;
+  }
+
+  .popup__close-button::before {
+    position: absolute;
+    content: '';
+    top: 3px;
+    left: 0;
+    background-color: #fff;
+    height: 3px;
+    width: 20px;
+    transform: rotate(45deg);
+  }
+
+  .popup__close-button::after {
+    position: absolute;
+    content: '';
+    top: 3px;
+    left: 0;
+    background-color: #fff;
+    height: 3px;
+    width: 20px;
+    transform: rotate(135deg);
+  }
+
+  .popup__close-button:hover {
+    cursor: pointer;
+    opacity: 0.7;
   }
 
   @media screen and (min-width: 768px) {
-    .popup {
-      bottom: 50px;
-      right: 30px;
-    }
-
     .popup__content {
       width: 470px;
       min-height: 204px;
@@ -90,19 +124,38 @@ export default {
 
     .popup__title {
       font-size: 40px;
-      line-height: 26.18px;
+      line-height: 26px;
       margin-bottom: 28px;
     }
 
     .popup__text {
       font-size: 22px;
-      line-height: 30.26px;
+      line-height: 30px;
       margin-bottom: 21px;
     }
 
     .popup__link {
       font-size: 34px;
-      line-height: 50.07px;
+      line-height: 50px;
+    }
+
+    .popup__close-button {
+      top: 40px;
+      right: 40px;
+      height: 35px;
+      width: 35px;
+    }
+
+    .popup__close-button::before {
+      top: 10px;
+      height: 7px;
+      width: 35px;
+    }
+
+    .popup__close-button::after {
+      top: 10px;
+      height: 7px;
+      width: 35px;
     }
   }
 
@@ -115,7 +168,7 @@ export default {
 
     .popup__title {
       font-size: 25px;
-      line-height: 16.44px;
+      line-height: 16px;
       margin-bottom: 17px;
     }
 
@@ -127,14 +180,33 @@ export default {
 
     .popup__link {
       font-size: 22px;
-      line-height: 31.44px;
+      line-height: 31px;
+    }
+
+    .popup__close-button {
+      top: 15px;
+      right: 15px;
+      height: 20px;
+      width: 20px;
+    }
+
+    .popup__close-button::before {
+      top: 5px;
+      height: 5px;
+      width: 20px;
+    }
+
+    .popup__close-button::after {
+      top: 5px;
+      height: 5px;
+      width: 20px;
     }
   }
 
   .popup__title.popup__title_news {
     font-size: 17px;
     color: #fff;
-    line-height: 18.48px;
+    line-height: 18px;
   }
 
   .popup__content.popup__content_news {
@@ -151,7 +223,7 @@ export default {
   @media screen and (min-width: 1280px) {
     .popup__title.popup__title_news {
       font-size: 24px;
-      line-height: 23.81px;
+      line-height: 24px;
     }
   }
 </style>
