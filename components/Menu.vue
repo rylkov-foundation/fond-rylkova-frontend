@@ -89,9 +89,11 @@ export default {
   mounted () {
     window.addEventListener('scroll', this.scrollHandler)
     this.scrollHandler()
+    document.addEventListener('click', this.onClickOutside)
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.scrollHandler)
+    document.removeEventListener('click', this.onClickOutside)
   },
   methods: {
     show () {
@@ -105,6 +107,9 @@ export default {
     },
     scrollHandler (e) {
       this.isScrollOver230 = window.pageYOffset > 230
+    },
+    onClickOutside (e) {
+      this.isShown = this.$el.contains(e.target) && this.isShown
     }
   }
 }
