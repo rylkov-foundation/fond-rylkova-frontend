@@ -127,6 +127,8 @@
 </template>
 
 <script>
+import validator from 'validator'
+
 export default {
   name: 'DonationForm',
   props: {
@@ -157,7 +159,7 @@ export default {
         return 'Минимальная сумма 50 рублей'
       } else if (!this.isContractAgreed) {
         return 'Необходимо принять оферту'
-      } else if (!this.name || !this.isValidEmail(this.email)) {
+      } else if (!this.name || !validator.isEmail(this.email)) {
         return 'Необходимо ввести имя и email'
       } else {
         return ''
@@ -210,10 +212,6 @@ export default {
         .catch((err) => {
           this.error = err.message
         })
-    },
-    isValidEmail (email) {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      return re.test(email)
     }
   }
 }
