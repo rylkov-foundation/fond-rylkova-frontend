@@ -33,28 +33,52 @@
 import splitLine from '@/utilites/splitLine'
 
 export default {
-  async asyncData ({ store, route }) {
-    if (!store.getters.dynamicPagesData[route.params.page]) {
-      await store.dispatch('fetch')
-    }
-  },
   data () {
     return {
       titleText: 'Заголовок',
       splitTitle: [],
-      resizeTimeout: null,
-      pageData: this.$store.getters.dynamicPagesData[this.$router.currentRoute.params.page]
+      resizeTimeout: null
+    }
+  },
+  async fetch ({ store, route, error }) {
+    if (!store.getters.dynamicPagesData[route.params.page]) {
+      await store.dispatch('dynamicPagesDataInit')
+      if (!store.getters.dynamicPagesData[route.params.page]) {
+        error({ statusCode: 404 })
+      }
+    }
+    if (!store.getters.menu.length) {
+      await store.dispatch('menuInit')
+    }
+  },
+  computed: {
+    menu () {
+      return this.$store.getters.menu
+    },
+    pageData () {
+      return this.$store.getters.dynamicPagesData[this.$router.currentRoute.params.page]
+    },
+    notFound () {
+      return this.$store.getters.notFound
     }
   },
   beforeMount () {
-    window.addEventListener('resize', this.handleSplitTitle)
+    if (!this.notFound) {
+      window.addEventListener('resize', this.handleSplitTitle)
+    }
   },
   mounted () {
-    this.handleSplitTitle()
-    this.$refs.content.innerHTML = this.pageData.content_ru
+    if (!this.notFound) {
+      this.handleSplitTitle()
+    }
+    if (this.pageData?.content_ru) {
+      this.$refs.content.innerHTML = this.pageData.content_ru
+    }
   },
   beforeDestroy () {
-    window.removeEventListener('resize', this.handleSplitTitle)
+    if (!this.notFound) {
+      window.removeEventListener('resize', this.handleSplitTitle)
+    }
   },
   methods: {
     handleSplitTitle () {
