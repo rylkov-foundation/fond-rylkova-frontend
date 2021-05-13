@@ -73,6 +73,6 @@ export default {
     }
   },
   strapi: {
-    entities: ['contacts', 'items']
+    entities: ['contacts', 'items', 'pages']
   }
 }
