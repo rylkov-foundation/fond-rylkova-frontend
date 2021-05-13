@@ -74,5 +74,9 @@ export default {
   },
   strapi: {
     entities: ['contacts', 'items']
+  },
+  loading: {
+    color: '#000',
+    height: '5px'
   }
 }
