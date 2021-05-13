@@ -44,10 +44,12 @@ export default {
   beforeMount () {
     window.addEventListener('resize', this.handleSplitTitle)
   },
+  mounted () {
+    this.handleSplitTitle()
+  },
   methods: {
     handleSplitTitle () {
       this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
-      console.log(splitLine(this.titleText, this.$refs.titleContainer))
     }
   }
 }
@@ -84,36 +86,39 @@ export default {
 }
 
 .meta__title {
+  width: 80%;
+  margin: 27px 0 14px 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   font-family: Vollkorn, Times, serif;
   font-size: 110px;
   line-height: 69px;
-  word-break: break-all;
   color: #fff;
   font-style: italic;
-  max-width: 80%;
-  margin: 27px 0 14px 10px;
+  word-break: break-all;
+}
+
+.text-with-line {
+  font-family: Vollkorn, Times, serif;
+  font-size: 110px;
+  line-height: 69px;
+  color: #fff;
+  font-style: italic;
   position: relative;
+  word-break: normal;
 }
 
-/*.meta__title::before {
+.text-with-line::after {
   content: '';
-  position: absolute;
-  background-color: #b23438;
-  height: 17px;
+  height: 15px;
   width: 100%;
-  top: 49px;
-  left: 8px;
+  background-color: #b23438;
+  bottom: 2px;
+  left: 0;
+  position: absolute;
 }
-
-.meta__title::after {
-  content: '';
-  position: absolute;
-  background-color: #b23438;
-  height: 17px;
-  width: 100%;
-  bottom: 0;
-  left: 8px;
-}*/
 
 .meta__subtitle {
   font-family: Vollkorn, Times, serif;
@@ -142,18 +147,18 @@ export default {
   .meta__title {
     font-size: 220px;
     line-height: 137px;
-    max-width: 87%;
+    width: 87%;
     margin: 63px 0 30px 45px;
   }
 
-  .meta__title::before {
-    height: 33px;
-    top: 101px;
+  .text-with-line {
+    font-size: 220px;
+    line-height: 137px;
   }
 
-  .meta__title::after {
+  .text-with-line::after {
     height: 33px;
-    bottom: 0;
+    width: 100%;
   }
 
   .meta__subtitle {
@@ -216,18 +221,13 @@ export default {
   .meta__title {
     font-size: 247px;
     line-height: 178px;
-    max-width: 92%;
+    width: 92%;
   }
 
-  /*
-  .meta__title::before {
-    top: 143px;
+  .text-with-line {
+    font-size: 247px;
+    line-height: 178px;
   }
-
-  .meta__title::after {
-    bottom: 0;
-  }
-  */
 
   .meta__subtitle {
     font-size: 40px;
