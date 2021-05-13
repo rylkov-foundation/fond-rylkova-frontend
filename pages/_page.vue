@@ -76,11 +76,9 @@ export default {
   max-width: 100%;
   overflow: hidden;
 }
-
 .meta__drop {
   display: none;
 }
-
 .meta__main {
   display: flex;
   flex-direction: column;
@@ -88,12 +86,10 @@ export default {
   align-items: center;
   align-self: stretch;
 }
-
 .meta__container {
   background-color: #cbcbcb;
   width: 100%;
 }
-
 .meta__title {
   width: 80%;
   margin: 27px 0 14px 10px;
@@ -108,7 +104,6 @@ export default {
   font-style: italic;
   word-break: break-all;
 }
-
 .text-with-line {
   font-family: Vollkorn, Times, serif;
   font-size: 110px;
@@ -118,15 +113,15 @@ export default {
   position: relative;
   word-break: normal;
 }
-
 .text-with-line::after {
   content: '';
   height: 15px;
   width: 100%;
+  background-color: #b23438;
   bottom: 2px;
   left: 0;
+  position: absolute;
 }
-
 .meta__subtitle {
   font-family: Vollkorn, Times, serif;
   font-size: 18px;
@@ -137,19 +132,16 @@ export default {
   margin-left: 22px;
   margin-bottom: 18px;
 }
-
 .meta__image {
   width: 100%;
   height: auto;
   max-width: 500px;
   margin: 0 auto 20px;
 }
-
 .meta__data {
   max-width: 85%;
   margin: 0 auto;
 }
-
 @media screen and (min-width: 768px) {
   .meta__title {
     font-size: 220px;
@@ -157,17 +149,14 @@ export default {
     width: 87%;
     margin: 63px 0 30px 45px;
   }
-
   .text-with-line {
     font-size: 220px;
     line-height: 137px;
   }
-
   .text-with-line::after {
     height: 33px;
     width: 100%;
   }
-
   .meta__subtitle {
     font-size: 36px;
     line-height: 38px;
@@ -176,7 +165,6 @@ export default {
     margin-left: 52px;
     margin-bottom: 52px;
   }
-
   .meta__image {
     height: 367px;
     max-width: unset;
@@ -184,7 +172,6 @@ export default {
     object-fit: contain;
   }
 }
-
 @media screen and (min-width: 1098px) {
   .meta__main {
     display: grid;
@@ -194,54 +181,44 @@ export default {
       "red data grey-bottom";
     align-items: unset;
   }
-
   .meta__colour-container {
     width: calc((100vw - 1098px) / 2);
     height: auto;
   }
-
   .meta__colour-container_colour_grey-top {
     grid-area: grey-top;
     background-color: #cbcbcb;
   }
-
   .meta__colour-container_colour_white {
     grid-area: white;
     background-color: #fff;
   }
-
   .meta__colour-container_colour_grey-bottom {
     grid-area: grey-bottom;
     background-color: #cbcbcb;
     position: relative;
   }
-
   .meta__colour-container_colour_red {
     grid-area: red;
     background-color: #b23438;
   }
-
   .meta__container {
     grid-area: title;
   }
-
   .meta__title {
     font-size: 247px;
     line-height: 178px;
     width: 92%;
   }
-
   .text-with-line {
     font-size: 247px;
     line-height: 178px;
   }
-
   .meta__subtitle {
     font-size: 40px;
     line-height: 42px;
     max-width: 80%;
   }
-
   .meta__image {
     width: 50%;
     float: left;
@@ -249,13 +226,11 @@ export default {
     margin: 0 auto 50px;
     object-fit: contain;
   }
-
   .meta__wrapper {
     grid-area: data;
     margin-top: 50px;
   }
 }
-
 @media screen and (min-width: 1280px) {
   .meta__drop {
     display: block;
