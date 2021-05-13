@@ -38,7 +38,7 @@ export default {
   data () {
     return {
       titleText: 'Заголовок',
-      splitTitle: ['Заголовок'],
+      splitTitle: [],
       resizeTimeout: null
     }
   },
