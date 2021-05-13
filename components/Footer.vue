@@ -8,7 +8,7 @@
         <a href="#" class="footer__social-link footer__social-link_facebook" />
         <a href="#" class="footer__social-link footer__social-link_instagram" />
         <a href="#" class="footer__social-link footer__social-link_twitter" />
-        <a href="#" class="footer__link-agent" />
+        <div class="footer__agent" />
       </div>
       <p class="footer__foreign-agent">
         Материалы изданы и (или) распространены некоммер&shy;ческой организацией, выполняющей, по мнению Минюста России, функции иностранного агента
@@ -18,7 +18,7 @@
       </p>
     </div>
     <p class="footer__copyright">
-      ФАР {{ (new Date().getFullYear()) }}
+      ФАР 2021
     </p>
   </footer>
 </template>
@@ -120,7 +120,7 @@ export default {
     background-image: url("~/assets/images/twitter.svg");
   }
 
-  .footer__link-agent {
+  .footer__agent {
     display: block;
     width: 43px;
     height: 43px;
@@ -130,10 +130,6 @@ export default {
     background-image: url("~/assets/images/foreign-agent.svg");
     background-position: center;
     background-size: cover;
-  }
-
-  .footer__link-agent:hover {
-    opacity: 0.7;
   }
 
   @media screen and (min-width: 768px) {
@@ -155,7 +151,7 @@ export default {
       margin-right: 66px;
     }
 
-    .footer__link-agent {
+    .footer__agent {
       width: 110px;
       height: 110px;
       top: 130px;
@@ -227,7 +223,7 @@ export default {
       margin-right: 26px;
     }
 
-    .footer__link-agent {
+    .footer__agent {
       width: 45px;
       height: 45px;
       top: 36px;
