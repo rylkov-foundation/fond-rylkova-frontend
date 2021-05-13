@@ -38,7 +38,8 @@ export default {
   data () {
     return {
       titleText: 'Заголовок',
-      splitTitle: ['Заголовок']
+      splitTitle: ['Заголовок'],
+      resizeTimeout: null
     }
   },
   beforeMount () {
@@ -47,9 +48,17 @@ export default {
   mounted () {
     this.handleSplitTitle()
   },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleSplitTitle)
+  },
   methods: {
     handleSplitTitle () {
-      this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+        }, 40)
+      }
     }
   }
 }
@@ -114,10 +123,8 @@ export default {
   content: '';
   height: 15px;
   width: 100%;
-  background-color: #b23438;
   bottom: 2px;
   left: 0;
-  position: absolute;
 }
 
 .meta__subtitle {
