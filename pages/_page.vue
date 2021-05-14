@@ -34,11 +34,17 @@ import splitLine from '@/utilites/splitLine'
 
 export default {
   async asyncData ({ store, route, error }) {
-    if (!store.getters.dynamicPagesData[route.params.page]) {
+    if (
+      !store.getters.dynamicPagesData[route.params.page] ||
+      !Object.keys(store.getters.dynamicPagesData[route.params.page]).length
+    ) {
       await store.dispatch('dynamicPagesDataInit')
       if (!store.getters.dynamicPagesData[route.params.page]) {
         error({ statusCode: 404 })
       }
+    }
+    if (!Object.keys(store.getters.footer).length) {
+      await store.dispatch('footerInit')
     }
     if (!store.getters.menu.length) {
       await store.dispatch('menuInit')
@@ -46,7 +52,7 @@ export default {
     return {
       menu: store.getters.menu,
       pageData: store.getters.dynamicPagesData[route.params.page],
-      notFound: store.getters.notFound
+      footerData: store.getters.footer
     }
   },
   data () {
@@ -56,7 +62,7 @@ export default {
       resizeTimeout: null,
       menu: [],
       pageData: {},
-      notFound: false
+      footerData: {}
     }
   },
   beforeMount () {

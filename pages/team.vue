@@ -9,6 +9,31 @@
 </template>
 
 <script>
+export default {
+  async asyncData ({ store }) {
+    if (!Object.keys(store.getters.team).length) {
+      await store.dispatch('teamInit')
+    }
+    if (!Object.keys(store.getters.footer).length) {
+      await store.dispatch('footerInit')
+    }
+    if (!store.getters.menu.length) {
+      await store.dispatch('menuInit')
+    }
+    return {
+      menu: store.getters.menu,
+      pageData: store.getters.team,
+      footerData: store.getters.footer
+    }
+  },
+  data () {
+    return {
+      menu: [],
+      pageData: {},
+      footerData: {}
+    }
+  }
+}
 </script>
 
 <style scoped>

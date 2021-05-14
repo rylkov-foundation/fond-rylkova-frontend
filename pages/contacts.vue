@@ -10,6 +10,29 @@
 
 <script>
 export default {
+  async asyncData ({ store }) {
+    if (!Object.keys(store.getters.contacts).length) {
+      await store.dispatch('contactsInit')
+    }
+    if (!Object.keys(store.getters.footer).length) {
+      await store.dispatch('footerInit')
+    }
+    if (!store.getters.menu.length) {
+      await store.dispatch('menuInit')
+    }
+    return {
+      menu: store.getters.menu,
+      pageData: store.getters.contacts,
+      footerData: store.getters.footer
+    }
+  },
+  data () {
+    return {
+      menu: [],
+      pageData: {},
+      footerData: {}
+    }
+  }
 }
 </script>
 
