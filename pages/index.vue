@@ -16,10 +16,33 @@
 
 <script>
 export default {
-  name: 'Index',
+  async asyncData ({ store }) {
+    if (!Object.keys(store.getters.index).length) {
+      await store.dispatch('indexInit')
+    }
+    if (!Object.keys(store.getters.donationAmount).length) {
+      await store.dispatch('donationAmountInit')
+    }
+    if (!Object.keys(store.getters.footer).length) {
+      await store.dispatch('footerInit')
+    }
+    if (!store.getters.menu.length) {
+      await store.dispatch('menuInit')
+    }
+    return {
+      menu: store.getters.menu,
+      pageData: store.getters.index,
+      donationAmount: store.getters.donationAmount,
+      footerData: store.getters.footer
+    }
+  },
   data () {
     return {
-      topDonationSum: 0
+      topDonationSum: 0,
+      menu: [],
+      pageData: {},
+      donationAmount: {},
+      footerData: {}
     }
   },
   methods: {

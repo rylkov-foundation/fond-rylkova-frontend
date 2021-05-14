@@ -73,7 +73,19 @@ export default {
     }
   },
   strapi: {
-    entities: ['contacts', 'items']
+    entities: [
+      { name: 'index', type: 'single' },
+      { name: 'pages', type: 'collection' },
+      { name: 'mission', type: 'single' },
+      { name: 'annual_reports', type: 'single' },
+      { name: 'contacts', type: 'single' },
+      { name: 'projects', type: 'single' },
+      { name: 'team', type: 'single' },
+      { name: 'who_is_andrei_rylkov', type: 'single' },
+      { name: 'donation_page', type: 'single' },
+      { name: 'donation_amount', type: 'single' },
+      { name: 'footer', type: 'single' }
+    ]
   },
   loading: {
     color: '#000',
