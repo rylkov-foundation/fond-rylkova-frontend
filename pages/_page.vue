@@ -22,7 +22,7 @@
       </div>
       <div class="meta__wrapper">
         <img class="meta__image" src="~/assets/images/blade.svg" alt="Лезвие">
-        <div ref="content" class="meta__data" />
+        <div class="meta__data" v-html="pageData.content_ru" />
       </div>
     </div>
     <Footer />
@@ -33,14 +33,7 @@
 import splitLine from '@/utilites/splitLine'
 
 export default {
-  data () {
-    return {
-      titleText: 'Заголовок',
-      splitTitle: [],
-      resizeTimeout: null
-    }
-  },
-  async fetch ({ store, route, error }) {
+  async asyncData ({ store, route, error }) {
     if (!store.getters.dynamicPagesData[route.params.page]) {
       await store.dispatch('dynamicPagesDataInit')
       if (!store.getters.dynamicPagesData[route.params.page]) {
@@ -50,29 +43,26 @@ export default {
     if (!store.getters.menu.length) {
       await store.dispatch('menuInit')
     }
+    return {
+      menu: store.getters.menu,
+      pageData: store.getters.dynamicPagesData[route.params.page],
+      notFound: store.getters.notFound
+    }
   },
-  computed: {
-    menu () {
-      return this.$store.getters.menu
-    },
-    pageData () {
-      return this.$store.getters.dynamicPagesData[this.$router.currentRoute.params.page]
-    },
-    notFound () {
-      return this.$store.getters.notFound
+  data () {
+    return {
+      titleText: 'Заголовок',
+      splitTitle: [],
+      resizeTimeout: null,
+      menu: [],
+      pageData: {},
+      notFound: false
     }
   },
   beforeMount () {
     if (!this.notFound) {
-      window.addEventListener('resize', this.handleSplitTitle)
-    }
-  },
-  mounted () {
-    if (!this.notFound) {
       this.handleSplitTitle()
-    }
-    if (this.pageData?.content_ru) {
-      this.$refs.content.innerHTML = this.pageData.content_ru
+      window.addEventListener('resize', this.handleSplitTitle)
     }
   },
   beforeDestroy () {
