@@ -10,8 +10,8 @@
     <LogoWhite />
     <div class="contacts__grid-title-container">
       <div class="contacts__container">
-        <h2 class="contacts__title">
-          Контакты
+        <h2 ref="titleContainer" class="contacts__title">
+          <span v-for="line in splitTitle" :key="line" class="contacts__title-text">{{ line }}</span>
         </h2>
         <EmailForm class="contacts__form" />
       </div>
@@ -54,6 +54,7 @@
 
 <script>
 import Drop from '@/components/Drop'
+import splitLine from '@/utilites/splitLine'
 
 export default {
   name: 'Contacts',
@@ -62,6 +63,9 @@ export default {
   },
   data () {
     return {
+      titleText: 'Контакты',
+      splitTitle: [],
+      resizeTimeout: null,
       contactData: [
         {
           id: '1',
@@ -85,6 +89,25 @@ export default {
           telephone: '+79060741192'
         }
       ]
+    }
+  },
+  beforeMount () {
+    window.addEventListener('resize', this.handleSplitTitle)
+  },
+  mounted () {
+    this.handleSplitTitle()
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleSplitTitle)
+  },
+  methods: {
+    handleSplitTitle () {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+        }, 40)
+      }
     }
   }
 }
@@ -113,26 +136,27 @@ export default {
   word-break: break-all;
   color: #fff;
   margin: 26px 0 23px 8px;
-  max-width: 285px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contacts__title-text {
+  font-family: Vollkorn, Times, serif;
+  font-size: 101px;
+  line-height: 56px;
+  font-style: italic;
+  word-break: normal;
   position: relative;
 }
 
-.contacts__title::before {
+.contacts__title-text::after {
   content: '';
   position: absolute;
-  top: 38px;
-  left: 6px;
-  width: 234px;
-  height: 18px;
-  background-color: #b23438;
-}
-
-.contacts__title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 4px;
-  width: 233px;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
   height: 18px;
   background-color: #b23438;
 }
@@ -236,39 +260,19 @@ export default {
   display: none;
 }
 
-@media screen and (min-width: 540px) {
-  .contacts__title {
-    max-width: unset;
-  }
-
-  .contacts__title::before {
-    width: 457px;
-  }
-
-  .contacts__title::after {
-    display: none;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .contacts__title {
     font-size: 220px;
     line-height: 122px;
     margin: 88px 0 41px 43px;
-    max-width: 89%;
   }
 
-  .contacts__title::before {
-    top: 86px;
-    left: 9px;
-    width: 89%;
-    height: 38px;
+  .contacts__title-text {
+    font-size: 220px;
+    line-height: 122px;
   }
 
-  .contacts__title::after {
-    display: block;
-    bottom: 0;
-    width: 415px;
+  .contacts__title-text::after {
     height: 38px;
   }
 
@@ -313,18 +317,6 @@ export default {
     font-size: 33px;
     line-height: 34px;
     border-bottom: none;
-  }
-}
-
-@media screen and (min-width: 824px) {
-  .contacts__title::after {
-    width: 280px;
-  }
-}
-
-@media screen and (min-width: 1014px) {
-  .contacts__title::after {
-    width: 110px;
   }
 }
 
@@ -383,20 +375,18 @@ export default {
     font-size: 175px;
     line-height: 104px;
     margin: 55px 0 23px -527px;
-    max-width: 894px;
-    position: relative;
+    width: 894px;
     z-index: 5;
   }
 
-  .contacts__title::before {
-    top: 80px;
-    left: 0;
-    width: 782px;
-    height: 40px;
+  .contacts__title-text {
+    font-size: 175px;
+    line-height: 104px;
+    z-index: 5;
   }
 
-  .contacts__title::after {
-    display: none;
+  .contacts__title-text::after {
+    height: 40px;
   }
 
   .contacts__form {
