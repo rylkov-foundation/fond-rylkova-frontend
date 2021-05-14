@@ -10,8 +10,8 @@
     <LogoWhite />
     <div class="projects__container">
       <div class="projects__title-container">
-        <h2 class="projects__title">
-          Текущие проекты
+        <h2 ref="titleContainer" class="projects__title">
+          <span v-for="line in splitTitle" :key="line" class="projects__title-text">{{ line }}</span>
         </h2>
         <p class="projects__subtitle">
           В данном разделе  представлена информация  о реализующихся  в настоящее время проектах фонда
@@ -32,6 +32,7 @@
 
 <script>
 import Drop from '@/components/Drop'
+import splitLine from '@/utilites/splitLine'
 
 export default {
   name: 'Projects',
@@ -40,6 +41,9 @@ export default {
   },
   data () {
     return {
+      titleText: 'Текущие проекты',
+      splitTitle: [],
+      resizeTimeout: null,
       projectsData: [
         {
           id: '1',
@@ -59,6 +63,25 @@ export default {
             ' к необходимым профилактическим и медицинским услугам, а также информации.'
         }
       ]
+    }
+  },
+  beforeMount () {
+    window.addEventListener('resize', this.handleSplitTitle)
+  },
+  mounted () {
+    this.handleSplitTitle()
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleSplitTitle)
+  },
+  methods: {
+    handleSplitTitle () {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+        }, 40)
+      }
     }
   }
 }
@@ -83,28 +106,30 @@ export default {
   margin: 24px 0 27px -10px;
   letter-spacing: -6px;
   color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.projects__title-text {
+  font-family: Vollkorn, Times, serif;
+  font-size: 80px;
+  line-height: 70px;
+  font-weight: 600;
+  letter-spacing: -6px;
   position: relative;
-  max-width: 584px;
+  word-break: normal;
 }
 
-.projects__title::before {
-  position: absolute;
-  top: 54px;
-  left: 0;
+.projects__title-text::after {
   content: '';
   height: 18px;
+  width: 100%;
   background-color: #b23438;
-  width: 287px;
-}
-
-.projects__title::after {
-  position: absolute;
-  top: 110px;
+  bottom: 2px;
   left: 0;
-  content: '';
-  height: 18px;
-  background-color: #b23438;
-  width: 287px;
+  position: absolute;
 }
 
 .projects__subtitle {
@@ -141,21 +166,17 @@ export default {
     line-height: 140px;
     margin: 38px 0 72px 41px;
     letter-spacing: -12px;
-    max-width: 584px;
+    width: 85%;
   }
 
-  .projects__title::before {
-    top: 102px;
-    left: 19px;
-    height: 35px;
-    width: 557px;
+  .projects__title-text {
+    font-size: 160px;
+    line-height: 140px;
+    letter-spacing: -12px;
   }
 
-  .projects__title::after {
-    top: 222px;
-    left: 17px;
+  .projects__title-text::after {
     height: 35px;
-    width: 556px;
   }
 
   .projects__subtitle {
@@ -221,21 +242,17 @@ export default {
     line-height: 75px;
     margin: 57px 0 38px 21px;
     letter-spacing: -5px;
-    max-width: 410px;
+    max-width: 450px;
   }
 
-  .projects__title::before {
-    top: 55px;
-    left: 11px;
-    height: 24px;
-    width: 366px;
+  .projects__title-text {
+    font-size: 107px;
+    line-height: 75px;
+    letter-spacing: -5px;
   }
 
-  .projects__title::after {
-    top: 132px;
-    left: 12px;
+  .projects__title-text::after {
     height: 24px;
-    width: 388px;
   }
 
   .projects__subtitle {

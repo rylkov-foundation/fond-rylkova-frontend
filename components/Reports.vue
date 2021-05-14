@@ -9,10 +9,8 @@
     <LogoWhite />
     <div class="reports__colour-container reports__colour-container_colour_grey-bottom" />
     <div class="reports__container">
-      <h2 class="reports__title">
-        Финансовые и содержательные годовые  отчеты
-        <span class="reports__line reports__line_number_tree" />
-        <span class="reports__line reports__line_number_four" />
+      <h2 ref="titleContainer" class="reports__title">
+        <span v-for="line in splitTitle" :key="line" class="reports__title-text">{{ line }}</span>
       </h2>
       <p class="reports__subtitle">
         В данном разделе представлена  информация о реализующихся  в настоящее время проектах фонда
@@ -32,6 +30,7 @@
 
 <script>
 import Drop from '@/components/Drop'
+import splitLine from '@/utilites/splitLine'
 
 export default {
   name: 'Reports',
@@ -40,6 +39,9 @@ export default {
   },
   data () {
     return {
+      titleText: 'Финансовые и содержательные годовые  отчеты',
+      splitTitle: [],
+      resizeTimeout: null,
       reportsData: [
         {
           id: '1',
@@ -56,6 +58,25 @@ export default {
           text: 'Мы собрали самые важные данные, которые отражают проделанную нами работу за 2018 год, и сделали красивую инфографику'
         }
       ]
+    }
+  },
+  beforeMount () {
+    window.addEventListener('resize', this.handleSplitTitle)
+  },
+  mounted () {
+    this.handleSplitTitle()
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleSplitTitle)
+  },
+  methods: {
+    handleSplitTitle () {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+        }, 40)
+      }
     }
   }
 }
@@ -77,52 +98,34 @@ export default {
     font-size: 44px;
     line-height: 36px;
     font-weight: 700;
-    width: 83%;
-    max-width: 290px;
+    width: 89%;
     word-break: break-all;
-    margin: 21px 0 24px 18px;
-    position: relative;
+    margin: 42px 0 24px 10px;
     color: #000;
     letter-spacing: -2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .reports__title::before {
-    content: "";
+  .reports__title-text {
+    font-family: Vollkorn, Times, serif;
+    font-size: 44px;
+    line-height: 36px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    word-break: normal;
+    position: relative;
+  }
+
+  .reports__title-text::after {
+    content: '';
     height: 12px;
+    width: 100%;
     background-color: #b23438;
-    width: 252px;
+    bottom: 2px;
+    left: 0;
     position: absolute;
-    top: 23px;
-    left: 0;
-  }
-
-  .reports__title::after {
-    content: "";
-    height: 12px;
-    background-color: #b23438;
-    width: 241px;
-    position: absolute;
-    top: 58px;
-    left: 0;
-  }
-
-  .reports__line {
-    content: "";
-    height: 12px;
-    background-color: #b23438;
-    position: absolute;
-  }
-
-  .reports__line_number_tree {
-    top: 93px;
-    left: 0;
-    width: 247px;
-  }
-
-  .reports__line_number_four {
-    top: 129px;
-    left: 0;
-    width: 194px;
   }
 
   .reports__subtitle {
@@ -147,72 +150,6 @@ export default {
     padding: 0;
   }
 
-  @media screen and (min-width: 325px) {
-    .reports__title::after {
-      width: 264px;
-    }
-
-    .reports__line_number_four {
-      width: 165px;
-    }
-  }
-
-  @media screen and (min-width: 337px) {
-    .reports__line_number_tree {
-      width: 275px;
-    }
-
-    .reports__line_number_four {
-      width: 147px;
-    }
-  }
-
-  @media screen and (min-width: 354px) {
-    .reports__line_number_four {
-      width: 49%;
-    }
-  }
-
-  @media screen and (min-width: 500px) {
-    .reports__title {
-      max-width: 418px;
-    }
-
-    .reports__title::before {
-      width: 407px;
-    }
-
-    .reports__title::after {
-      width: 396px;
-    }
-
-    .reports__line_number_tree {
-      width: 150px;
-    }
-
-    .reports__line_number_four {
-      display: none;
-    }
-  }
-
-  @media screen and (min-width: 620px) {
-    .reports__title {
-      max-width: 514px;
-    }
-
-    .reports__title::before {
-      width: 508px;
-    }
-
-    .reports__title::after {
-      width: 445px;
-    }
-
-    .reports__line_number_tree {
-      display: none;
-    }
-  }
-
   @media screen and (min-width: 768px) {
     .reports__container {
       min-height: 261px;
@@ -225,40 +162,17 @@ export default {
       line-height: 73px;
       font-weight: 600;
       width: 81%;
-      max-width: 603px;
       margin: 51px 0 29px 46px;
     }
 
-    .reports__title::before {
+    .reports__title-text {
+      font-size: 88px;
+      line-height: 73px;
+      font-weight: 600;
+    }
+
+    .reports__title-text::after {
       height: 23px;
-      width: 575px;
-      top: 48px;
-      left: 0;
-    }
-
-    .reports__title::after {
-      height: 23px;
-      width: 561px;
-      top: 115px;
-      left: -1px;
-    }
-
-    .reports__line {
-      height: 23px;
-    }
-
-    .reports__line_number_tree {
-      display: inline;
-      top: 187px;
-      left: -1px;
-      width: 555px;
-    }
-
-    .reports__line_number_four {
-      display: inline;
-      top: 265px;
-      left: -1px;
-      width: 191px;
     }
 
     .reports__subtitle {
@@ -273,28 +187,6 @@ export default {
       width: 520px;
       height: 520px;
       margin-left: 233px;
-    }
-  }
-
-  @media screen and (min-width: 950px) {
-    .reports__title {
-      max-width: 739px;
-    }
-
-    .reports__title::before {
-      width: 676px;
-    }
-
-    .reports__title::after {
-      width: 683px;
-    }
-
-    .reports__line_number_tree {
-      width: 542px;
-    }
-
-    .reports__line_number_four {
-      display: none;
     }
   }
 
@@ -347,34 +239,17 @@ export default {
     .reports__title {
       font-size: 106px;
       line-height: 75px;
-      width: 865px;
-      max-width: 865px;
+      width: 80%;
       margin: 52px 0 41px 20px;
-      word-break: break-all;
     }
 
-    .reports__title::before {
+    .reports__title-text {
+      font-size: 106px;
+      line-height: 75px;
+    }
+
+    .reports__title-text::after {
       height: 25px;
-      top: 49px;
-      left: 13px;
-      width: 812px;
-    }
-
-    .reports__title::after {
-      height: 25px;
-      top: 121px;
-      left: 13px;
-      width: 824px;
-    }
-
-    .reports__line {
-      height: 25px;
-    }
-
-    .reports__line_number_tree {
-      top: 201px;
-      left: 12px;
-      width: 656px;
     }
 
     .reports__subtitle {

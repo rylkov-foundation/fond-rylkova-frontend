@@ -1,10 +1,11 @@
 <template>
   <section class="about-us">
-    <h2 class="about-us__title">
-      <span class="about-us__title-text">
-        О нас
-      </span>
-    </h2>
+    <div class="about-us__container">
+      <img src="~/assets/images/about-us.png" alt="О нас" class="about-us__image">
+      <h2 ref="titleContainer" class="about-us__title">
+        <span v-for="line in splitTitle" :key="line" class="about-us__title-text">{{ line }}</span>
+      </h2>
+    </div>
     <Support />
     <LogoWhite />
     <p class="about-us__text">
@@ -40,11 +41,38 @@
 
 <script>
 import Drop from '@/components/Drop'
+import splitLine from '@/utilites/splitLine'
 
 export default {
   name: 'AboutUs',
   components: {
     Drop
+  },
+  data () {
+    return {
+      titleText: 'О нас',
+      splitTitle: [],
+      resizeTimeout: null
+    }
+  },
+  beforeMount () {
+    window.addEventListener('resize', this.handleSplitTitle)
+  },
+  mounted () {
+    this.handleSplitTitle()
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleSplitTitle)
+  },
+  methods: {
+    handleSplitTitle () {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+        }, 40)
+      }
+    }
   }
 }
 </script>
@@ -56,18 +84,36 @@ export default {
     padding-bottom: 56px;
   }
 
+  .about-us__container {
+    position: relative;
+    height: 337px;
+    margin-bottom: 20px;
+  }
+
+  .about-us__image {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 337px;
+  }
+
   .about-us__title {
-    background-image: url("../assets/images/about-us.png");
-    height: 340px;
-    background-position: center;
-    background-size: cover;
-    padding: 27px 0 0 23px;
-    margin-bottom: 32px;
+    position: absolute;
+    top: 100px;
+    left: 19px;
+    font-family: Vollkorn, Times, serif;
+    font-size: 115px;
+    font-style: italic;
+    font-weight: 400;
+    width: 100%;
+    line-height: 71px;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .about-us__title-text {
-    display: block;
-    max-width: 160px;
     color: #fff;
     font-family: Vollkorn, Times, serif;
     font-size: 115px;
@@ -75,25 +121,16 @@ export default {
     font-weight: 400;
     line-height: 71px;
     position: relative;
-  }
-
-  .about-us__title-text::before {
-    content: '';
-    position: absolute;
-    background-color: #b23438;
-    left: -5px;
-    top: 55px;
-    width: 104px;
-    height: 17px;
+    word-break: break-word;
   }
 
   .about-us__title-text::after {
     content: '';
     position: absolute;
     background-color: #b23438;
-    left: -3px;
-    top: 128px;
-    width: 137px;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
     height: 17px;
   }
 
@@ -111,31 +148,35 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .about-us__title {
-      height: 715px;
-      padding: 79px 0 0 52px;
+    .about-us__container {
+      height: 716px;
       margin-bottom: 40px;
     }
 
+    .about-us__image {
+      width: 100%;
+      height: 716px;
+    }
+
+    .about-us__title {
+      top: 100px;
+      left: 19px;
+      font-size: 231px;
+      line-height: 144px;
+      width: 500px;
+      word-break: normal;
+    }
+
     .about-us__title-text {
-      max-width: 450px;
       font-size: 231px;
       line-height: 144px;
       word-spacing: -5px;
       letter-spacing: -11px;
-    }
-
-    .about-us__title-text::before {
-      left: 2px;
-      top: 108px;
-      width: 207px;
-      height: 36px;
+      word-break: normal;
+      width: auto;
     }
 
     .about-us__title-text::after {
-      left: 1px;
-      top: 252px;
-      width: 276px;
       height: 36px;
     }
 
@@ -155,38 +196,41 @@ export default {
         "red text grey";
     }
 
-    .about-us__title {
+    .about-us__container {
       grid-area: title;
       height: 418px;
-      padding: 152px 0 0 79px;
       margin-bottom: 0;
-      max-width: 1186px;
+    }
+
+    .about-us__image {
       width: 100%;
-      background-position: left;
-      justify-self: right;
+      height: 418px;
+      object-fit: cover;
+    }
+
+    .about-us__title {
+      top: 152px;
+      left: 18%;
+      font-size: 231px;
+      line-height: 144px;
+      width: 700px;
     }
 
     .about-us__title-text {
-      grid-area: text;
-      max-width: none;
       font-size: 247px;
       line-height: 178px;
       word-spacing: -23px;
-      letter-spacing: -11px;
-    }
-
-    .about-us__title-text::before {
-      display: none;
+      word-break: normal;
+      width: auto;
+      max-width: none;
     }
 
     .about-us__title-text::after {
-      left: 28px;
-      top: 127px;
-      width: 479px;
       height: 34px;
     }
 
     .about-us__text {
+      grid-area: text;
       padding-top: 44px;
       font-size: 22px;
       line-height: 29px;
