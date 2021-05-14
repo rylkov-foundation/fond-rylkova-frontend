@@ -28,7 +28,7 @@ export default {
   }
 
   .header__text:hover {
-    animation: none;
+    animation-play-state: paused;
   }
 
   @keyframes animate {
