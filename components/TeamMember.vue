@@ -12,6 +12,7 @@
                 'team-member__container_position_fourth': ($attrs.index+1)%4 === 0}"
     >
       <h2
+        ref="titleContainer"
         class="team-member__title"
         :class="{ 'team-member__title_color_white': ($attrs.index+1)%2 === 0,
                   'team-member__title_position_second': ($attrs.index+1)%2 === 0,
@@ -19,7 +20,17 @@
                   'team-member__title_position_fourth': ($attrs.index+1)%4 === 0,
         }"
       >
-        {{ member.name }}
+        <span
+          v-for="line in splitTitle"
+          :key="line"
+          class="team-member__title-text"
+          :class="{ 'team-member__title-text_position_second': ($attrs.index+1)%2 === 0,
+                    'team-member__title-text_position_third': ($attrs.index+1)%3 === 0,
+                    'team-member__title-text_position_fourth': ($attrs.index+1)%4 === 0,
+          }"
+        >
+          {{ line }}
+        </span>
       </h2>
       <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index+1)%2 === 0}">
         {{ member.text }}
@@ -29,12 +40,39 @@
 </template>
 
 <script>
+import splitLine from '@/utilites/splitLine'
+
 export default {
   name: 'TeamMember',
   props: {
     member: {
       type: Object,
       default: () => {}
+    }
+  },
+  data () {
+    return {
+      splitTitle: [],
+      resizeTimeout: null
+    }
+  },
+  beforeMount () {
+    window.addEventListener('resize', this.handleSplitTitle)
+  },
+  mounted () {
+    this.handleSplitTitle()
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleSplitTitle)
+  },
+  methods: {
+    handleSplitTitle () {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.splitTitle = splitLine(this.member.name, this.$refs.titleContainer)
+        }, 40)
+      }
     }
   }
 }
@@ -76,26 +114,26 @@ export default {
     color: #fff;
     margin: 24px 0 23px 0;
     text-align: center;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member__title-text {
+    font-family: 'Vollkorn', 'Times', serif;
+    font-size: 31px;
+    line-height: 27px;
+    font-weight: bold;
     position: relative;
-    max-width: 181px;
   }
 
-  .team-member__title::after {
+  .team-member__title-text::after {
     content: '';
     position: absolute;
     background-color: #000;
     left: 0;
-    top: 43px;
-    width: 100%;
-    height: 7px;
-  }
-
-  .team-member__title::before {
-    content: '';
-    position: absolute;
-    background-color: #000;
-    left: 0;
-    top: 19px;
+    bottom: 2px;
     width: 100%;
     height: 7px;
   }
@@ -135,18 +173,17 @@ export default {
     .team-member__title {
       font-size: 63px;
       line-height: 52px;
-      max-width: 363px;
+      width: 363px;
       font-weight: bold;
       margin: 74px 0 42px 0;
     }
 
-    .team-member__title::before {
-      top: 34px;
-      height: 16px;
+    .team-member__title-text {
+      font-size: 63px;
+      line-height: 52px;
     }
 
-    .team-member__title::after {
-      top: 85px;
+    .team-member__title-text::after {
       height: 16px;
     }
 
@@ -183,21 +220,19 @@ export default {
     .team-member__title {
       font-size: 45px;
       line-height: 38px;
-      font-weight: bold;
-      max-width: 260px;
+      width: 260px;
       margin: 0 0 26px 20px;
       text-align: left;
       color: #b23438;
     }
 
-    .team-member__title::before {
-      height: 11px;
-      top: 26px;
+    .team-member__title-text {
+      font-size: 45px;
+      line-height: 38px;
     }
 
-    .team-member__title::after {
+    .team-member__title-text::after {
       height: 11px;
-      top: 62px;
     }
 
     .team-member__text {
@@ -231,18 +266,15 @@ export default {
       color: #fff;
     }
 
-    .team-member__title_position_third::after,
-    .team-member__title_position_third::before {
+    .team-member__title-text_position_third::after {
       background-color: #cbcbcb;
     }
 
-    .team-member__title_position_second::after,
-    .team-member__title_position_second::before {
+    .team-member__title-text_position_second::after {
       background-color: #b23438;
     }
 
-    .team-member__title_position_fourth::after,
-    .team-member__title_position_fourth::before {
+    .team-member__title-text_position_fourth::after {
       background-color: #000;
     }
 
