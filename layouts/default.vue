@@ -13,17 +13,22 @@ export default {
     if (!Object.keys(store.getters.footer).length) {
       await store.dispatch('footerInit')
     }
+    if (!Object.keys(store.getters.globalMeta).length) {
+      await store.dispatch('globalMetaInit')
+    }
     if (!store.getters.menu.length) {
       await store.dispatch('menuInit')
     }
     return {
       menu: store.getters.menu,
+      meta: store.getters.globalMeta,
       footerData: store.getters.footer
     }
   },
   data () {
     return {
       menu: [],
+      meta: {},
       footerData: {}
     }
   }
