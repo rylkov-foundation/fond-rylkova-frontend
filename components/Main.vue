@@ -7,14 +7,14 @@
       <div class="main__grey-block">
         <div class="main__money-block">
           <button type="button" name="1000" class="main__number main__number_size_big" @click="onSumClick">
-            1000
+            {{ donationAmount.amount_big }}
             <span class="main__money-sign">&#8381;</span>
           </button>
           <button type="button" name="200" class="main__number main__number_size_small" @click="onSumClick">
-            200
+            {{ donationAmount.amount_small }}
           </button>
           <button type="button" name="500" class="main__number main__number_size_medium" @click="onSumClick">
-            500
+            {{ donationAmount.amount_medium }}
           </button>
           <NuxtLink class="link link_position_top" to="/donation">
             Поддержать
@@ -36,6 +36,12 @@
 <script>
 export default {
   name: 'Main',
+  props: {
+    donationAmount: {
+      default: () => {},
+      type: Object
+    }
+  },
   methods: {
     onSumClick (e) {
       this.$emit(
