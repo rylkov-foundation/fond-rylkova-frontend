@@ -21,17 +21,32 @@ export default {
     if (!store.getters.menu.length) {
       await store.dispatch('menuInit')
     }
+    if (!Object.keys(store.getters.popupCookies).length) {
+      await store.dispatch('popupCookiesInit')
+    }
+    if (!Object.keys(store.getters.popupDownload).length) {
+      await store.dispatch('popupDownloadInit')
+    }
+    if (!Object.keys(store.getters.popupNews).length) {
+      await store.dispatch('popupNewsInit')
+    }
     return {
       menu: store.getters.menu,
       meta: store.getters.globalMeta,
-      footerData: store.getters.footer
+      footerData: store.getters.footer,
+      popupCookiesData: store.getters.popupCookies,
+      popupDownloadData: store.getters.popupDownload,
+      popupNewsData: store.getters.popupNews
     }
   },
   data () {
     return {
       menu: [],
       meta: {},
-      footerData: {}
+      footerData: {},
+      popupCookiesData: {},
+      popupDownloadData: {},
+      popupNewsData: {}
     }
   }
 }
