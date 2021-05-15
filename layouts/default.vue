@@ -6,6 +6,11 @@
       <Nuxt />
     </div>
     <Footer />
+    <div class="popup">
+      <PopupCookie v-if="!isAcceptedCookies" :handle-accept-cookies="acceptCookies" />
+      <PopupAgent />
+      <PopupNews />
+    </div>
   </div>
 </template>
 
@@ -46,7 +51,17 @@ export default {
       footerData: {},
       popupCookiesData: {},
       popupDownloadData: {},
-      popupNewsData: {}
+      popupNewsData: {},
+      isAcceptedCookies: true
+    }
+  },
+  mounted() {
+    this.isAcceptedCookies = Boolean(localStorage.isAcceptedCookies)
+  },
+  methods: {
+    acceptCookies () {
+      localStorage.isAcceptedCookies = 'true'
+      this.isAcceptedCookies = true
     }
   }
 }
@@ -82,5 +97,15 @@ export default {
     align-items: center;
     max-width: 100%;
     overflow: hidden;
+  }
+
+  .popup {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 </style>

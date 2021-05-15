@@ -3,11 +3,6 @@
     <MainAbout />
     <Main @clickSetTopDonationSum="setTopDonationSum" />
     <Container :top-donation-sum="topDonationSum" />
-    <div class="popup">
-      <PopupCookie />
-      <PopupAgent />
-      <PopupNews />
-    </div>
   </div>
 </template>
 
@@ -49,15 +44,5 @@ export default {
     justify-content: flex-start;
     align-items: center;
     align-self: stretch;
-  }
-
-  .popup {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
   }
 </style>
