@@ -9,11 +9,12 @@
         профилактические материалы и тд, свяжитесь с нами
       </p>
       <div class="help__block">
-        <img src="~/assets/images/blade.svg" class="help__image">
+        <img src="~/assets/images/blade.svg" alt="Лезвие" class="help__image">
       </div>
-      <a class="link" href="#">Подробнее
+      <NuxtLink class="link" to="/get-help">
+        Подробнее
         <span class="link__arrow">&gt;</span>
-      </a>
+      </NuxtLink>
       <div class="help__telephone-block">
         <a class="help__telephone-number" href="tel:+79268879087">+7-(926)-887-90-87</a>
       </div>

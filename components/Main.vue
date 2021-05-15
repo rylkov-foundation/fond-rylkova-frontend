@@ -16,18 +16,18 @@
           <button type="button" name="500" class="main__number main__number_size_medium" @click="onSumClick">
             500
           </button>
-          <a class="link link_position_top" href="#donation">
+          <NuxtLink class="link link_position_top" to="/donation">
             Поддержать
             <span class="main__arrow">&gt;</span>
-          </a>
+          </NuxtLink>
         </div>
         <div class="main__image-block">
           <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
         </div>
-        <a class="link link_position_bottom" href="#">
+        <NuxtLink class="link link_position_bottom" to="/get-help">
           Получить помощь
           <span class="main__arrow">&gt;</span>
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </section>

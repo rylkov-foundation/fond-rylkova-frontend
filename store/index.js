@@ -1,5 +1,6 @@
 export const state = () => ({
   menu: [],
+  globalMeta: {},
   dynamicPagesData: {},
   index: {},
   mission: {},
@@ -16,6 +17,9 @@ export const state = () => ({
 export const mutations = {
   setDynamicPagesData (state, dynamicPagesData) {
     state.dynamicPagesData = { [this.$router.currentRoute.params.page]: dynamicPagesData }
+  },
+  setGlobalMeta (state, data) {
+    state.globalMeta = data
   },
   setMenu (state, menuData) {
     state.menu = menuData
@@ -67,6 +71,10 @@ export const actions = {
       })
     commit('setMenu', data)
   },
+  async globalMetaInit ({ commit }) {
+    const data = await this.$strapi.$meta.find()
+    commit('setGlobalMeta', data)
+  },
   async indexInit ({ commit }) {
     const data = await this.$strapi.$index.find()
     commit('setIndex', data)
@@ -110,6 +118,7 @@ export const actions = {
 }
 
 export const getters = {
+  globalMeta: state => state.globalMeta,
   menu: state => state.menu,
   dynamicPagesData: state => state.dynamicPagesData,
   index: state => state.index,

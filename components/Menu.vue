@@ -3,10 +3,10 @@
     <transition name="show">
       <nav v-if="isShown" class="menu__navigation">
         <ul class="menu__list">
-          <li class="menu__list-item">
-            <router-link to="/" class="menu__link">
+          <li class="menu__list-item" @click="closeMenu">
+            <NuxtLink to="/" class="menu__link">
               Главная
-            </router-link>
+            </NuxtLink>
           </li>
           <li class="menu__list-item" @click="isShownAbout = !isShownAbout">
             <p class="menu__list-text">
@@ -15,10 +15,10 @@
             </p>
             <transition name="show-sublist">
               <ul v-if="isShownAbout" class="menu__sublist">
-                <li v-for="aboutItem in aboutList" :key="aboutItem.id" class="menu__sublist-item">
-                  <router-link class="menu__sublist-link" :to="aboutItem.url">
+                <li v-for="aboutItem in aboutList" :key="aboutItem.id" class="menu__sublist-item" @click="closeMenu">
+                  <NuxtLink class="menu__sublist-link" :to="aboutItem.url">
                     {{ aboutItem.title }}
-                  </router-link>
+                  </NuxtLink>
                 </li>
               </ul>
             </transition>
@@ -30,23 +30,28 @@
             </p>
             <transition name="show-sublist">
               <ul v-if="isShownSupport" class="menu__sublist">
-                <li v-for="supportItem in supportList" :key="supportItem.id" class="menu__sublist-item">
-                  <router-link class="menu__sublist-link" :to="supportItem.url">
+                <li
+                  v-for="supportItem in supportList"
+                  :key="supportItem.id"
+                  class="menu__sublist-item"
+                  @click="closeMenu"
+                >
+                  <NuxtLink class="menu__sublist-link" :to="supportItem.url">
                     {{ supportItem.title }}
-                  </router-link>
+                  </NuxtLink>
                 </li>
               </ul>
             </transition>
           </li>
-          <li class="menu__list-item">
-            <router-link class="menu__link" to="#">
+          <li class="menu__list-item" @click="closeMenu">
+            <NuxtLink class="menu__link" to="#">
               получить помощь
-            </router-link>
+            </NuxtLink>
           </li>
-          <li class="menu__list-item">
-            <router-link class="menu__link" to="/contacts">
+          <li class="menu__list-item" @click="closeMenu">
+            <NuxtLink class="menu__link" to="/contacts">
               контакты
-            </router-link>
+            </NuxtLink>
           </li>
         </ul>
       </nav>
@@ -110,6 +115,9 @@ export default {
     },
     onClickOutside (e) {
       this.isShown = this.$el.contains(e.target) && this.isShown
+    },
+    closeMenu () {
+      this.isShown = false
     }
   }
 }

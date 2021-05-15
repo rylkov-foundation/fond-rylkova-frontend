@@ -24,9 +24,10 @@
           />
         </div>
       </div>
-      <a class="link" href="#">Получить помощь
+      <NuxtLink class="link" to="/get-help">
+        Получить помощь
         <span class="link__arrow">&gt;</span>
-      </a>
+      </NuxtLink>
       <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
     </div>
   </section>

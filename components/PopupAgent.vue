@@ -12,6 +12,7 @@
     <a
       href="#"
       class="popup__link"
+      download=""
       @click="hidePopup"
     >Скачать материал</a>
     <button type="button" class="popup__button-close" @click="hidePopup" />

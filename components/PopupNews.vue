@@ -9,11 +9,13 @@
     <p class="popup__text popup__text_news">
       В Никола-Ленивце на Масленицу устроили «Великое лежание» и сожгли «Замок корона-людоеда».
     </p>
-    <a
-      href="#"
+    <NuxtLink
+      to="/some_meta_page"
       class="popup__link"
       @click="hidePopup"
-    >Перейти &gt;</a>
+    >
+      Перейти &gt;
+    </NuxtLink>
     <button type="button" class="popup__close-button" @click="hidePopup" />
   </div>
 </template>

@@ -74,6 +74,7 @@ export default {
   },
   strapi: {
     entities: [
+      { name: 'meta', type: 'single' },
       { name: 'index', type: 'single' },
       { name: 'pages', type: 'collection' },
       { name: 'mission', type: 'single' },
