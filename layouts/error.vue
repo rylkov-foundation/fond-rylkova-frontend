@@ -1,10 +1,5 @@
 <template>
-  <div v-if="error.statusCode === 404" class="container">
-    <MainHeader />
-    <Menu />
-    <NotFound />
-    <Footer />
-  </div>
+  <NotFound v-if="error.statusCode === 404" />
 </template>
 
 <script>
@@ -18,15 +13,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .container {
-    margin: 0 auto;
-    min-height: 100vh;
-    min-width: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-</style>

@@ -2,7 +2,9 @@
   <div>
     <Menu />
     <Header />
-    <Nuxt />
+    <div class="container">
+      <Nuxt />
+    </div>
     <Footer />
   </div>
 </template>
@@ -48,5 +50,17 @@ export default {
   *::after {
     box-sizing: border-box;
     margin: 0;
+  }
+
+  .container {
+    margin: 0 auto;
+    min-height: 100vh;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
   }
 </style>

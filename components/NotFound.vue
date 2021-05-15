@@ -10,6 +10,7 @@
       </p>
     </div>
     <LogoWhite />
+    <Support />
     <div class="not-found__black" />
   </div>
 </template>
@@ -43,7 +44,7 @@ export default {
   font-family: 'Vollkorn', 'Times', serif;
   font-size: 55px;
   font-weight: 500;
-  line-height: 0.73;
+  line-height: 1;
   letter-spacing: -1.65px;
   color: #b23438;
   text-align: center;
@@ -51,21 +52,14 @@ export default {
 
 .not-found__text {
   font-family: 'Vollkorn', 'Times', serif;
-  font-size: 34.5px;
+  font-size: 35px;
   font-weight: 500;
   font-style: italic;
   line-height: 0.72;
-  letter-spacing: -1.04px;
+  letter-spacing: -1px;
   color: #606060;
   margin-top: 10px;
   text-align: center;
-}
-
-.logo {
-  width: 82px;
-  position: absolute;
-  bottom: 18px;
-  right: 15px;
 }
 
 .not-found__grey {
@@ -91,15 +85,10 @@ export default {
   }
 
   .not-found__text {
-    font-size: 46.5px;
-    line-height: 0.72;
+    font-size: 47px;
+    line-height: 1;
     letter-spacing: -1.4px;
     margin-top: 13px;
-  }
-
-  .logo {
-    bottom: 15px;
-    right: 26px;
   }
 }
 
@@ -113,21 +102,15 @@ export default {
 
   .not-found__title {
     font-size: 106px;
-    line-height: 0.72;
+    line-height: 1;
     letter-spacing: -3.18px;
   }
 
   .not-found__text {
-    font-size: 66.5px;
+    font-size: 67px;
     line-height: 0.72;
     letter-spacing: -2px;
     margin-top: 19px;
-  }
-
-  .logo {
-    width: 117px;
-    bottom: 107px;
-    right: 43px;
   }
 
   .not-found__grey {

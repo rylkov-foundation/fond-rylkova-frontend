@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main-page">
     <MainAbout />
     <Main @clickSetTopDonationSum="setTopDonationSum" />
     <Container :top-donation-sum="topDonationSum" />
@@ -41,16 +41,14 @@ export default {
 </script>
 
 <style>
-  .container {
+  .main-page {
     margin: 0 auto;
     min-height: 100vh;
-    min-width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    max-width: 100%;
-    overflow: hidden;
+    align-self: stretch;
   }
 
   .popup {

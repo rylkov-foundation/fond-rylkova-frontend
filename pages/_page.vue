@@ -77,13 +77,11 @@ export default {
 .meta {
   margin: 0 auto;
   min-height: 100vh;
-  min-width: 320px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-self: stretch;
   align-items: center;
-  max-width: 100%;
-  overflow: hidden;
 }
 
 .meta__drop {
