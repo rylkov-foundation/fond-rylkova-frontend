@@ -11,28 +11,18 @@ export default {
     if (!Object.keys(store.getters.donation).length) {
       await store.dispatch('donationInit')
     }
-    if (!Object.keys(store.getters.footer).length) {
-      await store.dispatch('footerInit')
-    }
     if (!Object.keys(store.getters.donationAmount).length) {
       await store.dispatch('donationAmountInit')
     }
-    if (!store.getters.menu.length) {
-      await store.dispatch('menuInit')
-    }
     return {
-      menu: store.getters.menu,
       pageData: store.getters.donation,
-      donationAmount: store.getters.donationAmount,
-      footerData: store.getters.footer
+      donationAmount: store.getters.donationAmount
     }
   },
   data () {
     return {
-      menu: [],
       pageData: {},
-      donationAmount: {},
-      footerData: {}
+      donationAmount: {}
     }
   }
 }

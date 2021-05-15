@@ -7,6 +7,29 @@
   </div>
 </template>
 
+<script>
+export default {
+  async asyncData ({ store }) {
+    if (!Object.keys(store.getters.footer).length) {
+      await store.dispatch('footerInit')
+    }
+    if (!store.getters.menu.length) {
+      await store.dispatch('menuInit')
+    }
+    return {
+      menu: store.getters.menu,
+      footerData: store.getters.footer
+    }
+  },
+  data () {
+    return {
+      menu: [],
+      footerData: {}
+    }
+  }
+}
+</script>
+
 <style>
   html {
     font-family: Vollkorn, Times, serif;

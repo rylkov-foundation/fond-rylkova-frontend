@@ -11,23 +11,13 @@ export default {
     if (!Object.keys(store.getters.whoIsAndreiRylkov).length) {
       await store.dispatch('whoIsAndreiRylkovInit')
     }
-    if (!Object.keys(store.getters.footer).length) {
-      await store.dispatch('footerInit')
-    }
-    if (!store.getters.menu.length) {
-      await store.dispatch('menuInit')
-    }
     return {
-      menu: store.getters.menu,
-      pageData: store.getters.whoIsAndreiRylkov,
-      footerData: store.getters.footer
+      pageData: store.getters.whoIsAndreiRylkov
     }
   },
   data () {
     return {
-      menu: [],
-      pageData: {},
-      footerData: {}
+      pageData: {}
     }
   }
 }

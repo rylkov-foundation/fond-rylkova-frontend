@@ -11,23 +11,13 @@ export default {
     if (!Object.keys(store.getters.team).length) {
       await store.dispatch('teamInit')
     }
-    if (!Object.keys(store.getters.footer).length) {
-      await store.dispatch('footerInit')
-    }
-    if (!store.getters.menu.length) {
-      await store.dispatch('menuInit')
-    }
     return {
-      menu: store.getters.menu,
-      pageData: store.getters.team,
-      footerData: store.getters.footer
+      pageData: store.getters.team
     }
   },
   data () {
     return {
-      menu: [],
-      pageData: {},
-      footerData: {}
+      pageData: {}
     }
   }
 }

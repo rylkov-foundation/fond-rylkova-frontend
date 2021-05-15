@@ -1,5 +1,4 @@
 export const state = () => ({
-  notFound: false,
   menu: [],
   dynamicPagesData: {},
   index: {},
@@ -20,9 +19,6 @@ export const mutations = {
   },
   setMenu (state, menuData) {
     state.menu = menuData
-  },
-  setNotFound (state, isPageExist) {
-    state.notFound = !isPageExist
   },
   setIndex (state, data) {
     state.index = data
@@ -57,95 +53,63 @@ export const mutations = {
 }
 
 export const actions = {
-  async dynamicPagesDataInit ({ commit, state }) {
-    if (
-      !state.dynamicPagesData[this.$router.currentRoute.params.page] ||
-      !Object.keys(state.dynamicPagesData[this.$router.currentRoute.params.page]).length
-    ) {
-      const data = await this.$strapi.$pages.find({ slug: this.$router.currentRoute.params.page })
-      if (!data.length) {
-        commit('setNotFound', false)
-      } else {
-        commit('setDynamicPagesData', data[0])
-      }
-    }
+  async dynamicPagesDataInit ({ commit }) {
+    const data = await this.$strapi.$pages.find({ slug: this.$router.currentRoute.params.page })
+    commit('setDynamicPagesData', data[0])
   },
-  async menuInit ({ commit, state }) {
-    if (!state.menu.length) {
-      const data = await this.$strapi.$http.get('/menu/items')
-        .then((res) => {
-          if (res.ok) {
-            return res.json()
-          }
-          return res.json().then(res => Promise.reject(res))
-        })
-      commit('setMenu', data)
-    }
+  async menuInit ({ commit }) {
+    const data = await this.$strapi.$http.get('/menu/items')
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        }
+        return res.json().then(res => Promise.reject(res))
+      })
+    commit('setMenu', data)
   },
-  async indexInit ({ commit, state }) {
-    if (!Object.keys(state.index).length) {
-      const data = await this.$strapi.$index.find()
-      commit('setIndex', data)
-    }
+  async indexInit ({ commit }) {
+    const data = await this.$strapi.$index.find()
+    commit('setIndex', data)
   },
-  async missionInit ({ commit, state }) {
-    if (!Object.keys(state.mission).length) {
-      const data = await this.$strapi.$mission.find()
-      commit('setMission', data)
-    }
+  async missionInit ({ commit }) {
+    const data = await this.$strapi.$mission.find()
+    commit('setMission', data)
   },
-  async annualReportsInit ({ commit, state }) {
-    if (!Object.keys(state.annualReports).length) {
-      const data = await this.$strapi.$annual_reports.find()
-      commit('setAnnualReports', data)
-    }
+  async annualReportsInit ({ commit }) {
+    const data = await this.$strapi.$annual_reports.find()
+    commit('setAnnualReports', data)
   },
-  async contactsInit ({ commit, state }) {
-    if (!Object.keys(state.contacts).length) {
-      const data = await this.$strapi.$contacts.find()
-      commit('setContacts', data)
-    }
+  async contactsInit ({ commit }) {
+    const data = await this.$strapi.$contacts.find()
+    commit('setContacts', data)
   },
-  async projectsInit ({ commit, state }) {
-    if (!Object.keys(state.projects).length) {
-      const data = await this.$strapi.$projects.find()
-      commit('setProjects', data)
-    }
+  async projectsInit ({ commit }) {
+    const data = await this.$strapi.$projects.find()
+    commit('setProjects', data)
   },
-  async teamInit ({ commit, state }) {
-    if (!Object.keys(state.team).length) {
-      const data = await this.$strapi.$team.find()
-      commit('setTeam', data)
-    }
+  async teamInit ({ commit }) {
+    const data = await this.$strapi.$team.find()
+    commit('setTeam', data)
   },
-  async whoIsAndreiRylkovInit ({ commit, state }) {
-    if (!Object.keys(state.whoIsAndreiRylkov).length) {
-      const data = await this.$strapi.$who_is_andrei_rylkov.find()
-      commit('setWhoIsAndreiRylkov', data)
-    }
+  async whoIsAndreiRylkovInit ({ commit }) {
+    const data = await this.$strapi.$who_is_andrei_rylkov.find()
+    commit('setWhoIsAndreiRylkov', data)
   },
-  async donationInit ({ commit, state }) {
-    if (!Object.keys(state.donation).length) {
-      const data = await this.$strapi.$donation_page.find()
-      commit('setDonation', data)
-    }
+  async donationInit ({ commit }) {
+    const data = await this.$strapi.$donation_page.find()
+    commit('setDonation', data)
   },
-  async donationAmountInit ({ commit, state }) {
-    if (!Object.keys(state.donationAmount).length) {
-      const data = await this.$strapi.$donation_amount.find()
-      commit('setDonationAmount', data)
-    }
+  async donationAmountInit ({ commit }) {
+    const data = await this.$strapi.$donation_amount.find()
+    commit('setDonationAmount', data)
   },
-  async footerInit ({ commit, state }) {
-    if (!Object.keys(state.footer).length) {
-      const data = await this.$strapi.$footer.find()
-      commit('setFooter', data)
-    }
+  async footerInit ({ commit }) {
+    const data = await this.$strapi.$footer.find()
+    commit('setFooter', data)
   }
 }
 
 export const getters = {
-  notFound: state => state.notFound,
   menu: state => state.menu,
   dynamicPagesData: state => state.dynamicPagesData,
   index: state => state.index,

@@ -11,23 +11,13 @@ export default {
     if (!Object.keys(store.getters.mission).length) {
       await store.dispatch('missionInit')
     }
-    if (!Object.keys(store.getters.footer).length) {
-      await store.dispatch('footerInit')
-    }
-    if (!store.getters.menu.length) {
-      await store.dispatch('menuInit')
-    }
     return {
-      menu: store.getters.menu,
-      pageData: store.getters.mission,
-      footerData: store.getters.footer
+      pageData: store.getters.mission
     }
   },
   data () {
     return {
-      menu: [],
-      pageData: {},
-      footerData: {}
+      pageData: {}
     }
   }
 }

@@ -40,16 +40,8 @@ export default {
         error({ statusCode: 404 })
       }
     }
-    if (!Object.keys(store.getters.footer).length) {
-      await store.dispatch('footerInit')
-    }
-    if (!store.getters.menu.length) {
-      await store.dispatch('menuInit')
-    }
     return {
-      menu: store.getters.menu,
-      pageData: store.getters.dynamicPagesData[route.params.page],
-      footerData: store.getters.footer
+      pageData: store.getters.dynamicPagesData[route.params.page]
     }
   },
   data () {
@@ -57,9 +49,7 @@ export default {
       titleText: 'Заголовок',
       splitTitle: [],
       resizeTimeout: null,
-      menu: [],
-      pageData: {},
-      footerData: {}
+      pageData: {}
     }
   },
   beforeMount () {
