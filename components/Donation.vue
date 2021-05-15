@@ -1,5 +1,5 @@
 <template>
-  <section id="donation" ref="donation" class="donation">
+  <section ref="donation" class="donation">
     <div class="donation__container">
       <h2 class="donation__title">
         Поддер&shy;жать <span class="donation__title-mark">фар</span>
@@ -8,7 +8,9 @@
         <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
       </div>
       <DonationForm :top-donation-sum="topDonationSum" class="donation__form" />
-      <a href="#" class="donation__privacy-policy">Политика конфеденциальности</a>
+      <NuxtLink to="/privacy-policy" class="donation__privacy-policy">
+        Политика конфеденциальности
+      </NuxtLink>
     </div>
   </section>
 </template>

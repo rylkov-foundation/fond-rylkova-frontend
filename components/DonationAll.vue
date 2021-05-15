@@ -13,7 +13,9 @@
           Сделать пожертвование
         </h2>
         <DonationForm class="donation-page__form" :is-donation-page="true" />
-        <a href="#" class="donation-page__privacy-policy">Политика конфеденциальности</a>
+        <NuxtLink to="/privacy-policy" class="donation-page__privacy-policy">
+          Политика конфеденциальности
+        </NuxtLink>
       </div>
       <div class="donation-page__container-description">
         <p class="donation-page__how-to-donate">

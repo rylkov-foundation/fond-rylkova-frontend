@@ -4,7 +4,7 @@
       БФ “Нужна помощь"
     </h3>
     <div class="donate-need-help__wrapper">
-      <img class="donate-need-help__qr" src="~/assets/images/qr.gif">
+      <img class="donate-need-help__qr" alt="QR код" src="~/assets/images/qr.gif">
     </div>
     <p class="donate-need-help__text">
       Пожертвовать через сайт Фонда “Нужна помощь”:

@@ -19,7 +19,9 @@
       <p class="mission__principles">
         Работа ФАР строится на принципах горизон&shy;тального управления и разви&shy;тия проектов на&nbsp;основе инициатив людей, употребляющих наркотики, активистов и активисток, профессио&shy;налов и профес&shy;сионалок в области об&shy;щественного здравоохранения и защиты прав человека.
       </p>
-      <a href="#" class="link">Подробнее о нас &gt;</a>
+      <NuxtLink to="/about-us" class="link">
+        Подробнее о нас &gt;
+      </NuxtLink>
       <div class="mission__footer">
         <img src="~/assets/images/road.png" alt="Дорога" class="mission__road">
         <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
