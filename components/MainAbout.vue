@@ -1,7 +1,7 @@
 <template>
   <section class="about">
     <p class="about__text">
-      <span class="about__name">ФАР</span> — это организация&#8209;сообще&shy;ство, площадка&nbsp;для инициатив в&nbsp;сфере&nbsp;гуманизации наркополитики.
+      <span class="about__name">ФАР</span> {{ pageData.about.description_ru }}
     </p>
     <svg
       class="about__drop"
@@ -17,7 +17,13 @@
 
 <script>
 export default {
-  name: 'MainAbout'
+  name: 'MainAbout',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 
@@ -40,7 +46,7 @@ export default {
     left: -3px;
     top: 18px;
     background-color: #b23438;
-    width: 72px;
+    width: 100%;
     height: 11px;
   }
 
@@ -74,7 +80,6 @@ export default {
     .about__name::after {
       left: -1px;
       top: 34px;
-      width: 107px;
       height: 17px;
     }
 
@@ -97,7 +102,6 @@ export default {
     .about__name::after {
       left: -3px;
       top: 26px;
-      width: 93px;
       height: 11px;
     }
 
