@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  layout: 'error',
   async asyncData ({ store }) {
     if (!Object.keys(store.getters.mission).length) {
       await store.dispatch('missionInit')
