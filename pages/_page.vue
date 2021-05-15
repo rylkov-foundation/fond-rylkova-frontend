@@ -63,15 +63,13 @@ export default {
     }
   },
   beforeMount () {
-    if (!this.notFound) {
-      this.handleSplitTitle()
-      window.addEventListener('resize', this.handleSplitTitle)
-    }
+    this.handleSplitTitle()
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleSplitTitle)
   },
   beforeDestroy () {
-    if (!this.notFound) {
-      window.removeEventListener('resize', this.handleSplitTitle)
-    }
+    window.removeEventListener('resize', this.handleSplitTitle)
   },
   methods: {
     handleSplitTitle () {

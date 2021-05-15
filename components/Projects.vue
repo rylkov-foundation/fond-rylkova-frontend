@@ -66,10 +66,10 @@ export default {
     }
   },
   beforeMount () {
-    window.addEventListener('resize', this.handleSplitTitle)
+    this.handleSplitTitle()
   },
   mounted () {
-    this.handleSplitTitle()
+    window.addEventListener('resize', this.handleSplitTitle)
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.handleSplitTitle)
