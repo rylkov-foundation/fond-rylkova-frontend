@@ -1,6 +1,5 @@
 <template>
   <div class="meta">
-    <LanguageButton :is-additional-page="true" />
     <Support />
     <div class="meta__main">
       <div class="meta__colour-container meta__colour-container_colour_grey-top" />

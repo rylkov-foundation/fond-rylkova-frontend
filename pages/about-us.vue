@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <LanguageButton :is-additional-page="true" />
     <AboutUs />
   </div>
 </template>
 
 <script>
 export default {
+  layout: 'error',
   async asyncData ({ store }) {
     if (!Object.keys(store.getters.mission).length) {
       await store.dispatch('missionInit')

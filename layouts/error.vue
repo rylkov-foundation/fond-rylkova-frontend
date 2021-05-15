@@ -1,6 +1,5 @@
 <template>
   <div v-if="error.statusCode === 404" class="container">
-    <LanguageButton :is-not-found-page="true" />
     <MainHeader />
     <Menu />
     <NotFound />

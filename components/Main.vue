@@ -28,7 +28,6 @@
           Получить помощь
           <span class="main__arrow">&gt;</span>
         </a>
-        <LanguageButton :style="buttonPosition" />
       </div>
     </div>
   </section>
@@ -37,14 +36,6 @@
 <script>
 export default {
   name: 'Main',
-  data () {
-    return {
-      buttonPosition: {
-        bottom: '15px',
-        left: '19px'
-      }
-    }
-  },
   methods: {
     onSumClick (e) {
       this.$emit(

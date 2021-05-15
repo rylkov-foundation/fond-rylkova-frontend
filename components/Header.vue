@@ -1,6 +1,7 @@
 <template>
   <header class="header">
     <div class="header__text" />
+    <LanguageButton />
   </header>
 </template>
 
@@ -16,6 +17,7 @@ export default {
     overflow: hidden;
     height: 40px;
     max-width: 100%;
+    position: relative;
   }
 
   .header__text {

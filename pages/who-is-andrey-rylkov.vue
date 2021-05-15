@@ -1,6 +1,5 @@
 <template>
   <div class="rylkov">
-    <LanguageButton :is-additional-page="true" />
     <Rylkov />
   </div>
 </template>

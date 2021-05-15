@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <LanguageButton :is-additional-page="true" />
     <Reports />
   </div>
 </template>

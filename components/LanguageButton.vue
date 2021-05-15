@@ -2,7 +2,6 @@
   <button
     type="button"
     class="button-language"
-    :class="isAdditionalPage && 'button-language_page_additional' || isNotFoundPage && 'button-language_page_not-found'"
     @click="changeLanguage"
   >
     {{ languages[languageIndex] }}
@@ -12,16 +11,6 @@
 <script>
 export default {
   name: 'LanguageButton',
-  props: {
-    isAdditionalPage: {
-      type: Boolean,
-      default: () => false
-    },
-    isNotFoundPage: {
-      type: Boolean,
-      default: () => false
-    }
-  },
   data () {
     return {
       languages: ['en', 'ру'],
@@ -43,6 +32,9 @@ export default {
 <style scoped>
 .button-language {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
   font-family: 'Roboto', 'Times', serif;
   font-size: 17px;
   line-height: 17px;
@@ -56,23 +48,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   padding: 0;
-}
-
-.button-language_page_additional {
-  top: 4px;
-  left: 5px;
-  width: 30px;
-  height: 30px;
-  font-size: 21px;
-}
-
-.button-language_page_not-found {
-  left: 0;
-  width: 40px;
-  height: 40px;
 }
 
 .button-language:hover {
@@ -86,22 +64,6 @@ export default {
     line-height: 30px;
     width: 50px;
     height: 50px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .button-language_page_additional {
-    top: 636px;
-    left: 20px;
-    z-index: 1;
-  }
-
-  .button-language_page_not-found {
-    top: 636px;
-    left: 17px;
-    width: 55px;
-    height: 55px;
-    z-index: 1;
   }
 }
 </style>
