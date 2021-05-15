@@ -1,8 +1,6 @@
 <template>
   <div class="meta">
-    <MainHeader />
     <LanguageButton :is-additional-page="true" />
-    <Menu />
     <Support />
     <div class="meta__main">
       <div class="meta__colour-container meta__colour-container_colour_grey-top" />
@@ -25,7 +23,6 @@
         <div class="meta__data" v-html="pageData.content_ru" />
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 

@@ -27,10 +27,6 @@ export default {
     animation: animate 10s linear infinite;
   }
 
-  .header__text:hover {
-    animation-play-state: paused;
-  }
-
   @keyframes animate {
     from {
       background-position: 0 -215%;

@@ -1,10 +1,7 @@
 <template>
   <div class="rylkov">
-    <MainHeader />
     <LanguageButton :is-additional-page="true" />
-    <Menu />
     <Rylkov />
-    <Footer />
   </div>
 </template>
 

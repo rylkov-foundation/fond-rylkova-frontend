@@ -1,11 +1,8 @@
 <template>
   <div class="container">
-    <MainHeader />
-    <Menu />
     <MainAbout />
     <Main @clickSetTopDonationSum="setTopDonationSum" />
     <Container :top-donation-sum="topDonationSum" />
-    <Footer />
     <div class="popup">
       <PopupCookie />
       <PopupAgent />

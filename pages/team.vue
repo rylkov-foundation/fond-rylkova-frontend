@@ -1,10 +1,7 @@
 <template>
   <div class="container">
-    <MainHeader />
     <LanguageButton :is-additional-page="true" />
-    <Menu />
     <Team />
-    <Footer />
   </div>
 </template>
 
