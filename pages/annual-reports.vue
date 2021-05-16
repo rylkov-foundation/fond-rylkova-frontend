@@ -1,5 +1,5 @@
 <template>
-  <Reports />
+  <Reports :page-data="pageData" />
 </template>
 
 <script>

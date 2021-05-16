@@ -19,8 +19,8 @@
     </div>
     <ul class="reports__list">
       <Report
-        v-for="(report,index) in reportsData"
-        :key="report.id"
+        v-for="(report,index) in pageData.reports"
+        :key="report._id"
         :report="report"
         :index="index"
       />
@@ -37,27 +37,16 @@ export default {
   components: {
     Drop
   },
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  },
   data () {
     return {
-      titleText: 'Финансовые и содержательные годовые  отчеты',
       splitTitle: [],
-      resizeTimeout: null,
-      reportsData: [
-        {
-          id: '1',
-          imageLink: 'reports-picture1.png',
-          title: 'Отчет о работе  проекта  “Снижение вреда –  Москва” в 2018 году',
-          date: 'Январь 16th, 2020',
-          text: 'Проект реализовывался ФАР при поддержке AIDSFonds'
-        },
-        {
-          id: '2',
-          imageLink: 'reports-picture-2.png',
-          title: 'Отчет о  работе проекта  “Снижение вреда –  Москва” в 2018 году',
-          date: 'Январь 16th, 2020',
-          text: 'Мы собрали самые важные данные, которые отражают проделанную нами работу за 2018 год, и сделали красивую инфографику'
-        }
-      ]
+      resizeTimeout: null
     }
   },
   beforeMount () {
@@ -74,7 +63,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData.title_ru, this.$refs.titleContainer)
         }, 40)
       }
     }
@@ -98,7 +87,7 @@ export default {
     font-size: 44px;
     line-height: 36px;
     font-weight: 700;
-    width: 89%;
+    width: 80%;
     word-break: break-all;
     margin: 42px 0 24px 10px;
     color: #000;

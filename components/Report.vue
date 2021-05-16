@@ -4,8 +4,8 @@
     :class="{ 'report_color_white': ($attrs.index+1)%2 === 0}"
   >
     <img
-      :src="require(`../assets/images/${report.imageLink}`)"
-      :alt="report.title"
+      :src="'http://localhost:1337' +report.image.url"
+      :alt="report.title_ru"
       class="report__image"
     >
     <div
@@ -16,19 +16,19 @@
         class="report__title"
         :class="{ 'report__title_color_white': ($attrs.index+1)%2 === 0}"
       >
-        {{ report.title }}
+        {{ report.title_ru }}
       </h3>
       <p
         class="report__date"
         :class="{ 'report__date_color_white': ($attrs.index+1)%2 === 0}"
       >
-        {{ report.date }}
+        {{ report.date_ru }}
       </p>
       <p
         class="report__text"
         :class="{ 'report__text_color_white': ($attrs.index+1)%2 === 0}"
       >
-        {{ report.text }}
+        {{ report.description_ru }}
       </p>
     </div>
   </li>
