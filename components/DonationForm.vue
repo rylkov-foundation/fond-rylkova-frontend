@@ -55,10 +55,11 @@
           type="radio"
           class="form__payment-options-radio-button"
           name="payment-amount"
-          value="1000"
+          :value="donationAmount.amount_big"
           @click="onAmountCheckboxClick"
         >
-        <span class="form__amount-options-button form__amount-options-button_thousand">1000
+        <span class="form__amount-options-button form__amount-options-button_thousand">
+          {{ donationAmount.amount_big }}
           <span class="form__money-sign">&#8381;</span>
         </span>
       </label>
@@ -68,10 +69,11 @@
           type="radio"
           class="form__payment-options-radio-button"
           name="payment-amount"
-          value="500"
+          :value="donationAmount.amount_medium"
           @click="onAmountCheckboxClick"
         >
-        <span class="form__amount-options-button form__amount-options-button_five-hundred">500
+        <span class="form__amount-options-button form__amount-options-button_five-hundred">
+          {{ donationAmount.amount_medium }}
           <span class="form__money-sign">&#8381;</span>
         </span>
       </label>
@@ -81,10 +83,11 @@
           type="radio"
           class="form__payment-options-radio-button"
           name="payment-amount"
-          value="200"
+          :value="donationAmount.amount_small"
           @click="onAmountCheckboxClick"
         >
-        <span class="form__amount-options-button form__amount-options-button_two-hundred">200
+        <span class="form__amount-options-button form__amount-options-button_two-hundred">
+          {{ donationAmount.amount_small }}
           <span class="form__money-sign">&#8381;</span>
         </span>
       </label>
@@ -139,6 +142,10 @@ export default {
     topDonationSum: {
       type: Number,
       default: 0
+    },
+    donationAmount: {
+      default: () => {},
+      type: Object
     }
   },
   data () {
