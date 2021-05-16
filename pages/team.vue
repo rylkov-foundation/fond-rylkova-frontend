@@ -1,5 +1,5 @@
 <template>
-  <Team />
+  <Team :page-data="pageData" />
 </template>
 
 <script>

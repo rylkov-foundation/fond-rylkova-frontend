@@ -1,8 +1,8 @@
 <template>
   <li class="team-member">
     <img
-      :src="require(`../assets/images/${member.imageLink}`)"
-      :alt="member.name"
+      :src="'http://localhost:1337' +member.photo.url"
+      :alt="member.name_ru"
       class="team-member__photo"
     >
     <div
@@ -33,7 +33,7 @@
         </span>
       </h2>
       <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index+1)%2 === 0}">
-        {{ member.text }}
+        {{ member.description_ru }}
       </p>
     </div>
   </li>
@@ -70,7 +70,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.member.name, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.member.name_ru, this.$refs.titleContainer)
         }, 40)
       }
     }
@@ -114,7 +114,7 @@ export default {
     color: #fff;
     margin: 24px 0 23px 0;
     text-align: center;
-    width: 60%;
+    width: 68%;
     display: flex;
     flex-direction: column;
     align-items: center;
