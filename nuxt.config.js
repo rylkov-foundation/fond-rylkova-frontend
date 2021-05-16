@@ -85,7 +85,10 @@ export default {
       { name: 'who_is_andrei_rylkov', type: 'single' },
       { name: 'donation_page', type: 'single' },
       { name: 'donation_amount', type: 'single' },
-      { name: 'footer', type: 'single' }
+      { name: 'footer', type: 'single' },
+      { name: 'popup_cookies', type: 'single' },
+      { name: 'popup_download', type: 'single' },
+      { name: 'popup_news', type: 'single' }
     ]
   },
   loading: {

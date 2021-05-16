@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="PopupCookieVisible"
-    class="popup__content popup__content_cookie"
-  >
+  <div class="popup__content popup__content_cookie">
     <h3 class="popup__title">
       Cookies.
     </h3>
@@ -12,7 +9,7 @@
     <button
       type="button"
       class="popup__button"
-      @click="hidePopup"
+      @click="handleAcceptCookies"
     >
       Понятно
     </button>
@@ -22,14 +19,10 @@
 <script>
 export default {
   name: 'PopupCookie',
-  data () {
-    return {
-      PopupCookieVisible: true
-    }
-  },
-  methods: {
-    hidePopup () {
-      this.PopupCookieVisible = !this.PopupCookieVisible
+  props: {
+    handleAcceptCookies: {
+      type: Function,
+      required: true
     }
   }
 }

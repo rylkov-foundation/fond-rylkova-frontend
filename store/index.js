@@ -11,7 +11,10 @@ export const state = () => ({
   whoIsAndreiRylkov: {},
   donation: {},
   donationAmount: {},
-  footer: {}
+  footer: {},
+  popupCookies: {},
+  popupDownload: {},
+  popupNews: {}
 })
 
 export const mutations = {
@@ -53,6 +56,15 @@ export const mutations = {
   },
   setFooter (state, data) {
     state.footer = data
+  },
+  setPopupCookies (state, data) {
+    state.popupCookies = data
+  },
+  setPopupDownload (state, data) {
+    state.popupDownload = data
+  },
+  setPopupNews (state, data) {
+    state.popupNews = data
   }
 }
 
@@ -114,6 +126,18 @@ export const actions = {
   async footerInit ({ commit }) {
     const data = await this.$strapi.$footer.find()
     commit('setFooter', data)
+  },
+  async popupCookiesInit ({ commit }) {
+    const data = await this.$strapi.$popup_cookies.find()
+    commit('setPopupCookies', data)
+  },
+  async popupDownloadInit ({ commit }) {
+    const data = await this.$strapi.$popup_download.find()
+    commit('setPopupDownload', data)
+  },
+  async popupNewsInit ({ commit }) {
+    const data = await this.$strapi.$popup_news.find()
+    commit('setPopupNews', data)
   }
 }
 
@@ -130,5 +154,8 @@ export const getters = {
   whoIsAndreiRylkov: state => state.whoIsAndreiRylkov,
   donation: state => state.donation,
   donationAmount: state => state.donationAmount,
-  footer: state => state.footer
+  footer: state => state.footer,
+  popupCookies: state => state.popupCookies,
+  popupDownload: state => state.popupDownload,
+  popupNews: state => state.popupNews
 }

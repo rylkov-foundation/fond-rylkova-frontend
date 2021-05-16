@@ -6,6 +6,11 @@
       <Nuxt />
     </div>
     <Footer />
+    <div class="popup">
+      <PopupCookie v-if="!isAcceptedCookies" :handle-accept-cookies="acceptCookies" />
+      <PopupAgent />
+      <PopupNews />
+    </div>
   </div>
 </template>
 
@@ -21,17 +26,42 @@ export default {
     if (!store.getters.menu.length) {
       await store.dispatch('menuInit')
     }
+    if (!Object.keys(store.getters.popupCookies).length) {
+      await store.dispatch('popupCookiesInit')
+    }
+    if (!Object.keys(store.getters.popupDownload).length) {
+      await store.dispatch('popupDownloadInit')
+    }
+    if (!Object.keys(store.getters.popupNews).length) {
+      await store.dispatch('popupNewsInit')
+    }
     return {
       menu: store.getters.menu,
       meta: store.getters.globalMeta,
-      footerData: store.getters.footer
+      footerData: store.getters.footer,
+      popupCookiesData: store.getters.popupCookies,
+      popupDownloadData: store.getters.popupDownload,
+      popupNewsData: store.getters.popupNews
     }
   },
   data () {
     return {
       menu: [],
       meta: {},
-      footerData: {}
+      footerData: {},
+      popupCookiesData: {},
+      popupDownloadData: {},
+      popupNewsData: {},
+      isAcceptedCookies: true
+    }
+  },
+  mounted() {
+    this.isAcceptedCookies = Boolean(localStorage.isAcceptedCookies)
+  },
+  methods: {
+    acceptCookies () {
+      localStorage.isAcceptedCookies = 'true'
+      this.isAcceptedCookies = true
     }
   }
 }
@@ -67,5 +97,15 @@ export default {
     align-items: center;
     max-width: 100%;
     overflow: hidden;
+  }
+
+  .popup {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 </style>

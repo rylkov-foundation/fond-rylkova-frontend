@@ -3,11 +3,6 @@
     <MainAbout :page-data="pageData" />
     <Main :donation-amount="donationAmount" @clickSetTopDonationSum="setTopDonationSum" />
     <Container :page-data="pageData" :top-donation-sum="topDonationSum" :donation-amount="donationAmount" />
-    <div class="popup">
-      <PopupCookie />
-      <PopupAgent />
-      <PopupNews />
-    </div>
   </div>
 </template>
 
@@ -32,9 +27,6 @@ export default {
       donationAmount: {}
     }
   },
-  mounted () {
-    console.log(this.pageData)
-  },
   methods: {
     setTopDonationSum (data) {
       this.topDonationSum = data.topDonationSum
@@ -52,15 +44,5 @@ export default {
     justify-content: flex-start;
     align-items: center;
     align-self: stretch;
-  }
-
-  .popup {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
   }
 </style>
