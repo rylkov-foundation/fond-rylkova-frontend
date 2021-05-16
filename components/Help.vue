@@ -2,11 +2,10 @@
   <section class="help">
     <div class="help__container">
       <h2 class="help__title">
-        Получить помощь
+        {{ pageData.help.title_ru }}
       </h2>
       <p class="help__text">
-        Если вы употребляете  наркотики и вам нужна помощь по вопросам здоровья, защиты прав, консультации психолога,
-        профилактические материалы и тд, свяжитесь с нами
+        {{ pageData.help.description_ru }}
       </p>
       <div class="help__block">
         <img src="~/assets/images/blade.svg" alt="Лезвие" class="help__image">
@@ -16,11 +15,11 @@
         <span class="link__arrow">&gt;</span>
       </NuxtLink>
       <div class="help__telephone-block">
-        <a class="help__telephone-number" href="tel:+79268879087">+7-(926)-887-90-87</a>
+        <a class="help__telephone-number" :href="'tel:'+pageData.help.phone_number" >{{ pageData.help.phone_number }}</a>
       </div>
       <div class="help__email-block">
-        <a class="help__email" href="mailto:rylkov.foundation@gmail.com" target="_blank">
-          rylkov.foundation@gmail.com
+        <a class="help__email" :href="'mailto:'+pageData.help.email" target="_blank">
+          {{ pageData.help.email }}
         </a>
       </div>
       <p class="help__contacts">
@@ -34,7 +33,13 @@
 
 <script>
 export default {
-  name: 'Help'
+  name: 'Help',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 
