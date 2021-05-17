@@ -7,7 +7,7 @@
       class="project__title"
       :class="{ 'project__title_position_even': ($attrs.index+1)%2 === 0}"
     >
-      {{ project.title }}
+      {{ project.title_ru }}
     </h3>
     <div
       class="project__text-container"
@@ -17,18 +17,18 @@
         class="project__date"
         :class="{ 'project__date_position_even': ($attrs.index+1)%2 === 0}"
       >
-        {{ project.date }}
+        {{ project.date_ru }}
       </p>
       <p
         class="project__description"
         :class="{ 'project__description_position_even': ($attrs.index+1)%2 === 0}"
       >
-        {{ project.text }}
+        {{ project.description_ru }}
       </p>
     </div>
     <img
-      :src="require(`../assets/images/${project.imageLink}`)"
-      :alt="project.name"
+      :src="'http://localhost:1337' +project.image.url"
+      :alt="project.title_ru"
       class="project__photo"
       :class="{ 'project__photo_position_even': ($attrs.index+1)%2 === 0}"
     >

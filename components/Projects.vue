@@ -14,15 +14,15 @@
           <span v-for="line in splitTitle" :key="line" class="projects__title-text">{{ line }}</span>
         </h2>
         <p class="projects__subtitle">
-          В данном разделе  представлена информация  о реализующихся  в настоящее время проектах фонда
+          {{ pageData.description_ru }}
         </p>
       </div>
       <div class="projects__background" />
     </div>
     <ul class="projects__list">
       <Project
-        v-for="(project,index) in projectsData"
-        :key="project.id"
+        v-for="(project,index) in pageData.projects_items"
+        :key="project._id"
         :project="project"
         :index="index"
       />
@@ -39,30 +39,16 @@ export default {
   components: {
     Drop
   },
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  },
   data () {
     return {
-      titleText: 'Текущие проекты',
       splitTitle: [],
-      resizeTimeout: null,
-      projectsData: [
-        {
-          id: '1',
-          imageLink: 'Solidarite_sida.png',
-          title: 'Московский  проект  снижения   вреда 2020',
-          date: 'Январь 16th, 2020',
-          text: 'Оказание поддержки представителям гей сообщества в Москве, практикующим химсекс,' +
-            ' в целях снижения возможного вреда, ассоциированного с данной практикой'
-        },
-        {
-          id: '2',
-          imageLink: 'Elton_John.png',
-          title: 'Профилактика ВИЧ-инфекции среди людей, употребляющих наркотики на улицах Москвы',
-          date: 'Январь 16th, 2020',
-          text: 'снизить количество новых случаев ВИЧ, гепатита С, а также смертности от передозировок среди людей,' +
-            ' употребляющих наркотики на улицах Москвы, путем обеспечения их доступа' +
-            ' к необходимым профилактическим и медицинским услугам, а также информации.'
-        }
-      ]
+      resizeTimeout: null
     }
   },
   beforeMount () {
@@ -79,7 +65,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData.title_ru, this.$refs.titleContainer)
         }, 40)
       }
     }
