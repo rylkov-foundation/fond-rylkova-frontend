@@ -2,21 +2,21 @@
   <li class="contact">
     <img
       class="contact__image"
-      :src="require(`../assets/images/${contact.imageLink}`)"
-      :alt="contact.name"
+      :src="'http://localhost:1337' +contact.photo.url"
+      :alt="contact.name_ru"
     >
     <h3 class="contact__name">
-      {{ contact.name }}
+      {{ contact.name_ru }}
     </h3>
     <p class="contact__description">
-      {{ contact.position }}
+      {{ contact.position_ru }}
     </p>
     <a
       class="contact__telephone-number"
       :class="{ 'contact__telephone-number_number_two': ($attrs.index+1)%2 === 0,
                 'contact__telephone-number_number_three': ($attrs.index+1)%3 === 0}"
-      :href="'tel:'+contact.telephone"
-    >{{ contact.telephone }}
+      :href="'tel:'+contact.phone_number"
+    >{{ contact.phone_number }}
     </a>
   </li>
 </template>

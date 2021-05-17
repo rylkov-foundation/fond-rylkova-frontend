@@ -1,5 +1,5 @@
 <template>
-  <Contacts />
+  <Contacts :page-data="pageData" />
 </template>
 
 <script>
