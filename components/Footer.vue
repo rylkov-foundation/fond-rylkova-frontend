@@ -23,7 +23,7 @@
       </p>
     </div>
     <p class="footer__copyright">
-      ФАР 2021
+      ФАР {{ footerData.year }}
     </p>
   </footer>
 </template>
@@ -36,9 +36,6 @@ export default {
       type: Object,
       default: () => {}
     }
-  },
-  mounted () {
-    console.log(this.footerData)
   }
 }
 </script>

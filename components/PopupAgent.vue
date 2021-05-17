@@ -4,10 +4,10 @@
     class="popup__content popup__content_agent"
   >
     <h3 class="popup__title popup__title_agent">
-      Подтвердите действие на странице rylkov-fond.org.
+      {{ popupDownloadData.title_ru }}
     </h3>
     <p class="popup__text">
-      Данные материалы изданы и (или) распространяются некоммерческой организацией, выполняющей функции иностранного агента.
+      {{ popupDownloadData.description_ru }}
     </p>
     <a
       href="#"
@@ -22,6 +22,12 @@
 <script>
 export default {
   name: 'PopupAgent',
+  props: {
+    popupDownloadData: {
+      type: Object,
+      default: () => {}
+    }
+  },
   data () {
     return {
       PopupAgentVisible: false
