@@ -5,10 +5,14 @@
     </h2>
     <div class="footer__container">
       <div class="footer__social-links">
-<!--        <a v-for="linkItem in footerData.social_links" :key="linkItem.icon._id" />-->
-        <a href="#" class="footer__social-link footer__social-link_facebook" target="_blank" />
-        <a href="#" class="footer__social-link footer__social-link_instagram" target="_blank" />
-        <a href="#" class="footer__social-link footer__social-link_twitter" target="_blank" />
+        <a
+          v-for="linkItem in footerData.social_links"
+          :key="linkItem.icon._id"
+          class="footer__social-link"
+          :href="linkItem.link"
+          :style="{ backgroundImage: 'url(http://localhost:1337' + linkItem.icon.url + ')' }"
+          target="_blank"
+        />
         <div class="footer__agent" />
       </div>
       <p class="footer__foreign-agent">
