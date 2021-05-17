@@ -10,12 +10,18 @@
           </li>
           <li v-for="item in menu" :key="item._id" class="menu__list-item">
             <div class="menu__list-item-head-container">
-              <p v-if="!item.url" class="menu__list-text" @click="closeMenu">
+              <p
+                v-if="matchUrl(item) || !item.url"
+                class="menu__list-text"
+                :class="{ 'menu__list-text_active': matchUrl(item) }"
+              >
                 {{ item.name_ru }}
               </p>
-              <NuxtLink v-else class="menu__link" :to="item.url">
-                {{ item.name_ru }}
-              </NuxtLink>
+              <div v-else @click="closeMenu">
+                <NuxtLink class="menu__link" :to="item.url">
+                  {{ item.name_ru }}
+                </NuxtLink>
+              </div>
               <span
                 class="menu__arrow"
                 :class="{ menu__arrow_rotated: openedItem === item._id, menu__arrow_hide: !item.subitems.length }"
@@ -26,10 +32,22 @@
             </div>
             <transition name="show-sublist">
               <ul v-if="openedItem === item._id" class="menu__sublist">
-                <li v-for="subitem in item.subitems" :key="subitem._id" class="menu__sublist-item" @click="closeMenu">
-                  <NuxtLink class="menu__sublist-link" :to="subitem.url">
+                <li v-for="subitem in item.subitems" :key="subitem._id" class="menu__sublist-item">
+                  <NuxtLink
+                    v-if="!matchUrl(subitem)"
+                    class="menu__sublist-link"
+                    :to="subitem.url"
+                    @click.native="closeMenu"
+                  >
                     {{ subitem.name_ru }}
                   </NuxtLink>
+                  <p
+                    v-else
+                    class="menu__sublist-text"
+                    :class="{ 'menu__sublist-text_active': matchUrl(subitem) }"
+                  >
+                    {{ subitem.name_ru }}
+                  </p>
                 </li>
               </ul>
             </transition>
@@ -99,9 +117,11 @@ export default {
     onClickOutside (e) {
       this.isShown = this.$el.contains(e.target) && this.isShown
     },
-    /**/
     scrollHandler () {
       this.isScrollOver230 = window.pageYOffset > 230
+    },
+    matchUrl (item) {
+      return item.url === /[^/]+$/.exec(location.pathname)[0]
     }
   }
 }
@@ -247,8 +267,13 @@ export default {
 }
 
 .menu__list-text {
+  cursor: default;
   display: flex;
   justify-content: space-between;
+}
+
+.menu__list-text_active {
+  font-weight: bold;
 }
 
 .menu__list-item:not(.menu__list-item:last-child) {
@@ -287,6 +312,19 @@ export default {
 .menu__sublist-link:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+.menu__sublist-text {
+  font-family: 'Roboto', 'Times', serif;
+  color: #fff;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: none;
+}
+
+.menu__sublist-text_active {
+  font-weight: bold;
+  cursor: default;
 }
 
 @media screen and (min-width: 768px) {
@@ -365,6 +403,11 @@ export default {
     font-size: 22px;
     line-height: 33px;
   }
+
+  .menu__sublist-text {
+    font-size: 22px;
+    line-height: 33px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -420,6 +463,11 @@ export default {
     font-size: 17px;
     line-height: 26px;
     width: 100%;
+  }
+
+  .menu__sublist-text {
+    font-size: 17px;
+    line-height: 26px;
   }
 }
 
