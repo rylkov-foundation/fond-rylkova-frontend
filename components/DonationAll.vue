@@ -10,34 +10,31 @@
       <div class="donation-page__container">
         <Smile class="donation-page__image" />
         <h2 class="donation-page__title">
-          Сделать пожертвование
+          {{ pageData.donation.title_ru }}
         </h2>
-        <DonationForm class="donation-page__form" :is-donation-page="true" />
+        <DonationForm class="donation-page__form" :is-donation-page="true" :donation-amount="donationAmount" />
         <NuxtLink to="/privacy-policy" class="donation-page__privacy-policy">
           Политика конфеденциальности
         </NuxtLink>
       </div>
       <div class="donation-page__container-description">
         <p class="donation-page__how-to-donate">
-          Как пожертвовать средства? Программную деятельность ФАР осуществляет
-          на средства грантов, но кроме этого мы предоставляем адресную помощь людям,
-          затронутым проблемой наркотиков, их родным и близким. На это гранты получить сложно,
-          поэтому вся эта деятельность осуществляется из частных пожертвований.
+          {{ pageData.donation.description_ru }}
         </p>
       </div>
     </div>
     <div class="donation-page__grid-container-donations">
       <div class="donation-page__container-donations">
-        <DonateNeedHelp />
-        <DonateYandex />
+        <DonateNeedHelp :page-data="pageData.donation_need_help" />
+        <DonateYandex :page-data="pageData.donation_yandex_money" />
       </div>
       <div class="donation-page__container-requisites">
         <h3 class="donation-page__requisites-title">
           реквизиты
         </h3>
-        <Requisites />
+        <Requisites :page-data="pageData.requisites" />
       </div>
-      <DonateGlobalGiving class="donation-page__container-global-giving" />
+      <DonateGlobalGiving class="donation-page__container-global-giving" :page-data="pageData.donation_globalgiving" />
     </div>
   </section>
 </template>
@@ -49,6 +46,16 @@ export default {
   name: 'DonationAll',
   components: {
     Drop
+  },
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    },
+    donationAmount: {
+      default: () => {},
+      type: Object
+    }
   }
 }
 </script>

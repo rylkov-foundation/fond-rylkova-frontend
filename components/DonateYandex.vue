@@ -1,18 +1,23 @@
 <template>
   <div class="donate-yandex">
     <h3 class="donate-yandex__title">
-      Яндекс Деньги
+      {{ pageData.title_ru }}
     </h3>
     <p class="donate-yandex__text">
-      Также вы можете поддержать нас, сделав перевод на наш счет через
-      Яндекс Деньги или оформив платеж по банковским реквизитам фонда, указанным ниже.
+      {{ pageData.description_ru }}
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DonateYandex'
+  name: 'DonateYandex',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 

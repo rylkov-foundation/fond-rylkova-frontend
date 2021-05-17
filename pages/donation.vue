@@ -1,5 +1,5 @@
 <template>
-  <DonationAll />
+  <DonationAll :page-data="pageData" :donation-amount="donationAmount"/>
 </template>
 
 <script>
