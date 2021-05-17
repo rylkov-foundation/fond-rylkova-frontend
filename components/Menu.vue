@@ -8,18 +8,24 @@
               Главная
             </NuxtLink>
           </li>
-          <li v-for="item in menu" :key="item._id" class="menu__list-item" @click="isShownAbout = !isShownAbout">
-            <p v-if="!item.url" class="menu__list-text">
-              {{ item.name_ru }}
-            </p>
-            <NuxtLink v-else class="menu__link" :to="item.url">
-              {{ item.name_ru }}
-            </NuxtLink>
-            <span v-if="item.subitems.length" class="menu__arrow" :class="{ menu__arrow_rotated: isShownAbout }">
-              &#8594;
-            </span>
+          <li v-for="item in menu" :key="item._id" class="menu__list-item">
+            <div class="menu__list-item-head-container">
+              <p v-if="!item.url" class="menu__list-text" @click="closeMenu">
+                {{ item.name_ru }}
+              </p>
+              <NuxtLink v-else class="menu__link" :to="item.url">
+                {{ item.name_ru }}
+              </NuxtLink>
+              <span
+                class="menu__arrow"
+                :class="{ menu__arrow_rotated: openedItem === item._id, menu__arrow_hide: !item.subitems.length }"
+                @click="openItem(item)"
+              >
+                &#8594;
+              </span>
+            </div>
             <transition name="show-sublist">
-              <ul v-if="isShownAbout" class="menu__sublist">
+              <ul v-if="openedItem === item._id" class="menu__sublist">
                 <li v-for="subitem in item.subitems" :key="subitem._id" class="menu__sublist-item" @click="closeMenu">
                   <NuxtLink class="menu__sublist-link" :to="subitem.url">
                     {{ subitem.name_ru }}
@@ -28,63 +34,23 @@
               </ul>
             </transition>
           </li>
-          <li class="menu__list-item" @click="isShownAbout = !isShownAbout">
-            <p class="menu__list-text">
-              о нас
-              <span class="menu__arrow" :class="{ menu__arrow_rotated: isShownAbout }">&#8594;</span>
-            </p>
-            <transition name="show-sublist">
-              <ul v-if="isShownAbout" class="menu__sublist">
-                <li v-for="aboutItem in aboutList" :key="aboutItem.id" class="menu__sublist-item" @click="closeMenu">
-                  <NuxtLink class="menu__sublist-link" :to="aboutItem.url">
-                    {{ aboutItem.title }}
-                  </NuxtLink>
-                </li>
-              </ul>
-            </transition>
-          </li>
-          <li class="menu__list-item" @click="isShownSupport = !isShownSupport">
-            <p class="menu__list-text">
-              поддержать ФАР
-              <span class="menu__arrow" :class="{ menu__arrow_rotated: isShownSupport }">&#8594;</span>
-            </p>
-            <transition name="show-sublist">
-              <ul v-if="isShownSupport" class="menu__sublist">
-                <li
-                  v-for="supportItem in supportList"
-                  :key="supportItem.id"
-                  class="menu__sublist-item"
-                  @click="closeMenu"
-                >
-                  <NuxtLink class="menu__sublist-link" :to="supportItem.url">
-                    {{ supportItem.title }}
-                  </NuxtLink>
-                </li>
-              </ul>
-            </transition>
-          </li>
-          <li class="menu__list-item" @click="closeMenu">
-            <NuxtLink class="menu__link" to="#">
-              получить помощь
-            </NuxtLink>
-          </li>
-          <li class="menu__list-item" @click="closeMenu">
-            <NuxtLink class="menu__link" to="/contacts">
-              контакты
-            </NuxtLink>
-          </li>
         </ul>
       </nav>
     </transition>
     <div class="menu__block">
-      <button class="menu__button" :class="{ menu__button_scrolled: isScrollOver230}" @click="show">
-        <img class="menu__burger-image" src="~/assets/images/burger.png">
-        <p v-show="!isScrollOver230" class="menu__text">
+      <button
+        class="menu__button"
+        :class="{ menu__button_scrolled: isScrollOver230 }"
+        @click="() => isShown ? closeMenu() : openMenu()"
+      >
+        <span class="menu__burger" :class="{ menu__burger_on: isShown }" />
+        <span
+          v-show="!isScrollOver230 || isShown"
+          class="menu__text"
+          :class="{ menu__text_shown: isShown && isScrollOver230 }"
+        >
           Меню
-        </p>
-        <p v-show="isShown && isScrollOver230" class="menu__text menu__text_shown">
-          Меню
-        </p>
+        </span>
       </button>
     </div>
   </section>
@@ -101,20 +67,9 @@ export default {
   },
   data () {
     return {
+      openedItem: '',
       isShown: false,
-      isShownAbout: false,
-      isShownSupport: false,
-      isScrollOver230: false,
-      aboutList: [{ id: 1, title: 'кто такой Андрей Рыльков', url: 'who-is-andrey-rylkov' },
-        { id: 2, title: 'миссия и стратегии', url: 'about-us' },
-        { id: 3, title: 'команда ФАР', url: 'team' },
-        { id: 4, title: 'проекты и отчёты', url: 'projects' },
-        { id: 5, title: 'годовые отчёты', url: 'annual-reports' },
-        { id: 6, title: 'учредительные документы', url: '/' }],
-      supportList: [{ id: 1, title: 'сделать пожертвование', url: 'donation' },
-        { id: 2, title: 'волонтёрство в ФАР', url: '/' },
-        { id: 3, title: 'стажировка в ФАР', url: '/' },
-        { id: 4, title: 'партнёрство с ФАР', url: '/' }]
+      isScrollOver230: false
     }
   },
   mounted () {
@@ -127,23 +82,26 @@ export default {
     document.removeEventListener('click', this.onClickOutside)
   },
   methods: {
-    show () {
-      this.isShown = !this.isShown
-      if (this.isShownAbout) {
-        this.isShownAbout = false
-      }
-      if (this.isShownSupport) {
-        this.isShownSupport = false
+    openItem (item) {
+      if (this.openedItem !== item._id && item.subitems.length) {
+        this.openedItem = item._id
+      } else {
+        this.openedItem = ''
       }
     },
-    scrollHandler (e) {
-      this.isScrollOver230 = window.pageYOffset > 230
+    openMenu () {
+      this.isShown = true
+    },
+    closeMenu () {
+      this.isShown = false
+      this.openedItem = ''
     },
     onClickOutside (e) {
       this.isShown = this.$el.contains(e.target) && this.isShown
     },
-    closeMenu () {
-      this.isShown = false
+    /**/
+    scrollHandler () {
+      this.isScrollOver230 = window.pageYOffset > 230
     }
   }
 }
@@ -170,23 +128,54 @@ export default {
   position: relative;
   outline: none;
   border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .menu__button:hover {
   cursor: pointer;
+  opacity: 0.8;
+}
+
+.menu__burger,
+.menu__burger::before,
+.menu__burger::after {
+  display: block;
+  position: relative;
+  top: 14px;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition-duration: 0.5s;
+}
+
+.menu__burger::before {
+  content: '';
+  top: -9px;
+}
+
+.menu__burger::after {
+  content: '';
+  top: 6px;
+}
+
+.menu__burger_on {
+  transform: rotate(45deg);
+}
+
+.menu__burger_on::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+.menu__burger_on::after {
+  top: -3px;
+  transform: rotate(90deg);
 }
 
 .menu__button_scrolled {
-  height: 37px;
-}
-
-.menu__burger-image {
-  height: 22px;
-  width: 25px;
-  position: absolute;
-  top: 8px;
-  right: 50%;
-  transform: translateX(50%);
+  height: 33px;
 }
 
 .menu__text {
@@ -198,17 +187,26 @@ export default {
   line-height: 26px;
   color: #fff;
   position: absolute;
-  bottom: 49px;
+  bottom: 42px;
   right: -31px;
 }
 
 .menu__text_shown {
-  bottom: -63px;
-  right: -31px;
+  bottom: -74px;
 }
 
 .menu__arrow {
+  margin-left: 15px;
   transition: transform 200ms linear;
+}
+
+.menu__arrow:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.menu__arrow_hide {
+  visibility: hidden;
 }
 
 .menu__arrow_rotated {
@@ -243,13 +241,14 @@ export default {
   text-transform: uppercase;
 }
 
-.menu__list-text {
+.menu__list-item-head-container {
   display: flex;
   justify-content: space-between;
 }
 
-.menu__list-item:hover {
-  cursor: pointer;
+.menu__list-text {
+  display: flex;
+  justify-content: space-between;
 }
 
 .menu__list-item:not(.menu__list-item:last-child) {
@@ -261,10 +260,15 @@ export default {
   text-decoration: none;
 }
 
+.menu__link:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 .menu__sublist {
   list-style: none;
   padding: 0;
-  margin: 7px -17px 8px 0;
+  margin: 8px 0 16px;
 }
 
 .menu__sublist-item {
@@ -282,6 +286,7 @@ export default {
 
 .menu__sublist-link:hover {
   cursor: pointer;
+  opacity: 0.7;
 }
 
 @media screen and (min-width: 768px) {
@@ -298,25 +303,42 @@ export default {
   }
 
   .menu__button_scrolled {
-    height: 58px;
+    height: 46px;
   }
 
-  .menu__burger-image {
-    height: 34px;
-    width: 39px;
-    top: 12px;
+  .menu__burger,
+  .menu__burger::before,
+  .menu__burger::after {
+    top: 20px;
+    width: 100%;
+    height: 4px;
+  }
+
+  .menu__burger::before {
+    top: -14px;
+  }
+
+  .menu__burger::after {
+    top: 10px;
+  }
+
+  .menu__burger_on::before {
+    top: 0;
+  }
+
+  .menu__burger_on::after {
+    top: -3px;
   }
 
   .menu__text {
     font-size: 45px;
     line-height: 41px;
-    top: 96px;
-    right: -70px;
+    top: 100px;
+    right: -73px;
   }
 
   .menu__text_shown {
-    top: 135px;
-    right: -25px;
+    bottom: -143px;
   }
 
   .menu__navigation {
@@ -336,7 +358,7 @@ export default {
   .menu__sublist {
     list-style: none;
     padding: 0;
-    margin: 11px -18px 14px 0;
+    margin: 12px 0 24px;
   }
 
   .menu__sublist-link {
@@ -359,25 +381,18 @@ export default {
   }
 
   .menu__button_scrolled {
-    height: 45px;
-  }
-
-  .menu__burger-image {
-    height: 28px;
-    width: 31px;
-    top: 8px;
+    height: 46px;
   }
 
   .menu__text {
     font-size: 36px;
     line-height: 33px;
-    top: 81px;
-    right: -52px;
+    bottom: 45px;
+    right: -44px;
   }
 
   .menu__text_shown {
-    top: 109px;
-    right: -24px;
+    bottom: -97px;
   }
 
   .menu__navigation {
@@ -397,12 +412,14 @@ export default {
   .menu__sublist {
     list-style: none;
     padding: 0;
-    margin: 11px -18px 10px 0;
+    margin: 10px 0 20px;
+    overflow: hidden;
   }
 
   .menu__sublist-link {
     font-size: 17px;
     line-height: 26px;
+    width: 100%;
   }
 }
 
