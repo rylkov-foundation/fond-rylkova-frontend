@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Menu />
+    <Menu :menu="menu" />
     <Header />
     <div class="container">
       <Nuxt />
@@ -16,34 +16,6 @@
 
 <script>
 export default {
-  async asyncData ({ store }) {
-    if (!Object.keys(store.getters.footer).length) {
-      await store.dispatch('footerInit')
-    }
-    if (!Object.keys(store.getters.globalMeta).length) {
-      await store.dispatch('globalMetaInit')
-    }
-    if (!store.getters.menu.length) {
-      await store.dispatch('menuInit')
-    }
-    if (!Object.keys(store.getters.popupCookies).length) {
-      await store.dispatch('popupCookiesInit')
-    }
-    if (!Object.keys(store.getters.popupDownload).length) {
-      await store.dispatch('popupDownloadInit')
-    }
-    if (!Object.keys(store.getters.popupNews).length) {
-      await store.dispatch('popupNewsInit')
-    }
-    return {
-      menu: store.getters.menu,
-      meta: store.getters.globalMeta,
-      footerData: store.getters.footer,
-      popupCookiesData: store.getters.popupCookies,
-      popupDownloadData: store.getters.popupDownload,
-      popupNewsData: store.getters.popupNews
-    }
-  },
   data () {
     return {
       menu: [],
@@ -54,6 +26,14 @@ export default {
       popupNewsData: {},
       isAcceptedCookies: true
     }
+  },
+  created() {
+    this.menu = this.$store.getters.menu
+    this.meta = this.$store.getters.globalMeta
+    this.footerData = this.$store.getters.footer
+    this.popupCookiesData = this.$store.getters.popupCookies
+    this.popupDownloadData = this.$store.getters.popupDownload
+    this.popupNewsData = this.$store.getters.popupNews
   },
   mounted() {
     this.isAcceptedCookies = Boolean(localStorage.isAcceptedCookies)

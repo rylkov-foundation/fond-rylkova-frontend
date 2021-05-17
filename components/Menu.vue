@@ -8,6 +8,26 @@
               Главная
             </NuxtLink>
           </li>
+          <li v-for="item in menu" :key="item._id" class="menu__list-item" @click="isShownAbout = !isShownAbout">
+            <p v-if="!item.url" class="menu__list-text">
+              {{ item.name_ru }}
+            </p>
+            <NuxtLink v-else class="menu__link" :to="item.url">
+              {{ item.name_ru }}
+            </NuxtLink>
+            <span v-if="item.subitems.length" class="menu__arrow" :class="{ menu__arrow_rotated: isShownAbout }">
+              &#8594;
+            </span>
+            <transition name="show-sublist">
+              <ul v-if="isShownAbout" class="menu__sublist">
+                <li v-for="subitem in item.subitems" :key="subitem._id" class="menu__sublist-item" @click="closeMenu">
+                  <NuxtLink class="menu__sublist-link" :to="subitem.url">
+                    {{ subitem.name_ru }}
+                  </NuxtLink>
+                </li>
+              </ul>
+            </transition>
+          </li>
           <li class="menu__list-item" @click="isShownAbout = !isShownAbout">
             <p class="menu__list-text">
               о нас
@@ -73,6 +93,12 @@
 <script>
 export default {
   name: 'Menu',
+  props: {
+    menu: {
+      type: Array,
+      default: () => []
+    }
+  },
   data () {
     return {
       isShown: false,

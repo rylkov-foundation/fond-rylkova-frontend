@@ -69,6 +69,26 @@ export const mutations = {
 }
 
 export const actions = {
+  async nuxtServerInit ({ getters, dispatch }) {
+    if (!getters.menu.length) {
+      await dispatch('menuInit')
+    }
+    if (!Object.keys(getters.footer).length) {
+      await dispatch('footerInit')
+    }
+    if (!Object.keys(getters.globalMeta).length) {
+      await dispatch('globalMetaInit')
+    }
+    if (!Object.keys(getters.popupCookies).length) {
+      await dispatch('popupCookiesInit')
+    }
+    if (!Object.keys(getters.popupDownload).length) {
+      await dispatch('popupDownloadInit')
+    }
+    if (!Object.keys(getters.popupNews).length) {
+      await dispatch('popupNewsInit')
+    }
+  },
   async dynamicPagesDataInit ({ commit }) {
     const data = await this.$strapi.$pages.find({ slug: this.$router.currentRoute.params.page })
     commit('setDynamicPagesData', data[0])
