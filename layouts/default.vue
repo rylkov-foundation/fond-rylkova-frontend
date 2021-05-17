@@ -27,6 +27,19 @@ export default {
       isAcceptedCookies: true
     }
   },
+  head() {
+    return {
+      title: this.meta.title,
+      meta: [
+        { hid: 'description', name: 'description', content: 'dfvgfg' }
+        // { hid: 'og:title', name: 'og:title', content: this.meta.title },
+        // { hid: 'og:image', name: 'og:image', content: this.meta.image },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
+  },
   created() {
     this.menu = this.$store.getters.menu
     this.meta = this.$store.getters.globalMeta
