@@ -1,5 +1,5 @@
 <template>
-  <Rylkov />
+  <Rylkov :page-data="pageData" />
 </template>
 
 <script>

@@ -75,6 +75,7 @@
         достаточно сил и возможностей для того, чтобы защищать себя и своих близких. Для этого мы работаем.
       </p>
     </div>
+    <div class="info__text-container" v-html="pageData.content_ru" />
   </section>
 </template>
 
@@ -85,6 +86,12 @@ export default {
   name: 'Rylkov',
   components: {
     Drop
+  },
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
   }
 }
 </script>

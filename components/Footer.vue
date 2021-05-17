@@ -1,20 +1,21 @@
 <template>
   <footer class="footer">
     <h2 class="footer__title">
-      мы в соцсетях
+      {{ footerData.title_ru }}
     </h2>
     <div class="footer__container">
       <div class="footer__social-links">
-        <a href="#" class="footer__social-link footer__social-link_facebook" />
-        <a href="#" class="footer__social-link footer__social-link_instagram" />
-        <a href="#" class="footer__social-link footer__social-link_twitter" />
+<!--        <a v-for="linkItem in footerData.social_links" :key="linkItem.icon._id" />-->
+        <a href="#" class="footer__social-link footer__social-link_facebook" target="_blank" />
+        <a href="#" class="footer__social-link footer__social-link_instagram" target="_blank" />
+        <a href="#" class="footer__social-link footer__social-link_twitter" target="_blank" />
         <div class="footer__agent" />
       </div>
       <p class="footer__foreign-agent">
-        Материалы изданы и (или) распространены некоммер&shy;ческой организацией, выполняющей, по мнению Минюста России, функции иностранного агента
+        {{ footerData.foreign_agent_text_ru }}
       </p>
       <p class="footer__license">
-        За исключением специально оговоренных случаев, содержание сайта залицензировано под <a href="#" class="footer__license-link">Creative Commons Attribution 3.0 License</a>
+        {{ footerData.license_text_ru }}
       </p>
     </div>
     <p class="footer__copyright">
@@ -25,7 +26,16 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  props: {
+    footerData: {
+      type: Object,
+      default: () => {}
+    }
+  },
+  mounted () {
+    console.log(this.footerData)
+  }
 }
 </script>
 

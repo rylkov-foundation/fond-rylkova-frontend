@@ -5,7 +5,7 @@
     <div class="container">
       <Nuxt />
     </div>
-    <Footer />
+    <Footer :footer-data="footerData"/>
     <div class="popup">
       <PopupCookie v-if="!isAcceptedCookies" :handle-accept-cookies="acceptCookies" />
       <PopupAgent />
@@ -57,6 +57,7 @@ export default {
   },
   mounted() {
     this.isAcceptedCookies = Boolean(localStorage.isAcceptedCookies)
+    console.log(this.footerData)
   },
   methods: {
     acceptCookies () {

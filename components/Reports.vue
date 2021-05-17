@@ -13,7 +13,7 @@
         <span v-for="line in splitTitle" :key="line" class="reports__title-text">{{ line }}</span>
       </h2>
       <p class="reports__subtitle">
-        В данном разделе представлена  информация о реализующихся  в настоящее время проектах фонда
+        {{ pageData.description_ru }}
       </p>
       <Bolt class="reports__image" />
     </div>

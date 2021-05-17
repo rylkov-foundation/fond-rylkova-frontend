@@ -1,5 +1,5 @@
 <template>
-  <AboutUs />
+  <AboutUs :page-data="pageData" />
 </template>
 
 <script>
