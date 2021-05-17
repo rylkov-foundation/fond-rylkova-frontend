@@ -121,7 +121,11 @@ export default {
       this.isScrollOver230 = window.pageYOffset > 230
     },
     matchUrl (item) {
-      return item.url === /[^/]+$/.exec(location.pathname)[0]
+      if (location.pathname !== '/') {
+        return item.url === /[^/]+$/.exec(location.pathname)[0]
+      } else {
+        return false
+      }
     }
   }
 }
