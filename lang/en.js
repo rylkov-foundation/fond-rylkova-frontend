@@ -34,7 +34,7 @@ export default {
     submitButtonText: 'Send'
   },
   requisites: {
-    requisites: 'Requisites',
+    title: 'Requisites',
     companyName: 'Company name',
     companyShortName: 'Short company name',
     bankRequisites: 'Bank requisites',

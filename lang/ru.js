@@ -34,7 +34,7 @@ export default {
     submitButtonText: 'Отправить'
   },
   requisites: {
-    requisites: 'Реквизиты',
+    title: 'Реквизиты',
     companyName: 'Название организации',
     companyShortName: 'Сокращенно',
     bankRequisites: 'Банковские реквизиты',
