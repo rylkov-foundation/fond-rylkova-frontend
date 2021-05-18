@@ -31,9 +31,13 @@ export default {
     return {
       title: this.meta.title,
       meta: [
-        { hid: 'description', name: 'description', content: 'dfvgfg' }
-        // { hid: 'og:title', name: 'og:title', content: this.meta.title },
-        // { hid: 'og:image', name: 'og:image', content: this.meta.image },
+        { hid: 'description', name: 'description', content: this.meta.description },
+        { hid: 'site_name', name: 'site_name', content: this.meta.site_name },
+        { hid: 'Keywords', name: 'Keywords', content: this.meta.Keywords },
+        { hid: 'description', name: 'description', content: this.meta.Description },
+        { hid: 'og:title', name: 'og:title', content: this.meta.title },
+        { hid: 'og_description', name: 'og_description', content: this.meta.og_description },
+        { hid: 'og:image', name: 'og:image', content: this.meta.logo.url }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
