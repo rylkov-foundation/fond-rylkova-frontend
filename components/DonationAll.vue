@@ -14,7 +14,7 @@
         </h2>
         <DonationForm class="donation-page__form" :is-donation-page="true" />
         <NuxtLink to="/privacy-policy" class="donation-page__privacy-policy">
-          Политика конфеденциальности
+          {{ $t('links.privacyPolicy') }}
         </NuxtLink>
       </div>
       <div class="donation-page__container-description">
@@ -33,7 +33,7 @@
       </div>
       <div class="donation-page__container-requisites">
         <h3 class="donation-page__requisites-title">
-          реквизиты
+          {{ $t('requisites.title') }}
         </h3>
         <Requisites />
       </div>

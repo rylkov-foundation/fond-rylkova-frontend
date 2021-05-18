@@ -1,48 +1,48 @@
 <template>
   <div class="requisites">
     <p class="requisites__organization">
-      Название организации: <span class="requisites__organization-name">Фонд содействия защите здоровья и социальной справедливости имени Андрея Рылькова</span>
+      {{ $t('requisites.companyName') }}: <span class="requisites__organization-name">Фонд содействия защите здоровья и социальной справедливости имени Андрея Рылькова</span>
     </p>
     <p class="requisites__organization">
-      Сокращенно: <span class="requisites__organization-name">Фонд имени Андрея Рылькова</span>
+      {{ $t('requisites.companyShortName') }}: <span class="requisites__organization-name">Фонд имени Андрея Рылькова</span>
     </p>
     <h4 class="requisites__title">
-      Банковские реквизиты
+      {{ $t('requisites.bankRequisites') }}
     </h4>
     <div class="requisites__container">
       <p class="requisites__name">
-        ИНН
+        {{ $t('requisites.inn') }}
         <span class="requisites__detail">7734268614</span>
       </p>
       <p class="requisites__name">
-        <span class="requisites__detail">Расчетный счет в рублях РФ</span>
+        <span class="requisites__detail">{{ $t('requisites.bankAccountRuble') }}</span>
       </p>
       <p class="requisites__name">
-        КПП
+        {{ $t('requisites.kpp') }}
         <span class="requisites__detail">773401001</span>
       </p>
       <p class="requisites__name">
-        Наименование банка:
+        {{ $t('requisites.bankName') }}:
         <span class="requisites__detail">ПАО Сбербанк, г. Москва</span>
       </p>
       <p class="requisites__name">
-        ОГРН
+        {{ $t('requisites.ogrn') }}
         <span class="requisites__detail">1097799015027</span>
       </p>
       <p class="requisites__name">
-        БИК
+        {{ $t('requisites.bik') }}
         <span class="requisites__detail">044525225</span>
       </p>
       <p class="requisites__name">
-        Кор. счет
+        {{ $t('requisites.correspondentAccount') }}
         <span class="requisites__detail">30101810400000000225</span>
       </p>
       <p class="requisites__name">
-        Назначение платежа:
+        {{ $t('requisites.purpose') }}:
         <span class="requisites__detail">Пожертвование на уставные цели фонда</span>
       </p>
       <p class="requisites__name">
-        Расчетный счет
+        {{ $t('requisites.bankAccountNumber') }}
         <span class="requisites__detail">40703810938170002103</span>
       </p>
     </div>
