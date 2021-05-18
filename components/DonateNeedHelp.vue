@@ -7,7 +7,7 @@
       <img
         class="donate-need-help__qr"
         alt="QR код"
-        :src="'http://localhost:1337' +pageData.qr_code.url"
+        :src="$config.constants.serverUrl +pageData.qr_code.url"
       >
     </div>
     <p class="donate-need-help__text">

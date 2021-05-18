@@ -4,7 +4,7 @@
     :class="{ 'report_color_white': ($attrs.index+1)%2 === 0}"
   >
     <img
-      :src="'http://localhost:1337' +report.image.url"
+      :src="$config.constants.serverUrl +report.image.url"
       :alt="report.title_ru"
       class="report__image"
     >

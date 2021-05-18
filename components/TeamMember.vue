@@ -1,7 +1,7 @@
 <template>
   <li class="team-member">
     <img
-      :src="'http://localhost:1337' +member.photo.url"
+      :src="$config.constants.serverUrl +member.photo.url"
       :alt="member.name_ru"
       class="team-member__photo"
     >

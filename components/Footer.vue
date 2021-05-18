@@ -10,7 +10,7 @@
           :key="linkItem.icon._id"
           class="footer__social-link"
           :href="linkItem.link"
-          :style="{ backgroundImage: 'url(http://localhost:1337' + linkItem.icon.url + ')' }"
+          :style="{ backgroundImage: 'url('+ $config.constants.serverUrl + linkItem.icon.url + ')' }"
           target="_blank"
         />
         <div class="footer__agent" />
@@ -104,6 +104,7 @@ export default {
     margin: 0 auto 81px;
     padding-left: 27px;
     position: relative;
+    background-repeat: no-repeat;
   }
 
   .footer__social-link {
@@ -117,18 +118,6 @@ export default {
 
   .footer__social-link:hover {
     opacity: 0.7;
-  }
-
-  .footer__social-link_facebook {
-    background-image: url("~/assets/images/facebook.svg");
-  }
-
-  .footer__social-link_instagram {
-    background-image: url("~/assets/images/instagram.svg");
-  }
-
-  .footer__social-link_twitter {
-    background-image: url("~/assets/images/twitter.svg");
   }
 
   .footer__agent {

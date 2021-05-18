@@ -2,7 +2,7 @@
   <li class="contact">
     <img
       class="contact__image"
-      :src="'http://localhost:1337' +contact.photo.url"
+      :src="$config.constants.serverUrl +contact.photo.url"
       :alt="contact.name_ru"
     >
     <h3 class="contact__name">

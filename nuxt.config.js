@@ -65,7 +65,8 @@ export default {
   },
   publicRuntimeConfig: {
     constants: {
-      baseUrl: process.env.DOMEN || 'http://localhost:3000'
+      baseUrl: process.env.DOMEN || 'http://localhost:3000',
+      serverUrl: process.env.BASE_URL || 'http://localhost:1337'
     }
   },
   strapi: {
