@@ -11,7 +11,7 @@
       class="popup__button"
       @click="handleAcceptCookies"
     >
-      Понятно
+      {{ $t('popups.ok') }}
     </button>
   </div>
 </template>

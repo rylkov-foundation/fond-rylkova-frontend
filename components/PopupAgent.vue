@@ -14,7 +14,9 @@
       class="popup__link"
       download=""
       @click="hidePopup"
-    >Скачать материал</a>
+    >
+      {{ $t('popups.download') }}
+    </a>
     <button type="button" class="popup__button-close" @click="hidePopup" />
   </div>
 </template>

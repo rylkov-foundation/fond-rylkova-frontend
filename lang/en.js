@@ -47,5 +47,10 @@ export default {
     bankName: 'Bank name',
     bik: 'RCBIC',
     purpose: 'Purpose of payment'
+  },
+  popups: {
+    download: 'Download',
+    goTo: 'Go to',
+    ok: 'Ok'
   }
 }

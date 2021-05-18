@@ -47,5 +47,10 @@ export default {
     bankName: 'НАИМЕНОВАНИЕ БАНКА',
     bik: 'БИК',
     purpose: 'НАЗНАЧЕНИЕ ПЛАТЕЖА'
+  },
+  popups: {
+    download: 'Скачать материал',
+    goTo: 'Перейти',
+    ok: 'Понятно'
   }
 }
