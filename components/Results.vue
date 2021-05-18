@@ -25,7 +25,7 @@
         </div>
       </div>
       <NuxtLink class="link" to="/get-help">
-        Получить помощь
+        {{ $t('links.getHelp') }}
         <span class="link__arrow">&gt;</span>
       </NuxtLink>
       <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">

@@ -9,7 +9,7 @@
       </div>
       <DonationForm :top-donation-sum="topDonationSum" class="donation__form" />
       <NuxtLink to="/privacy-policy" class="donation__privacy-policy">
-        Политика конфеденциальности
+        {{ $t('links.privacyPolicy') }}
       </NuxtLink>
     </div>
   </section>

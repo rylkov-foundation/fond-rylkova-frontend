@@ -97,9 +97,22 @@ export default {
     height: '5px'
   },
   i18n: {
-    locales: ['ru', 'en'],
+    locales: [
+      {
+        name: 'Russian',
+        code: 'ru',
+        file: 'ru.js'
+      },
+      {
+        name: 'English',
+        code: 'en',
+        file: 'en.js'
+      }
+    ],
     defaultLocale: 'ru',
     detectBrowserLanguage: false,
-    strategy: 'no_prefix'
+    strategy: 'no_prefix',
+    langDir: 'lang/',
+    lazy: true
   }
 }

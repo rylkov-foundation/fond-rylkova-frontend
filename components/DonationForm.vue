@@ -2,14 +2,14 @@
   <form class="form" @submit.prevent="onSubmit">
     <div class="form__slider-container">
       <button class="form__slider-button" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
-        Однократно
+        {{ $t('donateForm.once') }}
       </button>
       <label class="switch">
         <input v-model="isRegularPayment" type="checkbox" class="switch__input" @change="onSwitchIsRegularPayment">
         <span class="switch__slider" />
       </label>
       <button class="form__slider-button" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
-        Регулярно
+        {{ $t('donateForm.regularly') }}
       </button>
     </div>
     <div class="form__payment-options-container">
@@ -21,7 +21,7 @@
           name="payment-options"
           value="bank_card"
         >
-        <span class="form__payment-options-button">Карта</span>
+        <span class="form__payment-options-button">{{ $t('donateForm.card') }}</span>
       </label>
       <label class="form__payment-options">
         <input
@@ -31,7 +31,7 @@
           name="payment-options"
           value="yoo_money"
         >
-        <span class="form__payment-options-button">ЮMoney</span>
+        <span class="form__payment-options-button">{{ $t('donateForm.yooMoney') }}</span>
       </label>
       <label class="form__payment-options">
         <input
@@ -45,7 +45,9 @@
         <span
           class="form__payment-options-button"
           :class="isRegularPayment && 'form__payment-options-button_disabled'"
-        >Терминал</span>
+        >
+          {{ $t('donateForm.cash') }}
+        </span>
       </label>
     </div>
     <div class="form__amount-container">
@@ -92,9 +94,9 @@
         <input
           v-model="differentAmount"
           type="number"
-          min="50"
+          :min="minAmount"
           class="form__input"
-          placeholder="Другая сумма"
+          :placeholder="$t('donateForm.otherAmount')"
           @focus="differentAmount = radioAmount"
           @input="onAmountInput"
         >
@@ -102,12 +104,26 @@
           <input v-model="isContractAgreed" type="checkbox" class="form__agree" required>
           <span class="form__checkbox-agree" />
           <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
-          <span class="form__text-agree">Согласен с <a href="#" class="form__link-offer">офертой</a></span>
+          <span class="form__text-agree">
+            {{ $t('donateForm.agreeWith') }} <a href="#" class="form__link-offer">{{ $t('donateForm.offer') }}</a>
+          </span>
         </label>
       </div>
     </div>
-    <input v-model="name" type="text" class="form__input form__input_personal" placeholder="Имя" required>
-    <input v-model="email" type="email" class="form__input form__input_personal" placeholder="Email" required>
+    <input
+      v-model="name"
+      type="text"
+      class="form__input form__input_personal"
+      :placeholder="$t('donateForm.name')"
+      required
+    >
+    <input
+      v-model="email"
+      type="email"
+      class="form__input form__input_personal"
+      :placeholder="$t('donateForm.email')"
+      required
+    >
     <button
       type="submit"
       class="form__submit"
@@ -115,7 +131,7 @@
                'form__submit_disabled': error}"
       :disabled="error !== ''"
     >
-      Перейти к оплате
+      {{ $t('donateForm.submitButtonText') }}
     </button>
     <p
       class="form__error"
@@ -150,17 +166,21 @@ export default {
       paymentType: 'bank_card',
       isContractAgreed: false,
       name: '',
-      email: ''
+      email: '',
+      minAmount: 50
     }
   },
   computed: {
     error () {
-      if (this.amount <= 50) {
-        return 'Минимальная сумма 50 рублей'
+      if (this.amount < this.minAmount) {
+        return this.$t(
+          'donateForm.validationMessages.minAmount',
+          { minAmount: this.minAmount }
+        )
       } else if (!this.isContractAgreed) {
-        return 'Необходимо принять оферту'
+        return this.$t('donateForm.validationMessages.needAcceptOffer')
       } else if (!this.name || !validator.isEmail(this.email)) {
-        return 'Необходимо ввести имя и email'
+        return this.$t('donateForm.validationMessages.needFillFields')
       } else {
         return ''
       }
