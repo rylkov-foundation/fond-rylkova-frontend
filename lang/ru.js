@@ -31,7 +31,8 @@ export default {
     subject: 'тема',
     name: 'Имя',
     email: 'E-mail',
-    submitButtonText: 'Отправить'
+    submitButtonText: 'Отправить',
+    textareaPlaceholder: 'Письмо...'
   },
   requisites: {
     title: 'Реквизиты',

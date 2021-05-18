@@ -31,7 +31,8 @@ export default {
     subject: 'subject',
     name: 'Name',
     email: 'E-mail',
-    submitButtonText: 'Send'
+    submitButtonText: 'Send',
+    textareaPlaceholder: 'Your message...'
   },
   requisites: {
     title: 'Requisites',
