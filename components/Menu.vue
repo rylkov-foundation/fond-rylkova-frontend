@@ -5,7 +5,7 @@
         <ul class="menu__list">
           <li class="menu__list-item" @click="closeMenu">
             <NuxtLink to="/" class="menu__link">
-              Главная
+              {{ $t('menu.mainPage') }}
             </NuxtLink>
           </li>
           <li v-for="item in menu" :key="item._id" class="menu__list-item">
@@ -67,7 +67,7 @@
           class="menu__text"
           :class="{ menu__text_shown: isShown && isScrollOver230 }"
         >
-          Меню
+          {{ $t('menu.menuText') }}
         </span>
       </button>
     </div>

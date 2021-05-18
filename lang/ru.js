@@ -52,5 +52,9 @@ export default {
     download: 'Скачать материал',
     goTo: 'Перейти',
     ok: 'Понятно'
+  },
+  menu: {
+    mainPage: 'Главная',
+    menuText: 'Меню'
   }
 }

@@ -52,5 +52,9 @@ export default {
     download: 'Download',
     goTo: 'Go to',
     ok: 'Ok'
+  },
+  menu: {
+    mainPage: 'Main',
+    menuText: 'Menu'
   }
 }

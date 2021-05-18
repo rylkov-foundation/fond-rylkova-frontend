@@ -25,7 +25,7 @@ export default {
   name: 'PopupNews',
   data () {
     return {
-      PopupNewsVisible: true
+      PopupNewsVisible: false
     }
   },
   methods: {
