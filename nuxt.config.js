@@ -43,6 +43,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/strapi',
+    'nuxt-i18n',
     () => {
       require('node-schedule')
         .scheduleJob('0 0 * * *', regularDonationCronTask)
@@ -94,5 +95,11 @@ export default {
   loading: {
     color: '#000',
     height: '5px'
+  },
+  i18n: {
+    locales: ['ru', 'en'],
+    defaultLocale: 'ru',
+    detectBrowserLanguage: false,
+    strategy: 'no_prefix'
   }
 }

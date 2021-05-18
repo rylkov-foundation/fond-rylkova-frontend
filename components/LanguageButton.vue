@@ -4,26 +4,16 @@
     class="button-language"
     @click="changeLanguage"
   >
-    {{ languages[languageIndex] }}
+    {{ $i18n.locale }}
   </button>
 </template>
 
 <script>
 export default {
   name: 'LanguageButton',
-  data () {
-    return {
-      languages: ['en', 'ру'],
-      languageIndex: 0
-    }
-  },
   methods: {
     changeLanguage () {
-      if (this.languageIndex === 0) {
-        this.languageIndex = 1
-      } else {
-        this.languageIndex = 0
-      }
+      this.$i18n.setLocale(this.$i18n.locale === 'ru' ? 'en' : 'ru')
     }
   }
 }
@@ -51,6 +41,7 @@ export default {
   width: 35px;
   height: 35px;
   padding: 0;
+  text-transform: capitalize;
 }
 
 .button-language:hover {
