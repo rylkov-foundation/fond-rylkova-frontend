@@ -38,7 +38,7 @@ export default {
       !store.getters.dynamicPagesData[route.params.page] ||
       !Object.keys(store.getters.dynamicPagesData[route.params.page]).length
     ) {
-      await store.dispatch('dynamicPagesDataInit')
+      await store.dispatch('dynamicPagesDataInit', route.params.page)
       if (!store.getters.dynamicPagesData[route.params.page]) {
         error({ statusCode: 404 })
       }

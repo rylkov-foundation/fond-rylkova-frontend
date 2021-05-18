@@ -18,8 +18,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setDynamicPagesData (state, dynamicPagesData) {
-    state.dynamicPagesData = { [this.$router.currentRoute.params.page]: dynamicPagesData }
+  setDynamicPagesData (state, data) {
+    state.dynamicPagesData = { ...state.dynamicPagesData, [data.page]: data.data }
   },
   setGlobalMeta (state, data) {
     state.globalMeta = data
@@ -89,9 +89,9 @@ export const actions = {
       await dispatch('popupNewsInit')
     }
   },
-  async dynamicPagesDataInit ({ commit }) {
-    const data = await this.$strapi.$pages.find({ slug: this.$router.currentRoute.params.page })
-    commit('setDynamicPagesData', data[0])
+  async dynamicPagesDataInit ({ commit, getters }, page) {
+    const data = await this.$strapi.$pages.find({ slug: page })
+    commit('setDynamicPagesData', { page, data: data[0] })
   },
   async menuInit ({ commit }) {
     const data = await this.$strapi.$http.get('/menu/items')
