@@ -1,53 +1,54 @@
 <template>
   <div class="requisites">
     <p class="requisites__organization">
-      Название организации:
+      {{ $t('requisites.companyName') }}:
       <span class="requisites__organization-name">
         {{ pageData.company_name }}
       </span>
     </p>
     <p class="requisites__organization">
-      Сокращенно: <span class="requisites__organization-name">
+      {{ $t('requisites.companyShortName') }}: <span class="requisites__organization-name">
         {{ pageData.company_short_name }}
       </span>
     </p>
     <h4 class="requisites__title">
-      Банковские реквизиты
+      {{ $t('requisites.bankRequisites') }}
     </h4>
     <div class="requisites__container">
       <p class="requisites__name">
-        ИНН
+        {{ $t('requisites.inn') }}
         <span class="requisites__detail">{{ pageData.inn }}</span>
+        <span class="requisites__detail">7734268614</span>
       </p>
       <p class="requisites__name">
-        <span class="requisites__detail">Расчетный счет в рублях РФ</span>
+        <span class="requisites__detail">{{ $t('requisites.bankAccountRuble') }}</span>
       </p>
       <p class="requisites__name">
-        КПП
+        {{ $t('requisites.kpp') }}
         <span class="requisites__detail">{{ pageData.kpp }}</span>
       </p>
       <p class="requisites__name">
-        Наименование банка:
+        {{ $t('requisites.bankName') }}:
         <span class="requisites__detail">{{ pageData.bank }}</span>
       </p>
       <p class="requisites__name">
-        ОГРН
+        {{ $t('requisites.ogrn') }}
         <span class="requisites__detail">{{ pageData.ogrn }}</span>
       </p>
       <p class="requisites__name">
-        БИК
+        {{ $t('requisites.bik') }}
         <span class="requisites__detail">{{ pageData.bik }}</span>
       </p>
       <p class="requisites__name">
-        Кор. счет
+        {{ $t('requisites.correspondentAccount') }}
         <span class="requisites__detail">{{ pageData.correspondent_account }}</span>
       </p>
       <p class="requisites__name">
-        Назначение платежа:
+        {{ $t('requisites.purpose') }}:
         <span class="requisites__detail">{{ pageData.purpose_ru }}</span>
       </p>
       <p class="requisites__name">
-        Расчетный счет
+        {{ $t('requisites.bankAccountNumber') }}
         <span class="requisites__detail">{{ pageData.bank_account }}</span>
       </p>
     </div>

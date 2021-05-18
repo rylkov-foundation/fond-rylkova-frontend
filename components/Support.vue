@@ -1,7 +1,7 @@
 <template>
   <router-link to="/donation" class="support">
     <p class="support__text">
-      Поддержать
+      {{ $t('support.buttonText') }}
     </p>
     <svg
       id="svg"

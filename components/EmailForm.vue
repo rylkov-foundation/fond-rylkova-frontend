@@ -1,13 +1,13 @@
 <template>
   <form class="email-form">
-    <label class="email-form__theme">Тема
+    <label class="email-form__theme">{{ $t('emailForm.subject') }}
       <input class="email-form__input" type="text">
     </label>
     <textarea class="email-form__textarea" placeholder="Письмо..." />
-    <label class="email-form__label">Имя
+    <label class="email-form__label">{{ $t('emailForm.name') }}
       <input class="email-form__input email-form__input_position_bottom" type="text">
     </label>
-    <label class="email-form__label">E-mail
+    <label class="email-form__label">{{ $t('emailForm.email') }}
       <input class="email-form__input email-form__input_position_bottom" type="email">
     </label>
     <div class="email-form__container">
@@ -15,7 +15,7 @@
         &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
       </p>
       <button type="submit" class="email-form__submit-button">
-        Отправить
+        {{ $t('emailForm.submitButtonText') }}
       </button>
     </div>
   </form>
@@ -221,7 +221,7 @@ export default {
 
     .email-form__label {
       font-size: 24px;
-      line-height: 8px;
+      line-height: 23px;
       padding-left: 0;
       margin-bottom: 12px;
       max-width: 462px;

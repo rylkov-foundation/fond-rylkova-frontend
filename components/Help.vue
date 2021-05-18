@@ -11,7 +11,7 @@
         <img src="~/assets/images/blade.svg" alt="Лезвие" class="help__image">
       </div>
       <NuxtLink class="link" to="/get-help">
-        Подробнее
+        {{ $t('links.moreDetailed') }}
         <span class="link__arrow">&gt;</span>
       </NuxtLink>
       <div class="help__telephone-block">

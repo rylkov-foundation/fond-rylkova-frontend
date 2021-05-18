@@ -15,7 +15,7 @@
         </p>
       </div>
       <NuxtLink to="/about-us" class="link">
-        Подробнее о нас &gt;
+        {{ $t('links.moreAboutUs') }} &gt;
       </NuxtLink>
       <div class="mission__footer">
         <img src="~/assets/images/road.png" alt="Дорога" class="mission__road">

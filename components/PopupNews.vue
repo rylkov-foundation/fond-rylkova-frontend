@@ -14,7 +14,7 @@
       class="popup__link"
       @click="hidePopup"
     >
-      Перейти &gt;
+      {{ $t('popups.goTo') }} &gt;
     </NuxtLink>
     <button type="button" class="popup__close-button" @click="hidePopup" />
   </div>
