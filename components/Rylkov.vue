@@ -32,7 +32,11 @@
           Андрей
         </p>
       </div>
-      <img src="@/assets/images/Rylkov.png" alt="Рыльков" class="info__image">
+      <img
+        :src="$config.constants.serverUrl +pageData.image.url"
+        :alt="pageData.title_ru"
+        class="info__image"
+      >
     </div>
     <div class="info__text-container">
       <p class="info__link-description">

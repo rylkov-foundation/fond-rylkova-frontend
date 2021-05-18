@@ -31,12 +31,12 @@ export default {
     return {
       title: this.meta.title,
       meta: [
-        { hid: 'description', name: 'description', content: this.meta.description },
+        { hid: 'description', name: 'description', content: this.meta.Description },
         { hid: 'keywords', name: 'keywords', content: this.meta.Keywords },
         { hid: 'site_name', name: 'site_name', content: this.meta.site_name },
         { hid: 'og:title', name: 'og:title', content: this.meta.title },
         { hid: 'og:description', name: 'og:description', content: this.meta.og_description },
-        { hid: 'og:image', name: 'og:image', content: this.meta.logo.url }
+        { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.meta.logo.url }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
