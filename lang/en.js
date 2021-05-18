@@ -20,8 +20,8 @@ export default {
     submitButtonText: 'Donate',
     validationMessages: {
       minAmount: 'Minimum amount is {minAmount} rubles',
-      needAcceptOffer: 'Need accept the offer',
-      needFillFields: 'Need Fill the Fields name and email'
+      needAcceptOffer: 'Need to accept the offer',
+      needFillFields: 'Need to fill name and email'
     }
   },
   support: {
@@ -32,5 +32,20 @@ export default {
     name: 'Name',
     email: 'E-mail',
     submitButtonText: 'Send'
+  },
+  requisites: {
+    requisites: 'Requisites',
+    companyName: 'Company name',
+    companyShortName: 'Short company name',
+    bankRequisites: 'Bank requisites',
+    inn: 'Taxpayer Identification Number (INN)',
+    kpp: 'Tax Registration Reason Code (KPP)',
+    ogrn: 'Primary State Registration Number (OGRN)',
+    correspondentAccount: 'Corr. account',
+    bankAccountNumber: 'Bank account number',
+    bankAccountRuble: 'Ruble bank account',
+    bankName: 'Bank name',
+    bik: 'RCBIC',
+    purpose: 'Purpose of payment'
   }
 }

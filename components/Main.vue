@@ -286,7 +286,7 @@ export default {
       grid-area: money;
       display: grid;
       grid-template-columns: 274px auto;
-      grid-template-rows: 70px 152px;
+      grid-template-rows: 70px 113px;
       grid-template-areas:
         "big small"
         "big medium";
@@ -330,8 +330,9 @@ export default {
     }
 
     .link_position_top {
-      right: 219px;
-      bottom: 65px;
+      position: unset;
+      margin-left: 10px;
+      justify-self: flex-start;
     }
 
     .main__arrow {

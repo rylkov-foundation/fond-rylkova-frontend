@@ -33,7 +33,7 @@
       </div>
       <div class="donation-page__container-requisites">
         <h3 class="donation-page__requisites-title">
-          реквизиты
+          {{ $t('requisites.requisites') }}
         </h3>
         <Requisites />
       </div>

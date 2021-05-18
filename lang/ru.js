@@ -32,5 +32,20 @@ export default {
     name: 'Имя',
     email: 'E-mail',
     submitButtonText: 'Отправить'
+  },
+  requisites: {
+    requisites: 'Реквизиты',
+    companyName: 'Название организации',
+    companyShortName: 'Сокращенно',
+    bankRequisites: 'Банковские реквизиты',
+    inn: 'ИНН',
+    kpp: 'КПП',
+    ogrn: 'ОГРН',
+    correspondentAccount: 'КОР. СЧЕТ',
+    bankAccountNumber: 'РАСЧЕТНЫЙ СЧЕТ',
+    bankAccountRuble: 'Расчетный счет в рублях РФ',
+    bankName: 'НАИМЕНОВАНИЕ БАНКА',
+    bik: 'БИК',
+    purpose: 'НАЗНАЧЕНИЕ ПЛАТЕЖА'
   }
 }

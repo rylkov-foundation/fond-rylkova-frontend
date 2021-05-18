@@ -221,7 +221,7 @@ export default {
 
     .email-form__label {
       font-size: 24px;
-      line-height: 8px;
+      line-height: 23px;
       padding-left: 0;
       margin-bottom: 12px;
       max-width: 462px;
