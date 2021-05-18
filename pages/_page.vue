@@ -14,11 +14,15 @@
           <span v-for="line in splitTitle" :key="line" class="text-with-line">{{ line }}</span>
         </h1>
         <p class="meta__subtitle">
-          Подзаголовок   такой весь из себя не большой,  но очень внушительный
+          {{ pageData.Subtitle_ru }}
         </p>
       </div>
       <div class="meta__wrapper">
-        <img class="meta__image" src="~/assets/images/blade.svg" alt="Лезвие">
+        <img
+          class="meta__image"
+          :src="$config.constants.serverUrl +pageData.image.url"
+          :alt="pageData.title_ru"
+        >
         <div class="meta__data" v-html="pageData.content_ru" />
       </div>
     </div>
@@ -45,11 +49,26 @@ export default {
   },
   data () {
     return {
-      titleText: 'Заголовок',
       splitTitle: [],
       resizeTimeout: null,
-      pageData: {}
+      pageData: {},
+      meta: {}
     }
+  },
+  head() {
+    return {
+      title: this.pageData.title_ru + '|' + this.meta.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.pageData.Description },
+        { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },
+        { hid: 'og:title', name: 'og:title', content: this.pageData.title_ru },
+        { hid: 'og:description', name: 'og:description', content: this.pageData.og_description },
+        { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.meta.logo.url }
+      ]
+    }
+  },
+  created() {
+    this.meta = this.$store.getters.globalMeta
   },
   beforeMount () {
     this.handleSplitTitle()
@@ -65,7 +84,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData.title_ru, this.$refs.titleContainer)
         }, 40)
       }
     }
@@ -82,6 +101,7 @@ export default {
   justify-content: flex-start;
   align-self: stretch;
   align-items: center;
+  width: 100%;
 }
 
 .meta__drop {
