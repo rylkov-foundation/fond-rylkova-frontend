@@ -2,16 +2,10 @@
   <div class="donate-global-giving">
     <div class="donate-global-giving__fire" />
     <h3 class="donate-global-giving__title">
-      GlobalGiving
+      {{ pageData.title_ru }}
     </h3>
     <p class="donate-global-giving__text">
-      Пожертвовать через краудфандинговую платформу GlobalGiving:
-      уже несколько лет мы собираем через краудфандинговую платформу
-      GlobalGiving средства на поддержку работы проекта ФАР «Снижение вреда –
-      Москва», который направлен на защиту здоровья и прав человека людей, употребляющих
-      наркотики. Проект занимается профилактикой ВИЧ, гепатитов, передозировок, оказанием
-      медицинской и социальной помощи. Подробнее о работе нашего проекта можно почитать
-      здесь.
+      {{ pageData.description_ru }}
     </p>
     <Smile class="donate-global-giving__smile" />
   </div>
@@ -19,7 +13,13 @@
 
 <script>
 export default {
-  name: 'DonateGlobalGiving'
+  name: 'DonateGlobalGiving',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 

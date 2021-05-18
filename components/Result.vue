@@ -2,15 +2,15 @@
   <article class="result results__result">
     <div class="result__frame">
       <p class="result__number">
-        {{ data.quantity }}
+        {{ result.quantity }}
       </p>
     </div>
     <div class="result__block">
       <h3 class="result__title">
-        {{ data.title }}
+        {{ result.title_ru }}
       </h3>
       <p class="result__text">
-        {{ data.text }}
+        {{ result.description_ru }}
       </p>
     </div>
   </article>
@@ -20,7 +20,7 @@
 export default {
   name: 'Result',
   props: {
-    data: {
+    result: {
       type: Object,
       default: () => {}
     }

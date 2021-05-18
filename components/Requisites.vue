@@ -1,10 +1,15 @@
 <template>
   <div class="requisites">
     <p class="requisites__organization">
-      {{ $t('requisites.companyName') }}: <span class="requisites__organization-name">Фонд содействия защите здоровья и социальной справедливости имени Андрея Рылькова</span>
+      {{ $t('requisites.companyName') }}:
+      <span class="requisites__organization-name">
+        {{ pageData.company_name }}
+      </span>
     </p>
     <p class="requisites__organization">
-      {{ $t('requisites.companyShortName') }}: <span class="requisites__organization-name">Фонд имени Андрея Рылькова</span>
+      {{ $t('requisites.companyShortName') }}: <span class="requisites__organization-name">
+        {{ pageData.company_short_name }}
+      </span>
     </p>
     <h4 class="requisites__title">
       {{ $t('requisites.bankRequisites') }}
@@ -12,6 +17,7 @@
     <div class="requisites__container">
       <p class="requisites__name">
         {{ $t('requisites.inn') }}
+        <span class="requisites__detail">{{ pageData.inn }}</span>
         <span class="requisites__detail">7734268614</span>
       </p>
       <p class="requisites__name">
@@ -19,31 +25,31 @@
       </p>
       <p class="requisites__name">
         {{ $t('requisites.kpp') }}
-        <span class="requisites__detail">773401001</span>
+        <span class="requisites__detail">{{ pageData.kpp }}</span>
       </p>
       <p class="requisites__name">
         {{ $t('requisites.bankName') }}:
-        <span class="requisites__detail">ПАО Сбербанк, г. Москва</span>
+        <span class="requisites__detail">{{ pageData.bank }}</span>
       </p>
       <p class="requisites__name">
         {{ $t('requisites.ogrn') }}
-        <span class="requisites__detail">1097799015027</span>
+        <span class="requisites__detail">{{ pageData.ogrn }}</span>
       </p>
       <p class="requisites__name">
         {{ $t('requisites.bik') }}
-        <span class="requisites__detail">044525225</span>
+        <span class="requisites__detail">{{ pageData.bik }}</span>
       </p>
       <p class="requisites__name">
         {{ $t('requisites.correspondentAccount') }}
-        <span class="requisites__detail">30101810400000000225</span>
+        <span class="requisites__detail">{{ pageData.correspondent_account }}</span>
       </p>
       <p class="requisites__name">
         {{ $t('requisites.purpose') }}:
-        <span class="requisites__detail">Пожертвование на уставные цели фонда</span>
+        <span class="requisites__detail">{{ pageData.purpose_ru }}</span>
       </p>
       <p class="requisites__name">
         {{ $t('requisites.bankAccountNumber') }}
-        <span class="requisites__detail">40703810938170002103</span>
+        <span class="requisites__detail">{{ pageData.bank_account }}</span>
       </p>
     </div>
   </div>
@@ -51,7 +57,13 @@
 
 <script>
 export default {
-  name: 'Requisites'
+  name: 'Requisites',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 

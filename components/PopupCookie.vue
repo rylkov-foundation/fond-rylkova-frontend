@@ -1,10 +1,10 @@
 <template>
   <div class="popup__content popup__content_cookie">
     <h3 class="popup__title">
-      Cookies.
+      {{ popupCookiesData.title_ru }}
     </h3>
     <p class="popup__text">
-      Сайт использует куки-файлы.
+      {{ popupCookiesData.description_ru }}
     </p>
     <button
       type="button"
@@ -23,6 +23,10 @@ export default {
     handleAcceptCookies: {
       type: Function,
       required: true
+    },
+    popupCookiesData: {
+      type: Object,
+      default: () => {}
     }
   }
 }

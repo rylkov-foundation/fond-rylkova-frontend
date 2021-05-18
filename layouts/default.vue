@@ -5,11 +5,11 @@
     <div class="container">
       <Nuxt />
     </div>
-    <Footer />
+    <Footer :footer-data="footerData" />
     <div class="popup">
-      <PopupCookie v-if="!isAcceptedCookies" :handle-accept-cookies="acceptCookies" />
-      <PopupAgent />
-      <PopupNews />
+      <PopupCookie v-if="!isAcceptedCookies" :popup-cookies-data="popupCookiesData" :handle-accept-cookies="acceptCookies" />
+      <PopupAgent :popup-download-data="popupDownloadData" />
+      <PopupNews :popup-news-data="popupNewsData" />
     </div>
   </div>
 </template>
@@ -25,6 +25,26 @@ export default {
       popupDownloadData: {},
       popupNewsData: {},
       isAcceptedCookies: true
+    }
+  },
+  head() {
+    return {
+      title: this.meta.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta.Description },
+        { hid: 'keywords', name: 'keywords', content: this.meta.Keywords },
+        { hid: 'site_name', name: 'site_name', content: this.meta.site_name },
+        { hid: 'og:title', name: 'og:title', content: this.meta.title },
+        { hid: 'og:description', name: 'og:description', content: this.meta.og_description },
+        { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.meta.logo.url }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        {
+          rel: 'canonical',
+          href: this.$config.constants.baseUrl + this.$route.path
+        }
+      ]
     }
   },
   created() {

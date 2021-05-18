@@ -1,7 +1,7 @@
 <template>
   <section class="about">
     <p class="about__text">
-      <span class="about__name">ФАР</span> — это организация&#8209;сообще&shy;ство, площадка&nbsp;для инициатив в&nbsp;сфере&nbsp;гуманизации наркополитики.
+      <span class="about__name">ФАР</span> {{ pageData.about.description_ru }}
     </p>
     <svg
       class="about__drop"
@@ -17,7 +17,13 @@
 
 <script>
 export default {
-  name: 'MainAbout'
+  name: 'MainAbout',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 
@@ -40,7 +46,7 @@ export default {
     left: -3px;
     top: 18px;
     background-color: #b23438;
-    width: 72px;
+    width: 100%;
     height: 11px;
   }
 
@@ -54,13 +60,15 @@ export default {
     white-space: pre-line;
     width: 70vw;
     max-width: 348px;
+    min-height: 135px;
   }
 
   .about__drop {
-    align-self: flex-end;
-    margin: auto 11px 20px auto;
     width: 23px;
     height: 40px;
+    position: absolute;
+    right: 9px;
+    top: 165px;
   }
 
   @media screen and (min-width: 768px) {
@@ -69,19 +77,20 @@ export default {
       margin: 31px auto 21px 54px;
       line-height: 43px;
       max-width: 570px;
+      min-height: 212px;
     }
 
     .about__name::after {
       left: -1px;
       top: 34px;
-      width: 107px;
       height: 17px;
     }
 
     .about__drop {
-      margin: auto 24px 5px auto;
       width: 40px;
       height: 65px;
+      top: 255px;
+      right: 17px;
     }
   }
 
@@ -92,21 +101,18 @@ export default {
       line-height: 34px;
       max-width: 860px;
       padding-right: 180px;
+      min-height: 100px;
     }
 
     .about__name::after {
       left: -3px;
       top: 26px;
-      width: 93px;
       height: 11px;
     }
 
     .about__drop {
-      margin: auto 18px 0 0;
       width: 38px;
       height: 64px;
-      position: relative;
-      top: 25px;
     }
   }
 </style>

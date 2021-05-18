@@ -1,31 +1,42 @@
 <template>
   <footer class="footer">
     <h2 class="footer__title">
-      мы в соцсетях
+      {{ footerData.title_ru }}
     </h2>
     <div class="footer__container">
       <div class="footer__social-links">
-        <a href="#" class="footer__social-link footer__social-link_facebook" />
-        <a href="#" class="footer__social-link footer__social-link_instagram" />
-        <a href="#" class="footer__social-link footer__social-link_twitter" />
+        <a
+          v-for="linkItem in footerData.social_links"
+          :key="linkItem.icon._id"
+          class="footer__social-link"
+          :href="linkItem.link"
+          :style="{ backgroundImage: 'url('+ $config.constants.serverUrl + linkItem.icon.url + ')' }"
+          target="_blank"
+        />
         <div class="footer__agent" />
       </div>
       <p class="footer__foreign-agent">
-        Материалы изданы и (или) распространены некоммер&shy;ческой организацией, выполняющей, по мнению Минюста России, функции иностранного агента
+        {{ footerData.foreign_agent_text_ru }}
       </p>
       <p class="footer__license">
-        За исключением специально оговоренных случаев, содержание сайта залицензировано под <a href="#" class="footer__license-link">Creative Commons Attribution 3.0 License</a>
+        {{ footerData.license_text_ru }}
       </p>
     </div>
     <p class="footer__copyright">
-      ФАР 2021
+      ФАР {{ footerData.year }}
     </p>
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  props: {
+    footerData: {
+      type: Object,
+      default: () => {}
+    }
+  }
 }
 </script>
 
@@ -93,6 +104,7 @@ export default {
     margin: 0 auto 81px;
     padding-left: 27px;
     position: relative;
+    background-repeat: no-repeat;
   }
 
   .footer__social-link {
@@ -106,18 +118,6 @@ export default {
 
   .footer__social-link:hover {
     opacity: 0.7;
-  }
-
-  .footer__social-link_facebook {
-    background-image: url("~/assets/images/facebook.svg");
-  }
-
-  .footer__social-link_instagram {
-    background-image: url("~/assets/images/instagram.svg");
-  }
-
-  .footer__social-link_twitter {
-    background-image: url("~/assets/images/twitter.svg");
   }
 
   .footer__agent {

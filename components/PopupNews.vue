@@ -4,13 +4,13 @@
     class="popup__content popup__content_news"
   >
     <h3 class="popup__title popup__title_news">
-      Срочная новость
+      {{ popupNewsData.title_ru }}
     </h3>
     <p class="popup__text popup__text_news">
-      В Никола-Ленивце на Масленицу устроили «Великое лежание» и сожгли «Замок корона-людоеда».
+      {{ popupNewsData.description_ru }}
     </p>
     <NuxtLink
-      to="/some_meta_page"
+      :to="popupNewsData.link"
       class="popup__link"
       @click="hidePopup"
     >
@@ -23,6 +23,12 @@
 <script>
 export default {
   name: 'PopupNews',
+  props: {
+    popupNewsData: {
+      type: Object,
+      default: () => {}
+    }
+  },
   data () {
     return {
       PopupNewsVisible: false

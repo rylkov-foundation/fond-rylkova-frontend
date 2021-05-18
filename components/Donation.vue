@@ -2,12 +2,12 @@
   <section ref="donation" class="donation">
     <div class="donation__container">
       <h2 class="donation__title">
-        Поддер&shy;жать <span class="donation__title-mark">фар</span>
+        {{ pageData.donate.title_ru }}
       </h2>
       <div class="donation__image-container">
         <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
       </div>
-      <DonationForm :top-donation-sum="topDonationSum" class="donation__form" />
+      <DonationForm :donation-amount="donationAmount" :top-donation-sum="topDonationSum" class="donation__form" />
       <NuxtLink to="/privacy-policy" class="donation__privacy-policy">
         {{ $t('links.privacyPolicy') }}
       </NuxtLink>
@@ -22,6 +22,14 @@ export default {
     topDonationSum: {
       type: Number,
       default: 0
+    },
+    pageData: {
+      default: () => {},
+      type: Object
+    },
+    donationAmount: {
+      default: () => {},
+      type: Object
     }
   },
   mounted () {

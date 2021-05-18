@@ -2,23 +2,18 @@
   <section class="mission">
     <div class="mission__header-container">
       <h1 class="mission__header">
-        Фонд содействия защите&nbsp;здоровья и соци&shy;альной справедливости имени Андрея<br class="mission__header-br"> Рылькова
+        {{ pageData.about.title_ru }}
       </h1>
     </div>
     <div class="mission__container">
       <div class="mission__mission-container">
-        <h2 class="mission__subtitle">
-          <span class="mark">Наша</span>
-          <br>
-          <span class="mark mark_long">миссия</span>
+        <h2 ref="titleContainer" class="mission__subtitle">
+          <span v-for="line in splitTitle" :key="line" class="mission__title-text">{{ line }}</span>
         </h2>
         <p class="mission__our-mission">
-          способствовать развитию наркополитики, основанной на&nbsp;гуманности, терпимости, защите здоро&shy;вья, достоинства и прав человека.
+          {{ pageData.mission.description_ru }}
         </p>
       </div>
-      <p class="mission__principles">
-        Работа ФАР строится на принципах горизон&shy;тального управления и разви&shy;тия проектов на&nbsp;основе инициатив людей, употребляющих наркотики, активистов и активисток, профессио&shy;налов и профес&shy;сионалок в области об&shy;щественного здравоохранения и защиты прав человека.
-      </p>
       <NuxtLink to="/about-us" class="link">
         {{ $t('links.moreAboutUs') }} &gt;
       </NuxtLink>
@@ -32,8 +27,41 @@
 </template>
 
 <script>
+import splitLine from '@/utilites/splitLine'
+
 export default {
-  name: 'OurMission'
+  name: 'OurMission',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  },
+  data () {
+    return {
+      splitTitle: [],
+      resizeTimeout: null
+    }
+  },
+  beforeMount () {
+    this.handleSplitTitle()
+  },
+  mounted () {
+    window.addEventListener('resize', this.handleSplitTitle)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleSplitTitle)
+  },
+  methods: {
+    handleSplitTitle () {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.splitTitle = splitLine(this.pageData.mission.title_ru, this.$refs.titleContainer)
+        }, 40)
+      }
+    }
+  }
 }
 </script>
 
@@ -60,51 +88,43 @@ export default {
 
   .mission__subtitle {
     float: left;
-    margin-bottom: -10px;
-    margin-right: 8px;
+    margin-bottom: -6px;
+    margin-right: 32px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 22px;
+    font-family: Vollkorn, Times, serif;
+    width: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .mission__our-mission {
-    margin: 35px 14px 0 0;
-    line-height: 17px;
-  }
-
-  .mark {
+  .mission__title-text {
     text-transform: uppercase;
     font-weight: bold;
     position: relative;
     font-size: 27px;
     line-height: 22px;
+    font-family: Vollkorn, Times, serif;
     color: #484848;
   }
 
-  .mark::before {
+  .mission__title-text::after {
     content: '';
     position: absolute;
     background-color: #b23438;
     left: -2px;
-    top: 19px;
-    width: 92px;
+    bottom: 2px;
+    width: 100%;
     height: 7px;
   }
 
-  .mark_long::before {
-    width: 129px;
-    left: -3px;
-    z-index: 1;
-  }
-
-  .mark_long::after {
-    content: ':';
-    position: relative;
-    top: -3px;
-    right: -2px;
-  }
-
-  .mission__principles {
-    margin: 13px 14px 22px 18px;
+  .mission__our-mission {
+    margin: 35px 14px 0 0;
     line-height: 17px;
-    word-spacing: 0;
   }
 
   .link {
@@ -147,10 +167,6 @@ export default {
   }
 
   @media screen and (min-width: 420px) {
-    .mission__header-br {
-      display: none;
-    }
-
     .mission__crystal {
       top: 65px;
     }
@@ -174,40 +190,29 @@ export default {
       padding: 47px 0 0 50px;
     }
 
-    .mark {
+    .mission__subtitle {
+      margin-bottom: -11px;
+      margin-right: 48px;
+      margin-top: -3px;
+      font-size: 52px;
+      line-height: 45px;
+      width: 200px;
+    }
+
+    .mission__title-text {
       font-size: 52px;
       line-height: 45px;
       letter-spacing: 2px;
     }
 
-    .mark::before {
-      left: -5px;
-      top: 37px;
-      width: 184px;
+    .mission__title-text::after {
       height: 14px;
-    }
-
-    .mark_long::before {
-      height: 14px;
-      width: 259px;
-      top: 36px;
-      left: -7px;
-    }
-
-    .mission__subtitle {
-      margin-right: 11px;
     }
 
     .mission__our-mission {
       margin: 56px 45px 0 0;
       font-size: 32px;
       line-height: 34px;
-    }
-
-    .mission__principles {
-      font-size: 32px;
-      line-height: 34px;
-      margin: 16px 50px 19px 50px;
     }
 
     .link {
@@ -268,22 +273,24 @@ export default {
       padding: 40px 0 0 91px;
     }
 
-    .mark {
+    .mission__subtitle {
+      margin-bottom: -6px;
+      margin-right: 17px;
+      margin-top: 6px;
+      font-size: 22px;
+      line-height: 22px;
+      letter-spacing: 0;
+      width: 85px;
+    }
+
+    .mission__title-text {
       font-size: 22px;
       line-height: 22px;
       letter-spacing: 0;
     }
 
-    .mark::before {
-      left: 1px;
-      top: 17px;
-      width: 80px;
+    .mission__title-text::after {
       height: 7px;
-    }
-
-    .mark_long::before {
-      width: 105px;
-      top: 17px;
     }
 
     .mission__our-mission {
@@ -291,12 +298,6 @@ export default {
       line-height: 22px;
       margin-top: 27px;
       margin-right: 85px;
-    }
-
-    .mission__principles {
-      font-size: 22px;
-      line-height: 22px;
-      margin: 16px 102px 0 92px;
     }
 
     .link {

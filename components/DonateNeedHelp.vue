@@ -1,24 +1,30 @@
 <template>
   <div class="donate-need-help">
     <h3 class="donate-need-help__title">
-      БФ “Нужна помощь"
+      {{ pageData.title_ru }}
     </h3>
     <div class="donate-need-help__wrapper">
-      <img class="donate-need-help__qr" alt="QR код" src="~/assets/images/qr.gif">
+      <img
+        class="donate-need-help__qr"
+        alt="QR код"
+        :src="$config.constants.serverUrl +pageData.qr_code.url"
+      >
     </div>
     <p class="donate-need-help__text">
-      Пожертвовать через сайт Фонда “Нужна помощь”:
-      наш фонд вошел в пул проверенных проектов ресурса «Нужна помощь».
-      Теперь на сайте ресурса можно перевести пожертвование в адрес организации или оформить
-      ежемесячную подписку от 1 рубля — это поможет нам планировать долгосрочные программы по
-      профилактике ВИЧ и передозировок среди уличных потребителей наркотиков.
+      {{ pageData.description_ru }}
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DonateNeedHelp'
+  name: 'DonateNeedHelp',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 

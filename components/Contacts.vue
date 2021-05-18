@@ -18,15 +18,16 @@
       <div class="contacts__black-container">
         <div class="contacts__image" />
         <p class="contacts__text">
-          Если вы уптребляете наркотики  и Вам нужна помощь по вопросам защиты прав, консультации психолога,
-          профилактические материалы и тд, тел:
+          {{ pageData.description_ru }}
         </p>
         <div class="contacts__telephone-block">
-          <a class="contacts__telephone-number" href="tel:+79268879087">+7-(926)-887-90-87</a>
+          <a class="contacts__telephone-number" :href="'tel:'+pageData.phone_number">
+            {{ pageData.phone_number }}
+          </a>
         </div>
         <div class="contacts__email-block">
-          <a class="contacts__email" href="mailto:rylkov.foundation@gmail.com" target="_blank">
-            rylkov.foundation@gmail.com
+          <a class="contacts__email" :href="'mailto:'+pageData.email" target="_blank">
+            {{ pageData.email }}
           </a>
         </div>
       </div>
@@ -34,19 +35,14 @@
     <div class="contacts__grid-list-container">
       <ul class="contacts__list">
         <Contact
-          v-for="(contact,index) in contactData"
-          :key="contact.id"
+          v-for="(contact,index) in pageData.contacts_items"
+          :key="contact._id"
           :contact="contact"
           :index="index"
         />
       </ul>
       <p class="contacts__info">
-        Фонд содействия защите здоровья  и социальной справедливости им.
-        Андрея Рылькова  зарегистрировался совсем недавно, по меркам более чем 20-летней
-        истории существования ВИЧ-инфекции в Российской Федерации, существования СПИД-сервисных организаций.
-        Зарегистрировался в то время, когда многие организации стали сворачивать свою деятельность, а более
-        предприимчивые – менять цели и задачи своей работы. Сейчас ведь модно говорить о здоровом образе жизни,
-        бороться с курением, алкоголизмом, да мало ли на что еще государство дает деньги
+        {{ pageData.text_ru }}
       </p>
     </div>
   </section>
@@ -61,34 +57,16 @@ export default {
   components: {
     Drop
   },
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  },
   data () {
     return {
-      titleText: 'Контакты',
       splitTitle: [],
-      resizeTimeout: null,
-      contactData: [
-        {
-          id: '1',
-          imageLink: 'Delphinov.png',
-          name: ' Дарья  Байбакова',
-          position: 'Директорзаведения',
-          telephone: '+79060741192'
-        },
-        {
-          id: '2',
-          imageLink: 'Delphinov.png',
-          name: ' Дарья  Байбакова',
-          position: 'Директорзаведения',
-          telephone: '+79060741192'
-        },
-        {
-          id: '3',
-          imageLink: 'Delphinov.png',
-          name: ' Дарья  Байбакова',
-          position: 'Директорзаведения',
-          telephone: '+79060741192'
-        }
-      ]
+      resizeTimeout: null
     }
   },
   beforeMount () {
@@ -105,7 +83,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.titleText, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData.title_ru, this.$refs.titleContainer)
         }, 40)
       }
     }
