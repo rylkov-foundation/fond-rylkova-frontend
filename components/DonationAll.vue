@@ -63,6 +63,7 @@ export default {
 <style scoped>
   .donation-page {
     position: relative;
+    width: 100%;
   }
 
   .donation-page__container {

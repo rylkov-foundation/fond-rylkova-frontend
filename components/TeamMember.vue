@@ -104,6 +104,8 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 282px;
+    min-width: 292px;
   }
 
   .team-member__container_color_white {
