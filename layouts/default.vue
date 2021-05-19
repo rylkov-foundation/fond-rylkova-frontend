@@ -89,7 +89,6 @@ export default {
 
   .container {
     margin: 0 auto;
-    min-height: 100vh;
     min-width: 320px;
     display: flex;
     flex-direction: column;

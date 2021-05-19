@@ -51,6 +51,9 @@ export default {
   beforeDestroy () {
     window.removeEventListener('resize', this.handleSplitTitle)
   },
+  updated() {
+    this.handleSplitTitle()
+  },
   methods: {
     handleSplitTitle () {
       if (!this.resizeTimeout) {

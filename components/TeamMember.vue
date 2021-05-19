@@ -66,6 +66,9 @@ export default {
   beforeDestroy () {
     window.removeEventListener('resize', this.handleSplitTitle)
   },
+  updated() {
+    this.handleSplitTitle()
+  },
   methods: {
     handleSplitTitle () {
       if (!this.resizeTimeout) {
@@ -206,7 +209,7 @@ export default {
     }
 
     .team-member__container {
-      max-width: 695px;
+      width: 695px;
       background-color: #fff;
       margin-top: 0;
       margin-right: 10px;
@@ -215,7 +218,7 @@ export default {
       align-self: stretch;
       justify-content: flex-start;
       border-radius: 43px;
-      height: 330px;
+      min-height: 330px;
     }
 
     .team-member__title {

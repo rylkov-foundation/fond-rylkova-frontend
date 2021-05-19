@@ -52,6 +52,9 @@ export default {
   beforeDestroy () {
     window.removeEventListener('resize', this.handleSplitTitle)
   },
+  updated() {
+    this.handleSplitTitle()
+  },
   methods: {
     handleSplitTitle () {
       if (!this.resizeTimeout) {
@@ -252,6 +255,7 @@ export default {
 
     .mission__header-container {
       background-color: #b23438;
+      min-height: 79px;
     }
 
     .mission__header {
@@ -260,6 +264,7 @@ export default {
       padding: 25px 50px;
       max-width: 710px;
       margin-left: auto;
+      min-height: 129px;
     }
 
     .mission__container {
