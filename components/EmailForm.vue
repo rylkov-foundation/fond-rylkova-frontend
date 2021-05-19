@@ -3,7 +3,7 @@
     <label class="email-form__theme">{{ $t('emailForm.subject') }}
       <input class="email-form__input" type="text">
     </label>
-    <textarea class="email-form__textarea" :placeholder="$t('emailForm.placeholder')" />
+    <textarea class="email-form__textarea" :placeholder="$t('emailForm.textareaPlaceholder')" />
     <label class="email-form__label">{{ $t('emailForm.name') }}
       <input class="email-form__input email-form__input_position_bottom" type="text">
     </label>

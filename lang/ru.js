@@ -32,7 +32,7 @@ export default {
     name: 'Имя',
     email: 'E-mail',
     submitButtonText: 'Отправить',
-    placeholder: 'Письмо...'
+    textareaPlaceholder: 'Письмо...'
   },
   requisites: {
     title: 'Реквизиты',

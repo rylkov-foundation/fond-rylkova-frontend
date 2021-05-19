@@ -1,36 +1,36 @@
 <template>
   <li
     class="project"
-    :class="{ 'project_position_even': ($attrs.index+1)%2 === 0}"
+    :class="{ 'project_position_even': ($attrs.index + 1) % 2 === 0 }"
   >
     <h3
       class="project__title"
-      :class="{ 'project__title_position_even': ($attrs.index+1)%2 === 0}"
+      :class="{ 'project__title_position_even': ($attrs.index + 1) % 2 === 0 }"
     >
-      {{ project.title_ru }}
+      {{ project['title_' + $i18n.locale] }}
     </h3>
     <div
       class="project__text-container"
-      :class="{ 'project__text-container_position_even': ($attrs.index+1)%2 === 0}"
+      :class="{ 'project__text-container_position_even': ($attrs.index + 1) % 2 === 0 }"
     >
       <p
         class="project__date"
-        :class="{ 'project__date_position_even': ($attrs.index+1)%2 === 0}"
+        :class="{ 'project__date_position_even': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ project.date_ru }}
+        {{ project['date_' + $i18n.locale] }}
       </p>
       <p
         class="project__description"
-        :class="{ 'project__description_position_even': ($attrs.index+1)%2 === 0}"
+        :class="{ 'project__description_position_even': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ project.description_ru }}
+        {{ project['description_' + $i18n.locale] }}
       </p>
     </div>
     <img
       :src="$config.constants.serverUrl +project.image.url"
-      :alt="project.title_ru"
+      :alt="project.project['title_' + $i18n.locale]"
       class="project__photo"
-      :class="{ 'project__photo_position_even': ($attrs.index+1)%2 === 0}"
+      :class="{ 'project__photo_position_even': ($attrs.index + 1) % 2 === 0 }"
     >
   </li>
 </template>

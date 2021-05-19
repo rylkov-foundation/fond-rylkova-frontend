@@ -4,7 +4,7 @@
     <Support />
     <div class="team__container">
       <h2 class="team__title">
-        {{ pageData.title_ru }}
+        {{ pageData['title_' + $i18n.locale] }}
       </h2>
       <div class="team__image" />
     </div>

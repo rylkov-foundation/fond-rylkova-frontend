@@ -15,11 +15,11 @@
                 class="menu__list-text"
                 :class="{ 'menu__list-text_active': matchUrl(item) }"
               >
-                {{ item.name_ru }}
+                {{ item['name_' + $i18n.locale] }}
               </p>
               <div v-else @click="closeMenu">
                 <NuxtLink class="menu__link" :to="item.url">
-                  {{ item.name_ru }}
+                  {{ item['name_' + $i18n.locale] }}
                 </NuxtLink>
               </div>
               <span
@@ -39,14 +39,14 @@
                     :to="subitem.url"
                     @click.native="closeMenu"
                   >
-                    {{ subitem.name_ru }}
+                    {{ subitem['name_' + $i18n.locale] }}
                   </NuxtLink>
                   <p
                     v-else
                     class="menu__sublist-text"
                     :class="{ 'menu__sublist-text_active': matchUrl(subitem) }"
                   >
-                    {{ subitem.name_ru }}
+                    {{ subitem['name_' + $i18n.locale] }}
                   </p>
                 </li>
               </ul>

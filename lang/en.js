@@ -32,7 +32,7 @@ export default {
     name: 'Name',
     email: 'E-mail',
     submitButtonText: 'Send',
-    placeholder: 'Letter...'
+    textareaPlaceholder: 'Your message...'
   },
   requisites: {
     title: 'Requisites',

@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <h2 class="footer__title">
-      {{ footerData.title_ru }}
+      {{ footerData['title_' + $i18n.locale] }}
     </h2>
     <div class="footer__container">
       <div class="footer__social-links">
@@ -16,10 +16,10 @@
         <div class="footer__agent" />
       </div>
       <p class="footer__foreign-agent">
-        {{ footerData.foreign_agent_text_ru }}
+        {{ footerData['foreign_agent_text_' + $i18n.locale] }}
       </p>
       <p class="footer__license">
-        {{ footerData.license_text_ru }}
+        {{ footerData['license_text_' + $i18n.locale] }}
       </p>
     </div>
     <p class="footer__copyright">

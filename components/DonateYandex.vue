@@ -1,10 +1,10 @@
 <template>
   <div class="donate-yandex">
     <h3 class="donate-yandex__title">
-      {{ pageData.title_ru }}
+      {{ pageData['title_' + $i18n.locale] }}
     </h3>
     <p class="donate-yandex__text">
-      {{ pageData.description_ru }}
+      {{ pageData['description_' + $i18n.locale] }}
     </p>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <section class="about">
     <p class="about__text">
-      <span class="about__name">ФАР</span> {{ pageData.about.description_ru }}
+      <span class="about__name">ФАР</span> {{ pageData.about['description_' + $i18n.locale] }}
     </p>
     <svg
       class="about__drop"
