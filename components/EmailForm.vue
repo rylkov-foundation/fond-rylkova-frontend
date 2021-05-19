@@ -117,7 +117,7 @@ export default {
     border: 1px solid #838383;
     outline: none;
     border-radius: 10px;
-    min-width: 204px;
+    min-width: 170px;
     width: 64%;
     font-family: Vollkorn, Times, serif;
     font-size: 15px;

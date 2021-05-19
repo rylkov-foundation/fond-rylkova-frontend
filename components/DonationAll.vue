@@ -10,7 +10,7 @@
       <div class="donation-page__container">
         <Smile class="donation-page__image" />
         <h2 class="donation-page__title">
-          {{ pageData['title_' + $i18n.locale] }}
+          {{ pageData.donation['title_' + $i18n.locale] }}
         </h2>
         <DonationForm class="donation-page__form" :is-donation-page="true" :donation-amount="donationAmount" />
         <NuxtLink to="/privacy-policy" class="donation-page__privacy-policy">
@@ -19,7 +19,7 @@
       </div>
       <div class="donation-page__container-description">
         <p class="donation-page__how-to-donate">
-          {{ pageData['description_' + $i18n.locale] }}
+          {{ pageData.donation['description_' + $i18n.locale] }}
         </p>
       </div>
     </div>
@@ -63,6 +63,7 @@ export default {
 <style scoped>
   .donation-page {
     position: relative;
+    width: 100%;
   }
 
   .donation-page__container {

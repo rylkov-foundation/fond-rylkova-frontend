@@ -1,12 +1,21 @@
 <template>
   <router-link to="donation" class="logo">
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo__image">
+    <img :src="'_nuxt/assets/images/logo_white_' + [$i18n.locale] + '.png'" alt="Логотип" class="logo__image">
   </router-link>
 </template>
 
 <script>
+import imageRu from '@/assets/images/logo_white_ru.png'
+import imageEn from '@/assets/images/logo_white_en.png'
+
 export default {
-  name: 'LogoWhite'
+  name: 'LogoWhite',
+  data () {
+    return {
+      image_ru: imageRu,
+      image_en: imageEn
+    }
+  }
 }
 </script>
 
@@ -28,6 +37,12 @@ export default {
 
   .logo:hover {
     opacity: 0.8;
+  }
+
+  .logo__image {
+    object-fit: cover;
+    width: 117px;
+    height: 86px;
   }
 }
 </style>
