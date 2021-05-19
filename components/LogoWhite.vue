@@ -1,6 +1,6 @@
 <template>
   <router-link to="donation" class="logo">
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo__image">
+    <img :src="'_nuxt/assets/images/logo_white_' + [$i18n.locale] + '.png'" alt="Логотип" class="logo__image">
   </router-link>
 </template>
 
@@ -28,6 +28,12 @@ export default {
 
   .logo:hover {
     opacity: 0.8;
+  }
+
+  .logo__image {
+    object-fit: cover;
+    width: 117px;
+    height: 86px;
   }
 }
 </style>
