@@ -60,7 +60,7 @@ export default {
   computed: {
     error () {
       if (!this.subject || !this.text || !this.name || !this.email || !validator.isEmail(this.email)) {
-        return this.$t('emailForm.validationMessages.emailForm')
+        return this.$t('emailForm.validationMessages.message')
       } else {
         return ''
       }

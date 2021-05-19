@@ -36,7 +36,7 @@ export default {
     success: 'Sent!',
     fail: 'Sending failed. Please try again later =(',
     validationMessages: {
-      emailForm: 'Need to fill out all of the form fields'
+      message: 'Need to fill out all of the form fields'
     }
   },
   requisites: {

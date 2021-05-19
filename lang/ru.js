@@ -36,7 +36,7 @@ export default {
     success: 'Отправлено!',
     fail: 'Ошибка отправки попробуйте пожалуйста позже =(',
     validationMessages: {
-      emailForm: 'Необходимо заполнить все поля формы'
+      message: 'Необходимо заполнить все поля формы'
     }
   },
   requisites: {
