@@ -57,5 +57,11 @@ export default {
   menu: {
     mainPage: 'Main',
     menuText: 'Menu'
+  },
+  rylkov: {
+    rylkovTitleFirst: 'Who is',
+    rylkovTitleSecond: 'Andrey Rylkov',
+    name: 'Andrey',
+    surname: 'Rylkov'
   }
 }

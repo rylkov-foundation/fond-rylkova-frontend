@@ -197,7 +197,7 @@ export default {
 
     .email-form__theme {
       font-size: 36px;
-      line-height: 17px;
+      line-height: 27px;
       padding-left: 0;
       align-items: flex-end;
       margin: 0 0 14px -27px;
@@ -208,6 +208,7 @@ export default {
       width: 375px;
       font-size: 30px;
       line-height: 30px;
+      margin-left: 5px;
     }
 
     .email-form__textarea {
