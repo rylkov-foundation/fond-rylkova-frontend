@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__text" />
+    <div class="header__text" :class="{ header__text_en: $i18n.locale === 'en' }" />
     <LanguageButton />
   </header>
 </template>
@@ -35,7 +35,22 @@ export default {
     }
 
     to {
-      background-position: 641px -215%;
+      background-position: 680px -215%;
+    }
+  }
+
+  .header__text_en {
+    background-image: url("~/assets/images/title_en.svg");
+    animation: animate_en 7s linear infinite;
+  }
+
+  @keyframes animate_en {
+    from {
+      background-position: 0 -250%;
+    }
+
+    to {
+      background-position: 580px -250%;
     }
   }
 
@@ -56,6 +71,20 @@ export default {
 
       to {
         background-position: 926px 28px;
+      }
+    }
+
+    .header__text_en {
+      animation: animate_en 10s linear infinite;
+    }
+
+    @keyframes animate_en {
+      from {
+        background-position: 0 -400%;
+      }
+
+      to {
+        background-position: 926px -400%;
       }
     }
   }
