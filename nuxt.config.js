@@ -58,7 +58,8 @@ export default {
     }
   },
   serverMiddleware: [
-    { path: '/donation-query', handler: '~/server-middleware/donation.js' }
+    { path: '/donation-query', handler: '~/server-middleware/donation.js' },
+    { path: '/mail', handler: '~/server-middleware/mail.js' }
   ],
   server: {
     host: process.env.HOST || 'localhost',

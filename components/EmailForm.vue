@@ -1,29 +1,91 @@
 <template>
-  <form class="email-form">
-    <label class="email-form__theme">{{ $t('emailForm.subject') }}
-      <input class="email-form__input" type="text">
-    </label>
-    <textarea class="email-form__textarea" :placeholder="$t('emailForm.textareaPlaceholder')" />
-    <label class="email-form__label">{{ $t('emailForm.name') }}
-      <input class="email-form__input email-form__input_position_bottom" type="text">
-    </label>
-    <label class="email-form__label">{{ $t('emailForm.email') }}
-      <input class="email-form__input email-form__input_position_bottom" type="email">
-    </label>
-    <div class="email-form__container">
-      <p class="email-form__arrows">
-        &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+  <div>
+    <p v-show="sent" class="email-result">
+      {{ sendingError ? $t('emailForm.fail') : 'emailForm.success' }}
+    </p>
+    <form v-show="!sent" class="email-form" @submit.prevent="onSubmit">
+      <label class="email-form__theme">{{ $t('emailForm.subject') }}
+        <input v-model="subject" class="email-form__input" type="text" required>
+      </label>
+      <textarea
+        v-model="text"
+        class="email-form__textarea"
+        :placeholder="$t('emailForm.textareaPlaceholder')"
+        required
+      />
+      <label class="email-form__label">{{ $t('emailForm.name') }}
+        <input v-model="name" class="email-form__input email-form__input_position_bottom" type="text" required>
+      </label>
+      <label class="email-form__label">{{ $t('emailForm.email') }}
+        <input v-model="email" class="email-form__input email-form__input_position_bottom" type="email" required>
+      </label>
+      <p
+        class="form__error"
+        :class="error && 'form__error_visible'"
+      >
+        {{ error }}
       </p>
-      <button type="submit" class="email-form__submit-button">
-        {{ $t('emailForm.submitButtonText') }}
-      </button>
-    </div>
-  </form>
+      <div class="email-form__container">
+        <p class="email-form__arrows">
+          &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+        </p>
+        <button
+          type="submit"
+          class="email-form__submit-button"
+          :class="{ 'email-form__submit-button_disabled': error !== '' }"
+          :disabled="error !== ''"
+        >
+          {{ $t('emailForm.submitButtonText') }}
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
+import validator from 'validator'
+
 export default {
-  name: 'EmailForm'
+  name: 'EmailForm',
+  data() {
+    return {
+      subject: '',
+      text: '',
+      name: '',
+      email: '',
+      sent: false,
+      sendingError: false
+    }
+  },
+  computed: {
+    error () {
+      if (!this.subject || !this.text || !this.name || !this.email || !validator.isEmail(this.email)) {
+        return this.$t('emailForm.validationMessages.emailForm')
+      } else {
+        return ''
+      }
+    }
+  },
+  methods: {
+    onSubmit () {
+      this.$axios.$post(
+        'mail/send',
+        {
+          subject: this.subject,
+          text: this.text,
+          name: this.name,
+          email: this.email
+        }
+      )
+        .then(() => {
+          this.sent = true
+        })
+        .catch(() => {
+          this.sent = true
+          this.sendingError = true
+        })
+    }
+  }
 }
 </script>
 
@@ -101,6 +163,19 @@ export default {
     justify-content: space-between;
   }
 
+  .form__error {
+    margin-top: 5px;
+    visibility: hidden;
+    color: #b23438;
+    font-size: 12px;
+    text-align: right;
+    height: 18px;
+  }
+
+  .form__error_visible {
+    visibility: visible;
+  }
+
   .email-form__container {
     display: flex;
     justify-content: space-between;
@@ -138,6 +213,15 @@ export default {
     cursor: pointer;
   }
 
+  .email-form__submit-button_disabled {
+    background-color: #7f7f7f;
+  }
+
+  .email-form__submit-button_disabled:hover {
+    opacity: 1;
+    cursor: default;
+  }
+
   @media screen and (min-width: 768px) {
     .email-form {
       max-width: 85%;
@@ -171,6 +255,16 @@ export default {
       line-height: 16px;
       padding-left: 29px;
       margin-bottom: 12px;
+    }
+
+    .form__error {
+      margin-top: 5px;
+      margin-right: 5px;
+      font-size: 20px;
+    }
+
+    .form__error_visible {
+      visibility: visible;
     }
 
     .email-form__container {
@@ -226,6 +320,16 @@ export default {
       padding-left: 0;
       margin-bottom: 12px;
       max-width: 462px;
+    }
+
+    .form__error {
+      margin-top: 5px;
+      margin-right: 27px;
+      font-size: 20px;
+    }
+
+    .form__error_visible {
+      visibility: visible;
     }
 
     .email-form__container {

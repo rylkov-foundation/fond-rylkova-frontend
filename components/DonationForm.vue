@@ -572,7 +572,7 @@ export default {
 
 .form__error {
   margin-top: 5px;
-  opacity: 0;
+  visibility: hidden;
   color: #b23438;
   font-size: 12px;
   text-align: center;
@@ -580,7 +580,7 @@ export default {
 }
 
 .form__error_visible {
-  opacity: 1;
+  visibility: visible;
 }
 
 @media screen and (min-width: 768px) {

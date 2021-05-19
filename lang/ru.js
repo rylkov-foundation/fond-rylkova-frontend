@@ -32,7 +32,12 @@ export default {
     name: 'Имя',
     email: 'E-mail',
     submitButtonText: 'Отправить',
-    textareaPlaceholder: 'Письмо...'
+    textareaPlaceholder: 'Письмо...',
+    success: 'Отправлено!',
+    fail: 'Ошибка отправки попробуйте пожалуйста позже =(',
+    validationMessages: {
+      emailForm: 'Необходимо заполнить все поля формы'
+    }
   },
   requisites: {
     title: 'Реквизиты',

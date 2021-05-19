@@ -21,7 +21,7 @@ export default {
     validationMessages: {
       minAmount: 'Minimum amount is {minAmount} rubles',
       needAcceptOffer: 'Need to accept the offer',
-      needFillFields: 'Need to fill name and email'
+      needFillFields: 'Need to fill out name and email'
     }
   },
   support: {
@@ -32,7 +32,12 @@ export default {
     name: 'Name',
     email: 'E-mail',
     submitButtonText: 'Send',
-    textareaPlaceholder: 'Your message...'
+    textareaPlaceholder: 'Your message...',
+    success: 'Sent!',
+    fail: 'Sending failed. Please try again later =(',
+    validationMessages: {
+      emailForm: 'Need to fill out all of the form fields'
+    }
   },
   requisites: {
     title: 'Requisites',
