@@ -5,8 +5,17 @@
 </template>
 
 <script>
+import imageRu from '@/assets/images/logo_white_ru.png'
+import imageEn from '@/assets/images/logo_white_en.png'
+
 export default {
-  name: 'LogoWhite'
+  name: 'LogoWhite',
+  data () {
+    return {
+      image_ru: imageRu,
+      image_en: imageEn
+    }
+  }
 }
 </script>
 
