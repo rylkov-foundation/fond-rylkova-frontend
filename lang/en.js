@@ -31,7 +31,8 @@ export default {
     subject: 'subject',
     name: 'Name',
     email: 'E-mail',
-    submitButtonText: 'Send'
+    submitButtonText: 'Send',
+    placeholder: 'Letter...'
   },
   requisites: {
     title: 'Requisites',
@@ -56,5 +57,11 @@ export default {
   menu: {
     mainPage: 'Main',
     menuText: 'Menu'
+  },
+  rylkov: {
+    rylkovTitleFirst: 'Who is',
+    rylkovTitleSecond: 'Andrey Rylkov',
+    name: 'Andrey',
+    surname: 'Rylkov'
   }
 }

@@ -161,12 +161,13 @@ export default {
 
   .main__image-block {
     background-color: #000;
-    width: 100%;
+    width: 99%;
     border-radius: 60%;
     position: relative;
     top: -10px;
     align-self: center;
     display: flex;
+    margin-right: auto;
   }
 
   .main__eye {
@@ -186,7 +187,7 @@ export default {
     top: 1px;
   }
 
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 525px) {
     .main__money-block {
       margin: 0 0 0 5px;
       max-width: 490px;

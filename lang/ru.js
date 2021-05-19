@@ -31,7 +31,8 @@ export default {
     subject: 'тема',
     name: 'Имя',
     email: 'E-mail',
-    submitButtonText: 'Отправить'
+    submitButtonText: 'Отправить',
+    placeholder: 'Письмо...'
   },
   requisites: {
     title: 'Реквизиты',
@@ -56,5 +57,11 @@ export default {
   menu: {
     mainPage: 'Главная',
     menuText: 'Меню'
+  },
+  rylkov: {
+    rylkovTitleFirst: 'Кто такой',
+    rylkovTitleSecond: 'Андрей Рыльков',
+    name: 'Андрей',
+    surname: 'Рыльков'
   }
 }

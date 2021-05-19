@@ -3,7 +3,7 @@
     <label class="email-form__theme">{{ $t('emailForm.subject') }}
       <input class="email-form__input" type="text">
     </label>
-    <textarea class="email-form__textarea" placeholder="Письмо..." />
+    <textarea class="email-form__textarea" :placeholder="$t('emailForm.placeholder')" />
     <label class="email-form__label">{{ $t('emailForm.name') }}
       <input class="email-form__input email-form__input_position_bottom" type="text">
     </label>
@@ -197,7 +197,7 @@ export default {
 
     .email-form__theme {
       font-size: 36px;
-      line-height: 17px;
+      line-height: 27px;
       padding-left: 0;
       align-items: flex-end;
       margin: 0 0 14px -27px;
@@ -208,6 +208,7 @@ export default {
       width: 375px;
       font-size: 30px;
       line-height: 30px;
+      margin-left: 5px;
     }
 
     .email-form__textarea {

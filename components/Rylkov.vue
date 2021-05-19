@@ -11,25 +11,23 @@
     <div class="info__wrapper">
       <div class="info__container">
         <p class="info__rylkov">
-          Рыльков
+          {{ $t('rylkov.surname') }}
         </p>
         <p class="info__rylkov">
-          Андрей Рыльков
+          {{ $t('rylkov.rylkovTitleSecond') }}
         </p>
         <h2 class="info__title">
-          Кто такой
-        </h2>
-        <h2 class="info__title-rylkov">
-          Андрей Рыльков
+          <span class="info__title-start">{{ $t('rylkov.rylkovTitleFirst') }}</span>
+          <span class="info__title-rylkov">{{ $t('rylkov.rylkovTitleSecond') }}</span>
         </h2>
         <p class="info__rylkov">
-          Андрей Рыльков
+          {{ $t('rylkov.rylkovTitleSecond') }}
         </p>
         <p class="info__rylkov">
-          Андрей Рыльков
+          {{ $t('rylkov.rylkovTitleSecond') }}
         </p>
         <p class="info__rylkov">
-          Андрей
+          {{ $t('rylkov.name') }}
         </p>
       </div>
       <img
@@ -83,7 +81,7 @@ export default {
     color: #fff;
     max-width: 143px;
     text-align: left;
-    margin: 19px 10px 7px 14px;
+    margin: 19px 10px 0 14px;
     letter-spacing: -3px;
   }
 
@@ -92,6 +90,7 @@ export default {
   }
 
   .info__title-rylkov {
+    display: block;
     font-family: Vollkorn, Times, serif;
     font-weight: 600;
     line-height: 36px;
@@ -100,7 +99,7 @@ export default {
     color: #cbcbcb;
     text-align: left;
     max-width: 210px;
-    margin: 0 0 0 15px;
+    margin: 10px 0 0;
     letter-spacing: 1px;
   }
 
@@ -203,6 +202,7 @@ export default {
       font-size: 90px;
       line-height: 74px;
       max-width: 455px;
+      font-weight: 800;
     }
 
     .info__text-container {
@@ -300,18 +300,25 @@ export default {
     }
 
     .info__title {
-      top: 81px;
-      right: 259px;
       font-size: 67px;
       line-height: 48px;
       margin: 0;
-      position: absolute;
+      text-align: right;
     }
 
     .info__title-rylkov {
       font-size: 59px;
       line-height: 55px;
       max-width: 288px;
+      text-align: right;
+      margin-right: 13px;
+    }
+
+    .info__title-start {
+      position: absolute;
+      right: 256px;
+      top: 68px;
+      max-width: 270px;
     }
 
     .info__text-container {
