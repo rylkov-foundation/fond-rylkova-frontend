@@ -2,38 +2,39 @@
   <li class="team-member">
     <img
       :src="$config.constants.serverUrl +member.photo.url"
-      :alt="member.name_ru"
+      :alt="member['name_' + $i18n.locale]"
       class="team-member__photo"
     >
     <div
       class="team-member__container"
-      :class="{ 'team-member__container_color_white': ($attrs.index+1)%2 === 0,
-                'team-member__container_position_even': ($attrs.index+1)%2 === 0,
-                'team-member__container_position_fourth': ($attrs.index+1)%4 === 0}"
+      :class="{ 'team-member__container_color_white': ($attrs.index + 1) % 2 === 0,
+                'team-member__container_position_even': ($attrs.index + 1) % 2 === 0,
+                'team-member__container_position_fourth': ($attrs.index + 1) % 4 === 0
+      }"
     >
       <h2
         ref="titleContainer"
         class="team-member__title"
-        :class="{ 'team-member__title_color_white': ($attrs.index+1)%2 === 0,
-                  'team-member__title_position_second': ($attrs.index+1)%2 === 0,
-                  'team-member__title_position_third': ($attrs.index+1)%3 === 0,
-                  'team-member__title_position_fourth': ($attrs.index+1)%4 === 0,
+        :class="{ 'team-member__title_color_white': ($attrs.index + 1) % 2 === 0,
+                  'team-member__title_position_second': ($attrs.index + 1) % 2 === 0,
+                  'team-member__title_position_third': ($attrs.index + 1) % 3 === 0,
+                  'team-member__title_position_fourth': ($attrs.index + 1) % 4 === 0
         }"
       >
         <span
           v-for="line in splitTitle"
           :key="line"
           class="team-member__title-text"
-          :class="{ 'team-member__title-text_position_second': ($attrs.index+1)%2 === 0,
-                    'team-member__title-text_position_third': ($attrs.index+1)%3 === 0,
-                    'team-member__title-text_position_fourth': ($attrs.index+1)%4 === 0,
+          :class="{ 'team-member__title-text_position_second': ($attrs.index + 1) % 2 === 0,
+                    'team-member__title-text_position_third': ($attrs.index + 1) % 3 === 0,
+                    'team-member__title-text_position_fourth': ($attrs.index + 1) % 4 === 0,
           }"
         >
           {{ line }}
         </span>
       </h2>
-      <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index+1)%2 === 0}">
-        {{ member.description_ru }}
+      <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index + 1) % 2 === 0 }">
+        {{ member['description_' + $i18n.locale] }}
       </p>
     </div>
   </li>
@@ -70,7 +71,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.member.name_ru, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.member['name_' + this.$i18n.locale], this.$refs.titleContainer)
         }, 40)
       }
     }

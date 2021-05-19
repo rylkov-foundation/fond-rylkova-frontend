@@ -3,19 +3,24 @@
     <div class="results__container">
       <div class="results__crystal" />
       <h2 class="results__title">
-        {{ pageData.results.title_ru }}
+        {{ pageData.results['title_' + $i18n.locale] }}
       </h2>
       <div class="results__slider">
         <button class="results__arrow results__arrow_direction_back" @click="prevSlide" />
         <ul class="results__slider-list">
-          <li v-for="item of pageData.results.main_results.length" :key="item" class="results__bullet" :class="{ results__bullet_active: item-1 === currentSlide}" />
+          <li
+            v-for="(item, index) of pageData.results.main_results"
+            :key="item._id"
+            class="results__bullet"
+            :class="{ results__bullet_active: index === currentSlide}"
+          />
         </ul>
         <button class="results__arrow results__arrow_direction_forward" @click="nextSlide" />
       </div>
       <div class="results__carousel">
         <div
           class="results__carousel-wrapper"
-          :style="{ 'margin-left':'-'+ (100*currentSlide)+'%'}"
+          :style="{ 'margin-left':'-' + (100 * currentSlide) + '%' }"
         >
           <Result
             v-for="result in pageData.results.main_results"

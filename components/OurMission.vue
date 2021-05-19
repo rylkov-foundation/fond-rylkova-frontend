@@ -2,7 +2,7 @@
   <section class="mission">
     <div class="mission__header-container">
       <h1 class="mission__header">
-        {{ pageData.about.title_ru }}
+        {{ pageData.about['title_' + $i18n.locale] }}
       </h1>
     </div>
     <div class="mission__container">
@@ -11,7 +11,7 @@
           <span v-for="line in splitTitle" :key="line" class="mission__title-text">{{ line }}</span>
         </h2>
         <p class="mission__our-mission">
-          {{ pageData.mission.description_ru }}
+          {{ pageData.mission['description_' + $i18n.locale] }}
         </p>
       </div>
       <NuxtLink to="/about-us" class="link">
@@ -57,7 +57,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData.mission.title_ru, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData.mission['title_' + this.$i18n.locale], this.$refs.titleContainer)
         }, 40)
       }
     }

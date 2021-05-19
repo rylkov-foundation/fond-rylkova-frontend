@@ -4,10 +4,10 @@
     class="popup__content popup__content_agent"
   >
     <h3 class="popup__title popup__title_agent">
-      {{ popupDownloadData.title_ru }}
+      {{ popupDownloadData['title_' + $i18n.locale] }}
     </h3>
     <p class="popup__text">
-      {{ popupDownloadData.description_ru }}
+      {{ popupDownloadData['description_' + $i18n.locale] }}
     </p>
     <a
       href="#"

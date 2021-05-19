@@ -2,10 +2,10 @@
   <section class="help">
     <div class="help__container">
       <h2 class="help__title">
-        {{ pageData.help.title_ru }}
+        {{ pageData.help['title_' + $i18n.locale] }}
       </h2>
       <p class="help__text">
-        {{ pageData.help.description_ru }}
+        {{ pageData.help['description_' + $i18n.locale] }}
       </p>
       <div class="help__block">
         <img src="~/assets/images/blade.svg" alt="Лезвие" class="help__image">
@@ -15,7 +15,9 @@
         <span class="link__arrow">&gt;</span>
       </NuxtLink>
       <div class="help__telephone-block">
-        <a class="help__telephone-number" :href="'tel:'+pageData.help.phone_number" >{{ pageData.help.phone_number }}</a>
+        <a class="help__telephone-number" :href="'tel:'+pageData.help.phone_number">
+          {{ pageData.help.phone_number }}
+        </a>
       </div>
       <div class="help__email-block">
         <a class="help__email" :href="'mailto:'+pageData.help.email" target="_blank">

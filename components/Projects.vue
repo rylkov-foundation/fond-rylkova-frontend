@@ -14,7 +14,7 @@
           <span v-for="line in splitTitle" :key="line" class="projects__title-text">{{ line }}</span>
         </h2>
         <p class="projects__subtitle">
-          {{ pageData.description_ru }}
+          {{ pageData['description_' + $i18n.locale] }}
         </p>
       </div>
       <div class="projects__background" />
@@ -65,7 +65,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData.title_ru, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer)
         }, 40)
       }
     }

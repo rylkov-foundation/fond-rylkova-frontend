@@ -1,34 +1,34 @@
 <template>
   <li
     class="report"
-    :class="{ 'report_color_white': ($attrs.index+1)%2 === 0}"
+    :class="{ 'report_color_white': ($attrs.index + 1) % 2 === 0 }"
   >
     <img
       :src="$config.constants.serverUrl +report.image.url"
-      :alt="report.title_ru"
+      :alt="report['title_' + $i18n.locale]"
       class="report__image"
     >
     <div
       class="report__text-container"
-      :class="{ 'report__text-container_color_white': ($attrs.index+1)%2 === 0}"
+      :class="{ 'report__text-container_color_white': ($attrs.index + 1) % 2 === 0 }"
     >
       <h3
         class="report__title"
-        :class="{ 'report__title_color_white': ($attrs.index+1)%2 === 0}"
+        :class="{ 'report__title_color_white': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ report.title_ru }}
+        {{ report['title_' + $i18n.locale] }}
       </h3>
       <p
         class="report__date"
-        :class="{ 'report__date_color_white': ($attrs.index+1)%2 === 0}"
+        :class="{ 'report__date_color_white': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ report.date_ru }}
+        {{ report['date_' + $i18n.locale] }}
       </p>
       <p
         class="report__text"
-        :class="{ 'report__text_color_white': ($attrs.index+1)%2 === 0}"
+        :class="{ 'report__text_color_white': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ report.description_ru }}
+        {{ report['description_' + $i18n.locale] }}
       </p>
     </div>
   </li>

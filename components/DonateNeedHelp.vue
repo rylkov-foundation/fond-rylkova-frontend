@@ -1,7 +1,7 @@
 <template>
   <div class="donate-need-help">
     <h3 class="donate-need-help__title">
-      {{ pageData.title_ru }}
+      {{ pageData['title_' + $i18n.locale] }}
     </h3>
     <div class="donate-need-help__wrapper">
       <img
@@ -11,7 +11,7 @@
       >
     </div>
     <p class="donate-need-help__text">
-      {{ pageData.description_ru }}
+      {{ pageData['description_' + $i18n.locale] }}
     </p>
   </div>
 </template>

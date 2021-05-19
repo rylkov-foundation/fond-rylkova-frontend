@@ -34,11 +34,11 @@
       </div>
       <img
         :src="$config.constants.serverUrl +pageData.image.url"
-        :alt="pageData.title_ru"
+        :alt="pageData['title_' + $i18n.locale]"
         class="info__image"
       >
     </div>
-    <div class="info__text-container" v-html="pageData.content_ru" />
+    <div class="info__text-container" v-html="pageData['content_' + $i18n.locale]" />
   </section>
 </template>
 

@@ -14,16 +14,16 @@
           <span v-for="line in splitTitle" :key="line" class="text-with-line">{{ line }}</span>
         </h1>
         <p class="meta__subtitle">
-          {{ pageData.Subtitle_ru }}
+          {{ pageData['subtitle_' + $i18n.locale] }}
         </p>
       </div>
       <div class="meta__wrapper">
         <img
           class="meta__image"
           :src="$config.constants.serverUrl +pageData.image.url"
-          :alt="pageData.title_ru"
+          :alt="pageData['subtitle_' + $i18n.locale]"
         >
-        <div class="meta__data" v-html="pageData.content_ru" />
+        <div class="meta__data" v-html="pageData['content_' + $i18n.locale]" />
       </div>
     </div>
   </div>
@@ -57,11 +57,11 @@ export default {
   },
   head() {
     return {
-      title: this.pageData.title_ru + '|' + this.meta.title,
+      title: this.pageData['title_' + this.$i18n.locale] + '|' + this.meta.title,
       meta: [
         { hid: 'description', name: 'description', content: this.pageData.Description },
         { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },
-        { hid: 'og:title', name: 'og:title', content: this.pageData.title_ru },
+        { hid: 'og:title', name: 'og:title', content: this.pageData['title_' + this.$i18n.locale] },
         { hid: 'og:description', name: 'og:description', content: this.pageData.og_description },
         { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.meta.logo.url }
       ]
@@ -84,7 +84,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData.title_ru, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer)
         }, 40)
       }
     }

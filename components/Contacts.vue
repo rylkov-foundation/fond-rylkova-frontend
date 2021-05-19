@@ -18,7 +18,7 @@
       <div class="contacts__black-container">
         <div class="contacts__image" />
         <p class="contacts__text">
-          {{ pageData.description_ru }}
+          {{ pageData['description_' + $i18n.locale] }}
         </p>
         <div class="contacts__telephone-block">
           <a class="contacts__telephone-number" :href="'tel:'+pageData.phone_number">
@@ -42,7 +42,7 @@
         />
       </ul>
       <p class="contacts__info">
-        {{ pageData.text_ru }}
+        {{ pageData['text_' + $i18n.locale] }}
       </p>
     </div>
   </section>
@@ -83,7 +83,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData.title_ru, this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer)
         }, 40)
       }
     }
