@@ -46,6 +46,7 @@ export default {
   line-height: 16px;
   font-style: normal;
   margin-bottom: 16px;
+  min-height: 64px;
 }
 
 @media screen and (min-width: 768px) {

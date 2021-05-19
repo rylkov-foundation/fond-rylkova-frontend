@@ -48,6 +48,7 @@ export default {
   line-height: 16px;
   font-style: normal;
   margin-bottom: 5px;
+  min-height: 240px;
 }
 
 .donate-need-help__wrapper {

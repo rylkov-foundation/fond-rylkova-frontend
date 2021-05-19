@@ -3,13 +3,13 @@
     <img
       class="contact__image"
       :src="$config.constants.serverUrl +contact.photo.url"
-      :alt="contact.name_ru"
+      :alt="contact['name_' + $i18n.locale]"
     >
     <h3 class="contact__name">
-      {{ contact.name_ru }}
+      {{ contact['name_' + $i18n.locale] }}
     </h3>
     <p class="contact__description">
-      {{ contact.position_ru }}
+      {{ contact['position_' + $i18n.locale] }}
     </p>
     <a
       class="contact__telephone-number"

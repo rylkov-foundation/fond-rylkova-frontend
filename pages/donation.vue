@@ -25,12 +25,12 @@ export default {
   },
   head() {
     return {
-      title: this.pageData['title_' + this.$i18n.locale] + '|' + this.meta.title,
+      title: this.pageData.donation['title_' + this.$i18n.locale] + '|' + this.meta.title,
       meta: [
-        { hid: 'description', name: 'description', content: this.pageData.Description },
-        { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },
-        { hid: 'og:title', name: 'og:title', content: this.pageData['title_' + this.$i18n.locale] },
-        { hid: 'og:description', name: 'og:description', content: this.pageData.og_description },
+        { hid: 'description', name: 'description', content: this.pageData.donation.Description },
+        { hid: 'keywords', name: 'keywords', content: this.pageData.donation.Keywords },
+        { hid: 'og:title', name: 'og:title', content: this.pageData.donation['title_' + this.$i18n.locale] },
+        { hid: 'og:description', name: 'og:description', content: this.pageData.donation.og_description },
         { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.meta.logo.url }
       ]
     }
