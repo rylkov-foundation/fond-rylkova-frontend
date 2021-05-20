@@ -48,6 +48,7 @@ export default {
 <style scoped>
   .help {
     display: flex;
+    width: 100%;
   }
 
   .help__container {
@@ -55,6 +56,7 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: #fff;
+    width: 100%;
   }
 
   .help__title {
