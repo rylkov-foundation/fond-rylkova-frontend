@@ -33,6 +33,5 @@ export default {
   created() {
     this.meta = this.$store.getters.globalMeta
   }
-
 }
 </script>

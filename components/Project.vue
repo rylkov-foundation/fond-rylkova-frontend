@@ -28,7 +28,7 @@
     </div>
     <img
       :src="$config.constants.serverUrl +project.image.url"
-      :alt="project.project['title_' + $i18n.locale]"
+      :alt="project['title_' + $i18n.locale]"
       class="project__photo"
       :class="{ 'project__photo_position_even': ($attrs.index + 1) % 2 === 0 }"
     >
