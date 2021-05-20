@@ -30,7 +30,11 @@ export default {
         { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },
         { hid: 'og:title', name: 'og:title', content: this.pageData['title_' + this.$i18n.locale] },
         { hid: 'og:description', name: 'og:description', content: this.pageData.og_description },
-        { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.pageData.image.url }
+        { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.pageData.image.url },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.pageData['title_' + this.$i18n.locale] },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.pageData.og_description },
+        { hid: 'twitter:image', name: 'twitter:image', content: this.$config.constants.serverUrl + this.pageData.image.url }
+
       ]
     }
   },
