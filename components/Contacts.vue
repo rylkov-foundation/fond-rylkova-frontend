@@ -467,7 +467,7 @@ export default {
   }
 
   .contacts__form {
-    margin: 57px auto 0 auto;
+    margin: 57px auto 0 32px;
   }
 
   .email-result_text {

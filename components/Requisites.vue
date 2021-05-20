@@ -45,7 +45,7 @@
       </p>
       <p class="requisites__name">
         {{ $t('requisites.purpose') }}:
-        <span class="requisites__detail">{{ pageData.purpose_ru }}</span>
+        <span class="requisites__detail">{{ pageData['purpose_' + $i18n.locale] }}</span>
       </p>
       <p class="requisites__name">
         {{ $t('requisites.bankAccountNumber') }}

@@ -81,6 +81,7 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
+  align-self: stretch;
 }
 
 .projects__container {
@@ -92,7 +93,7 @@ export default {
   font-size: 80px;
   line-height: 70px;
   font-weight: 600;
-  margin: 24px 0 27px -10px;
+  margin: 24px 0 27px;
   letter-spacing: -6px;
   color: #fff;
   width: 100%;
@@ -103,7 +104,7 @@ export default {
 
 .projects__title-text {
   font-family: Vollkorn, Times, serif;
-  font-size: 80px;
+  font-size: 70px;
   line-height: 70px;
   font-weight: 600;
   letter-spacing: -6px;
@@ -224,6 +225,10 @@ export default {
     grid-area: title;
     display: flex;
     max-height: 370px;
+  }
+
+  .projects__title-container {
+    min-width: 559px;
   }
 
   .projects__title {

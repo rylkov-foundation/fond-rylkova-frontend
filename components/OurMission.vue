@@ -128,6 +128,7 @@ export default {
   .mission__our-mission {
     margin: 35px 14px 0 0;
     line-height: 17px;
+    min-height: 144px;
   }
 
   .link {
