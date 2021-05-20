@@ -1,5 +1,9 @@
 {
   "name": "fond-rylkova",
+  "author": {
+    "name": "FreeBeeGo",
+    "email": "freebeego@yandex.ru"
+  },
   "version": "1.0.0",
   "private": true,
   "scripts": {
