@@ -65,7 +65,7 @@
         <span
           v-show="!isScrollOver230 || isShown"
           class="menu__text"
-          :class="{ menu__text_shown: isShown && isScrollOver230 }"
+          :class="{ menu__text_shown: isShown && isScrollOver230, menu__text_en: $i18n.locale === 'en' }"
         >
           {{ $t('menu.menuText') }}
         </span>
@@ -217,6 +217,11 @@ export default {
 
 .menu__text_shown {
   bottom: -74px;
+}
+
+.menu__text_en {
+  bottom: 46px;
+  right: -26px;
 }
 
 .menu__arrow {
@@ -383,6 +388,10 @@ export default {
     bottom: -143px;
   }
 
+  .menu__text_en {
+    right: -62px;
+  }
+
   .menu__navigation {
     min-width: 297px;
     min-height: 235px;
@@ -440,6 +449,10 @@ export default {
 
   .menu__text_shown {
     bottom: -97px;
+  }
+
+  .menu__text_en {
+    right: -38px;
   }
 
   .menu__navigation {
