@@ -6,8 +6,17 @@
 </template>
 
 <script>
+import logoRu from '@/assets/images/title.svg'
+import logoEn from '@/assets/images/title_en.svg'
+
 export default {
-  name: 'MainHeader'
+  name: 'MainHeader',
+  data () {
+    return {
+      image_ru: logoRu,
+      image_en: logoEn
+    }
+  }
 }
 </script>
 
@@ -99,6 +108,10 @@ export default {
       background-position: -250px 12px;
     }
 
+    .header__text_en {
+      animation: animate_en 10s linear infinite;
+    }
+
     @keyframes animate {
       from {
         background-position: 0 12px;
@@ -106,6 +119,16 @@ export default {
 
       to {
         background-position: 900px 12px;
+      }
+    }
+
+    @keyframes animate_en {
+      from {
+        background-position: 0 8px;
+      }
+
+      to {
+        background-position: 900px 8px;
       }
     }
   }
