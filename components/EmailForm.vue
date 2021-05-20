@@ -1,9 +1,6 @@
 <template>
   <div>
-    <p v-show="sent" class="email-result">
-      {{ sendingError ? $t('emailForm.fail') : 'emailForm.success' }}
-    </p>
-    <form v-show="!sent" class="email-form" @submit.prevent="onSubmit">
+    <form class="email-form" @submit.prevent="onSubmit">
       <label class="email-form__theme">{{ $t('emailForm.subject') }}
         <input v-model="subject" class="email-form__input" type="text" required>
       </label>
@@ -52,9 +49,7 @@ export default {
       subject: '',
       text: '',
       name: '',
-      email: '',
-      sent: false,
-      sendingError: false
+      email: ''
     }
   },
   computed: {
@@ -78,11 +73,10 @@ export default {
         }
       )
         .then(() => {
-          this.sent = true
+          this.$emit('sent', { sent: true, sendingError: false })
         })
         .catch(() => {
-          this.sent = true
-          this.sendingError = true
+          this.$emit('sent', { sent: true, sendingError: true })
         })
     }
   }

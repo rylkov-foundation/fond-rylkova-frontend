@@ -32,6 +32,7 @@ export default {
     name: 'Имя',
     email: 'E-mail',
     submitButtonText: 'Отправить',
+    moreButtonText: 'написать еще',
     textareaPlaceholder: 'Письмо...',
     success: 'Отправлено!',
     fail: 'Ошибка отправки попробуйте пожалуйста позже =(',

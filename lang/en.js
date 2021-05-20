@@ -32,6 +32,7 @@ export default {
     name: 'Name',
     email: 'E-mail',
     submitButtonText: 'Send',
+    moreButtonText: 'send more',
     textareaPlaceholder: 'Your message...',
     success: 'Sent!',
     fail: 'Sending failed. Please try again later =(',

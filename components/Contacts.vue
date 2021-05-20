@@ -13,7 +13,24 @@
         <h2 ref="titleContainer" class="contacts__title">
           <span v-for="line in splitTitle" :key="line" class="contacts__title-text">{{ line }}</span>
         </h2>
-        <EmailForm class="contacts__form" />
+        <div v-show="sent" class="email-result">
+          <span class="email-result_text">
+            {{ sendingError ? $t('emailForm.fail') : $t('emailForm.success') }}
+          </span>
+          <div class="email-result__container">
+            <p class="email-result__arrows">
+              &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+            </p>
+            <button
+              type="button"
+              class="email-result__more-button"
+              @click="onMore"
+            >
+              {{ $t('emailForm.moreButtonText') }}
+            </button>
+          </div>
+        </div>
+        <EmailForm v-show="!sent" class="contacts__form" @sent="onSent" />
       </div>
       <div class="contacts__black-container">
         <div class="contacts__image" />
@@ -66,7 +83,9 @@ export default {
   data () {
     return {
       splitTitle: [],
-      resizeTimeout: null
+      resizeTimeout: null,
+      sent: false,
+      sendingError: false
     }
   },
   beforeMount () {
@@ -89,6 +108,14 @@ export default {
           this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer)
         }, 40)
       }
+    },
+    onSent (res) {
+      this.sent = res.sent
+      this.sendingError = res.sendingError
+    },
+    onMore () {
+      this.sent = false
+      this.sendingError = false
     }
   }
 }
@@ -122,6 +149,60 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.email-result {
+  min-height: 528px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.email-result__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0 50px 0;
+}
+
+.email-result__more-button {
+  background-color: #b23438;
+  color: #fff;
+  font-family: Roboto, Times, serif;
+  font-size: 16px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 20px;
+  border-color: transparent;
+  outline: none;
+  min-width: 100px;
+  height: 40px;
+}
+
+.email-result__more-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.email-result__arrows {
+  font-family: Roboto, Times, serif;
+  font-size: 26px;
+  line-height: 8px;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+}
+
+.email-result_text {
+  display: block;
+  margin: auto;
+  font-family: Vollkorn, Times, serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #7f7f7f;
 }
 
 .contacts__title-text {
@@ -300,6 +381,20 @@ export default {
     line-height: 34px;
     border-bottom: none;
   }
+
+  .email-result_text {
+    font-size: 84px;
+  }
+
+  .email-result__more-button {
+    font-size: 16px;
+    min-width: 200px;
+    height: 40px;
+  }
+
+  .email-result__arrows {
+    font-size: 30px;
+  }
 }
 
 @media screen and (min-width: 1098px) {
@@ -373,6 +468,10 @@ export default {
 
   .contacts__form {
     margin: 57px auto 0 auto;
+  }
+
+  .email-result_text {
+    font-size: 80px;
   }
 
   .contacts__black-container {
