@@ -8,7 +8,8 @@ const logger = require('../utilites/logger')
 const {
   DB_HOST = 'localhost',
   DB_PORT = 27017,
-  DB_NAME = 'fardonation'
+  DB_NAME = 'fardonation',
+  PAYMENT_GATEWAY
 } = process.env
 
 export default function regularDonationCronTask () {
@@ -36,7 +37,7 @@ export default function regularDonationCronTask () {
               )
             ) {
               axios.post(
-                'https://api.yookassa.ru/v3/payments',
+                PAYMENT_GATEWAY,
                 {
                   amount: {
                     value: String(donation.amount),
