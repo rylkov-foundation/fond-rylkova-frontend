@@ -4,9 +4,13 @@
 
 <script>
 export default {
-  async asyncData ({ store }) {
-    if (!Object.keys(store.getters.contacts).length) {
-      await store.dispatch('contactsInit')
+  async asyncData ({ store, error }) {
+    try {
+      if (!Object.keys(store.getters.contacts).length) {
+        await store.dispatch('contactsInit')
+      }
+    } catch (e) {
+      error({ statusCode: 404 })
     }
     return {
       pageData: store.getters.contacts

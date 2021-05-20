@@ -4,9 +4,13 @@
 
 <script>
 export default {
-  async asyncData ({ store }) {
-    if (!Object.keys(store.getters.whoIsAndreiRylkov).length) {
-      await store.dispatch('whoIsAndreiRylkovInit')
+  async asyncData ({ store, error }) {
+    try {
+      if (!Object.keys(store.getters.whoIsAndreiRylkov).length) {
+        await store.dispatch('whoIsAndreiRylkovInit')
+      }
+    } catch (e) {
+      error({ statusCode: 404 })
     }
     return {
       pageData: store.getters.whoIsAndreiRylkov

@@ -4,12 +4,15 @@
 
 <script>
 export default {
-  async asyncData ({ store }) {
+  async asyncData ({ store, error }) {
     if (!Object.keys(store.getters.donation).length) {
       await store.dispatch('donationInit')
     }
     if (!Object.keys(store.getters.donationAmount).length) {
       await store.dispatch('donationAmountInit')
+    }
+    if (Object.values(store.getters.donation).includes(null)) {
+      error({ statusCode: 404 })
     }
     return {
       pageData: store.getters.donation,

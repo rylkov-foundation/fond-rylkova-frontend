@@ -140,8 +140,12 @@ export const actions = {
     commit('setDonation', data)
   },
   async donationAmountInit ({ commit }) {
-    const data = await this.$strapi.$donation_amount.find()
-    commit('setDonationAmount', data)
+    try {
+      const data = await this.$strapi.$donation_amount.find()
+      commit('setDonationAmount', data)
+    } catch (e) {
+      commit('setDonationAmount', { amount_small: 50, amount_medium: 200, amount_big: 500 })
+    }
   },
   async footerInit ({ commit }) {
     const data = await this.$strapi.$footer.find()

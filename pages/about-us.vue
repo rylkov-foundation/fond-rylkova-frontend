@@ -4,9 +4,13 @@
 
 <script>
 export default {
-  async asyncData ({ store }) {
-    if (!Object.keys(store.getters.mission).length) {
-      await store.dispatch('missionInit')
+  async asyncData ({ store, error }) {
+    try {
+      if (!Object.keys(store.getters.mission).length) {
+        await store.dispatch('missionInit')
+      }
+    } catch (e) {
+      error({ statusCode: 404 })
     }
     return {
       pageData: store.getters.mission
