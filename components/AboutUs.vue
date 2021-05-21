@@ -118,7 +118,6 @@ export default {
     font-weight: 400;
     line-height: 71px;
     position: relative;
-    word-break: break-word;
   }
 
   .about-us__title-text::after {
