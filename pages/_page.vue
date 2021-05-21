@@ -122,6 +122,7 @@ export default {
 .meta__container {
   background-color: #cbcbcb;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .meta__title {
@@ -171,7 +172,8 @@ export default {
 }
 
 .meta__data {
-  max-width: 85%;
+  width: 85%;
+  overflow: hidden;
   margin: 0 auto;
 }
 
