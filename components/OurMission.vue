@@ -19,7 +19,7 @@
       </NuxtLink>
       <div class="mission__footer">
         <img src="~/assets/images/road.png" alt="Дорога" class="mission__road">
-        <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
+        <Logo />
       </div>
       <img src="~/assets/images/crystal.svg" alt="Кристал" class="mission__crystal">
     </div>
@@ -43,6 +43,16 @@ export default {
       resizeTimeout: null
     }
   },
+  computed: {
+    lang() {
+      return this.$i18n.locale
+    }
+  },
+  watch: {
+    lang() {
+      this.handleSplitTitle()
+    }
+  },
   beforeMount () {
     this.handleSplitTitle()
   },
@@ -52,15 +62,12 @@ export default {
   beforeDestroy () {
     window.removeEventListener('resize', this.handleSplitTitle)
   },
-  updated() {
-    this.handleSplitTitle()
-  },
   methods: {
     handleSplitTitle () {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData.mission['title_' + this.$i18n.locale], this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData.mission['title_' + this.$i18n.locale], this.$refs.titleContainer, 100)
         }, 40)
       }
     }
@@ -113,6 +120,9 @@ export default {
     line-height: 22px;
     font-family: Vollkorn, Times, serif;
     color: #484848;
+    word-break: keep-all;
+    word-wrap: normal;
+    white-space: nowrap;
   }
 
   .mission__title-text::after {
@@ -149,13 +159,6 @@ export default {
 
   .mission__road {
     width: 200px;
-  }
-
-  .logo {
-    width: 137px;
-    position: absolute;
-    right: 5px;
-    bottom: 42px;
   }
 
   .mission__crystal {
@@ -234,12 +237,6 @@ export default {
       width: 388px;
     }
 
-    .logo {
-      width: 237px;
-      right: 42px;
-      bottom: 42px;
-    }
-
     .mission__crystal {
       width: 200px;
       right: 22px;
@@ -315,14 +312,8 @@ export default {
     }
 
     .mission__footer {
-      margin-top: -47px;
       position: relative;
-    }
-
-    .logo {
-      width: 147px;
-      right: 110px;
-      bottom: 53px;
+      margin-top: auto;
     }
 
     .mission__crystal {

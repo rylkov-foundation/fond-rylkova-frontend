@@ -33,7 +33,7 @@
         {{ $t('links.getHelp') }}
         <span class="link__arrow">&gt;</span>
       </NuxtLink>
-      <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
+      <Logo />
     </div>
   </section>
 </template>
@@ -157,9 +157,6 @@ export default {
   }
 
   .logo {
-    width: 137px;
-    position: absolute;
-    right: 5px;
     bottom: 28px;
   }
 
@@ -216,7 +213,6 @@ export default {
     }
 
     .logo {
-      width: 231px;
       right: 50px;
       bottom: 59px;
     }

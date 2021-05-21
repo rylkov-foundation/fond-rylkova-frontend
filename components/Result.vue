@@ -80,8 +80,8 @@ export default {
     border-bottom: 2px solid #fff;
     margin: 12px 0 0 3px;
     align-self: start;
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: normal;
+    word-break: normal;
   }
 
   .result__text {
