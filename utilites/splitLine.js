@@ -11,7 +11,7 @@ function getElementFont (element) {
   return font
 }
 
-export default function splitTextByActualLineWidth (text, container, width = 95) {
+export default function splitTextByActualLineWidth (text, container, letterSeparate = false, width = 95) {
   const result = []
   const fakeCanvas = document.createElement('canvas')
   const fakeContext = fakeCanvas.getContext('2d')
@@ -21,7 +21,10 @@ export default function splitTextByActualLineWidth (text, container, width = 95)
   for (const ch of String(text).replace(/\s+/g, ' ')) {
     const lineWidth = fakeContext.measureText(buffer + ch).width
     if (lineWidth >= container.offsetWidth / 100 * width) {
-      if (ch === ' ') {
+      if (letterSeparate) {
+        result.push(buffer + ch)
+        buffer = ''
+      } else if (ch === ' ') {
         result.push(buffer)
         buffer = ''
       } else {

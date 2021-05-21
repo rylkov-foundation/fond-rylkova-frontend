@@ -75,7 +75,12 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer, 100)
+          this.splitTitle = splitLine(
+            this.pageData['title_' + this.$i18n.locale],
+            this.$refs.titleContainer,
+            false,
+            100
+          )
         }, 20)
       }
     }
@@ -101,12 +106,12 @@ export default {
   line-height: 70px;
   font-weight: 600;
   margin: 24px 0 27px;
-  letter-spacing: -6px;
   color: #fff;
   width: 92%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  word-spacing: 10px;
 }
 
 .projects__title-text {
@@ -162,7 +167,6 @@ export default {
     font-size: 160px;
     line-height: 140px;
     margin: 38px 0 72px 41px;
-    letter-spacing: -12px;
     width: 85%;
   }
 
@@ -242,7 +246,6 @@ export default {
     font-size: 107px;
     line-height: 75px;
     margin: 57px 0 38px 21px;
-    letter-spacing: -5px;
     max-width: 450px;
   }
 

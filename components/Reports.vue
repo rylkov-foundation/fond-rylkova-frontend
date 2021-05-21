@@ -73,7 +73,12 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer, 90)
+          this.splitTitle = splitLine(
+            this.pageData['title_' + this.$i18n.locale],
+            this.$refs.titleContainer,
+            false,
+            90
+          )
         }, 40)
       }
     }
@@ -94,7 +99,7 @@ export default {
 
   .reports__title {
     font-family: Vollkorn, Times, serif;
-    font-size: 44px;
+    font-size: 37px;
     line-height: 36px;
     font-weight: 700;
     width: 80%;
@@ -109,7 +114,7 @@ export default {
 
   .reports__title-text {
     font-family: Vollkorn, Times, serif;
-    font-size: 44px;
+    font-size: 37px;
     line-height: 36px;
     font-weight: 700;
     letter-spacing: -2px;

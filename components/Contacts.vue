@@ -112,7 +112,12 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer, 95)
+          this.splitTitle = splitLine(
+            this.pageData['title_' + this.$i18n.locale],
+            this.$refs.titleContainer,
+            true,
+            95
+          )
         }, 40)
       }
     },

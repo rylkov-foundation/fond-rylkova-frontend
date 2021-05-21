@@ -67,7 +67,12 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData.mission['title_' + this.$i18n.locale], this.$refs.titleContainer, 100)
+          this.splitTitle = splitLine(
+            this.pageData.mission['title_' + this.$i18n.locale],
+            this.$refs.titleContainer,
+            false,
+            100
+          )
         }, 40)
       }
     }
