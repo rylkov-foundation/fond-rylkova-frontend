@@ -121,8 +121,6 @@ export default {
     font-family: Vollkorn, Times, serif;
     color: #484848;
     word-break: keep-all;
-    word-wrap: normal;
-    white-space: nowrap;
   }
 
   .mission__title-text::after {

@@ -102,9 +102,8 @@ export default {
     font-size: 115px;
     font-style: italic;
     font-weight: 400;
-    width: 100%;
+    width: 160px;
     line-height: 71px;
-    word-break: break-word;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -118,7 +117,6 @@ export default {
     font-weight: 400;
     line-height: 71px;
     position: relative;
-    word-break: break-word;
   }
 
   .about-us__title-text::after {
@@ -136,7 +134,7 @@ export default {
     font-size: 14px;
     font-weight: 400;
     line-height: 16px;
-    max-width: 88%;
+    width: 88%;
     margin: 0 auto;
   }
 
@@ -167,9 +165,7 @@ export default {
     .about-us__title-text {
       font-size: 231px;
       line-height: 144px;
-      word-spacing: -5px;
       letter-spacing: -11px;
-      word-break: normal;
       width: auto;
     }
 
@@ -180,7 +176,7 @@ export default {
     .about-us__text {
       font-size: 33px;
       line-height: 34px;
-      max-width: 87%;
+      width: 87%;
     }
   }
 
@@ -210,14 +206,12 @@ export default {
       left: 18%;
       font-size: 231px;
       line-height: 144px;
-      width: 700px;
+      width: 840px;
     }
 
     .about-us__title-text {
       font-size: 247px;
       line-height: 178px;
-      word-spacing: -23px;
-      word-break: normal;
       width: auto;
       max-width: none;
     }
@@ -231,7 +225,7 @@ export default {
       padding-top: 44px;
       font-size: 22px;
       line-height: 29px;
-      max-width: 981px;
+      width: 981px;
     }
 
     .about-us__colour-container {

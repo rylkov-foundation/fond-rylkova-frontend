@@ -11,18 +11,28 @@ function getElementFont (element) {
   return font
 }
 
-export default function splitTextByActualLineWidth (text, container, width) {
+export default function splitTextByActualLineWidth (text, container, width = 95) {
   const result = []
   const fakeCanvas = document.createElement('canvas')
   const fakeContext = fakeCanvas.getContext('2d')
   fakeContext.font = getElementFont(container)
 
   let buffer = ''
-  for (const ch of text) {
+  for (const ch of String(text).replace(/\s+/g, ' ')) {
     const lineWidth = fakeContext.measureText(buffer + ch).width
     if (lineWidth >= container.offsetWidth / 100 * width) {
-      result.push(buffer + ch)
-      buffer = ''
+      if (ch === ' ') {
+        result.push(buffer)
+        buffer = ''
+      } else {
+        const lastSpaceIndex = (buffer + ch).split('').reverse().indexOf(' ')
+        if (lastSpaceIndex === -1) {
+          buffer += ch
+        } else {
+          result.push((buffer + ch).slice(0, -lastSpaceIndex - 1))
+          buffer = (buffer + ch).slice(-lastSpaceIndex - 1)
+        }
+      }
     } else {
       buffer += ch
     }
@@ -32,5 +42,5 @@ export default function splitTextByActualLineWidth (text, container, width) {
     result.push(buffer)
   }
 
-  return result
+  return result.map(i => i.trim()).reduce((acc, item) => item ? [...acc, item] : acc, [])
 }

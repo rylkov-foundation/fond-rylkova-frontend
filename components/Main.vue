@@ -50,7 +50,7 @@ export default {
           topDonationSum: Number(e.target.name)
         }
       )
-      this.$root.donationRef.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      window.scrollTo({ top: this.$root.donationRef.getBoundingClientRect().top, behavior: 'smooth' })
     }
   }
 }

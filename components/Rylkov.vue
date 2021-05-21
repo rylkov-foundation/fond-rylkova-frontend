@@ -115,55 +115,8 @@ export default {
     margin: 20px auto 10px;
   }
 
-  .info__link-description {
-    font-family: Vollkorn, Times, serif;
-    font-weight: 900;
-    line-height: 15px;
-    font-size: 15px;
-    max-width: 203px;
-    margin-bottom: 26px;
-  }
-
-  .info__link {
-    color: #b23438;
-    text-decoration: none;
-    border-bottom: 3px solid #e7bfc1;
-    font-family: Vollkorn, Times, serif;
-    font-weight: 900;
-    line-height: 15px;
-    font-size: 15px;
-  }
-
-  .info__text {
-    font-family: Vollkorn, Times, serif;
-    font-weight: 400;
-    line-height: 16px;
-    font-size: 14px;
-  }
-
-  .info__video-description {
-    display: block;
-    font-family: Vollkorn, Times, serif;
-    font-weight: 600;
-    line-height: 14px;
-    font-size: 15px;
-    color: #b23438;
-    word-break: break-all;
-  }
-
-  .info__video-container {
-    margin: 23px 0 0;
-  }
-
   .info__video-container p:first-of-type {
     margin: 0 0 16px;
-  }
-
-  .info__video {
-    height: 205px;
-    width: 100%;
-    margin: 24px 0 10px 0;
-    border: none;
   }
 
   .info__drop {
@@ -214,41 +167,8 @@ export default {
       margin-top: 10px;
     }
 
-    .info__link-description {
-      font-size: 38px;
-      line-height: 39px;
-      max-width: 470px;
-      margin: 0 0 54px 0;
-    }
-
-    .info__link {
-      font-size: 38px;
-      line-height: 39px;
-    }
-
-    .info__text {
-      font-size: 33px;
-      line-height: 34px;
-    }
-
-    .info__video-container {
-      margin: 34px auto 0;
-      width: 100%;
-    }
-
-    .info__video-description {
-      font-size: 33px;
-      line-height: 34px;
-    }
-
     .info__video-container p:first-of-type {
       margin: 0 0 37px;
-    }
-
-    .info__video {
-      height: 530px;
-      width: 100%;
-      margin: 43px 0 40px 0;
     }
   }
 
@@ -330,42 +250,8 @@ export default {
       margin-top: 17px;
     }
 
-    .info__link-description {
-      max-width: 596px;
-      margin: 18px 0 12px auto;
-      line-height: 24px;
-      font-size: 22px;
-    }
-
-    .info__link {
-      line-height: 24px;
-      font-size: 22px;
-    }
-
-    .info__text {
-      line-height: 29px;
-      font-size: 22px;
-    }
-
-    .info__video-description {
-      line-height: 20px;
-      font-size: 22px;
-    }
-
-    .info__video-container {
-      margin: 21px 0 0 27px;
-      width: 494px;
-      float: right;
-    }
-
     .info__video-container p:first-of-type {
       margin: 0 0 8px;
-    }
-
-    .info__video {
-      height: 396px;
-      width: 494px;
-      margin: 2px 0 10px 0;
     }
 
     .info__colour-container {
