@@ -49,6 +49,16 @@ export default {
       resizeTimeout: null
     }
   },
+  computed: {
+    lang() {
+      return this.$i18n.locale
+    }
+  },
+  watch: {
+    lang() {
+      this.handleSplitTitle()
+    }
+  },
   beforeMount () {
     this.handleSplitTitle()
   },
@@ -58,15 +68,12 @@ export default {
   beforeDestroy () {
     window.removeEventListener('resize', this.handleSplitTitle)
   },
-  updated() {
-    this.handleSplitTitle()
-  },
   methods: {
     handleSplitTitle () {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer, 90)
         }, 40)
       }
     }
