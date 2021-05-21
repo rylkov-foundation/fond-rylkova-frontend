@@ -22,15 +22,22 @@
         }"
       >
         <span
-          v-for="line in splitTitle"
-          :key="line"
           class="team-member__title-text"
           :class="{ 'team-member__title-text_position_second': ($attrs.index + 1) % 2 === 0,
                     'team-member__title-text_position_third': ($attrs.index + 1) % 3 === 0,
                     'team-member__title-text_position_fourth': ($attrs.index + 1) % 4 === 0,
           }"
         >
-          {{ line }}
+          {{ member['name_' + $i18n.locale] }}
+        </span>
+        <span
+          class="team-member__title-text"
+          :class="{ 'team-member__title-text_position_second': ($attrs.index + 1) % 2 === 0,
+                    'team-member__title-text_position_third': ($attrs.index + 1) % 3 === 0,
+                    'team-member__title-text_position_fourth': ($attrs.index + 1) % 4 === 0,
+          }"
+        >
+          {{ member['surname_' + $i18n.locale] }}
         </span>
       </h2>
       <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index + 1) % 2 === 0 }">
@@ -127,7 +134,7 @@ export default {
     color: #fff;
     margin: 24px 0 23px 0;
     text-align: center;
-    width: 68%;
+    max-width: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,7 +193,6 @@ export default {
     .team-member__title {
       font-size: 63px;
       line-height: 52px;
-      width: 363px;
       font-weight: bold;
       margin: 74px 0 42px 0;
     }
@@ -233,7 +239,6 @@ export default {
     .team-member__title {
       font-size: 45px;
       line-height: 38px;
-      width: 260px;
       margin: 0 0 26px 20px;
       text-align: left;
       color: #b23438;

@@ -274,7 +274,7 @@ export default {
       left: -18px;
       font-size: 112px;
       line-height: 71px;
-      width: 758px;
+      width: 828px;
       word-break: break-all;
     }
 

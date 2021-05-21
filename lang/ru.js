@@ -69,5 +69,6 @@ export default {
     rylkovTitleSecond: 'Андрей Рыльков',
     name: 'Андрей',
     surname: 'Рыльков'
-  }
+  },
+  fundName: 'ФАР'
 }
