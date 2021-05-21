@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'ContactsPage',
   async asyncData ({ store, error }) {
     try {
       if (!Object.keys(store.getters.contacts).length) {

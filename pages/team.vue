@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'TeamPage',
   async asyncData ({ store, error }) {
     try {
       if (!Object.keys(store.getters.team).length) {

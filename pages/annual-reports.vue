@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'AnnualReportsPage',
   async asyncData ({ store, error }) {
     try {
       if (!Object.keys(store.getters.annualReports).length) {

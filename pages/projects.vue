@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'ProjectsPage',
   async asyncData ({ store, error }) {
     try {
       if (!Object.keys(store.getters.projects).length) {

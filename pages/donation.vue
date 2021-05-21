@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'DonationPage',
   async asyncData ({ store, error }) {
     if (!Object.keys(store.getters.donation).length) {
       await store.dispatch('donationInit')

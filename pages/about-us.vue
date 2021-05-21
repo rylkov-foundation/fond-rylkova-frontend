@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'AboutUsPage',
   async asyncData ({ store, error }) {
     try {
       if (!Object.keys(store.getters.mission).length) {

@@ -74,7 +74,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.member['name_' + this.$i18n.locale], this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.member['name_' + this.$i18n.locale], this.$refs.titleContainer, 98)
         }, 40)
       }
     }

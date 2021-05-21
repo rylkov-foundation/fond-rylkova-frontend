@@ -33,6 +33,7 @@
 import splitLine from '@/utilites/splitLine'
 
 export default {
+  name: 'MetaPage',
   async asyncData ({ store, route, error }) {
     if (
       !store.getters.dynamicPagesData[route.params.page] ||
@@ -87,7 +88,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer, 70)
         }, 40)
       }
     }

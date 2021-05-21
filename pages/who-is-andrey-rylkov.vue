@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'WhoIsAndreyRylkovPage',
   async asyncData ({ store, error }) {
     try {
       if (!Object.keys(store.getters.whoIsAndreiRylkov).length) {

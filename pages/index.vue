@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: 'IndexPage',
   async asyncData ({ store }) {
     if (!Object.keys(store.getters.index).length) {
       await store.dispatch('indexInit')

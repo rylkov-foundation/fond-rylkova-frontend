@@ -3,25 +3,22 @@
     <transition name="show">
       <nav v-if="isShown" class="menu__navigation">
         <ul class="menu__list">
-          <li class="menu__list-item" @click="closeMenu">
-            <NuxtLink to="/" class="menu__link">
+          <li class="menu__list-item">
+            <NuxtLink to="/" class="menu__link" exact-active-class="menu__link_active" @click.native="closeMenu">
               {{ $t('menu.mainPage') }}
             </NuxtLink>
           </li>
           <li v-for="item in menu" :key="item._id" class="menu__list-item">
             <div class="menu__list-item-head-container">
-              <p
-                v-if="matchUrl(item) || !item.url"
-                class="menu__list-text"
-                :class="{ 'menu__list-text_active': matchUrl(item) }"
+              <NuxtLink
+                class="menu__link"
+                :class="{ menu__link_empty: !item.url }"
+                :to="'/' + item.url"
+                exact-active-class="menu__link_active"
+                @click.native="closeMenu"
               >
                 {{ item['name_' + $i18n.locale] }}
-              </p>
-              <div v-else @click="closeMenu">
-                <NuxtLink class="menu__link" :to="item.url">
-                  {{ item['name_' + $i18n.locale] }}
-                </NuxtLink>
-              </div>
+              </NuxtLink>
               <span
                 class="menu__arrow"
                 :class="{ menu__arrow_rotated: openedItem === item._id, menu__arrow_hide: !item.subitems.length }"
@@ -34,20 +31,13 @@
               <ul v-if="openedItem === item._id" class="menu__sublist">
                 <li v-for="subitem in item.subitems" :key="subitem._id" class="menu__sublist-item">
                   <NuxtLink
-                    v-if="!matchUrl(subitem)"
                     class="menu__sublist-link"
-                    :to="subitem.url"
+                    exact-active-class="menu__sublist-link_active"
+                    :to="'/' + subitem.url"
                     @click.native="closeMenu"
                   >
                     {{ subitem['name_' + $i18n.locale] }}
                   </NuxtLink>
-                  <p
-                    v-else
-                    class="menu__sublist-text"
-                    :class="{ 'menu__sublist-text_active': matchUrl(subitem) }"
-                  >
-                    {{ subitem['name_' + $i18n.locale] }}
-                  </p>
                 </li>
               </ul>
             </transition>
@@ -119,13 +109,6 @@ export default {
     },
     scrollHandler () {
       this.isScrollOver230 = window.pageYOffset > 230
-    },
-    matchUrl (item) {
-      if (location.pathname !== '/') {
-        return item.url === /[^/]+$/.exec(location.pathname)[0]
-      } else {
-        return false
-      }
     }
   }
 }
@@ -275,16 +258,6 @@ export default {
   justify-content: space-between;
 }
 
-.menu__list-text {
-  cursor: default;
-  display: flex;
-  justify-content: space-between;
-}
-
-.menu__list-text_active {
-  font-weight: bold;
-}
-
 .menu__list-item:not(.menu__list-item:last-child) {
   border-bottom: 1px solid #fff;
 }
@@ -297,6 +270,15 @@ export default {
 .menu__link:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+.menu__link_active {
+  pointer-events: none;
+  font-weight: bold;
+}
+
+.menu__link_empty {
+  pointer-events: none;
 }
 
 .menu__sublist {
@@ -323,17 +305,9 @@ export default {
   opacity: 0.7;
 }
 
-.menu__sublist-text {
-  font-family: 'Roboto', 'Times', serif;
-  color: #fff;
-  font-size: 14px;
-  line-height: 21px;
-  text-transform: none;
-}
-
-.menu__sublist-text_active {
+.menu__sublist-link_active {
+  pointer-events: none;
   font-weight: bold;
-  cursor: default;
 }
 
 @media screen and (min-width: 768px) {
@@ -416,11 +390,6 @@ export default {
     font-size: 22px;
     line-height: 33px;
   }
-
-  .menu__sublist-text {
-    font-size: 22px;
-    line-height: 33px;
-  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -481,11 +450,6 @@ export default {
     line-height: 26px;
     width: 100%;
   }
-
-  .menu__sublist-text {
-    font-size: 17px;
-    line-height: 26px;
-  }
 }
 
 .show-enter,
@@ -509,5 +473,4 @@ export default {
 .show-sublist-leave-active {
   transition: all 700ms;
 }
-
 </style>
