@@ -18,11 +18,6 @@
         </p>
       </div>
       <div class="meta__wrapper">
-        <img
-          class="meta__image"
-          :src="$config.constants.serverUrl +pageData.image.url"
-          :alt="pageData['subtitle_' + $i18n.locale]"
-        >
         <div class="meta__data" v-html="pageData['content_' + $i18n.locale]" />
       </div>
     </div>
@@ -104,7 +99,6 @@ export default {
 <style scoped>
 .meta {
   margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -176,13 +170,6 @@ export default {
   margin-bottom: 18px;
 }
 
-.meta__image {
-  width: 100%;
-  height: auto;
-  max-width: 500px;
-  margin: 0 auto 20px;
-}
-
 .meta__data {
   max-width: 85%;
   margin: 0 auto;
@@ -213,13 +200,6 @@ export default {
     max-width: 72%;
     margin-left: 52px;
     margin-bottom: 52px;
-  }
-
-  .meta__image {
-    height: 367px;
-    max-width: unset;
-    margin: 0 auto 50px;
-    object-fit: contain;
   }
 }
 
@@ -278,14 +258,6 @@ export default {
     font-size: 40px;
     line-height: 42px;
     max-width: 80%;
-  }
-
-  .meta__image {
-    width: 50%;
-    float: left;
-    height: 367px;
-    margin: 0 auto 50px;
-    object-fit: contain;
   }
 
   .meta__wrapper {
