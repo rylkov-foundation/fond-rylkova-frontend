@@ -20,6 +20,7 @@
       </p>
       <p class="footer__license">
         {{ footerData['license_text_' + $i18n.locale] }}
+        <a v-show="footerData.link" :href="footerData.link" target="_blank" class="footer__license-link">{{ footerData.link_text }}</a>
       </p>
     </div>
     <p class="footer__copyright">
