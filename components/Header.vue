@@ -1,12 +1,16 @@
 <template>
   <header class="header">
-    <div class="header__text" :class="{ header__text_en: $i18n.locale === 'en' }" />
+    <div
+      class="header__text"
+      :class="{ header__text_en: $i18n.locale === 'en' }"
+      :style="`background-image: url(${$i18n.locale === 'ru' ? image_ru : image_en})`"
+    />
     <LanguageButton />
   </header>
 </template>
 
 <script>
-import logoRu from '@/assets/images/title.svg'
+import logoRu from 'assets/images/title_ru.svg'
 import logoEn from '@/assets/images/title_en.svg'
 
 export default {
@@ -31,7 +35,6 @@ export default {
 
   .header__text {
     color: #b23438;
-    background-image: url("~/assets/images/title.svg");
     background-repeat: repeat-x;
     width: 100vw;
     height: 100%;
@@ -49,7 +52,6 @@ export default {
   }
 
   .header__text_en {
-    background-image: url("~/assets/images/title_en.svg");
     animation: animate_en 7s linear infinite;
   }
 

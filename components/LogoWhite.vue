@@ -1,6 +1,6 @@
 <template>
   <router-link to="donation" class="logo">
-    <img :src="'_nuxt/assets/images/logo_white_' + [$i18n.locale] + '.png'" alt="Логотип" class="logo__image">
+    <img :src="$i18n.locale === 'ru' ? image_ru : image_en" alt="Логотип" class="logo__image">
   </router-link>
 </template>
 
