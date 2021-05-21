@@ -1,10 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     <Menu :menu="menu" />
     <Header />
-    <div class="container">
-      <Nuxt />
-    </div>
+    <Nuxt />
     <Footer :footer-data="footerData" />
     <div class="popup">
       <PopupCookie v-if="!isAcceptedCookies" :popup-cookies-data="popupCookiesData" :handle-accept-cookies="acceptCookies" />
@@ -93,6 +91,7 @@ export default {
   }
 
   .container {
+    min-height: 100vh;
     margin: 0 auto;
     min-width: 320px;
     display: flex;
