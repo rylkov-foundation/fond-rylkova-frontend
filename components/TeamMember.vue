@@ -48,49 +48,12 @@
 </template>
 
 <script>
-import splitLine from '@/utilites/splitLine'
-
 export default {
   name: 'TeamMember',
   props: {
     member: {
       type: Object,
       default: () => {}
-    }
-  },
-  data () {
-    return {
-      splitTitle: [],
-      resizeTimeout: null
-    }
-  },
-  computed: {
-    lang() {
-      return this.$i18n.locale
-    }
-  },
-  watch: {
-    lang() {
-      this.handleSplitTitle()
-    }
-  },
-  beforeMount () {
-    this.handleSplitTitle()
-  },
-  mounted () {
-    window.addEventListener('resize', this.handleSplitTitle)
-  },
-  beforeDestroy () {
-    window.removeEventListener('resize', this.handleSplitTitle)
-  },
-  methods: {
-    handleSplitTitle () {
-      if (!this.resizeTimeout) {
-        this.resizeTimeout = setTimeout(() => {
-          this.resizeTimeout = null
-          this.splitTitle = splitLine(this.member['name_' + this.$i18n.locale], this.$refs.titleContainer, 100)
-        }, 40)
-      }
     }
   }
 }
