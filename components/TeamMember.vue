@@ -57,6 +57,16 @@ export default {
       resizeTimeout: null
     }
   },
+  computed: {
+    lang() {
+      return this.$i18n.locale
+    }
+  },
+  watch: {
+    lang() {
+      this.handleSplitTitle()
+    }
+  },
   beforeMount () {
     this.handleSplitTitle()
   },
@@ -66,15 +76,12 @@ export default {
   beforeDestroy () {
     window.removeEventListener('resize', this.handleSplitTitle)
   },
-  updated() {
-    this.handleSplitTitle()
-  },
   methods: {
     handleSplitTitle () {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.member['name_' + this.$i18n.locale], this.$refs.titleContainer, 98)
+          this.splitTitle = splitLine(this.member['name_' + this.$i18n.locale], this.$refs.titleContainer, 100)
         }, 40)
       }
     }
