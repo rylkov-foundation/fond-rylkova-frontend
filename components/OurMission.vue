@@ -19,7 +19,7 @@
       </NuxtLink>
       <div class="mission__footer">
         <img src="~/assets/images/road.png" alt="Дорога" class="mission__road">
-        <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
+        <Logo />
       </div>
       <img src="~/assets/images/crystal.svg" alt="Кристал" class="mission__crystal">
     </div>
@@ -161,13 +161,6 @@ export default {
     width: 200px;
   }
 
-  .logo {
-    width: 137px;
-    position: absolute;
-    right: 5px;
-    bottom: 42px;
-  }
-
   .mission__crystal {
     width: 100px;
     position: absolute;
@@ -242,12 +235,6 @@ export default {
 
     .mission__road {
       width: 388px;
-    }
-
-    .logo {
-      width: 237px;
-      right: 42px;
-      bottom: 42px;
     }
 
     .mission__crystal {
@@ -325,14 +312,8 @@ export default {
     }
 
     .mission__footer {
-      margin-top: -47px;
       position: relative;
-    }
-
-    .logo {
-      width: 147px;
-      right: 110px;
-      bottom: 53px;
+      margin-top: auto;
     }
 
     .mission__crystal {

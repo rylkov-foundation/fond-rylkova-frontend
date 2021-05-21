@@ -27,7 +27,7 @@
       <p class="help__contacts">
         telegram/whatsapp/mail
       </p>
-      <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
+      <Logo />
     </div>
     <div class="help__right-block" />
   </section>
@@ -181,9 +181,6 @@ export default {
   }
 
   .logo {
-    width: 137px;
-    position: absolute;
-    right: 5px;
     bottom: 50px;
   }
 
