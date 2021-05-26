@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="PopupNewsVisible"
-    class="popup popup__content_news"
+    class="popup popup_news"
   >
     <h3 class="popup__title popup__title_news">
       {{ popupNewsData[`title_${$i18n.locale}`] }}
@@ -217,7 +217,7 @@ export default {
     line-height: 18px;
   }
 
-  .popup.popup__content_news {
+  .popup.popup_news {
     background-color: #000;
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="popup popup__content_cookie">
+  <div class="popup popup_cookie">
     <h3 class="popup__title">
       {{ popupCookiesData[`title_${$i18n.locale}`] }}
     </h3>

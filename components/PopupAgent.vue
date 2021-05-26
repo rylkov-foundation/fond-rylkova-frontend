@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="PopupAgentVisible"
-    class="popup popup__content_agent"
+    class="popup popup_agent"
   >
     <h3 class="popup__title popup__title_agent">
       {{ popupDownloadData[`title_${$i18n.locale}`] }}
