@@ -1,33 +1,18 @@
 <template>
-  <li
-    class="report"
-    :class="{ 'report_color_white': ($attrs.index + 1) % 2 === 0 }"
-  >
+  <li class="report">
     <img
       :src="$config.constants.serverUrl +report.image.url"
       :alt="report['title_' + $i18n.locale]"
       class="report__image"
     >
-    <div
-      class="report__text-container"
-      :class="{ 'report__text-container_color_white': ($attrs.index + 1) % 2 === 0 }"
-    >
-      <h3
-        class="report__title"
-        :class="{ 'report__title_color_white': ($attrs.index + 1) % 2 === 0 }"
-      >
+    <div class="report__text-container">
+      <h3 class="report__title">
         {{ report['title_' + $i18n.locale] }}
       </h3>
-      <p
-        class="report__date"
-        :class="{ 'report__date_color_white': ($attrs.index + 1) % 2 === 0 }"
-      >
+      <p class="report__date">
         {{ report['date_' + $i18n.locale] }}
       </p>
-      <p
-        class="report__text"
-        :class="{ 'report__text_color_white': ($attrs.index + 1) % 2 === 0 }"
-      >
+      <p class="report__text">
         {{ report['description_' + $i18n.locale] }}
       </p>
     </div>
@@ -55,7 +40,7 @@ export default {
     align-items: center;
   }
 
-  .report_color_white {
+  .report:nth-child(2n) {
     background-color: #fff;
     border-color: #434343;
   }
@@ -83,7 +68,7 @@ export default {
     font-weight: 600;
   }
 
-  .report__title_color_white {
+  .report:nth-child(2n) .report__title {
     color: #b23438;
   }
 
@@ -99,7 +84,7 @@ export default {
     margin-bottom: 7px;
   }
 
-  .report__date_color_white {
+  .report:nth-child(2n) .report__date {
     border-color: #000;
   }
 
@@ -111,7 +96,7 @@ export default {
     font-weight: 400;
   }
 
-  .report__text_color_white {
+  .report:nth-child(2n) .report__text {
     color: #615858;
   }
 
@@ -153,16 +138,16 @@ export default {
       align-items: flex-start;
     }
 
-    .report__text-container {
-      width: calc(1087px / 2);
-    }
-
-    .report_color_white {
+    .report:nth-child(2n) {
       background-color: #fff;
       border-bottom: 2px solid #b23438;
     }
 
-    .report__text-container_color_white {
+    .report__text-container {
+      width: calc(1087px / 2);
+    }
+
+    .report:nth-child(2n) .report__text-container {
       order: -1;
     }
 
@@ -172,7 +157,7 @@ export default {
       margin: 16px 0 20px 31px;
     }
 
-    .report__title_color_white {
+    .report:nth-child(2n) .report__title {
       margin: 30px 31px 20px 0;
       text-align: right;
     }
@@ -184,7 +169,7 @@ export default {
       padding-bottom: 15px;
     }
 
-    .report__date_color_white {
+    .report:nth-child(2n) .report__date {
       margin: 0 33px 13px auto;
       color: #000;
       text-align: right;
@@ -198,7 +183,7 @@ export default {
       margin-bottom: 0;
     }
 
-    .report__text_color_white {
+    .report:nth-child(2n) .report__text {
       text-align: right;
       margin-left: 0;
       margin-right: 24px;

@@ -19,10 +19,9 @@
     </div>
     <ul class="reports__list">
       <Report
-        v-for="(report,index) in pageData.reports"
+        v-for="report in pageData.reports"
         :key="report._id"
         :report="report"
-        :index="index"
       />
     </ul>
   </section>

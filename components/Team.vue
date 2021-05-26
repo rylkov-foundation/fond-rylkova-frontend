@@ -16,10 +16,9 @@
     <LogoWhite />
     <ul class="team__list">
       <TeamMember
-        v-for="(member,index) in pageData.team_members"
+        v-for="member in pageData.team_members"
         :key="member._id"
         :member="member"
-        :index="index"
       />
     </ul>
   </section>
