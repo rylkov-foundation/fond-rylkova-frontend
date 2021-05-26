@@ -4,7 +4,7 @@
     <Header />
     <Nuxt />
     <Footer :footer-data="footerData" />
-    <div class="popup">
+    <div class="popup-container">
       <PopupCookie v-if="!isAcceptedCookies" :popup-cookies-data="popupCookiesData" :handle-accept-cookies="acceptCookies" />
       <PopupAgent :popup-download-data="popupDownloadData" />
       <PopupNews :popup-news-data="popupNewsData" />
@@ -102,7 +102,7 @@ export default {
     overflow: hidden;
   }
 
-  .popup {
+  .popup-container {
     position: fixed;
     bottom: 50px;
     right: 50px;
