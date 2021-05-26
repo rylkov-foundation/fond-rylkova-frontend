@@ -4,10 +4,10 @@
     class="popup__content popup__content_news"
   >
     <h3 class="popup__title popup__title_news">
-      {{ popupNewsData['title_' + $i18n.locale] }}
+      {{ popupNewsData[`title_${$i18n.locale}`] }}
     </h3>
     <p class="popup__text popup__text_news">
-      {{ popupNewsData['description_' + $i18n.locale] }}
+      {{ popupNewsData[`description_${$i18n.locale}`] }}
     </p>
     <NuxtLink
       :to="popupNewsData.link"

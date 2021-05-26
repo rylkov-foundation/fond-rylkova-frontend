@@ -2,7 +2,7 @@
   <section ref="donation" class="donation">
     <div class="donation__container">
       <h2 class="donation__title">
-        {{ pageData.donate['title_' + $i18n.locale] }}
+        {{ pageData[`title_${$i18n.locale}`] }}
       </h2>
       <div class="donation__image-container">
         <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">

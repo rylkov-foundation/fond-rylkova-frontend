@@ -7,10 +7,10 @@
     </div>
     <div class="result__block">
       <h3 class="result__title">
-        {{ result['title_' + $i18n.locale] }}
+        {{ result[`title_${$i18n.locale}`] }}
       </h3>
       <p class="result__text">
-        {{ result['description_' + $i18n.locale] }}
+        {{ result[`description_${$i18n.locale}`] }}
       </p>
     </div>
   </article>

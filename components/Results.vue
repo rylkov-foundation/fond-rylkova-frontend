@@ -3,7 +3,7 @@
     <div class="results__container">
       <div class="results__crystal" />
       <h2 class="results__title">
-        {{ pageData.results['title_' + $i18n.locale] }}
+        {{ pageData.results[`title_${$i18n.locale}`] }}
       </h2>
       <div class="results__slider">
         <button class="results__arrow results__arrow_direction_back" @click="prevSlide" />

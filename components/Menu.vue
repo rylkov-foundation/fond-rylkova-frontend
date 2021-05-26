@@ -17,7 +17,7 @@
                 exact-active-class="menu__link_active"
                 @click.native="closeMenu"
               >
-                {{ item['name_' + $i18n.locale] }}
+                {{ item[`name_${$i18n.locale}`] }}
               </NuxtLink>
               <span
                 class="menu__arrow"
@@ -36,7 +36,7 @@
                     :to="'/' + subitem.url"
                     @click.native="closeMenu"
                   >
-                    {{ subitem['name_' + $i18n.locale] }}
+                    {{ subitem[`name_${$i18n.locale}`] }}
                   </NuxtLink>
                 </li>
               </ul>

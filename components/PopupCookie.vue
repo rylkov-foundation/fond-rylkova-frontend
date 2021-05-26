@@ -1,10 +1,10 @@
 <template>
   <div class="popup__content popup__content_cookie">
     <h3 class="popup__title">
-      {{ popupCookiesData['title_' + $i18n.locale] }}
+      {{ popupCookiesData[`title_${$i18n.locale}`] }}
     </h3>
     <p class="popup__text">
-      {{ popupCookiesData['description_' + $i18n.locale] }}
+      {{ popupCookiesData[`description_${$i18n.locale}`] }}
     </p>
     <button
       type="button"

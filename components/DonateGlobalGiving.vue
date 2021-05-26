@@ -2,10 +2,10 @@
   <div class="donate-global-giving">
     <div class="donate-global-giving__fire" />
     <h3 class="donate-global-giving__title">
-      {{ pageData['title_' + $i18n.locale] }}
+      {{ pageData[`title_${$i18n.locale}`] }}
     </h3>
     <p class="donate-global-giving__text">
-      {{ pageData['description_' + $i18n.locale] }}
+      {{ pageData[`description_${$i18n.locale}`] }}
     </p>
     <Smile class="donate-global-giving__smile" />
   </div>

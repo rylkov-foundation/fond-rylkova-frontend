@@ -4,8 +4,8 @@
     :class="{ 'report_color_white': ($attrs.index + 1) % 2 === 0 }"
   >
     <img
-      :src="$config.constants.serverUrl +report.image.url"
-      :alt="report['title_' + $i18n.locale]"
+      :src="`${$config.constants.serverUrl}${report.image.url}`"
+      :alt="report[`title_${$i18n.locale}`]"
       class="report__image"
     >
     <div
@@ -16,19 +16,19 @@
         class="report__title"
         :class="{ 'report__title_color_white': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ report['title_' + $i18n.locale] }}
+        {{ report[`title_${$i18n.locale}`] }}
       </h3>
       <p
         class="report__date"
         :class="{ 'report__date_color_white': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ report['date_' + $i18n.locale] }}
+        {{ report[`date_${$i18n.locale}`] }}
       </p>
       <p
         class="report__text"
         :class="{ 'report__text_color_white': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ report['description_' + $i18n.locale] }}
+        {{ report[`description_${$i18n.locale}`] }}
       </p>
     </div>
   </li>

@@ -1,8 +1,8 @@
 <template>
   <li class="team-member">
     <img
-      :src="$config.constants.serverUrl +member.photo.url"
-      :alt="member['name_' + $i18n.locale]"
+      :src="`${$config.constants.serverUrl}${member.photo.url}`"
+      :alt="member[`name_${$i18n.locale}`]"
       class="team-member__photo"
     >
     <div
@@ -28,7 +28,7 @@
                     'team-member__title-text_position_fourth': ($attrs.index + 1) % 4 === 0,
           }"
         >
-          {{ member['name_' + $i18n.locale] }}
+          {{ member[`name_${$i18n.locale}`] }}
         </span>
         <span
           class="team-member__title-text"
@@ -37,11 +37,11 @@
                     'team-member__title-text_position_fourth': ($attrs.index + 1) % 4 === 0,
           }"
         >
-          {{ member['surname_' + $i18n.locale] }}
+          {{ member[`surname_${$i18n.locale}`] }}
         </span>
       </h2>
       <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index + 1) % 2 === 0 }">
-        {{ member['description_' + $i18n.locale] }}
+        {{ member[`description_${$i18n.locale}`] }}
       </p>
     </div>
   </li>

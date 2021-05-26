@@ -2,8 +2,8 @@
   <section class="about-us">
     <div class="about-us__container">
       <img
-        :src="$config.constants.serverUrl +pageData.image.url"
-        :alt="pageData['title_' + $i18n.locale]"
+        :src="`${$config.constants.serverUrl}${pageData.image.url}`"
+        :alt="pageData[`title_${$i18n.locale}`]"
         class="about-us__image"
       >
       <h2 ref="titleContainer" class="about-us__title">
@@ -12,7 +12,7 @@
     </div>
     <Support />
     <LogoWhite />
-    <p class="about-us__text" v-html="pageData['content_' + $i18n.locale]" />
+    <p class="about-us__text" v-html="pageData[`content_${$i18n.locale}`]" />
     <div class="about-us__colour-container about-us__colour-container_colour_white" />
     <div class="about-us__colour-container about-us__colour-container_colour_red" />
     <div class="about-us__colour-container about-us__colour-container_colour_grey">
@@ -66,7 +66,7 @@ export default {
       if (!this.resizeTimeout) {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
-          this.splitTitle = splitLine(this.pageData['title_' + this.$i18n.locale], this.$refs.titleContainer)
+          this.splitTitle = splitLine(this.pageData[`title_${this.$i18n.locale}`], this.$refs.titleContainer)
         }, 40)
       }
     }
