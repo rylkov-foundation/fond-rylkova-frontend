@@ -1,13 +1,13 @@
 <template>
   <section class="reports">
-    <div class="reports__colour-container reports__colour-container_colour_black-top" />
-    <div class="reports__colour-container reports__colour-container_colour_grey-top" />
-    <div class="reports__colour-container reports__colour-container_colour_black-bottom">
+    <div class="reports__colour-container reports__colour-container_position_left-top" />
+    <div class="reports__colour-container reports__colour-container_position_left-bottom" />
+    <div class="reports__colour-container reports__colour-container_position_right-top" />
+    <div class="reports__colour-container reports__colour-container_position_right-bottom">
       <Drop class="reports__drop" />
     </div>
     <Support />
     <LogoWhite />
-    <div class="reports__colour-container reports__colour-container_colour_grey-bottom" />
     <div class="reports__container">
       <h2 ref="titleContainer" class="reports__title">
         <span v-for="line in splitTitle" :key="line" class="reports__title-text">{{ line }}</span>
@@ -199,8 +199,8 @@ export default {
       display: grid;
       grid-template-columns: auto 1087px auto;
       grid-template-areas:
-        "black-top title grey-top"
-        "grey-bottom list black-bottom";
+        "left-top title right-top"
+        "left-bottom list right-bottom";
     }
 
     .reports__colour-container {
@@ -208,24 +208,24 @@ export default {
       height: auto;
     }
 
-    .reports__colour-container_colour_black-top {
-      grid-area: black-top;
+    .reports__colour-container_position_left-top {
+      grid-area: left-top;
       background-color: #000;
     }
 
-    .reports__colour-container_colour_grey-top {
-      grid-area: grey-top;
+    .reports__colour-container_position_right-top {
+      grid-area: right-top;
       background-color: #c8c8c8;
     }
 
-    .reports__colour-container_colour_black-bottom {
-      grid-area: black-bottom;
+    .reports__colour-container_position_right-bottom {
+      grid-area: right-bottom;
       background-color: #000;
       position: relative;
     }
 
-    .reports__colour-container_colour_grey-bottom {
-      grid-area: grey-bottom;
+    .reports__colour-container_position_left-bottom {
+      grid-area: left-bottom;
       background-color: #c8c8c8;
     }
 

@@ -2,10 +2,10 @@
   <section class="info">
     <LogoWhite />
     <Support />
-    <div class="info__colour-container info__colour-container_colour_white" />
-    <div class="info__colour-container info__colour-container_colour_black" />
-    <div class="info__colour-container info__colour-container_colour_red" />
-    <div class="info__colour-container info__colour-container_colour_grey">
+    <div class="info__colour-container info__colour-container_position_right-top" />
+    <div class="info__colour-container info__colour-container_position_left-top" />
+    <div class="info__colour-container info__colour-container_position_left-bottom" />
+    <div class="info__colour-container info__colour-container_position_right-bottom">
       <Drop class="info__drop" />
     </div>
     <div class="info__wrapper">
@@ -177,8 +177,8 @@ export default {
       display: grid;
       grid-template-columns: auto 1087px auto;
       grid-template-areas:
-        "black title white"
-        "red text grey";
+        "left-top title right-top"
+        "left-bottom text right-bottom";
     }
 
     .info__wrapper {
@@ -259,24 +259,24 @@ export default {
       height: auto;
     }
 
-    .info__colour-container_colour_white {
-      grid-area: white;
+    .info__colour-container_position_right-top {
+      grid-area: right-top;
       background-color: #fff;
     }
 
-    .info__colour-container_colour_grey {
-      grid-area: grey;
+    .info__colour-container_position_right-bottom {
+      grid-area: right-bottom;
       background-color: #cbcbcb;
       position: relative;
     }
 
-    .info__colour-container_colour_red {
-      grid-area: red;
+    .info__colour-container_position_left-bottom {
+      grid-area: left-bottom;
       background-color: #b23438;
     }
 
-    .info__colour-container_colour_black {
-      grid-area: black;
+    .info__colour-container_position_left-top {
+      grid-area: left-top;
       background-color: #000;
     }
   }

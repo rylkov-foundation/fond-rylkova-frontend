@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import logoRu from 'assets/images/title_ru.svg'
+import logoRu from '@/assets/images/title_ru.svg'
 import logoEn from '@/assets/images/title_en.svg'
 
 export default {

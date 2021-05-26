@@ -1,10 +1,10 @@
 <template>
   <section class="contacts">
     <Support />
-    <div class="contacts__colour-container contacts__colour-container_colour_black" />
-    <div class="contacts__colour-container contacts__colour-container_colour_white" />
-    <div class="contacts__colour-container contacts__colour-container_colour_grey" />
-    <div class="contacts__colour-container contacts__colour-container_colour_red">
+    <div class="contacts__colour-container contacts__colour-container_position_left-top" />
+    <div class="contacts__colour-container contacts__colour-container_position_right-top" />
+    <div class="contacts__colour-container contacts__colour-container_position_left-bottom" />
+    <div class="contacts__colour-container contacts__colour-container_position_right-bottom">
       <Drop class="contacts__drop" />
     </div>
     <LogoWhite />
@@ -414,8 +414,8 @@ export default {
     display: grid;
     grid-template-columns: auto 1098px auto;
     grid-template-areas:
-      "black title white"
-      "grey list red";
+      "left-top title right-top"
+      "left-bottom list right-bottom";
     border-bottom: 1px solid #737373;
     max-width: 100%;
     overflow: hidden;
@@ -426,23 +426,23 @@ export default {
     height: auto;
   }
 
-  .contacts__colour-container_colour_black {
-    grid-area: black;
+  .contacts__colour-container_position_left-top {
+    grid-area: left-top;
     background-color: #000;
   }
 
-  .contacts__colour-container_colour_white {
-    grid-area: white;
+  .contacts__colour-container_position_right-top {
+    grid-area: right-top;
     background-color: #fff;
   }
 
-  .contacts__colour-container_colour_grey {
-    grid-area: grey;
+  .contacts__colour-container_position_left-bottom {
+    grid-area: left-bottom;
     background-color: #cbcbcb;
   }
 
-  .contacts__colour-container_colour_red {
-    grid-area: red;
+  .contacts__colour-container_position_right-bottom {
+    grid-area: right-bottom;
     background-color: #b23438;
     position: relative;
   }

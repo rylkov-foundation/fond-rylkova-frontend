@@ -1,9 +1,9 @@
 <template>
   <section class="projects">
-    <div class="projects__colour-container projects__colour-container_colour_black-top" />
-    <div class="projects__colour-container projects__colour-container_colour_white" />
-    <div class="projects__colour-container projects__colour-container_colour_red" />
-    <div class="projects__colour-container projects__colour-container_colour_black-bottom">
+    <div class="projects__colour-container projects__colour-container_position_left-top" />
+    <div class="projects__colour-container projects__colour-container_position_right-top" />
+    <div class="projects__colour-container projects__colour-container_position_left-bottom" />
+    <div class="projects__colour-container projects__colour-container_position_right-bottom">
       <Drop class="projects__drop" />
     </div>
     <Support />
@@ -202,8 +202,8 @@ export default {
     display: grid;
     grid-template-columns: auto 1087px auto;
     grid-template-areas:
-      "black-top title white"
-      "red list black-bottom";
+      "left-top title right-top"
+      "left-bottom list right-bottom";
   }
 
   .projects__colour-container {
@@ -211,24 +211,24 @@ export default {
     height: auto;
   }
 
-  .projects__colour-container_colour_black-top {
-    grid-area: black-top;
+  .projects__colour-container_position_left-top {
+    grid-area: left-top;
     background-color: #000;
   }
 
-  .projects__colour-container_colour_white {
-    grid-area: white;
+  .projects__colour-container_position_right-top {
+    grid-area: right-top;
     background-color: #fff;
   }
 
-  .projects__colour-container_colour_black-bottom {
-    grid-area: black-bottom;
+  .projects__colour-container_position_right-bottom {
+    grid-area: right-bottom;
     background-color: #000;
     position: relative;
   }
 
-  .projects__colour-container_colour_red {
-    grid-area: red;
+  .projects__colour-container_position_left-bottom {
+    grid-area: left-bottom;
     background-color: #b23438;
   }
 
