@@ -1,10 +1,10 @@
 <template>
   <section class="main">
-    <div class="main__wrapper main__wrapper_color_red">
-      <div class="main__red-block" />
+    <div class="main__wrapper main__wrapper_position_top">
+      <div class="main__top-block" />
     </div>
-    <div class="main__wrapper main__wrapper_color_grey">
-      <div class="main__grey-block">
+    <div class="main__wrapper main__wrapper_position_bottom">
+      <div class="main__bottom-block">
         <div class="main__money-block">
           <button type="button" name="1000" class="main__number main__number_size_big" @click="onSumClick">
             {{ donationAmount.amount_big }}
@@ -57,22 +57,22 @@ export default {
 </script>
 
 <style scoped>
-  .main__wrapper_color_red {
+  .main__wrapper_position_top {
     background-color: #b23438;
     width: 100vw;
   }
 
-  .main__red-block {
+  .main__top-block {
     height: 51px;
     max-width: 1280px;
   }
 
-  .main__wrapper_color_grey {
+  .main__wrapper_position_bottom {
     background-color: #cbcbcb;
     width: 100vw;
   }
 
-  .main__grey-block {
+  .main__bottom-block {
     max-width: 1280px;
     display: flex;
     flex-direction: column;
@@ -220,11 +220,11 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .main__red-block {
+    .main__top-block {
       height: 78px;
     }
 
-    .main__grey-block {
+    .main__bottom-block {
       height: 550px;
     }
 
@@ -273,11 +273,11 @@ export default {
   }
 
   @media screen and (min-width: 1280px) {
-    .main__red-block {
+    .main__top-block {
       height: 93px;
     }
 
-    .main__grey-block {
+    .main__bottom-block {
       background-color: #cbcbcb;
       height: 315px;
       display: grid;

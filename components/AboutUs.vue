@@ -13,9 +13,9 @@
     <Support />
     <LogoWhite />
     <p class="about-us__text" v-html="pageData[`content_${$i18n.locale}`]" />
-    <div class="about-us__colour-container about-us__colour-container_colour_white" />
-    <div class="about-us__colour-container about-us__colour-container_colour_red" />
-    <div class="about-us__colour-container about-us__colour-container_colour_grey">
+    <div class="about-us__colour-container about-us__colour-container_position_right-top" />
+    <div class="about-us__colour-container about-us__colour-container_position_left-bottom" />
+    <div class="about-us__colour-container about-us__colour-container_position_right-bottom">
       <Drop class="about-us__drop" />
     </div>
   </section>
@@ -185,8 +185,8 @@ export default {
       display: grid;
       grid-template-columns: auto 1087px auto;
       grid-template-areas:
-        "title title white"
-        "red text grey";
+        "title title right-top"
+        "left-bottom text right-bottom";
     }
 
     .about-us__container {
@@ -233,19 +233,19 @@ export default {
       height: auto;
     }
 
-    .about-us__colour-container_colour_white {
-      grid-area: white;
+    .about-us__colour-container_position_right-top {
+      grid-area: right-top;
       background-color: #fff;
     }
 
-    .about-us__colour-container_colour_grey {
-      grid-area: grey;
+    .about-us__colour-container_position_right-bottom {
+      grid-area: right-bottom;
       background-color: #cbcbcb;
       position: relative;
     }
 
-    .about-us__colour-container_colour_red {
-      grid-area: red;
+    .about-us__colour-container_position_left-bottom {
+      grid-area: left-bottom;
       background-color: #b23438;
     }
   }

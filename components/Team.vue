@@ -1,6 +1,11 @@
 <template>
   <section class="team">
-    <div class="team__colour-container team__colour-container_colour_black" />
+    <div class="team__colour-container team__colour-container_position_left-top" />
+    <div class="team__colour-container team__colour-container_position_right-top" />
+    <div class="team__colour-container team__colour-container_position_left-bottom" />
+    <div class="team__colour-container team__colour-container_position_right-bottom">
+      <Drop class="team__drop" />
+    </div>
     <Support />
     <div class="team__container">
       <h2 class="team__title">
@@ -8,20 +13,14 @@
       </h2>
       <div class="team__image" />
     </div>
-    <div class="team__colour-container team__colour-container_colour_white" />
     <LogoWhite />
-    <div class="team__colour-container team__colour-container_colour_grey" />
     <ul class="team__list">
       <TeamMember
-        v-for="(member,index) in pageData.team_members"
+        v-for="member in pageData.team_members"
         :key="member._id"
         :member="member"
-        :index="index"
       />
     </ul>
-    <div class="team__colour-container team__colour-container_colour_red">
-      <Drop class="team__drop" />
-    </div>
   </section>
 </template>
 
@@ -150,8 +149,8 @@ export default {
     display: grid;
     grid-template-columns: auto 1087px auto;
     grid-template-areas:
-      "black team-title white"
-      "grey list red";
+      "left-top team-title right-top"
+      "left-bottom list right-bottom";
   }
 
   .team__container {
@@ -169,23 +168,23 @@ export default {
     height: auto;
   }
 
-  .team__colour-container_colour_black {
-    grid-area: black;
+  .team__colour-container_position_left-top {
+    grid-area: left-top;
     background-color: #000;
   }
 
-  .team__colour-container_colour_white {
-    grid-area: white;
+  .team__colour-container_position_right-top {
+    grid-area: right-top;
     background-color: #fff;
   }
 
-  .team__colour-container_colour_grey {
-    grid-area: grey;
+  .team__colour-container_position_left-bottom {
+    grid-area: left-bottom;
     background-color: #cbcbcb;
   }
 
-  .team__colour-container_colour_red {
-    grid-area: red;
+  .team__colour-container_position_right-bottom {
+    grid-area: right-bottom;
     background-color: #b23438;
     position: relative;
   }

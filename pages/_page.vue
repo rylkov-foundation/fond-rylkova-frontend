@@ -2,12 +2,12 @@
   <div class="meta">
     <Support />
     <div class="meta__main">
-      <div class="meta__colour-container meta__colour-container_colour_grey-top" />
-      <div class="meta__colour-container meta__colour-container_colour_white" />
-      <div class="meta__colour-container meta__colour-container_colour_grey-bottom">
+      <div class="meta__colour-container meta__colour-container_position_left-top" />
+      <div class="meta__colour-container meta__colour-container_position_right-top" />
+      <div class="meta__colour-container meta__colour-container_position_right-bottom">
         <Drop class="meta__drop" />
       </div>
-      <div class="meta__colour-container meta__colour-container_colour_red" />
+      <div class="meta__colour-container meta__colour-container_position_left-bottom" />
       <LogoWhite />
       <div class="meta__container">
         <h1 ref="titleContainer" class="meta__title">
@@ -122,7 +122,6 @@ export default {
 .meta__container {
   background-color: #cbcbcb;
   width: 100%;
-  margin-bottom: 30px;
 }
 
 .meta__title {
@@ -158,6 +157,10 @@ export default {
   bottom: 2px;
   left: 0;
   position: absolute;
+}
+
+.meta__wrapper {
+  margin-top: 30px;
 }
 
 .meta__subtitle {
@@ -210,8 +213,8 @@ export default {
     display: grid;
     grid-template-columns: auto 1098px auto;
     grid-template-areas:
-      "grey-top title white"
-      "red data grey-bottom";
+      "left-top title right-top"
+      "left-bottom data right-bottom";
     align-items: unset;
   }
 
@@ -220,24 +223,24 @@ export default {
     height: auto;
   }
 
-  .meta__colour-container_colour_grey-top {
-    grid-area: grey-top;
+  .meta__colour-container_position_left-top {
+    grid-area: left-top;
     background-color: #cbcbcb;
   }
 
-  .meta__colour-container_colour_white {
-    grid-area: white;
+  .meta__colour-container_position_right-top {
+    grid-area: right-top;
     background-color: #fff;
   }
 
-  .meta__colour-container_colour_grey-bottom {
-    grid-area: grey-bottom;
+  .meta__colour-container_position_right-bottom {
+    grid-area: right-bottom;
     background-color: #cbcbcb;
     position: relative;
   }
 
-  .meta__colour-container_colour_red {
-    grid-area: red;
+  .meta__colour-container_position_left-bottom {
+    grid-area: left-bottom;
     background-color: #b23438;
   }
 

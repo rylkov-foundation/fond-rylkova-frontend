@@ -1,9 +1,9 @@
 <template>
   <section class="donation-page">
-    <div class="donation-page__colour-container donation-page__colour-container_colour_black" />
-    <div class="donation-page__colour-container donation-page__colour-container_colour_white" />
-    <div class="donation-page__colour-container donation-page__colour-container_colour_red-left" />
-    <div class="donation-page__colour-container donation-page__colour-container_colour_red-right">
+    <div class="donation-page__colour-container donation-page__colour-container_position_left-top" />
+    <div class="donation-page__colour-container donation-page__colour-container_position_right-top" />
+    <div class="donation-page__colour-container donation-page__colour-container_position_left-bottom" />
+    <div class="donation-page__colour-container donation-page__colour-container_position_right-bottom">
       <Drop class="donation-page__drop" />
     </div>
     <div class="donation-page__grid-container-title">
@@ -199,8 +199,8 @@ export default {
       display: grid;
       grid-template-columns: auto 1100px auto;
       grid-template-areas:
-        "black title white"
-        "red-left donations red-right";
+        "left-top title right-top"
+        "left-bottom donations right-bottom";
       border-bottom: 1px solid #737373;
     }
 
@@ -209,23 +209,23 @@ export default {
       height: auto;
     }
 
-    .donation-page__colour-container_colour_black {
-      grid-area: black;
+    .donation-page__colour-container_position_left-top {
+      grid-area: left-top;
       background-color: #000;
     }
 
-    .donation-page__colour-container_colour_white {
-      grid-area: white;
+    .donation-page__colour-container_position_right-top {
+      grid-area: right-top;
       background-color: #fff;
     }
 
-    .donation-page__colour-container_colour_red-left {
-      grid-area: red-left;
+    .donation-page__colour-container_position_left-bottom {
+      grid-area: left-bottom;
       background-color: #b23438;
     }
 
-    .donation-page__colour-container_colour_red-right {
-      grid-area: red-right;
+    .donation-page__colour-container_position_right-bottom {
+      grid-area: right-bottom;
       background-color: #b23438;
       position: relative;
     }

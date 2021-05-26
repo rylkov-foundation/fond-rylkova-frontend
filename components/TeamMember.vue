@@ -5,42 +5,16 @@
       :alt="member[`name_${$i18n.locale}`]"
       class="team-member__photo"
     >
-    <div
-      class="team-member__container"
-      :class="{ 'team-member__container_color_white': ($attrs.index + 1) % 2 === 0,
-                'team-member__container_position_even': ($attrs.index + 1) % 2 === 0,
-                'team-member__container_position_fourth': ($attrs.index + 1) % 4 === 0
-      }"
-    >
-      <h2
-        ref="titleContainer"
-        class="team-member__title"
-        :class="{ 'team-member__title_color_white': ($attrs.index + 1) % 2 === 0,
-                  'team-member__title_position_second': ($attrs.index + 1) % 2 === 0,
-                  'team-member__title_position_third': ($attrs.index + 1) % 3 === 0,
-                  'team-member__title_position_fourth': ($attrs.index + 1) % 4 === 0
-        }"
-      >
-        <span
-          class="team-member__title-text"
-          :class="{ 'team-member__title-text_position_second': ($attrs.index + 1) % 2 === 0,
-                    'team-member__title-text_position_third': ($attrs.index + 1) % 3 === 0,
-                    'team-member__title-text_position_fourth': ($attrs.index + 1) % 4 === 0,
-          }"
-        >
+    <div class="team-member__container">
+      <h2 ref="titleContainer" class="team-member__title">
+        <span class="team-member__title-text">
           {{ member[`name_${$i18n.locale}`] }}
         </span>
-        <span
-          class="team-member__title-text"
-          :class="{ 'team-member__title-text_position_second': ($attrs.index + 1) % 2 === 0,
-                    'team-member__title-text_position_third': ($attrs.index + 1) % 3 === 0,
-                    'team-member__title-text_position_fourth': ($attrs.index + 1) % 4 === 0,
-          }"
-        >
+        <span class="team-member__title-text">
           {{ member[`surname_${$i18n.locale}`] }}
         </span>
       </h2>
-      <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index + 1) % 2 === 0 }">
+      <p class="team-member__text">
         {{ member[`description_${$i18n.locale}`] }}
       </p>
     </div>
@@ -85,7 +59,7 @@ export default {
     min-width: 292px;
   }
 
-  .team-member__container_color_white {
+  .team-member:nth-child(2n) .team-member__container {
     background-color: #fff;
   }
 
@@ -121,7 +95,7 @@ export default {
     height: 7px;
   }
 
-  .team-member__title_color_white {
+  .team-member:nth-child(2n) .team-member__title {
     color: #c71f25;
   }
 
@@ -136,7 +110,7 @@ export default {
     max-width: 90%;
   }
 
-  .team-member__text_color_white {
+  .team-member:nth-child(2n) .team-member__text {
     color: #000;
   }
 
@@ -232,34 +206,34 @@ export default {
       margin-bottom: 14px;
     }
 
-    .team-member__container_position_even {
+    .team-member:nth-child(2n) .team-member__container {
       order: -1;
       margin-right: 0;
       margin-left: 10px;
       background-color: #000;
     }
 
-    .team-member__container_position_fourth {
+    .team-member:nth-child(4n) .team-member__container {
       background-color: #b23438;
     }
 
-    .team-member__title_color_white {
+    .team-member:nth-child(2n) .team-member__title {
       color: #fff;
     }
 
-    .team-member__title-text_position_third::after {
+    .team-member:nth-child(3n) .team-member__title-text::after {
       background-color: #cbcbcb;
     }
 
-    .team-member__title-text_position_second::after {
+    .team-member:nth-child(2n) .team-member__title-text::after {
       background-color: #b23438;
     }
 
-    .team-member__title-text_position_fourth::after {
+    .team-member:nth-child(4n) .team-member__title-text::after {
       background-color: #000;
     }
 
-    .team-member__text_color_white {
+    .team-member:nth-child(2n) .team-member__text {
       color: #fff;
     }
   }
