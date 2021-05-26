@@ -1,21 +1,21 @@
 <template>
   <li class="team-member">
     <img
-      :src="$config.constants.serverUrl +member.photo.url"
-      :alt="member['name_' + $i18n.locale]"
+      :src="`${$config.constants.serverUrl}${member.photo.url}`"
+      :alt="member[`name_${$i18n.locale}`]"
       class="team-member__photo"
     >
     <div class="team-member__container">
       <h2 ref="titleContainer" class="team-member__title">
         <span class="team-member__title-text">
-          {{ member['name_' + $i18n.locale] }}
+          {{ member[`name_${$i18n.locale}`] }}
         </span>
         <span class="team-member__title-text">
-          {{ member['surname_' + $i18n.locale] }}
+          {{ member[`surname_${$i18n.locale}`] }}
         </span>
       </h2>
       <p class="team-member__text">
-        {{ member['description_' + $i18n.locale] }}
+        {{ member[`description_${$i18n.locale}`] }}
       </p>
     </div>
   </li>

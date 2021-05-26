@@ -1,10 +1,10 @@
 <template>
-  <div class="popup__content popup__content_cookie">
+  <div class="popup popup_cookie">
     <h3 class="popup__title">
-      {{ popupCookiesData['title_' + $i18n.locale] }}
+      {{ popupCookiesData[`title_${$i18n.locale}`] }}
     </h3>
     <p class="popup__text">
-      {{ popupCookiesData['description_' + $i18n.locale] }}
+      {{ popupCookiesData[`description_${$i18n.locale}`] }}
     </p>
     <button
       type="button"
@@ -66,7 +66,7 @@ export default {
     background-color: transparent;
   }
 
-  .popup__content {
+  .popup {
     background-color: #fff;
     padding: 17px 0 16px 20px;
     border-radius: 20px;
@@ -77,7 +77,7 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .popup__content {
+    .popup {
       width: 470px;
       min-height: 204px;
       padding: 35px 0 32px 41px;
@@ -102,7 +102,7 @@ export default {
   }
 
   @media screen and (min-width: 1280px) {
-    .popup__content {
+    .popup {
       width: 295px;
       min-height: 128px;
       padding: 22px 0 19px 25px;

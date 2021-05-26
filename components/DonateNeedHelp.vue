@@ -1,17 +1,17 @@
 <template>
   <div class="donate-need-help">
     <h3 class="donate-need-help__title">
-      {{ pageData['title_' + $i18n.locale] }}
+      {{ pageData[`title_${$i18n.locale}`] }}
     </h3>
     <div class="donate-need-help__wrapper">
       <img
         class="donate-need-help__qr"
         alt="QR код"
-        :src="$config.constants.serverUrl +pageData.qr_code.url"
+        :src="`${$config.constants.serverUrl}${pageData.qr_code.url}`"
       >
     </div>
     <p class="donate-need-help__text">
-      {{ pageData['description_' + $i18n.locale] }}
+      {{ pageData[`description_${$i18n.locale}`] }}
     </p>
   </div>
 </template>

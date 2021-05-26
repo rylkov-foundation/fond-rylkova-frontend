@@ -2,14 +2,14 @@
   <li class="contact">
     <img
       class="contact__image"
-      :src="$config.constants.serverUrl +contact.photo.url"
-      :alt="contact['name_' + $i18n.locale]"
+      :src="`${$config.constants.serverUrl}${contact.photo.url}`"
+      :alt="contact[`name_${$i18n.locale}`]"
     >
     <h3 class="contact__name">
-      {{ contact['name_' + $i18n.locale] }}
+      {{ contact[`name_${$i18n.locale}`] }}
     </h3>
     <p class="contact__description">
-      {{ contact['position_' + $i18n.locale] }}
+      {{ contact[`position_${$i18n.locale}`] }}
     </p>
     <a
       class="contact__telephone-number"

@@ -14,11 +14,11 @@
           <span v-for="line in splitTitle" :key="line" class="text-with-line">{{ line }}</span>
         </h1>
         <p class="meta__subtitle">
-          {{ pageData['subtitle_' + $i18n.locale] }}
+          {{ pageData[`subtitle_${$i18n.locale}`] }}
         </p>
       </div>
       <div class="meta__wrapper">
-        <div class="meta__data" v-html="pageData['content_' + $i18n.locale]" />
+        <div class="meta__data" v-html="pageData[`content_${$i18n.locale}`]" />
       </div>
     </div>
   </div>
@@ -53,16 +53,16 @@ export default {
   },
   head() {
     return {
-      title: this.pageData['title_' + this.$i18n.locale] + '|' + this.meta.title,
+      title: `${this.pageData[`title_${this.$i18n.locale}`]}|${this.meta.title}`,
       meta: [
         { hid: 'description', name: 'description', content: this.pageData.Description },
         { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },
-        { hid: 'og:title', name: 'og:title', content: this.pageData['title_' + this.$i18n.locale] },
+        { hid: 'og:title', name: 'og:title', content: this.pageData[`title_${this.$i18n.locale}`] },
         { hid: 'og:description', name: 'og:description', content: this.pageData.og_description },
-        { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.meta.logo.url },
-        { hid: 'twitter:title', name: 'twitter:title', content: this.pageData['title_' + this.$i18n.locale] },
+        { hid: 'og:image', name: 'og:image', content: `${this.$config.constants.serverUrl}${this.meta.logo.url}` },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.pageData[`title_${this.$i18n.locale}`] },
         { hid: 'twitter:description', name: 'twitter:description', content: this.pageData.og_description },
-        { hid: 'twitter:image', name: 'twitter:image', content: this.$config.constants.serverUrl + this.meta.logo.url }
+        { hid: 'twitter:image', name: 'twitter:image', content: `${this.$config.constants.serverUrl}${this.meta.logo.url}` }
       ]
     }
   },
@@ -84,7 +84,7 @@ export default {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
           this.splitTitle = splitLine(
-            this.pageData['title_' + this.$i18n.locale],
+            this.pageData[`title_${this.$i18n.locale}`],
             this.$refs.titleContainer,
             false,
             70

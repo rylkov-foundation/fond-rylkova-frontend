@@ -1,19 +1,19 @@
 <template>
   <li class="report">
     <img
-      :src="$config.constants.serverUrl +report.image.url"
-      :alt="report['title_' + $i18n.locale]"
+      :src="`${$config.constants.serverUrl}${report.image.url}`"
+      :alt="report[`title_${$i18n.locale}`]"
       class="report__image"
     >
     <div class="report__text-container">
       <h3 class="report__title">
-        {{ report['title_' + $i18n.locale] }}
+        {{ report[`title_${$i18n.locale}`] }}
       </h3>
       <p class="report__date">
-        {{ report['date_' + $i18n.locale] }}
+        {{ report[`date_${$i18n.locale}`] }}
       </p>
       <p class="report__text">
-        {{ report['description_' + $i18n.locale] }}
+        {{ report[`description_${$i18n.locale}`] }}
       </p>
     </div>
   </li>

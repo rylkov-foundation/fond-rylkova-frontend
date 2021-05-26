@@ -1,13 +1,13 @@
 <template>
   <div
     v-if="PopupNewsVisible"
-    class="popup__content popup__content_news"
+    class="popup popup_news"
   >
     <h3 class="popup__title popup__title_news">
-      {{ popupNewsData['title_' + $i18n.locale] }}
+      {{ popupNewsData[`title_${$i18n.locale}`] }}
     </h3>
     <p class="popup__text popup__text_news">
-      {{ popupNewsData['description_' + $i18n.locale] }}
+      {{ popupNewsData[`description_${$i18n.locale}`] }}
     </p>
     <NuxtLink
       :to="popupNewsData.link"
@@ -75,7 +75,7 @@ export default {
     cursor: pointer;
   }
 
-  .popup__content {
+  .popup {
     background-color: #fff;
     padding: 17px 0 16px 20px;
     border-radius: 20px;
@@ -124,7 +124,7 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .popup__content {
+    .popup {
       width: 470px;
       min-height: 204px;
       padding: 35px 0 32px 41px;
@@ -168,7 +168,7 @@ export default {
   }
 
   @media screen and (min-width: 1280px) {
-    .popup__content {
+    .popup {
       width: 295px;
       min-height: 128px;
       padding: 22px 0 19px 25px;
@@ -217,7 +217,7 @@ export default {
     line-height: 18px;
   }
 
-  .popup__content.popup__content_news {
+  .popup.popup_news {
     background-color: #000;
   }
 

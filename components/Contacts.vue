@@ -35,15 +35,15 @@
       <div class="contacts__black-container">
         <div class="contacts__image" />
         <p class="contacts__text">
-          {{ pageData['description_' + $i18n.locale] }}
+          {{ pageData[`description_${$i18n.locale}`] }}
         </p>
         <div class="contacts__telephone-block">
-          <a class="contacts__telephone-number" :href="'tel:'+pageData.phone_number">
+          <a class="contacts__telephone-number" :href="`tel:${pageData.phone_number}`">
             {{ pageData.phone_number }}
           </a>
         </div>
         <div class="contacts__email-block">
-          <a class="contacts__email" :href="'mailto:'+pageData.email" target="_blank">
+          <a class="contacts__email" :href="`mailto:${pageData.email}`" target="_blank">
             {{ pageData.email }}
           </a>
         </div>
@@ -59,7 +59,7 @@
         />
       </ul>
       <p class="contacts__info">
-        {{ pageData['text_' + $i18n.locale] }}
+        {{ pageData[`text_${$i18n.locale}`] }}
       </p>
     </div>
   </section>
@@ -113,7 +113,7 @@ export default {
         this.resizeTimeout = setTimeout(() => {
           this.resizeTimeout = null
           this.splitTitle = splitLine(
-            this.pageData['title_' + this.$i18n.locale],
+            this.pageData[`title_${this.$i18n.locale}`],
             this.$refs.titleContainer,
             true,
             95

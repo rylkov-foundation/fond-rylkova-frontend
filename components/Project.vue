@@ -7,7 +7,7 @@
       class="project__title"
       :class="{ 'project__title_position_even': ($attrs.index + 1) % 2 === 0 }"
     >
-      {{ project['title_' + $i18n.locale] }}
+      {{ project[`title_${$i18n.locale}`] }}
     </h3>
     <div
       class="project__text-container"
@@ -17,18 +17,18 @@
         class="project__date"
         :class="{ 'project__date_position_even': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ project['date_' + $i18n.locale] }}
+        {{ project[`date_${$i18n.locale}`] }}
       </p>
       <p
         class="project__description"
         :class="{ 'project__description_position_even': ($attrs.index + 1) % 2 === 0 }"
       >
-        {{ project['description_' + $i18n.locale] }}
+        {{ project[`description_${$i18n.locale}`] }}
       </p>
     </div>
     <img
-      :src="$config.constants.serverUrl +project.image.url"
-      :alt="project['title_' + $i18n.locale]"
+      :src="`${$config.constants.serverUrl}${project.image.url}`"
+      :alt="project[`title_${$i18n.locale}`]"
       class="project__photo"
       :class="{ 'project__photo_position_even': ($attrs.index + 1) % 2 === 0 }"
     >

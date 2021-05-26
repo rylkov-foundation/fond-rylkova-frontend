@@ -4,7 +4,7 @@
     <Header />
     <Nuxt />
     <Footer :footer-data="footerData" />
-    <div class="popup">
+    <div class="popup-container">
       <PopupCookie v-if="!isAcceptedCookies" :popup-cookies-data="popupCookiesData" :handle-accept-cookies="acceptCookies" />
       <PopupAgent :popup-download-data="popupDownloadData" />
       <PopupNews :popup-news-data="popupNewsData" />
@@ -35,17 +35,17 @@ export default {
         { hid: 'site_name', name: 'site_name', content: this.meta.site_name },
         { hid: 'og:title', name: 'og:title', content: this.meta.title },
         { hid: 'og:description', name: 'og:description', content: this.meta.og_description },
-        { hid: 'og:image', name: 'og:image', content: this.$config.constants.serverUrl + this.meta.logo.url },
+        { hid: 'og:image', name: 'og:image', content: `${this.$config.constants.serverUrl}${this.meta.logo.url}` },
         { hid: 'twitter:title', name: 'twitter:title', content: this.meta.title },
         { hid: 'twitter:description', name: 'twitter:description', content: this.meta.og_description },
-        { hid: 'twitter:image', name: 'twitter:image', content: this.$config.constants.serverUrl + this.meta.logo.url }
+        { hid: 'twitter:image', name: 'twitter:image', content: `${this.$config.constants.serverUrl}${this.meta.logo.url}` }
 
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         {
           rel: 'canonical',
-          href: this.$config.constants.baseUrl + this.$route.path
+          href: `${this.$config.constants.baseUrl}${this.$route.path}`
         }
       ]
     }
@@ -102,7 +102,7 @@ export default {
     overflow: hidden;
   }
 
-  .popup {
+  .popup-container {
     position: fixed;
     bottom: 50px;
     right: 50px;

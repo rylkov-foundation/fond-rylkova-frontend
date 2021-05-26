@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <h2 class="footer__title">
-      {{ footerData['title_' + $i18n.locale] }}
+      {{ footerData[`title_${$i18n.locale}`] }}
     </h2>
     <div class="footer__container">
       <div class="footer__social-links">
@@ -10,18 +10,18 @@
           :key="linkItem.icon._id"
           class="footer__social-link"
           :href="linkItem.link"
-          :style="{ backgroundImage: 'url('+ $config.constants.serverUrl + linkItem.icon.url + ')' }"
+          :style="{ backgroundImage: `url(${$config.constants.serverUrl}${linkItem.icon.url})` }"
           target="_blank"
         />
         <div class="footer__agent" />
       </div>
       <p class="footer__foreign-agent">
-        {{ footerData['foreign_agent_text_' + $i18n.locale] }}
+        {{ footerData[`foreign_agent_text_${$i18n.locale}`] }}
       </p>
       <p class="footer__license">
-        {{ footerData['license_text_' + $i18n.locale] }}
+        {{ footerData[`license_text_${$i18n.locale}`] }}
         <a v-if="footerData.link" :href="footerData.link" target="_blank" class="footer__license-link">
-          {{ ' ' + footerData.link_text }}
+          {{ ` ${footerData.link_text}` }}
         </a>
       </p>
     </div>
