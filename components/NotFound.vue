@@ -1,6 +1,6 @@
 <template>
   <div class="not-found">
-    <div class="not-found__grey" />
+    <div class="not-found__left" />
     <div class="not-found__container">
       <h3 class="not-found__title">
         НЕНАХОД(
@@ -11,7 +11,7 @@
     </div>
     <LogoWhite />
     <Support />
-    <div class="not-found__black" />
+    <div class="not-found__right" />
   </div>
 </template>
 
@@ -62,11 +62,11 @@ export default {
   text-align: center;
 }
 
-.not-found__grey {
+.not-found__left {
   display: none;
 }
 
-.not-found__black {
+.not-found__right {
   display: none;
 }
 
@@ -113,14 +113,14 @@ export default {
     margin-top: 19px;
   }
 
-  .not-found__grey {
+  .not-found__left {
     display: block;
     width: 92px;
     height: 747px;
     background-color: #cbcbcb;
   }
 
-  .not-found__black {
+  .not-found__right {
     display: block;
     width: 95px;
     height: 747px;
