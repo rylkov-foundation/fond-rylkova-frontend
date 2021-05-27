@@ -1,5 +1,9 @@
 {
   "name": "fond-rylkova",
+  "author": {
+    "name": "FreeBeeGo",
+    "email": "freebeego@yandex.ru"
+  },
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -14,9 +18,21 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/strapi": "^0.3.1",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "core-js": "^3.9.1",
+    "dotenv": "^8.6.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7",
+    "node-schedule": "^2.0.0",
+    "nodemailer": "^6.6.0",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "nuxt-i18n": "^6.27.0",
+    "uuid": "^8.3.2",
+    "validator": "^13.6.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",

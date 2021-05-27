@@ -1,24 +1,45 @@
 <template>
-  <div class="container">
-    <MainHeader />
-    <LanguageButton :is-additional-page="true" />
-    <Menu />
-    <Team />
-    <Footer />
-  </div>
+  <Team :page-data="pageData" />
 </template>
 
 <script>
-</script>
-
-<style scoped>
-  .container {
-    margin: 0 auto;
-    min-height: 100vh;
-    min-width: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+export default {
+  name: 'TeamPage',
+  async asyncData ({ store, error }) {
+    try {
+      if (!Object.keys(store.getters.team).length) {
+        await store.dispatch('teamInit')
+      }
+    } catch (e) {
+      error({ statusCode: 404 })
+    }
+    return {
+      pageData: store.getters.team
+    }
+  },
+  data () {
+    return {
+      pageData: {},
+      meta: {}
+    }
+  },
+  head() {
+    return {
+      title: `${this.pageData[`title_${this.$i18n.locale}`]}|${this.meta.title}`,
+      meta: [
+        { hid: 'description', name: 'description', content: this.pageData.Description },
+        { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },
+        { hid: 'og:title', name: 'og:title', content: this.pageData[`title_${this.$i18n.locale}`] },
+        { hid: 'og:description', name: 'og:description', content: this.pageData.og_description },
+        { hid: 'og:image', name: 'og:image', content: `${this.$config.constants.serverUrl}${this.meta.logo.url}` },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.pageData[`title_${this.$i18n.locale}`] },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.pageData.og_description },
+        { hid: 'twitter:image', name: 'twitter:image', content: `${this.$config.constants.serverUrl}${this.meta.logo.url}` }
+      ]
+    }
+  },
+  created() {
+    this.meta = this.$store.getters.globalMeta
   }
-</style>
+}
+</script>

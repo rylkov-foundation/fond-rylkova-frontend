@@ -1,34 +1,33 @@
 <template>
   <section class="main">
-    <div class="main__wrapper main__wrapper_color_red">
-      <div class="main__red-block" />
+    <div class="main__wrapper main__wrapper_position_top">
+      <div class="main__top-block" />
     </div>
-    <div class="main__wrapper main__wrapper_color_grey">
-      <div class="main__grey-block">
+    <div class="main__wrapper main__wrapper_position_bottom">
+      <div class="main__bottom-block">
         <div class="main__money-block">
-          <button type="button" class="main__number main__number_size_big">
-            1000
+          <button type="button" name="1000" class="main__number main__number_size_big" @click="onSumClick">
+            {{ donationAmount.amount_big }}
             <span class="main__money-sign">&#8381;</span>
           </button>
-          <button type="button" class="main__number main__number_size_small">
-            200
+          <button type="button" name="200" class="main__number main__number_size_small" @click="onSumClick">
+            {{ donationAmount.amount_small }}
           </button>
-          <button type="button" class="main__number main__number_size_medium">
-            500
+          <button type="button" name="500" class="main__number main__number_size_medium" @click="onSumClick">
+            {{ donationAmount.amount_medium }}
           </button>
-          <a class="link link_position_top" href="#">
-            Поддержать
+          <NuxtLink class="link link_position_top" to="/donation">
+            {{ $t('links.donate') }}
             <span class="main__arrow">&gt;</span>
-          </a>
+          </NuxtLink>
         </div>
         <div class="main__image-block">
           <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
         </div>
-        <a class="link link_position_bottom" href="#">
-          Получить помощь
+        <NuxtLink class="link link_position_bottom" to="/get-help">
+          {{ $t('links.getHelp') }}
           <span class="main__arrow">&gt;</span>
-        </a>
-        <LanguageButton :style="buttonPosition" />
+        </NuxtLink>
       </div>
     </div>
   </section>
@@ -37,34 +36,43 @@
 <script>
 export default {
   name: 'Main',
-  data () {
-    return {
-      buttonPosition: {
-        bottom: '15px',
-        left: '19px'
-      }
+  props: {
+    donationAmount: {
+      default: () => {},
+      type: Object
+    }
+  },
+  methods: {
+    onSumClick (e) {
+      this.$emit(
+        'clickSetTopDonationSum',
+        {
+          topDonationSum: Number(e.target.name)
+        }
+      )
+      window.scrollTo({ top: this.$root.donationRef.getBoundingClientRect().top, behavior: 'smooth' })
     }
   }
 }
 </script>
 
 <style scoped>
-  .main__wrapper_color_red {
+  .main__wrapper_position_top {
     background-color: #b23438;
     width: 100vw;
   }
 
-  .main__red-block {
+  .main__top-block {
     height: 51px;
     max-width: 1280px;
   }
 
-  .main__wrapper_color_grey {
+  .main__wrapper_position_bottom {
     background-color: #cbcbcb;
     width: 100vw;
   }
 
-  .main__grey-block {
+  .main__bottom-block {
     max-width: 1280px;
     display: flex;
     flex-direction: column;
@@ -96,13 +104,6 @@ export default {
   .main__number:hover {
     opacity: 0.7;
     cursor: pointer;
-  }
-
-  .main__number:active {
-    border: 2px solid #000;
-    color: #000;
-    border-radius: 15%;
-    padding: 0 7px 0 5px;
   }
 
   .main__money-sign {
@@ -160,12 +161,13 @@ export default {
 
   .main__image-block {
     background-color: #000;
-    width: 100%;
+    width: 99%;
     border-radius: 60%;
     position: relative;
     top: -10px;
     align-self: center;
     display: flex;
+    margin-right: auto;
   }
 
   .main__eye {
@@ -185,7 +187,7 @@ export default {
     top: 1px;
   }
 
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 525px) {
     .main__money-block {
       margin: 0 0 0 5px;
       max-width: 490px;
@@ -218,11 +220,11 @@ export default {
   }
 
   @media screen and (min-width: 768px) {
-    .main__red-block {
+    .main__top-block {
       height: 78px;
     }
 
-    .main__grey-block {
+    .main__bottom-block {
       height: 550px;
     }
 
@@ -271,11 +273,11 @@ export default {
   }
 
   @media screen and (min-width: 1280px) {
-    .main__red-block {
+    .main__top-block {
       height: 93px;
     }
 
-    .main__grey-block {
+    .main__bottom-block {
       background-color: #cbcbcb;
       height: 315px;
       display: grid;
@@ -291,7 +293,7 @@ export default {
       grid-area: money;
       display: grid;
       grid-template-columns: 274px auto;
-      grid-template-rows: 70px 152px;
+      grid-template-rows: 70px 113px;
       grid-template-areas:
         "big small"
         "big medium";
@@ -335,8 +337,9 @@ export default {
     }
 
     .link_position_top {
-      right: 219px;
-      bottom: 65px;
+      position: unset;
+      margin-left: 10px;
+      justify-self: flex-start;
     }
 
     .main__arrow {

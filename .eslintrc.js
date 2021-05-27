@@ -14,5 +14,14 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+  },
+  overrides: [
+    {
+      files: '*',
+      rules: {
+        'space-before-function-paren': 'off'
+      }
+    }
+  ]
 }

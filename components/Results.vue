@@ -3,31 +3,38 @@
     <div class="results__container">
       <div class="results__crystal" />
       <h2 class="results__title">
-        Итоги нашей работы в 2020
+        {{ pageData.results[`title_${$i18n.locale}`] }}
       </h2>
       <div class="results__slider">
         <button class="results__arrow results__arrow_direction_back" @click="prevSlide" />
         <ul class="results__slider-list">
-          <li v-for="item of resultsData.length" :key="item" class="results__bullet" :class="{ results__bullet_active: item-1 === currentSlide}" />
+          <li
+            v-for="(item, index) of pageData.results.main_results"
+            :key="item._id"
+            class="results__bullet"
+            :class="{ results__bullet_active: index === currentSlide}"
+          />
         </ul>
         <button class="results__arrow results__arrow_direction_forward" @click="nextSlide" />
       </div>
       <div class="results__carousel">
         <div
           class="results__carousel-wrapper"
-          :style="{ 'margin-left':'-'+ (100*currentSlide)+'%'}"
+          :style="{ 'margin-left':'-' + (100 * currentSlide) + '%' }"
         >
           <Result
-            v-for="item in resultsData"
-            :key="item.id"
-            :data="item"
+            v-for="result in pageData.results.main_results"
+            :key="result.id"
+            :result="result"
+            additional-class="results__result"
           />
         </div>
       </div>
-      <a class="link" href="#">Получить помощь
+      <NuxtLink class="link" to="/get-help">
+        {{ $t('links.getHelp') }}
         <span class="link__arrow">&gt;</span>
-      </a>
-      <img src="~/assets/images/logo.svg" alt="Логотип ФАР" class="logo">
+      </NuxtLink>
+      <Logo />
     </div>
   </section>
 </template>
@@ -35,17 +42,14 @@
 <script>
 export default {
   name: 'Results',
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
+    }
+  },
   data () {
     return {
-      resultsData: [
-        { id: 1, quantity: 758, title: 'Спасено жизней', text: 'при помощи выданного нами Налоксона (средство от передозировок опиатами), консультации, обучение по вопросам профилактики передозировок' },
-        { id: 2, quantity: 3779, title: 'Получили помощь', text: 'уличной социальной службы ФАР: чистые шприцы, презервативы, тесты на ВИЧ, поддержку и направления' },
-        { id: 3, quantity: 640, title: 'Юридические вопросы', text: 'консультаций для людей, подвергшихся правовому преследованию в связи с наркотиками ' },
-        { id: 4, quantity: '??', title: 'Поддержка на судах', text: 'человек получили помощь в судах и при ведении уголовных дел, связанных с наркотиками' },
-        { id: 5, quantity: 706, title: 'Служба поддержки психического здоровья', text: 'консультаций по вопросам зависимости и проблемного употребления веществ, психологическая поддержка' },
-        { id: 6, quantity: 256, title: 'Консультации по медицинским вопросам', text: 'консультаций медицинских специалистов по постинъекционным осложнениям' },
-        { id: 7, quantity: 1017, title: 'Тестирование на ВИЧ', text: 'человек получили наборы и консультации по самотестированию' }
-      ],
       currentSlide: 0
     }
   },
@@ -56,7 +60,7 @@ export default {
       }
     },
     nextSlide () {
-      if (this.currentSlide < (this.resultsData.length - 1)) {
+      if (this.currentSlide < (this.pageData.results.main_results.length - 1)) {
         this.currentSlide++
       }
     }
@@ -150,12 +154,10 @@ export default {
   .results__carousel-wrapper {
     display: flex;
     margin-left: auto;
+    transition: margin 500ms linear;
   }
 
   .logo {
-    width: 137px;
-    position: absolute;
-    right: 5px;
     bottom: 28px;
   }
 
@@ -212,7 +214,6 @@ export default {
     }
 
     .logo {
-      width: 231px;
       right: 50px;
       bottom: 59px;
     }
@@ -251,7 +252,7 @@ export default {
       background-position: center;
       background-repeat: repeat-x;
       background-size: 20%;
-      height: 125px;
+      height: 129px;
     }
 
     .results__title {

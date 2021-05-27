@@ -1,26 +1,26 @@
 <template>
   <section class="team">
-    <div class="team__colour-container team__colour-container_colour_black" />
+    <div class="team__colour-container team__colour-container_position_left-top" />
+    <div class="team__colour-container team__colour-container_position_right-top" />
+    <div class="team__colour-container team__colour-container_position_left-bottom" />
+    <div class="team__colour-container team__colour-container_position_right-bottom">
+      <Drop class="team__drop" />
+    </div>
+    <Support />
     <div class="team__container">
       <h2 class="team__title">
-        Ко&shy;манда <span class="team__title-bold">ФАР</span>
+        {{ pageData[`title_${$i18n.locale}`] }}
       </h2>
       <div class="team__image" />
     </div>
-    <div class="team__colour-container team__colour-container_colour_white" />
-    <img src="@/assets/images/logo_white.png" alt="Логотип" class="logo">
-    <div class="team__colour-container team__colour-container_colour_grey" />
+    <LogoWhite />
     <ul class="team__list">
       <TeamMember
-        v-for="(member,index) in teamMembers"
-        :key="member.id"
+        v-for="member in pageData.team_members"
+        :key="member._id"
         :member="member"
-        :index="index"
       />
     </ul>
-    <div class="team__colour-container team__colour-container_colour_red">
-      <Drop :style="dropPosition" class="team__drop" />
-    </div>
   </section>
 </template>
 
@@ -32,48 +32,10 @@ export default {
   components: {
     Drop
   },
-  data () {
-    return {
-      teamMembers: [
-        {
-          id: '1',
-          imageLink: 'Дельфинов.png',
-          name: 'Александр  Дельфинов',
-          text: 'Поэт, журналист, литератор. Автор поэтических книг “Весёлые нечеловечки" (2000), "Анестизия 2084" ' +
-            '(2002), "Шкаф" (2005). В 1999-2001 гг. литературный редактор информационного проекта снижения вреда "мозг"' +
-            '(Москва). В 2001 г. проходил стажировку в контактно-консультационном центре для наркозависимых MisFit'
-        },
-        {
-          id: '2',
-          imageLink: 'Дельфинов.png',
-          name: 'Александр  Дельфинов',
-          text: 'Поэт, журналист, литератор. Автор поэтических книг “Весёлые нечеловечки" (2000), "Анестизия 2084" ' +
-            '(2002), "Шкаф" (2005). В 1999-2001 гг. литературный редактор информационного проекта снижения вреда "мозг"' +
-            '(Москва). В 2001 г. проходил стажировку в контактно-консультационном центре для наркозависимых MisFit'
-        },
-        {
-          id: '3',
-          imageLink: 'Дельфинов.png',
-          name: 'Александр  Дельфинов',
-          text: 'Поэт, журналист, литератор. Автор поэтических книг “Весёлые нечеловечки" (2000), "Анестизия 2084" ' +
-            '(2002), "Шкаф" (2005). В 1999-2001 гг. литературный редактор информационного проекта снижения вреда "мозг"' +
-            '(Москва). В 2001 г. проходил стажировку в контактно-консультационном центре для наркозависимых MisFit'
-        },
-        {
-          id: '4',
-          imageLink: 'Дельфинов.png',
-          name: 'Александр  Дельфинов',
-          text: 'Поэт, журналист, литератор. Автор поэтических книг “Весёлые нечеловечки" (2000), "Анестизия 2084" ' +
-            '(2002), "Шкаф" (2005). В 1999-2001 гг. литературный редактор информационного проекта снижения вреда "мозг"' +
-            '(Москва). В 2001 г. проходил стажировку в контактно-консультационном центре для наркозависимых MisFit'
-        }
-      ],
-      dropPosition: {
-        position: 'absolute',
-        top: '420px',
-        left: '60px',
-        transform: 'translateX(-24px)'
-      }
+  props: {
+    pageData: {
+      default: () => {},
+      type: Object
     }
   }
 }
@@ -127,13 +89,6 @@ export default {
   position: relative;
 }
 
-.logo {
-  width: 82px;
-  position: absolute;
-  right: 20px;
-  top: 509px;
-}
-
 .team__list {
   display: flex;
   flex-direction: column;
@@ -163,23 +118,29 @@ export default {
 
 @media screen and (min-width: 768px) {
   .team__title {
-    font-weight: bold;
-    font-size: 99px;
-    line-height: 60px;
-    max-width: calc(100% - 272px);
+    font-weight: 600;
+    font-size: 216px;
+    line-height: 172px;
+    max-width: 100%;
+    padding-bottom: 0;
+    background-size: 629px;
+    background-position:
+      -100px 77px,
+      139px 174px,
+      -69px 292px,
+      542px 403px;
   }
 
   .team__container {
-    display: flex;
-    background-color: #fff;
-    align-items: flex-end;
-    min-height: 271px;
-    margin-bottom: 22px;
+    margin: 52px 0 0 0;
+    max-height: 890px;
+    overflow: hidden;
   }
 
   .team__image {
-    height: 259px;
-    width: 272px;
+    height: 720px;
+    width: 768px;
+    background-size: cover;
   }
 }
 
@@ -188,14 +149,18 @@ export default {
     display: grid;
     grid-template-columns: auto 1087px auto;
     grid-template-areas:
-      "black team-title white"
-      "grey list red";
+      "left-top team-title right-top"
+      "left-bottom list right-bottom";
   }
 
   .team__container {
     grid-area: team-title;
     max-width: 1087px;
     margin-bottom: 44px;
+    display: flex;
+    background-color: #fff;
+    align-items: flex-end;
+    min-height: 271px;
   }
 
   .team__colour-container {
@@ -203,23 +168,23 @@ export default {
     height: auto;
   }
 
-  .team__colour-container_colour_black {
-    grid-area: black;
+  .team__colour-container_position_left-top {
+    grid-area: left-top;
     background-color: #000;
   }
 
-  .team__colour-container_colour_white {
-    grid-area: white;
+  .team__colour-container_position_right-top {
+    grid-area: right-top;
     background-color: #fff;
   }
 
-  .team__colour-container_colour_grey {
-    grid-area: grey;
+  .team__colour-container_position_left-bottom {
+    grid-area: left-bottom;
     background-color: #cbcbcb;
   }
 
-  .team__colour-container_colour_red {
-    grid-area: red;
+  .team__colour-container_position_right-bottom {
+    grid-area: right-bottom;
     background-color: #b23438;
     position: relative;
   }
@@ -244,14 +209,6 @@ export default {
 
   .team__list {
     grid-area: list;
-  }
-
-  .logo {
-    z-index: 13;
-    right: 17px;
-    width: 117px;
-    height: 86px;
-    top: 445px;
   }
 }
 

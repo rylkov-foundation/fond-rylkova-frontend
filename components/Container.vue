@@ -1,15 +1,29 @@
 <template>
   <div class="grid-container">
-    <OurMission />
-    <Results />
-    <Help />
-    <Donation />
+    <OurMission :page-data="pageData" />
+    <Results :page-data="pageData" />
+    <Help :page-data="pageData" />
+    <Donation :page-data="pageData" :top-donation-sum="topDonationSum" :donation-amount="donationAmount" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Container'
+  name: 'Container',
+  props: {
+    topDonationSum: {
+      type: Number,
+      default: 0
+    },
+    pageData: {
+      default: () => {},
+      type: Object
+    },
+    donationAmount: {
+      default: () => {},
+      type: Object
+    }
+  }
 }
 </script>
 

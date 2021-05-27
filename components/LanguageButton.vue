@@ -2,35 +2,18 @@
   <button
     type="button"
     class="button-language"
-    :class="isAdditionalPage && 'button-language_page_additional'"
     @click="changeLanguage"
   >
-    {{ languages[languageIndex] }}
+    {{ $i18n.locale }}
   </button>
 </template>
 
 <script>
 export default {
   name: 'LanguageButton',
-  props: {
-    isAdditionalPage: {
-      type: Boolean,
-      default: () => false
-    }
-  },
-  data () {
-    return {
-      languages: ['en', 'ру'],
-      languageIndex: 0
-    }
-  },
   methods: {
     changeLanguage () {
-      if (this.languageIndex === 0) {
-        this.languageIndex = 1
-      } else {
-        this.languageIndex = 0
-      }
+      this.$i18n.setLocale(this.$i18n.locale === 'ru' ? 'en' : 'ru')
     }
   }
 }
@@ -39,6 +22,9 @@ export default {
 <style scoped>
 .button-language {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
   font-family: 'Roboto', 'Times', serif;
   font-size: 17px;
   line-height: 17px;
@@ -52,19 +38,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   padding: 0;
-}
-
-.button-language_page_additional {
-  top: 0;
-  left: 5px;
-  background-color: #fff;
-  color: #000;
-  width: 36px;
-  height: 36px;
-  font-size: 21px;
+  text-transform: capitalize;
 }
 
 .button-language:hover {
@@ -78,14 +55,6 @@ export default {
     line-height: 30px;
     width: 50px;
     height: 50px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .button-language_page_additional {
-    top: 636px;
-    left: 20px;
-    z-index: 1;
   }
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
-  <article class="result results__result">
+  <article class="result" :class="additionalClass">
     <div class="result__frame">
       <p class="result__number">
-        {{ data.quantity }}
+        {{ result.quantity }}
       </p>
     </div>
     <div class="result__block">
       <h3 class="result__title">
-        {{ data.title }}
+        {{ result[`title_${$i18n.locale}`] }}
       </h3>
       <p class="result__text">
-        {{ data.text }}
+        {{ result[`description_${$i18n.locale}`] }}
       </p>
     </div>
   </article>
@@ -20,9 +20,13 @@
 export default {
   name: 'Result',
   props: {
-    data: {
+    result: {
       type: Object,
       default: () => {}
+    },
+    additionalClass: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -80,8 +84,8 @@ export default {
     border-bottom: 2px solid #fff;
     margin: 12px 0 0 3px;
     align-self: start;
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: normal;
+    word-break: normal;
   }
 
   .result__text {

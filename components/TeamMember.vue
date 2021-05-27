@@ -1,28 +1,21 @@
 <template>
   <li class="team-member">
     <img
-      :src="require(`../assets/images/${member.imageLink}`)"
-      :alt="member.name"
+      :src="`${$config.constants.serverUrl}${member.photo.url}`"
+      :alt="member[`name_${$i18n.locale}`]"
       class="team-member__photo"
     >
-    <div
-      class="team-member__container"
-      :class="{ 'team-member__container_color_white': ($attrs.index+1)%2 === 0,
-                'team-member__container_position_even': ($attrs.index+1)%2 === 0,
-                'team-member__container_position_fourth': ($attrs.index+1)%4 === 0}"
-    >
-      <h2
-        class="team-member__title"
-        :class="{ 'team-member__title_color_white': ($attrs.index+1)%2 === 0,
-                  'team-member__title_position_second': ($attrs.index+1)%2 === 0,
-                  'team-member__title_position_third': ($attrs.index+1)%3 === 0,
-                  'team-member__title_position_fourth': ($attrs.index+1)%4 === 0,
-        }"
-      >
-        {{ member.name }}
+    <div class="team-member__container">
+      <h2 ref="titleContainer" class="team-member__title">
+        <span class="team-member__title-text">
+          {{ member[`name_${$i18n.locale}`] }}
+        </span>
+        <span class="team-member__title-text">
+          {{ member[`surname_${$i18n.locale}`] }}
+        </span>
       </h2>
-      <p class="team-member__text" :class="{ 'team-member__text_color_white': ($attrs.index+1)%2 === 0}">
-        {{ member.text }}
+      <p class="team-member__text">
+        {{ member[`description_${$i18n.locale}`] }}
       </p>
     </div>
   </li>
@@ -62,9 +55,11 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 282px;
+    min-width: 292px;
   }
 
-  .team-member__container_color_white {
+  .team-member:nth-child(2n) .team-member__container {
     background-color: #fff;
   }
 
@@ -76,31 +71,31 @@ export default {
     color: #fff;
     margin: 24px 0 23px 0;
     text-align: center;
+    max-width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member__title-text {
+    font-family: 'Vollkorn', 'Times', serif;
+    font-size: 31px;
+    line-height: 27px;
+    font-weight: bold;
     position: relative;
-    max-width: 181px;
   }
 
-  .team-member__title::after {
+  .team-member__title-text::after {
     content: '';
     position: absolute;
     background-color: #000;
     left: 0;
-    top: 43px;
+    bottom: 2px;
     width: 100%;
     height: 7px;
   }
 
-  .team-member__title::before {
-    content: '';
-    position: absolute;
-    background-color: #000;
-    left: 0;
-    top: 19px;
-    width: 100%;
-    height: 7px;
-  }
-
-  .team-member__title_color_white {
+  .team-member:nth-child(2n) .team-member__title {
     color: #c71f25;
   }
 
@@ -115,82 +110,47 @@ export default {
     max-width: 90%;
   }
 
-  .team-member__text_color_white {
+  .team-member:nth-child(2n) .team-member__text {
     color: #000;
   }
 
   @media screen and (min-width: 500px) {
-    .team-member {
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 14px;
+    .team-member__container {
+      margin-top: -355px;
+      margin-bottom: 30px;
+      border-radius: 7%;
+      max-width: 85%;
     }
 
     .team-member__photo {
-      width: 257px;
-      height: 252px;
-    }
-
-    .team-member__container {
-      background-color: #fff;
-      margin-top: 0;
-      max-width: calc(100% - 280px);
-      margin-right: 10px;
-      align-items: flex-start;
-      padding-top: 20px;
-      align-self: stretch;
-      justify-content: flex-start;
-      border-radius: 43px;
-    }
-
-    .team-member__container_position_even {
-      order: -1;
-      margin-right: 0;
-      margin-left: 10px;
-      background-color: #000;
-    }
-
-    .team-member__container_position_fourth {
-      background-color: #b23438;
+      width: 100vw;
+      height: auto;
     }
 
     .team-member__title {
-      text-align: left;
-      margin: 0 0 11px 13px;
-      color: #b23438;
+      font-size: 63px;
+      line-height: 52px;
+      font-weight: bold;
+      margin: 74px 0 42px 0;
     }
 
-    .team-member__title_color_white {
-      color: #fff;
+    .team-member__title-text {
+      font-size: 63px;
+      line-height: 52px;
     }
 
-    .team-member__title_position_third::after,
-    .team-member__title_position_third::before {
-      background-color: #cbcbcb;
-    }
-
-    .team-member__title_position_second::after,
-    .team-member__title_position_second::before {
-      background-color: #b23438;
-    }
-
-    .team-member__title_position_fourth::after,
-    .team-member__title_position_fourth::before {
-      background-color: #000;
+    .team-member__title-text::after {
+      height: 16px;
     }
 
     .team-member__text {
-      font-size: 15px;
-      line-height: 20px;
+      font-size: 33px;
+      line-height: 34px;
       font-weight: 400;
       text-align: left;
       margin-left: 13px;
-      max-width: 94%;
-      color: #000;
-    }
-
-    .team-member__text_color_white {
-      color: #fff;
+      max-width: 78%;
+      margin-bottom: 56px;
     }
   }
 
@@ -201,31 +161,80 @@ export default {
     }
 
     .team-member__container {
-      max-width: 695px;
+      width: 695px;
+      background-color: #fff;
+      margin-top: 0;
+      margin-right: 10px;
+      align-items: flex-start;
+      padding-top: 20px;
+      align-self: stretch;
+      justify-content: flex-start;
+      border-radius: 43px;
+      min-height: 330px;
     }
 
     .team-member__title {
       font-size: 45px;
       line-height: 38px;
-      font-weight: bold;
-      max-width: 260px;
       margin: 0 0 26px 20px;
+      text-align: left;
+      color: #b23438;
     }
 
-    .team-member__title::before {
-      height: 11px;
-      top: 33px;
+    .team-member__title-text {
+      font-size: 45px;
+      line-height: 38px;
     }
 
-    .team-member__title::after {
+    .team-member__title-text::after {
       height: 11px;
-      top: 66px;
     }
 
     .team-member__text {
       font-size: 22px;
       line-height: 29px;
       margin-left: 24px;
+      font-weight: 400;
+      text-align: left;
+      max-width: 94%;
+      color: #000;
+    }
+
+    .team-member {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .team-member:nth-child(2n) .team-member__container {
+      order: -1;
+      margin-right: 0;
+      margin-left: 10px;
+      background-color: #000;
+    }
+
+    .team-member:nth-child(4n) .team-member__container {
+      background-color: #b23438;
+    }
+
+    .team-member:nth-child(2n) .team-member__title {
+      color: #fff;
+    }
+
+    .team-member:nth-child(3n) .team-member__title-text::after {
+      background-color: #cbcbcb;
+    }
+
+    .team-member:nth-child(2n) .team-member__title-text::after {
+      background-color: #b23438;
+    }
+
+    .team-member:nth-child(4n) .team-member__title-text::after {
+      background-color: #000;
+    }
+
+    .team-member:nth-child(2n) .team-member__text {
+      color: #fff;
     }
   }
 </style>
