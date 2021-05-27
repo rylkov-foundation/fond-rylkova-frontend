@@ -1,5 +1,5 @@
 <template>
-  <article class="result results__result">
+  <article class="result" :class="additionalClass">
     <div class="result__frame">
       <p class="result__number">
         {{ result.quantity }}
@@ -23,6 +23,10 @@ export default {
     result: {
       type: Object,
       default: () => {}
+    },
+    additionalClass: {
+      type: String,
+      default: ''
     }
   }
 }

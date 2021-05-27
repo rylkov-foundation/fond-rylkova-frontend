@@ -26,6 +26,7 @@
             v-for="result in pageData.results.main_results"
             :key="result.id"
             :result="result"
+            additional-class="results__result"
           />
         </div>
       </div>
