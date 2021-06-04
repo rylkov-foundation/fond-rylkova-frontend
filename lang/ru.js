@@ -13,6 +13,7 @@ export default {
     cash: 'Терминал',
     yooMoney: 'ЮMoney',
     otherAmount: 'Другая сумма',
+    otherAmountFocus: 'Введите сумму',
     agreeWith: 'Согласен с',
     offer: 'офертой',
     name: 'Имя',

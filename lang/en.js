@@ -13,6 +13,7 @@ export default {
     cash: 'Cash',
     yooMoney: 'ЮMoney',
     otherAmount: 'Other amount',
+    otherAmountFocus: 'Enter amount',
     agreeWith: 'I agree with',
     offer: 'the offer',
     name: 'Name',

@@ -100,7 +100,8 @@
           :min="minAmount"
           class="form__input"
           :placeholder="$t('donateForm.otherAmount')"
-          @focus="differentAmount = radioAmount"
+          @focus="onAmountFocus"
+          @blur="onAmountBlur"
           @input="onAmountInput"
         >
         <label class="form__label-agree">
@@ -203,6 +204,13 @@ export default {
     onAmountInput (e) {
       this.radioAmount = 0
       this.amount = e.target.value
+    },
+    onAmountFocus (e) {
+      this.radioAmount = 0
+      e.target.placeholder = this.$t('donateForm.otherAmountFocus')
+    },
+    onAmountBlur (e) {
+      e.target.placeholder = this.$t('donateForm.otherAmount')
     },
     onAmountCheckboxClick (e) {
       this.amount = e.target.value
