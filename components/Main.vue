@@ -120,8 +120,11 @@ export default {
   .main__number_size_big {
     color: #000;
     font-size: 122px;
-    line-height: 70px;
+    line-height: 88px;
     position: relative;
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 0 2px;
   }
 
   .main__number_size_medium {
@@ -135,12 +138,11 @@ export default {
     font-size: 80px;
     line-height: 73px;
     position: relative;
-    padding-left: 13px;
   }
 
   .link {
     font-family: 'Vollkorn', 'Times', serif;
-    font-size: calc(0.0424 * 100vw + 3.4286px);
+    font-size: calc(0.037 * 100vw + 3.4286px);
     line-height: calc(0.0446 * 100vw + 5.7143px);
     font-weight: bold;
     color: #b23438;
@@ -206,6 +208,7 @@ export default {
       padding: 0 7px 20px 13px;
       border-radius: 15px;
       letter-spacing: 3px;
+      top: 20px;
     }
 
     .main__number_size_medium {
@@ -231,6 +234,10 @@ export default {
     .main__money-block {
       align-items: start;
       margin: 0 0 0 55px;
+    }
+
+    .main__number_size_big {
+      top: 0;
     }
 
     .link {
