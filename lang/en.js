@@ -20,7 +20,7 @@ export default {
     email: 'Email',
     submitButtonText: 'Donate',
     validationMessages: {
-      minAmount: 'Minimum amount is {minAmount} rubles',
+      minAmount: 'Minimum amount is — {minAmount} ruble',
       needAcceptOffer: 'Need to accept the offer',
       needFillFields: 'Need to fill out name and email'
     }

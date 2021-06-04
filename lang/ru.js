@@ -20,7 +20,7 @@ export default {
     email: 'Email',
     submitButtonText: 'Перейти к оплате',
     validationMessages: {
-      minAmount: 'Минимальная сумма {minAmount} рублей',
+      minAmount: 'Минимальная сумма — {minAmount} рубль',
       needAcceptOffer: 'Необходимо принять оферту',
       needFillFields: 'Необходимо ввести имя и email'
     }
