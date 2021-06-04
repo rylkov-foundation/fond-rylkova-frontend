@@ -167,7 +167,7 @@ export default {
   },
   data () {
     return {
-      isRegularPayment: false,
+      isRegularPayment: true,
       radioAmount: 200,
       differentAmount: '',
       amount: 200,
