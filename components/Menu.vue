@@ -9,20 +9,19 @@
             </NuxtLink>
           </li>
           <li v-for="item in menu" :key="item._id" class="menu__list-item">
-            <div class="menu__list-item-head-container">
+            <div class="menu__list-item-head-container" @click="openItem(item)">
               <NuxtLink
                 class="menu__link"
                 :class="{ menu__link_empty: !item.url }"
-                :to="'/' + item.url"
                 exact-active-class="menu__link_active"
-                @click.native="closeMenu"
+                :to="'/' + item.url"
+                @click.native.stop="closeMenu"
               >
                 {{ item[`name_${$i18n.locale}`] }}
               </NuxtLink>
               <span
                 class="menu__arrow"
                 :class="{ menu__arrow_rotated: openedItem === item._id, menu__arrow_hide: !item.subitems.length }"
-                @click="openItem(item)"
               >
                 &#8594;
               </span>
@@ -105,7 +104,10 @@ export default {
       this.openedItem = ''
     },
     onClickOutside (e) {
-      this.isShown = this.$el.contains(e.target) && this.isShown
+      if (!this.$el.contains(e.target)) {
+        this.isShown = false
+        this.openedItem = ''
+      }
     },
     scrollHandler () {
       this.isScrollOver230 = window.pageYOffset > 230
@@ -212,11 +214,6 @@ export default {
   transition: transform 200ms linear;
 }
 
-.menu__arrow:hover {
-  cursor: pointer;
-  opacity: 0.6;
-}
-
 .menu__arrow_hide {
   visibility: hidden;
 }
@@ -256,6 +253,11 @@ export default {
 .menu__list-item-head-container {
   display: flex;
   justify-content: space-between;
+}
+
+.menu__list-item-head-container:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .menu__list-item:not(.menu__list-item:last-child) {
