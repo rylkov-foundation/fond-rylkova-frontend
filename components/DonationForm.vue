@@ -174,7 +174,7 @@ export default {
       isContractAgreed: false,
       name: '',
       email: '',
-      minAmount: 50
+      minAmount: 1
     }
   },
   computed: {

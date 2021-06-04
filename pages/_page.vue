@@ -66,6 +66,16 @@ export default {
       ]
     }
   },
+  computed: {
+    lang() {
+      return this.$i18n.locale
+    }
+  },
+  watch: {
+    lang() {
+      this.handleSplitTitle()
+    }
+  },
   created() {
     this.meta = this.$store.getters.globalMeta
   },
