@@ -1,4 +1,5 @@
 export default {
+  arfAbbreviation: 'ARF',
   links: {
     donate: 'Donate',
     getHelp: 'Get help',

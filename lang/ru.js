@@ -1,4 +1,5 @@
 export default {
+  arfAbbreviation: 'ФАР',
   links: {
     donate: 'Поддержать',
     getHelp: 'Получить помощь',

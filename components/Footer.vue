@@ -26,7 +26,7 @@
       </p>
     </div>
     <p class="footer__copyright">
-      ФАР {{ footerData.year }}
+      {{ $t('arfAbbreviation') }} {{ footerData.year }}
     </p>
   </footer>
 </template>
