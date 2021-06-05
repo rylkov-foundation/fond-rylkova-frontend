@@ -114,7 +114,7 @@ export default {
     font-style: normal;
     color: rgba(0, 0, 0, 0);
     -webkit-text-stroke: 1px black;
-    margin-left: -5px;
+    align-items: center;
   }
 
   .main__number_size_big {
@@ -205,7 +205,7 @@ export default {
     .main__number_size_big {
       font-size: 200px;
       line-height: 112px;
-      padding: 0 7px 20px 13px;
+      padding: 0 7px 20px;
       border-radius: 15px;
       letter-spacing: 3px;
       top: 20px;
@@ -320,7 +320,7 @@ export default {
       align-self: start;
       font-size: 218px;
       line-height: 168px;
-      padding: 0 0 0 13px;
+      padding: 0 7px;
       border-radius: 20px;
     }
 

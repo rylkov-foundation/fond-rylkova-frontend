@@ -3,7 +3,7 @@
     <OurMission :page-data="pageData" />
     <Results :page-data="pageData" />
     <Help :page-data="pageData" />
-    <Donation :page-data="pageData" :top-donation-sum="topDonationSum" :donation-amount="donationAmount" />
+    <Donation :page-data="pageData.donate" :top-donation-sum="topDonationSum" :donation-amount="donationAmount" />
   </div>
 </template>
 

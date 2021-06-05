@@ -241,7 +241,6 @@ export default {
       margin: 0 73px 0 0;
       max-width: 456px;
       text-align: left;
-      word-spacing: -2px;
     }
 
     .footer__license {
@@ -251,7 +250,6 @@ export default {
       margin: 0 0 0 108px;
       max-width: 422px;
       text-align: right;
-      word-spacing: -3px;
     }
 
     .footer__license-link {
