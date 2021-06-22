@@ -62,7 +62,6 @@ export default {
     display: block;
     overflow: hidden;
     position: relative;
-    border-bottom: 1px solid #989898;
   }
 
   .info__container {

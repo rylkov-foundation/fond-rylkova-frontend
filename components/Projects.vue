@@ -155,7 +155,6 @@ export default {
 .projects__list {
   padding: 0;
   list-style: none;
-  border-bottom: 3px solid #c7c7c7;
 }
 
 .projects__drop {

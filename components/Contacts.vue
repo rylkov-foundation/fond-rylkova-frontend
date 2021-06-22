@@ -327,7 +327,6 @@ export default {
   line-height: 16px;
   max-width: 85%;
   margin: 0 auto;
-  border-bottom: 2px solid #c7c7c7;
   padding-bottom: 27px;
 }
 

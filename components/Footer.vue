@@ -50,17 +50,28 @@ export default {
     color: #727272;
     text-align: center;
     width: 100%;
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border-top: 2px solid #c7c7c7;
   }
 
   .footer__title {
     font-family: Roboto, Arial, sans-serif;
-    font-size: 11px;
+    font-size: 17px;
     text-transform: uppercase;
-    line-height: 19px;
+    line-height: 30px;
     font-weight: 400;
     margin-top: 12px;
     margin-bottom: 15px;
-    margin-right: 6px;
+    text-align: center;
   }
 
   .footer__container {
@@ -77,7 +88,7 @@ export default {
 
   .footer__license {
     margin: 0 40px 21px 39px;
-    text-align: left;
+    text-align: center;
     font-family: Roboto, Arial, sans-serif;
     font-size: 11px;
     line-height: 14px;
@@ -105,7 +116,7 @@ export default {
   .footer__social-links {
     display: flex;
     margin: 0 auto 81px;
-    padding-left: 27px;
+    padding-left: 0;
     position: relative;
     background-repeat: no-repeat;
   }
@@ -119,6 +130,10 @@ export default {
     margin-right: 26px;
   }
 
+  .footer__social-link:last-of-type {
+    margin-right: 0;
+  }
+
   .footer__social-link:hover {
     opacity: 0.7;
   }
@@ -128,8 +143,9 @@ export default {
     width: 43px;
     height: 43px;
     position: absolute;
-    left: 66px;
-    top: 47px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
     background-image: url("~/assets/images/foreign-agent.svg");
     background-position: center;
     background-size: cover;

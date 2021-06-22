@@ -40,6 +40,10 @@ export default {
     align-items: center;
   }
 
+  .report:last-of-type {
+    border-bottom: none;
+  }
+
   .report:nth-child(2n) {
     background-color: #fff;
     border-color: #434343;

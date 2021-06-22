@@ -77,7 +77,6 @@ export default {
 <style scoped>
   .about-us {
     position: relative;
-    border-bottom: 1px solid #a2a2a2;
     padding-bottom: 56px;
   }
 
