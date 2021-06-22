@@ -258,8 +258,8 @@ export default {
   left: 3px;
   top: 13px;
   display: inline-block;
-  width: 58px;
-  height: 32px;
+  width: 54px;
+  height: 33px;
   border: 2px solid black;
   border-radius: 16px;
   overflow: hidden;
@@ -298,7 +298,7 @@ export default {
 }
 
 .switch__input:checked + .switch__slider::before {
-  transform: translateX(26px);
+  transform: translateX(22px);
 }
 
 .form {
@@ -452,7 +452,7 @@ export default {
   font-size: 15px;
   line-height: 19px;
   border: none;
-  color: #727272;
+  color: #000;
   border-radius: unset;
   border-bottom: 1px solid #727272;
   background-color: #cbcbcb;
@@ -541,7 +541,7 @@ export default {
   font-family: Vollkorn, Times, serif;
   color: #b23438;
   font-size: 19px;
-  line-height: 14px;
+  line-height: 20px;
 }
 
 .form__submit {
