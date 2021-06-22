@@ -60,7 +60,9 @@ export default {
       }
     },
     nextSlide () {
-      if (this.currentSlide < (this.pageData.results.main_results.length - 1)) {
+      if (this.currentSlide === (this.pageData.results.main_results.length - 1)) {
+        this.currentSlide = 0
+      } else {
         this.currentSlide++
       }
     }
