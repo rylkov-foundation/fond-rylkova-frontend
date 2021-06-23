@@ -10,9 +10,7 @@
         <h2 ref="titleContainer" class="mission__subtitle">
           <span v-for="line in splitTitle" :key="line" class="mission__title-text">{{ line }}</span>
         </h2>
-        <p class="mission__our-mission">
-          {{ pageData.mission[`description_${$i18n.locale}`] }}
-        </p>
+        <p class="mission__our-mission" v-html="pageData.mission[`description_${$i18n.locale}`]" />
       </div>
       <NuxtLink to="/about-us" class="link">
         {{ $t('links.moreAboutUs') }} &gt;
@@ -104,7 +102,7 @@ export default {
   .mission__subtitle {
     float: left;
     margin-bottom: -6px;
-    margin-right: 32px;
+    margin-right: 38px;
     margin-top: 10px;
     text-transform: uppercase;
     font-weight: bold;
@@ -202,7 +200,7 @@ export default {
 
     .mission__subtitle {
       margin-bottom: -11px;
-      margin-right: 48px;
+      margin-right: 66px;
       margin-top: -3px;
       font-size: 52px;
       line-height: 45px;
@@ -281,7 +279,7 @@ export default {
 
     .mission__subtitle {
       margin-bottom: -6px;
-      margin-right: 17px;
+      margin-right: 26px;
       margin-top: 6px;
       font-size: 22px;
       line-height: 22px;

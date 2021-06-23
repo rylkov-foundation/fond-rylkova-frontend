@@ -13,9 +13,7 @@
         <h2 ref="titleContainer" class="projects__title">
           <span v-for="line in splitTitle" :key="line" class="projects__title-text">{{ line }}</span>
         </h2>
-        <p class="projects__subtitle">
-          {{ pageData[`description_${$i18n.locale}`] }}
-        </p>
+        <p class="projects__subtitle" v-html="pageData[`description_${$i18n.locale}`]" />
       </div>
       <div class="projects__background" />
     </div>

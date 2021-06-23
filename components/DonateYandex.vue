@@ -3,9 +3,7 @@
     <h3 class="donate-yandex__title">
       {{ pageData[`title_${$i18n.locale}`] }}
     </h3>
-    <p class="donate-yandex__text">
-      {{ pageData[`description_${$i18n.locale}`] }}
-    </p>
+    <p class="donate-yandex__text" v-html="pageData[`description_${$i18n.locale}`]" />
   </div>
 </template>
 
