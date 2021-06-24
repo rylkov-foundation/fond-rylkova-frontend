@@ -18,9 +18,7 @@
         </NuxtLink>
       </div>
       <div class="donation-page__container-description">
-        <p class="donation-page__how-to-donate">
-          {{ pageData.donation[`description_${$i18n.locale}`] }}
-        </p>
+        <p class="donation-page__how-to-donate" v-html="pageData.donation[`description_${$i18n.locale}`]" />
       </div>
     </div>
     <div class="donation-page__grid-container-donations">

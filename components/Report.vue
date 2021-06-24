@@ -12,9 +12,7 @@
       <p class="report__date">
         {{ report[`date_${$i18n.locale}`] }}
       </p>
-      <p class="report__text">
-        {{ report[`description_${$i18n.locale}`] }}
-      </p>
+      <p class="report__text" v-html="report[`description_${$i18n.locale}`]" />
     </div>
   </li>
 </template>
@@ -38,6 +36,10 @@ export default {
     background-color: #b23438;
     border-bottom: 1px solid #fff;
     align-items: center;
+  }
+
+  .report:last-of-type {
+    border-bottom: none;
   }
 
   .report:nth-child(2n) {

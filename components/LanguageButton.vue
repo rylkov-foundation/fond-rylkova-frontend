@@ -4,13 +4,18 @@
     class="button-language"
     @click="changeLanguage"
   >
-    {{ $i18n.locale }}
+    {{ nextLanguage }}
   </button>
 </template>
 
 <script>
 export default {
   name: 'LanguageButton',
+  computed: {
+    nextLanguage () {
+      return this.$i18n.locale === 'ru' ? 'en' : 'ru'
+    }
+  },
   methods: {
     changeLanguage () {
       this.$i18n.setLocale(this.$i18n.locale === 'ru' ? 'en' : 'ru')
@@ -41,7 +46,8 @@ export default {
   width: 35px;
   height: 35px;
   padding: 0;
-  text-transform: capitalize;
+  text-transform: lowercase;
+  text-align: center;
 }
 
 .button-language:hover {

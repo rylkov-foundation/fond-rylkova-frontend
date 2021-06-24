@@ -94,6 +94,7 @@ export default {
   flex-direction: column;
   list-style: none;
   padding: 0;
+  margin-bottom: 30px;
 }
 
 .team__drop {

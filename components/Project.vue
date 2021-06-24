@@ -22,9 +22,8 @@
       <p
         class="project__description"
         :class="{ 'project__description_position_even': ($attrs.index + 1) % 2 === 0 }"
-      >
-        {{ project[`description_${$i18n.locale}`] }}
-      </p>
+        v-html="project[`description_${$i18n.locale}`]"
+      />
     </div>
     <img
       :src="`${$config.constants.serverUrl}${project.image.url}`"

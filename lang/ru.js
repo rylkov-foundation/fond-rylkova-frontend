@@ -5,7 +5,7 @@ export default {
     getHelp: 'Получить помощь',
     moreAboutUs: 'Подробнее о нас',
     moreDetailed: 'Подробнее',
-    privacyPolicy: 'Политика конфеденциальности'
+    privacyPolicy: 'Политика конфиденциальности'
   },
   donateForm: {
     once: 'Однократно',

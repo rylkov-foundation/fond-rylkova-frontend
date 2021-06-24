@@ -6,9 +6,7 @@
     <h3 class="popup__title popup__title_news">
       {{ popupNewsData[`title_${$i18n.locale}`] }}
     </h3>
-    <p class="popup__text popup__text_news">
-      {{ popupNewsData[`description_${$i18n.locale}`] }}
-    </p>
+    <p class="popup__text popup__text_news" v-html="popupNewsData[`description_${$i18n.locale}`]" />
     <NuxtLink
       :to="popupNewsData.link"
       class="popup__link"
