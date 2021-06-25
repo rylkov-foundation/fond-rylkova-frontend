@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="!haveAlreadyClosedByUser && popupNewsVisible && ((news && news.counter < 1) || !news)"
+    v-if="popupNewsVisible"
     class="popup popup_news"
   >
     <h3 class="popup__title popup__title_news">
@@ -37,27 +37,24 @@ export default {
     }
   },
   data: () => ({
-    popupNewsVisible: false,
     haveAlreadyClosedByUser: false,
-    news: null
+    news: null,
+    timeoutId: null
   }),
   computed: {
-    isScrollOver230 () {
-      return this.$store.getters.isScrollOver230
-    },
-    wasNavigate () {
-      return this.$store.getters.wasNavigate
+    popupNewsVisible () {
+      return !this.haveAlreadyClosedByUser &&
+          (this.$store.getters.wasNavigate || this.$store.getters.isScrollOver230) &&
+          ((this.news && this.news.counter < 1) || !this.news)
     }
   },
   watch: {
-    isScrollOver230 () {
-      if (!this.popupNewsVisible) {
-        this.popupNewsVisible = this.isScrollOver230
-      }
-    },
-    wasNavigate () {
-      if (!this.popupNewsVisible) {
-        this.popupNewsVisible = this.wasNavigate
+    popupNewsVisible (val) {
+      if (val) {
+        this.timeoutId = setTimeout(
+          this.hidePopup,
+          20000
+        )
       }
     }
   },
@@ -72,6 +69,9 @@ export default {
     } else {
       this.news = null
     }
+  },
+  destroyed() {
+    this.clearTimeoutIfNeed()
   },
   methods: {
     setCounter () {
@@ -91,8 +91,14 @@ export default {
         )
       }
     },
+    clearTimeoutIfNeed () {
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId)
+        this.timeoutId = null
+      }
+    },
     hidePopup () {
-      this.popupNewsVisible = false
+      this.clearTimeoutIfNeed()
       this.haveAlreadyClosedByUser = true
       this.setCounter()
     }
