@@ -154,7 +154,6 @@ export default {
   @media screen and (min-width: 768px) {
     .reports__container {
       min-height: 261px;
-      max-height: 897px;
       overflow: hidden;
     }
 

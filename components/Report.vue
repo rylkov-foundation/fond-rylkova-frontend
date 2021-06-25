@@ -48,8 +48,8 @@ export default {
   }
 
   .report__image {
-    width: 320px;
-    height: 190px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
   }
 
@@ -126,11 +126,6 @@ export default {
       line-height: 34px;
       margin-left: 16px;
       margin-bottom: 50px;
-    }
-
-    .report__image {
-      width: 768px;
-      height: auto;
     }
   }
 
