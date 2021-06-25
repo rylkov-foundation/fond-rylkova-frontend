@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="PopupNewsVisible"
+    v-if="!haveAlreadyClosedByUser && popupNewsVisible && ((news && news.counter < 1) || !news)"
     class="popup popup_news"
   >
     <h3 class="popup__title popup__title_news">
@@ -8,12 +8,21 @@
     </h3>
     <p class="popup__text popup__text_news" v-html="popupNewsData[`description_${$i18n.locale}`]" />
     <NuxtLink
+      v-if="popupNewsData.link"
       :to="popupNewsData.link"
       class="popup__link"
+      target="_blank"
+      @click.native="hidePopup"
+    >
+      {{ popupNewsData[`button_text_${$i18n.locale}`] }}
+    </NuxtLink>
+    <button
+      v-else
+      class="popup__button"
       @click="hidePopup"
     >
-      {{ $t('popups.goTo') }} &gt;
-    </NuxtLink>
+      {{ popupNewsData[`button_text_${$i18n.locale}`] }}
+    </button>
     <button type="button" class="popup__close-button" @click="hidePopup" />
   </div>
 </template>
@@ -27,14 +36,65 @@ export default {
       default: () => {}
     }
   },
-  data () {
-    return {
-      PopupNewsVisible: false
+  data: () => ({
+    popupNewsVisible: false,
+    haveAlreadyClosedByUser: false,
+    news: null
+  }),
+  computed: {
+    isScrollOver230 () {
+      return this.$store.getters.isScrollOver230
+    },
+    wasNavigate () {
+      return this.$store.getters.wasNavigate
+    }
+  },
+  watch: {
+    isScrollOver230 () {
+      if (!this.popupNewsVisible) {
+        this.popupNewsVisible = this.isScrollOver230
+      }
+    },
+    wasNavigate () {
+      if (!this.popupNewsVisible) {
+        this.popupNewsVisible = this.wasNavigate
+      }
+    }
+  },
+  beforeMount() {
+    if (localStorage.news) {
+      const news = JSON.parse(localStorage.news)
+      if (news.newsId && news.newsId === this.popupNewsData.newsId) {
+        this.news = news
+      } else {
+        this.news = null
+      }
+    } else {
+      this.news = null
     }
   },
   methods: {
+    setCounter () {
+      if (this.news && this.news.newsId === this.popupNewsData.newsId) {
+        localStorage.news = JSON.stringify(
+          {
+            newsId: this.popupNewsData.newsId,
+            counter: this.news.counter + 1
+          }
+        )
+      } else {
+        localStorage.news = JSON.stringify(
+          {
+            newsId: this.popupNewsData.newsId,
+            counter: 0
+          }
+        )
+      }
+    },
     hidePopup () {
-      this.PopupNewsVisible = !this.PopupNewsVisible
+      this.popupNewsVisible = false
+      this.haveAlreadyClosedByUser = true
+      this.setCounter()
     }
   }
 }
@@ -71,6 +131,28 @@ export default {
     text-decoration: none;
     border-bottom: 2px solid #b23438;
     cursor: pointer;
+  }
+
+  .popup__link:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .popup__button {
+    font-family: 'Vollkorn', 'Times', serif;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #b23438;
+    background-color: unset;
+    border: unset;
+    border-bottom: 2px solid #b23438;
+    padding: 0;
+  }
+
+  .popup__button:hover {
+    cursor: pointer;
+    opacity: 0.8;
   }
 
   .popup {
@@ -145,6 +227,11 @@ export default {
       line-height: 50px;
     }
 
+    .popup__button {
+      font-size: 34px;
+      line-height: 50px;
+    }
+
     .popup__close-button {
       top: 40px;
       right: 40px;
@@ -185,6 +272,11 @@ export default {
     }
 
     .popup__link {
+      font-size: 22px;
+      line-height: 31px;
+    }
+
+    .popup__button {
       font-size: 22px;
       line-height: 31px;
     }

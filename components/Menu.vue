@@ -111,6 +111,9 @@ export default {
     },
     scrollHandler () {
       this.isScrollOver230 = window.pageYOffset > 230
+      if (window.pageYOffset > 230 && !this.$store.getters.isScrollOver230) {
+        this.$store.dispatch('setIsScrollOver230', true)
+      }
     }
   }
 }

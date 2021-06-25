@@ -59,7 +59,6 @@ export default {
   },
   popups: {
     download: 'Download',
-    goTo: 'Go to',
     ok: 'Ok'
   },
   menu: {
