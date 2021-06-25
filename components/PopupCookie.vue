@@ -3,7 +3,7 @@
     <h3 class="popup__title">
       {{ popupCookiesData[`title_${$i18n.locale}`] }}
     </h3>
-    <p class="popup__text" v-html="popupCookiesData[`description_${$i18n.locale}`]" />
+    <div class="popup__text" v-html="popupCookiesData[`description_${$i18n.locale}`]" />
     <button
       type="button"
       class="popup__button"

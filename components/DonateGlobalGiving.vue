@@ -4,7 +4,7 @@
     <h3 class="donate-global-giving__title">
       {{ pageData[`title_${$i18n.locale}`] }}
     </h3>
-    <p class="donate-global-giving__text" v-html="pageData[`description_${$i18n.locale}`]" />
+    <div class="donate-global-giving__text" v-html="pageData[`description_${$i18n.locale}`]" />
     <Smile class="donate-global-giving__smile" />
   </div>
 </template>

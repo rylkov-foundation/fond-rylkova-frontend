@@ -6,7 +6,7 @@
     <h3 class="popup__title popup__title_agent">
       {{ popupDownloadData[`title_${$i18n.locale}`] }}
     </h3>
-    <p class="popup__text" v-html="popupDownloadData[`description_${$i18n.locale}`]" />
+    <div class="popup__text" v-html="popupDownloadData[`description_${$i18n.locale}`]" />
     <a
       href="#"
       class="popup__link"

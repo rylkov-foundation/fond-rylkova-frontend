@@ -10,7 +10,7 @@
         <h2 ref="titleContainer" class="mission__subtitle">
           <span v-for="line in splitTitle" :key="line" class="mission__title-text">{{ line }}</span>
         </h2>
-        <p class="mission__our-mission" v-html="pageData.mission[`description_${$i18n.locale}`]" />
+        <div class="mission__our-mission" v-html="pageData.mission[`description_${$i18n.locale}`]" />
       </div>
       <NuxtLink to="/about-us" class="link">
         {{ $t('links.moreAboutUs') }} &gt;

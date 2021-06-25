@@ -10,7 +10,7 @@
         :src="`${$config.constants.serverUrl}${pageData.qr_code.url}`"
       >
     </div>
-    <p class="donate-need-help__text" v-html="pageData[`description_${$i18n.locale}`]" />
+    <div class="donate-need-help__text" v-html="pageData[`description_${$i18n.locale}`]" />
   </div>
 </template>
 
