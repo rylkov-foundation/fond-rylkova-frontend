@@ -1,4 +1,5 @@
 export default {
+  arfAbbreviation: 'ФАР',
   links: {
     donate: 'Поддержать',
     getHelp: 'Получить помощь',
@@ -58,7 +59,6 @@ export default {
   },
   popups: {
     download: 'Скачать материал',
-    goTo: 'Перейти',
     ok: 'Понятно'
   },
   menu: {

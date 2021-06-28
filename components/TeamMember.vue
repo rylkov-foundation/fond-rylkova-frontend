@@ -14,9 +14,7 @@
           {{ member[`surname_${$i18n.locale}`] }}
         </span>
       </h2>
-      <p class="team-member__text">
-        {{ member[`description_${$i18n.locale}`] }}
-      </p>
+      <p class="team-member__text" v-html="member[`description_${$i18n.locale}`]" />
     </div>
   </li>
 </template>

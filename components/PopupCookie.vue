@@ -3,9 +3,7 @@
     <h3 class="popup__title">
       {{ popupCookiesData[`title_${$i18n.locale}`] }}
     </h3>
-    <p class="popup__text">
-      {{ popupCookiesData[`description_${$i18n.locale}`] }}
-    </p>
+    <div class="popup__text" v-html="popupCookiesData[`description_${$i18n.locale}`]" />
     <button
       type="button"
       class="popup__button"
@@ -68,7 +66,7 @@ export default {
 
   .popup {
     background-color: #fff;
-    padding: 17px 0 16px 20px;
+    padding: 17px 10px 16px 20px;
     border-radius: 20px;
     width: 229px;
     min-height: 100px;
@@ -80,7 +78,7 @@ export default {
     .popup {
       width: 470px;
       min-height: 204px;
-      padding: 35px 0 32px 41px;
+      padding: 35px 20px 32px 41px;
     }
 
     .popup__title {
@@ -105,7 +103,7 @@ export default {
     .popup {
       width: 295px;
       min-height: 128px;
-      padding: 22px 0 19px 25px;
+      padding: 22px 20px 19px 25px;
     }
 
     .popup__title {

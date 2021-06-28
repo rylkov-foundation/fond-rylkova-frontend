@@ -1,4 +1,5 @@
 export default {
+  arfAbbreviation: 'ARF',
   links: {
     donate: 'Donate',
     getHelp: 'Get help',
@@ -58,7 +59,6 @@ export default {
   },
   popups: {
     download: 'Download',
-    goTo: 'Go to',
     ok: 'Ok'
   },
   menu: {

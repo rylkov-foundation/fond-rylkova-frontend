@@ -4,9 +4,7 @@
       <h2 class="help__title">
         {{ pageData.help[`title_${$i18n.locale}`] }}
       </h2>
-      <p class="help__text">
-        {{ pageData.help[`description_${$i18n.locale}`] }}
-      </p>
+      <div class="help__text" v-html="pageData.help[`description_${$i18n.locale}`]" />
       <div class="help__block">
         <img src="~/assets/images/blade.svg" alt="Лезвие" class="help__image">
       </div>
