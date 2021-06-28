@@ -140,6 +140,8 @@ export default {
     margin: 35px 14px 0 0;
     line-height: 17px;
     min-height: 144px;
+    word-wrap: normal;
+    white-space: normal;
   }
 
   .link {
@@ -190,7 +192,6 @@ export default {
     .mission__header {
       font-size: 43px;
       line-height: 40px;
-      word-spacing: 3px;
       padding: 30px 30px 35px 30px;
     }
 
@@ -221,6 +222,7 @@ export default {
       margin: 56px 45px 0 0;
       font-size: 32px;
       line-height: 34px;
+      word-spacing: 0;
     }
 
     .link {
@@ -270,7 +272,7 @@ export default {
       width: 615px;
       margin-left: auto;
       background-color: #fff;
-      min-height: 586px;
+      min-height: 600px;
     }
 
     .mission__mission-container {
