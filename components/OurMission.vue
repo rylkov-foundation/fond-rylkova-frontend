@@ -265,7 +265,7 @@ export default {
       padding: 25px 50px;
       max-width: 710px;
       margin-left: auto;
-      min-height: 129px;
+      min-height: 128px;
     }
 
     .mission__container {

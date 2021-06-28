@@ -243,8 +243,9 @@ export default {
       display: flex;
       flex-direction: column;
       position: relative;
-      min-height: 716px;
+      min-height: 731px;
       max-width: 576px;
+      z-index: 2;
     }
 
     .results__crystal {
@@ -254,7 +255,7 @@ export default {
       background-position: center;
       background-repeat: repeat-x;
       background-size: 20%;
-      height: 129px;
+      height: 128px;
     }
 
     .results__title {

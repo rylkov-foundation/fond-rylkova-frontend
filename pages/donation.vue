@@ -29,7 +29,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.pageData.donation[`title_${this.$i18n.locale}`]}|${this.meta.title}`,
+      title: `${this.pageData.donation[`title_${this.$i18n.locale}`]} | ${this.meta.title}`,
       meta: [
         { hid: 'description', name: 'description', content: this.pageData.donation.Description },
         { hid: 'keywords', name: 'keywords', content: this.pageData.donation.Keywords },
