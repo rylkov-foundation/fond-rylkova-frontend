@@ -277,7 +277,7 @@ export default {
     }
 
     .donation-page__form {
-      width: 554px;
+      width: 450px;
       margin-top: 162px;
     }
 

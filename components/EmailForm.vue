@@ -88,6 +88,7 @@ export default {
     max-width: 89%;
     display: flex;
     flex-direction: column;
+    margin-left: 7px;
   }
 
   .email-form__theme {
@@ -219,6 +220,7 @@ export default {
   @media screen and (min-width: 768px) {
     .email-form {
       max-width: 85%;
+      margin-left: 50px;
     }
 
     .email-form__theme {
@@ -281,6 +283,7 @@ export default {
   @media screen and (min-width: 1098px) {
     .email-form {
       width: 485px;
+      margin-left: 0;
     }
 
     .email-form__theme {
@@ -288,7 +291,7 @@ export default {
       line-height: 27px;
       padding-left: 0;
       align-items: flex-end;
-      margin: 0 0 14px -27px;
+      margin: 0 0 14px 0;
     }
 
     .email-form__input {

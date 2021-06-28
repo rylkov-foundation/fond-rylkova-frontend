@@ -160,7 +160,7 @@ export default {
     }
 
     .footer__social-links {
-      padding-left: 90px;
+      padding-left: 0;
       margin-bottom: 221px;
     }
 
@@ -174,7 +174,6 @@ export default {
       width: 110px;
       height: 110px;
       top: 130px;
-      left: 194px;
       margin-bottom: 40px;
     }
 
@@ -246,7 +245,6 @@ export default {
       width: 45px;
       height: 45px;
       top: 36px;
-      left: 43px;
       margin: 0;
     }
 
@@ -276,7 +274,6 @@ export default {
     .footer__copyright {
       font-size: 20px;
       line-height: 25px;
-      left: 2px;
       top: -10px;
       margin-bottom: 11px;
     }

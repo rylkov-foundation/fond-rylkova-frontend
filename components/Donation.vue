@@ -164,7 +164,7 @@ export default {
 
     .donation__container {
       width: 615px;
-      min-height: 716px;
+      min-height: 730px;
       margin-left: auto;
       padding: 0;
     }
