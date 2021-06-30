@@ -7,7 +7,7 @@
       {{ popupNewsData[`title_${$i18n.locale}`] }}
     </h3>
     <div class="popup__text popup__text_news" v-html="popupNewsData[`description_${$i18n.locale}`]" />
-    <NuxtLink
+    <a
       v-if="popupNewsData.link"
       :to="popupNewsData.link"
       class="popup__link"
@@ -15,7 +15,7 @@
       @click.native="hidePopup"
     >
       {{ popupNewsData[`button_text_${$i18n.locale}`] }}
-    </NuxtLink>
+    </a>
     <button
       v-else
       class="popup__button"
