@@ -96,8 +96,8 @@ export default {
           this.splitTitle = splitLine(
             this.pageData[`title_${this.$i18n.locale}`],
             this.$refs.titleContainer,
-            false,
-            70
+            true,
+            100
           )
         }, 40)
       }
