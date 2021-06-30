@@ -9,10 +9,10 @@
     <div class="popup__text popup__text_news" v-html="popupNewsData[`description_${$i18n.locale}`]" />
     <a
       v-if="popupNewsData.link"
-      :to="popupNewsData.link"
+      href="{{ popupNewsData.link }}"
       class="popup__link"
       target="_blank"
-      @click.native="hidePopup"
+      @click="hidePopup"
     >
       {{ popupNewsData[`button_text_${$i18n.locale}`] }}
     </a>
