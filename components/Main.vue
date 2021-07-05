@@ -16,18 +16,18 @@
           <button type="button" name="500" class="main__number main__number_size_medium" @click="onSumClick">
             {{ donationAmount.amount_medium }}
           </button>
-          <NuxtLink class="link link_position_top" to="/donation">
+          <a class="link link_position_top" :href="pageData.about.first_link">
             {{ $t('links.donate') }}
             <span class="main__arrow">&gt;</span>
-          </NuxtLink>
+          </a>
         </div>
         <div class="main__image-block">
           <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
         </div>
-        <NuxtLink class="link link_position_bottom" to="/get-help">
+        <a class="link link_position_bottom" :href="pageData.about.second_link">
           {{ $t('links.getHelp') }}
           <span class="main__arrow">&gt;</span>
-        </NuxtLink>
+        </a>
       </div>
     </div>
   </section>
@@ -38,6 +38,10 @@ export default {
   name: 'Main',
   props: {
     donationAmount: {
+      default: () => {},
+      type: Object
+    },
+    pageData: {
       default: () => {},
       type: Object
     }

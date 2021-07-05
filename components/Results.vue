@@ -30,10 +30,10 @@
           />
         </div>
       </div>
-      <NuxtLink class="link" to="/get-help">
+      <a class="link" :href="pageData.results.link">
         {{ $t('links.getHelp') }}
         <span class="link__arrow">&gt;</span>
-      </NuxtLink>
+      </a>
       <Logo />
     </div>
   </section>

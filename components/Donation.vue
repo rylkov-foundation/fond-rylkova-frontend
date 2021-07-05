@@ -8,9 +8,9 @@
         <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
       </div>
       <DonationForm :donation-amount="donationAmount" :top-donation-sum="topDonationSum" class="donation__form" />
-      <NuxtLink to="/privacy-policy" class="donation__privacy-policy">
+      <a :href="donationAmount.policy_link" class="donation__privacy-policy">
         {{ $t('links.privacyPolicy') }}
-      </NuxtLink>
+      </a>
     </div>
   </section>
 </template>

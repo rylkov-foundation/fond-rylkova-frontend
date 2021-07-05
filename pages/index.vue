@@ -1,7 +1,7 @@
 <template>
   <div class="main-page">
     <MainAbout :page-data="pageData" />
-    <Main :donation-amount="donationAmount" @clickSetTopDonationSum="setTopDonationSum" />
+    <Main :donation-amount="donationAmount" :page-data="pageData" @clickSetTopDonationSum="setTopDonationSum" />
     <Container :page-data="pageData" :top-donation-sum="topDonationSum" :donation-amount="donationAmount" />
   </div>
 </template>
