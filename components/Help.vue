@@ -8,10 +8,10 @@
       <div class="help__block">
         <img src="~/assets/images/blade.svg" alt="Лезвие" class="help__image">
       </div>
-      <a class="link" :href="pageData.help.link">
+      <NuxtLink class="link" :to="pageData.help.link">
         {{ $t('links.moreDetailed') }}
         <span class="link__arrow">&gt;</span>
-      </a>
+      </NuxtLink>
       <div class="help__telephone-block">
         <a class="help__telephone-number" :href="`tel:${pageData.help.phone_number}`">
           {{ pageData.help.phone_number }}

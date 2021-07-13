@@ -16,18 +16,18 @@
           <button type="button" name="500" class="main__number main__number_size_medium" @click="onSumClick">
             {{ donationAmount.amount_medium }}
           </button>
-          <a class="link link_position_top" :href="pageData.about.first_link">
+          <NuxtLink class="link link_position_top" :to="pageData.about.first_link">
             {{ $t('links.donate') }}
             <span class="main__arrow">&gt;</span>
-          </a>
+          </NuxtLink>
         </div>
         <div class="main__image-block">
           <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
         </div>
-        <a class="link link_position_bottom" :href="pageData.about.second_link">
+        <NuxtLink class="link link_position_bottom" :to="pageData.about.second_link">
           {{ $t('links.getHelp') }}
           <span class="main__arrow">&gt;</span>
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </section>
