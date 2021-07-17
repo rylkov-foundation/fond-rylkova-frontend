@@ -42,7 +42,7 @@ export default {
 
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: `${this.$config.constants.serverUrl}${this.meta.favicon.url}` },
         {
           rel: 'canonical',
           href: `${this.$config.constants.baseUrl}${this.$route.path}`

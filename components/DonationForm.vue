@@ -109,7 +109,7 @@
           <span class="form__checkbox-agree" />
           <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
           <span class="form__text-agree">
-            {{ $t('donateForm.agreeWith') }} <a href="#" class="form__link-offer">{{ $t('donateForm.offer') }}</a>
+            {{ $t('donateForm.agreeWith') }} <NuxtLink :to="donationAmount.offer" class="form__link-offer">{{ $t('donateForm.offer') }}</NuxtLink>
           </span>
         </label>
       </div>

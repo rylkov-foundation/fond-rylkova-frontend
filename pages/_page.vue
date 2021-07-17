@@ -97,7 +97,7 @@ export default {
             this.pageData[`title_${this.$i18n.locale}`],
             this.$refs.titleContainer,
             true,
-            100
+            95
           )
         }, 40)
       }

@@ -12,7 +12,7 @@ export default {
     regularly: 'Regularly',
     card: 'Card',
     cash: 'Cash',
-    yooMoney: 'ЮMoney',
+    yooMoney: 'YooMoney',
     otherAmount: 'Other amount',
     otherAmountFocus: 'Enter amount',
     agreeWith: 'I agree with',
