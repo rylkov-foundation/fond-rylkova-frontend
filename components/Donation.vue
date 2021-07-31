@@ -8,7 +8,7 @@
         <img src="~/assets/images/smile.svg" alt="Смайл" class="donation__smile">
       </div>
       <DonationForm :donation-amount="donationAmount" :top-donation-sum="topDonationSum" class="donation__form" />
-      <NuxtLink to="/privacy-policy" class="donation__privacy-policy">
+      <NuxtLink to="donationAmount.policy_link" class="donation__privacy-policy">
         {{ $t('links.privacyPolicy') }}
       </NuxtLink>
     </div>
@@ -164,7 +164,7 @@ export default {
 
     .donation__container {
       width: 615px;
-      min-height: 716px;
+      min-height: 730px;
       margin-left: auto;
       padding: 0;
     }

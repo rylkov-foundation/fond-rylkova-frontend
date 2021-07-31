@@ -53,7 +53,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.pageData[`title_${this.$i18n.locale}`]}|${this.meta.title}`,
+      title: `${this.pageData[`title_${this.$i18n.locale}`]} | ${this.meta.title}`,
       meta: [
         { hid: 'description', name: 'description', content: this.pageData.Description },
         { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },
@@ -64,6 +64,16 @@ export default {
         { hid: 'twitter:description', name: 'twitter:description', content: this.pageData.og_description },
         { hid: 'twitter:image', name: 'twitter:image', content: `${this.$config.constants.serverUrl}${this.meta.logo.url}` }
       ]
+    }
+  },
+  computed: {
+    lang() {
+      return this.$i18n.locale
+    }
+  },
+  watch: {
+    lang() {
+      this.handleSplitTitle()
     }
   },
   created() {
@@ -86,8 +96,8 @@ export default {
           this.splitTitle = splitLine(
             this.pageData[`title_${this.$i18n.locale}`],
             this.$refs.titleContainer,
-            false,
-            70
+            true,
+            95
           )
         }, 40)
       }

@@ -1,4 +1,5 @@
 export default {
+  arfAbbreviation: 'ARF',
   links: {
     donate: 'Donate',
     getHelp: 'Get help',
@@ -11,15 +12,16 @@ export default {
     regularly: 'Regularly',
     card: 'Card',
     cash: 'Cash',
-    yooMoney: 'ЮMoney',
+    yooMoney: 'YooMoney',
     otherAmount: 'Other amount',
+    otherAmountFocus: 'Enter amount',
     agreeWith: 'I agree with',
     offer: 'the offer',
     name: 'Name',
     email: 'Email',
     submitButtonText: 'Donate',
     validationMessages: {
-      minAmount: 'Minimum amount is {minAmount} rubles',
+      minAmount: 'Minimum amount is — {minAmount} ruble',
       needAcceptOffer: 'Need to accept the offer',
       needFillFields: 'Need to fill out name and email'
     }
@@ -57,7 +59,6 @@ export default {
   },
   popups: {
     download: 'Download',
-    goTo: 'Go to',
     ok: 'Ok'
   },
   menu: {

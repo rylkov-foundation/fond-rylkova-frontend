@@ -9,9 +9,7 @@
       <h3 class="result__title">
         {{ result[`title_${$i18n.locale}`] }}
       </h3>
-      <p class="result__text">
-        {{ result[`description_${$i18n.locale}`] }}
-      </p>
+      <div class="result__text" v-html="result[`description_${$i18n.locale}`]" />
     </div>
   </article>
 </template>

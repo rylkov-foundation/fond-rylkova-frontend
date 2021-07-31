@@ -25,7 +25,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.pageData.title_ru}|${this.meta.title}`,
+      title: `${this.pageData.title_ru} | ${this.meta.title}`,
       meta: [
         { hid: 'description', name: 'description', content: this.pageData.Description },
         { hid: 'keywords', name: 'keywords', content: this.pageData.Keywords },

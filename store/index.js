@@ -14,7 +14,9 @@ export const state = () => ({
   footer: {},
   popupCookies: {},
   popupDownload: {},
-  popupNews: {}
+  popupNews: {},
+  wasNavigate: false,
+  isScrollOver230: false
 })
 
 export const mutations = {
@@ -65,6 +67,12 @@ export const mutations = {
   },
   setPopupNews (state, data) {
     state.popupNews = data
+  },
+  setWasNavigate (state, data) {
+    state.wasNavigate = data
+  },
+  setIsScrollOver230 (state, data) {
+    state.isScrollOver230 = data
   }
 }
 
@@ -162,6 +170,12 @@ export const actions = {
   async popupNewsInit ({ commit }) {
     const data = await this.$strapi.$popup_news.find()
     commit('setPopupNews', data)
+  },
+  setWasNavigate ({ commit }, data) {
+    commit('setWasNavigate', data)
+  },
+  setIsScrollOver230 ({ commit }, data) {
+    commit('setIsScrollOver230', data)
   }
 }
 
@@ -181,5 +195,7 @@ export const getters = {
   footer: state => state.footer,
   popupCookies: state => state.popupCookies,
   popupDownload: state => state.popupDownload,
-  popupNews: state => state.popupNews
+  popupNews: state => state.popupNews,
+  wasNavigate: state => state.wasNavigate,
+  isScrollOver230: state => state.isScrollOver230
 }

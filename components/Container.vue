@@ -3,7 +3,7 @@
     <OurMission :page-data="pageData" />
     <Results :page-data="pageData" />
     <Help :page-data="pageData" />
-    <Donation :page-data="pageData" :top-donation-sum="topDonationSum" :donation-amount="donationAmount" />
+    <Donation :page-data="pageData.donate" :top-donation-sum="topDonationSum" :donation-amount="donationAmount" />
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
       grid-template-areas:
         "mission results"
         "donation help";
-      grid-template-rows: repeat(2, 50%);
+      grid-template-rows: repeat(2, 730px);
       grid-template-columns: 55% 45%;
       gap: 0;
       overflow: hidden;

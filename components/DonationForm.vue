@@ -100,7 +100,8 @@
           :min="minAmount"
           class="form__input"
           :placeholder="$t('donateForm.otherAmount')"
-          @focus="differentAmount = radioAmount"
+          @focus="onAmountFocus"
+          @blur="onAmountBlur"
           @input="onAmountInput"
         >
         <label class="form__label-agree">
@@ -108,7 +109,7 @@
           <span class="form__checkbox-agree" />
           <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
           <span class="form__text-agree">
-            {{ $t('donateForm.agreeWith') }} <a href="#" class="form__link-offer">{{ $t('donateForm.offer') }}</a>
+            {{ $t('donateForm.agreeWith') }} <NuxtLink :to="donationAmount.offer" class="form__link-offer">{{ $t('donateForm.offer') }}</NuxtLink>
           </span>
         </label>
       </div>
@@ -166,7 +167,7 @@ export default {
   },
   data () {
     return {
-      isRegularPayment: false,
+      isRegularPayment: true,
       radioAmount: 200,
       differentAmount: '',
       amount: 200,
@@ -174,7 +175,7 @@ export default {
       isContractAgreed: false,
       name: '',
       email: '',
-      minAmount: 50
+      minAmount: 1
     }
   },
   computed: {
@@ -203,6 +204,13 @@ export default {
     onAmountInput (e) {
       this.radioAmount = 0
       this.amount = e.target.value
+    },
+    onAmountFocus (e) {
+      this.radioAmount = 0
+      e.target.placeholder = this.$t('donateForm.otherAmountFocus')
+    },
+    onAmountBlur (e) {
+      e.target.placeholder = this.$t('donateForm.otherAmount')
     },
     onAmountCheckboxClick (e) {
       this.amount = e.target.value
@@ -250,8 +258,8 @@ export default {
   left: 3px;
   top: 13px;
   display: inline-block;
-  width: 58px;
-  height: 32px;
+  width: 54px;
+  height: 33px;
   border: 2px solid black;
   border-radius: 16px;
   overflow: hidden;
@@ -290,7 +298,7 @@ export default {
 }
 
 .switch__input:checked + .switch__slider::before {
-  transform: translateX(26px);
+  transform: translateX(22px);
 }
 
 .form {
@@ -444,7 +452,7 @@ export default {
   font-size: 15px;
   line-height: 19px;
   border: none;
-  color: #727272;
+  color: #000;
   border-radius: unset;
   border-bottom: 1px solid #727272;
   background-color: #cbcbcb;
@@ -533,7 +541,7 @@ export default {
   font-family: Vollkorn, Times, serif;
   color: #b23438;
   font-size: 19px;
-  line-height: 14px;
+  line-height: 20px;
 }
 
 .form__submit {

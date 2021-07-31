@@ -1,10 +1,11 @@
 export default {
+  arfAbbreviation: 'ФАР',
   links: {
     donate: 'Поддержать',
     getHelp: 'Получить помощь',
     moreAboutUs: 'Подробнее о нас',
     moreDetailed: 'Подробнее',
-    privacyPolicy: 'Политика конфеденциальности'
+    privacyPolicy: 'Политика конфиденциальности'
   },
   donateForm: {
     once: 'Однократно',
@@ -13,13 +14,14 @@ export default {
     cash: 'Терминал',
     yooMoney: 'ЮMoney',
     otherAmount: 'Другая сумма',
+    otherAmountFocus: 'Введите сумму',
     agreeWith: 'Согласен с',
     offer: 'офертой',
     name: 'Имя',
     email: 'Email',
     submitButtonText: 'Перейти к оплате',
     validationMessages: {
-      minAmount: 'Минимальная сумма {minAmount} рублей',
+      minAmount: 'Минимальная сумма — {minAmount} рубль',
       needAcceptOffer: 'Необходимо принять оферту',
       needFillFields: 'Необходимо ввести имя и email'
     }
@@ -57,7 +59,6 @@ export default {
   },
   popups: {
     download: 'Скачать материал',
-    goTo: 'Перейти',
     ok: 'Понятно'
   },
   menu: {

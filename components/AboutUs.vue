@@ -12,7 +12,7 @@
     </div>
     <Support />
     <LogoWhite />
-    <p class="about-us__text" v-html="pageData[`content_${$i18n.locale}`]" />
+    <div class="about-us__text" v-html="pageData[`content_${$i18n.locale}`]" />
     <div class="about-us__colour-container about-us__colour-container_position_right-top" />
     <div class="about-us__colour-container about-us__colour-container_position_left-bottom" />
     <div class="about-us__colour-container about-us__colour-container_position_right-bottom">
@@ -77,7 +77,6 @@ export default {
 <style scoped>
   .about-us {
     position: relative;
-    border-bottom: 1px solid #a2a2a2;
     padding-bottom: 56px;
   }
 

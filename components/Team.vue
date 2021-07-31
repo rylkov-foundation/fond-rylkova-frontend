@@ -52,10 +52,10 @@ export default {
 .team__title {
   font-family: 'Vollkorn', 'Times', serif;
   font-size: 102px;
-  line-height: 61px;
+  line-height: 90px;
   word-break: break-word;
   color: #b23438;
-  font-weight: 400;
+  font-weight: 600;
   padding: 35px 0 8px 8px;
   background-image:
     url("~/assets/images/team.svg"),
@@ -65,11 +65,11 @@ export default {
     url("~/assets/images/team.svg");
   background-repeat: repeat-x;
   background-position:
-    0 31px,
-    121px 70px,
-    18px 110px,
-    8px 153px,
-    70px 192px;
+    0 75px,
+    121px 125px,
+    18px 175px,
+    8px 225px,
+    70px 275px;
 }
 
 .team__title-bold {
@@ -94,6 +94,7 @@ export default {
   flex-direction: column;
   list-style: none;
   padding: 0;
+  margin-bottom: 30px;
 }
 
 .team__drop {

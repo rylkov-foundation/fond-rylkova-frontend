@@ -22,12 +22,12 @@
       <p
         class="project__description"
         :class="{ 'project__description_position_even': ($attrs.index + 1) % 2 === 0 }"
-      >
-        {{ project[`description_${$i18n.locale}`] }}
-      </p>
+        v-html="project[`description_${$i18n.locale}`]"
+      />
     </div>
     <img
-      :src="`${$config.constants.serverUrl}${project.image.url}`"
+      v-if="link"
+      :src="link"
       :alt="project[`title_${$i18n.locale}`]"
       class="project__photo"
       :class="{ 'project__photo_position_even': ($attrs.index + 1) % 2 === 0 }"
@@ -42,6 +42,11 @@ export default {
     project: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    link () {
+      return this.project.image ? this.$config.constants.serverUrl + this.project.image.url : false
     }
   }
 }
@@ -122,6 +127,7 @@ export default {
   @media screen and (min-width: 1087px) {
     .project {
       flex-direction: row;
+      justify-content: center;
     }
 
     .project__text-container {
@@ -141,6 +147,8 @@ export default {
       line-height: 39px;
       margin: 43px 0 35px 0;
       text-align: right;
+      min-width: 298px;
+      z-index: 5;
     }
 
     .project__title_position_even {
@@ -164,6 +172,7 @@ export default {
       font-size: 22px;
       line-height: 29px;
       margin: 0;
+      min-width: 460px;
     }
 
     .project__description_position_even {

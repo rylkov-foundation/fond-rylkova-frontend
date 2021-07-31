@@ -44,6 +44,8 @@ export default {
   .contact__image {
     border-radius: 50%;
     width: 125px;
+    height: 125px;
+    object-fit: cover;
   }
 
   .contact__name {
@@ -58,6 +60,8 @@ export default {
     border-bottom: 3px solid #c7c7c7;
     background: linear-gradient(to top, #fff 50%, transparent);
     padding-top: 20px;
+    min-width: 115px;
+    min-height: 60px;
   }
 
   .contact__description {
@@ -103,6 +107,7 @@ export default {
 
     .contact__image {
       width: 250px;
+      height: 250px;
     }
 
     .contact__name {
@@ -111,6 +116,8 @@ export default {
       margin-top: -104px;
       padding-top: 20px;
       padding-bottom: 5px;
+      min-width: 246px;
+      min-height: 110px;
     }
 
     .contact__description {
@@ -133,6 +140,7 @@ export default {
 
     .contact__image {
       width: 171px;
+      height: 171px;
     }
 
     .contact__name {
@@ -141,6 +149,8 @@ export default {
       margin-top: -75px;
       padding-top: 20px;
       padding-bottom: 0;
+      min-width: 172px;
+      min-height: 80px;
     }
 
     .contact__description {

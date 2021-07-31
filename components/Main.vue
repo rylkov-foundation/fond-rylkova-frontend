@@ -16,7 +16,7 @@
           <button type="button" name="500" class="main__number main__number_size_medium" @click="onSumClick">
             {{ donationAmount.amount_medium }}
           </button>
-          <NuxtLink class="link link_position_top" to="/donation">
+          <NuxtLink class="link link_position_top" :to="pageData.about.first_link">
             {{ $t('links.donate') }}
             <span class="main__arrow">&gt;</span>
           </NuxtLink>
@@ -24,7 +24,7 @@
         <div class="main__image-block">
           <img src="~/assets/images/eye.png" alt="Глаз" class="main__eye">
         </div>
-        <NuxtLink class="link link_position_bottom" to="/get-help">
+        <NuxtLink class="link link_position_bottom" :to="pageData.about.second_link">
           {{ $t('links.getHelp') }}
           <span class="main__arrow">&gt;</span>
         </NuxtLink>
@@ -38,6 +38,10 @@ export default {
   name: 'Main',
   props: {
     donationAmount: {
+      default: () => {},
+      type: Object
+    },
+    pageData: {
       default: () => {},
       type: Object
     }
@@ -114,14 +118,17 @@ export default {
     font-style: normal;
     color: rgba(0, 0, 0, 0);
     -webkit-text-stroke: 1px black;
-    margin-left: -5px;
+    align-items: center;
   }
 
   .main__number_size_big {
     color: #000;
     font-size: 122px;
-    line-height: 70px;
+    line-height: 88px;
     position: relative;
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 0 2px;
   }
 
   .main__number_size_medium {
@@ -135,12 +142,11 @@ export default {
     font-size: 80px;
     line-height: 73px;
     position: relative;
-    padding-left: 13px;
   }
 
   .link {
     font-family: 'Vollkorn', 'Times', serif;
-    font-size: calc(0.0424 * 100vw + 3.4286px);
+    font-size: calc(0.037 * 100vw + 3.4286px);
     line-height: calc(0.0446 * 100vw + 5.7143px);
     font-weight: bold;
     color: #b23438;
@@ -203,9 +209,10 @@ export default {
     .main__number_size_big {
       font-size: 200px;
       line-height: 112px;
-      padding: 0 7px 20px 13px;
+      padding: 0 7px 20px;
       border-radius: 15px;
       letter-spacing: 3px;
+      top: 20px;
     }
 
     .main__number_size_medium {
@@ -231,6 +238,10 @@ export default {
     .main__money-block {
       align-items: start;
       margin: 0 0 0 55px;
+    }
+
+    .main__number_size_big {
+      top: 0;
     }
 
     .link {
@@ -313,7 +324,7 @@ export default {
       align-self: start;
       font-size: 218px;
       line-height: 168px;
-      padding: 0 0 0 13px;
+      padding: 0 7px;
       border-radius: 20px;
     }
 

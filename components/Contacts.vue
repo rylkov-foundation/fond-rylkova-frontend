@@ -34,9 +34,7 @@
       </div>
       <div class="contacts__black-container">
         <div class="contacts__image" />
-        <p class="contacts__text">
-          {{ pageData[`description_${$i18n.locale}`] }}
-        </p>
+        <div class="contacts__text" v-html="pageData[`description_${$i18n.locale}`]" />
         <div class="contacts__telephone-block">
           <a class="contacts__telephone-number" :href="`tel:${pageData.phone_number}`">
             {{ pageData.phone_number }}
@@ -327,7 +325,6 @@ export default {
   line-height: 16px;
   max-width: 85%;
   margin: 0 auto;
-  border-bottom: 2px solid #c7c7c7;
   padding-bottom: 27px;
 }
 

@@ -1,21 +1,28 @@
 <template>
   <div
-    v-if="PopupNewsVisible"
+    v-if="popupNewsVisible"
     class="popup popup_news"
   >
     <h3 class="popup__title popup__title_news">
       {{ popupNewsData[`title_${$i18n.locale}`] }}
     </h3>
-    <p class="popup__text popup__text_news">
-      {{ popupNewsData[`description_${$i18n.locale}`] }}
-    </p>
-    <NuxtLink
-      :to="popupNewsData.link"
+    <div class="popup__text popup__text_news" v-html="popupNewsData[`description_${$i18n.locale}`]" />
+    <a
+      v-if="popupNewsData.link"
+      :href="popupNewsData.link"
       class="popup__link"
+      target="_blank"
       @click="hidePopup"
     >
-      {{ $t('popups.goTo') }} &gt;
-    </NuxtLink>
+      {{ popupNewsData[`button_text_${$i18n.locale}`] }}
+    </a>
+    <button
+      v-else
+      class="popup__button"
+      @click="hidePopup"
+    >
+      {{ popupNewsData[`button_text_${$i18n.locale}`] }}
+    </button>
     <button type="button" class="popup__close-button" @click="hidePopup" />
   </div>
 </template>
@@ -29,14 +36,71 @@ export default {
       default: () => {}
     }
   },
-  data () {
-    return {
-      PopupNewsVisible: false
+  data: () => ({
+    haveAlreadyClosedByUser: false,
+    news: null,
+    timeoutId: null
+  }),
+  computed: {
+    popupNewsVisible () {
+      return !this.haveAlreadyClosedByUser &&
+          (this.$store.getters.wasNavigate || this.$store.getters.isScrollOver230) &&
+          ((this.news && this.news.counter < 1) || !this.news)
     }
   },
+  watch: {
+    popupNewsVisible (val) {
+      if (val) {
+        this.timeoutId = setTimeout(
+          this.hidePopup,
+          20000
+        )
+      }
+    }
+  },
+  beforeMount() {
+    if (localStorage.news) {
+      const news = JSON.parse(localStorage.news)
+      if (news.newsId && news.newsId === this.popupNewsData.newsId) {
+        this.news = news
+      } else {
+        this.news = null
+      }
+    } else {
+      this.news = null
+    }
+  },
+  destroyed() {
+    this.clearTimeoutIfNeed()
+  },
   methods: {
+    setCounter () {
+      if (this.news && this.news.newsId === this.popupNewsData.newsId) {
+        localStorage.news = JSON.stringify(
+          {
+            newsId: this.popupNewsData.newsId,
+            counter: this.news.counter + 1
+          }
+        )
+      } else {
+        localStorage.news = JSON.stringify(
+          {
+            newsId: this.popupNewsData.newsId,
+            counter: 0
+          }
+        )
+      }
+    },
+    clearTimeoutIfNeed () {
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId)
+        this.timeoutId = null
+      }
+    },
     hidePopup () {
-      this.PopupNewsVisible = !this.PopupNewsVisible
+      this.clearTimeoutIfNeed()
+      this.haveAlreadyClosedByUser = true
+      this.setCounter()
     }
   }
 }
@@ -75,9 +139,31 @@ export default {
     cursor: pointer;
   }
 
+  .popup__link:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .popup__button {
+    font-family: 'Vollkorn', 'Times', serif;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #b23438;
+    background-color: unset;
+    border: unset;
+    border-bottom: 2px solid #b23438;
+    padding: 0;
+  }
+
+  .popup__button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
   .popup {
     background-color: #fff;
-    padding: 17px 0 16px 20px;
+    padding: 17px 10px 16px 20px;
     border-radius: 20px;
     width: 229px;
     min-height: 100px;
@@ -127,7 +213,7 @@ export default {
     .popup {
       width: 470px;
       min-height: 204px;
-      padding: 35px 0 32px 41px;
+      padding: 35px 20px 32px 41px;
     }
 
     .popup__title {
@@ -143,6 +229,11 @@ export default {
     }
 
     .popup__link {
+      font-size: 34px;
+      line-height: 50px;
+    }
+
+    .popup__button {
       font-size: 34px;
       line-height: 50px;
     }
@@ -171,7 +262,7 @@ export default {
     .popup {
       width: 295px;
       min-height: 128px;
-      padding: 22px 0 19px 25px;
+      padding: 22px 20px 19px 25px;
     }
 
     .popup__title {
@@ -187,6 +278,11 @@ export default {
     }
 
     .popup__link {
+      font-size: 22px;
+      line-height: 31px;
+    }
+
+    .popup__button {
       font-size: 22px;
       line-height: 31px;
     }

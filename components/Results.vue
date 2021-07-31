@@ -30,7 +30,7 @@
           />
         </div>
       </div>
-      <NuxtLink class="link" to="/get-help">
+      <NuxtLink class="link" :to="pageData.results.link">
         {{ $t('links.getHelp') }}
         <span class="link__arrow">&gt;</span>
       </NuxtLink>
@@ -60,7 +60,9 @@ export default {
       }
     },
     nextSlide () {
-      if (this.currentSlide < (this.pageData.results.main_results.length - 1)) {
+      if (this.currentSlide === (this.pageData.results.main_results.length - 1)) {
+        this.currentSlide = 0
+      } else {
         this.currentSlide++
       }
     }
@@ -241,8 +243,9 @@ export default {
       display: flex;
       flex-direction: column;
       position: relative;
-      min-height: 716px;
+      min-height: 731px;
       max-width: 576px;
+      z-index: 2;
     }
 
     .results__crystal {
@@ -252,7 +255,7 @@ export default {
       background-position: center;
       background-repeat: repeat-x;
       background-size: 20%;
-      height: 129px;
+      height: 128px;
     }
 
     .results__title {

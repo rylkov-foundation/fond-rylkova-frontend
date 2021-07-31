@@ -1,10 +1,12 @@
 <template>
   <li class="report">
     <img
-      :src="`${$config.constants.serverUrl}${report.image.url}`"
+      v-if="link"
+      :src="link"
       :alt="report[`title_${$i18n.locale}`]"
       class="report__image"
     >
+    <div v-else class="report__no-image" />
     <div class="report__text-container">
       <h3 class="report__title">
         {{ report[`title_${$i18n.locale}`] }}
@@ -12,9 +14,7 @@
       <p class="report__date">
         {{ report[`date_${$i18n.locale}`] }}
       </p>
-      <p class="report__text">
-        {{ report[`description_${$i18n.locale}`] }}
-      </p>
+      <p class="report__text" v-html="report[`description_${$i18n.locale}`]" />
     </div>
   </li>
 </template>
@@ -26,6 +26,11 @@ export default {
     report: {
       type: Object,
       default: () => {}
+    }
+  },
+  computed: {
+    link () {
+      return this.report.image ? this.$config.constants.serverUrl + this.report.image.url : false
     }
   }
 }
@@ -40,6 +45,10 @@ export default {
     align-items: center;
   }
 
+  .report:last-of-type {
+    border-bottom: none;
+  }
+
   .report:nth-child(2n) {
     background-color: #fff;
     border-color: #434343;
@@ -51,11 +60,16 @@ export default {
     object-fit: cover;
   }
 
+  .report__no-image {
+    width: 320px;
+    height: 10px;
+  }
+
   .report__text-container {
     display: flex;
     flex-direction: column;
     max-width: 91%;
-    margin: 23px auto 28px;
+    margin: 23px auto 28px 14px;
   }
 
   .report__title {
@@ -103,6 +117,7 @@ export default {
   @media screen and (min-width: 768px) {
     .report__text-container {
       margin-bottom: 0;
+      margin-left: 34px;
     }
 
     .report__title {
@@ -145,6 +160,7 @@ export default {
 
     .report__text-container {
       width: calc(1087px / 2);
+      margin-left: 0;
     }
 
     .report:nth-child(2n) .report__text-container {
@@ -191,6 +207,11 @@ export default {
 
     .report__image {
       width: calc(1087px / 2);
+    }
+
+    .report__no-image {
+      width: calc(1087px / 2);
+      height: 279px;
     }
   }
 </style>
