@@ -13,7 +13,7 @@
           {{ pageData.donation[`title_${$i18n.locale}`] }}
         </h2>
         <DonationForm class="donation-page__form" :is-donation-page="true" :donation-amount="donationAmount" />
-        <NuxtLink to="/privacy-policy" class="donation-page__privacy-policy">
+        <NuxtLink :to="donationAmount.policy_link" class="donation-page__privacy-policy">
           {{ $t('links.privacyPolicy') }}
         </NuxtLink>
       </div>
