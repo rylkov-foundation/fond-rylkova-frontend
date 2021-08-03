@@ -6,7 +6,6 @@
     <Footer :footer-data="footerData" />
     <div class="popup-container">
       <PopupCookie v-if="!isAcceptedCookies" :popup-cookies-data="popupCookiesData" :handle-accept-cookies="acceptCookies" />
-      <PopupAgent :popup-download-data="popupDownloadData" />
       <PopupNews :popup-news-data="popupNewsData" />
     </div>
   </div>
@@ -21,7 +20,6 @@ export default {
       meta: {},
       footerData: {},
       popupCookiesData: {},
-      popupDownloadData: {},
       popupNewsData: {},
       isAcceptedCookies: true
     }
@@ -55,7 +53,6 @@ export default {
     this.meta = this.$store.getters.globalMeta
     this.footerData = this.$store.getters.footer
     this.popupCookiesData = this.$store.getters.popupCookies
-    this.popupDownloadData = this.$store.getters.popupDownload
     this.popupNewsData = this.$store.getters.popupNews
   },
   mounted() {
