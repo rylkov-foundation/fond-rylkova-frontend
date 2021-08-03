@@ -32,7 +32,8 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -41,11 +42,25 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/strapi',
     'nuxt-i18n',
+    '@nuxtjs/yandex-metrika',
     () => {
       require('node-schedule')
         .scheduleJob('0 0 * * *', regularDonationCronTask)
     }
   ],
+  // настройка Yandex Метрики
+  yandexMetrika: {
+    // id: 'XXXXXX',
+    // webvisor: true,
+    // clickmap: true,
+    // trackLinks: true,
+    // accurateTrackBounce: true
+  },
+
+  // настройка google Аналитики
+  googleAnalytics: {
+    // id: 'UA-XXX-X'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
