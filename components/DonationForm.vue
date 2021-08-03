@@ -487,6 +487,7 @@ export default {
 
 .form__agree {
   appearance: none;
+  opacity: 0;
 }
 
 .form__checkbox-agree {
