@@ -13,7 +13,6 @@ export const state = () => ({
   donationAmount: {},
   footer: {},
   popupCookies: {},
-  popupDownload: {},
   popupNews: {},
   wasNavigate: false,
   isScrollOver230: false
@@ -62,9 +61,6 @@ export const mutations = {
   setPopupCookies (state, data) {
     state.popupCookies = data
   },
-  setPopupDownload (state, data) {
-    state.popupDownload = data
-  },
   setPopupNews (state, data) {
     state.popupNews = data
   },
@@ -89,9 +85,6 @@ export const actions = {
     }
     if (!Object.keys(getters.popupCookies).length) {
       await dispatch('popupCookiesInit')
-    }
-    if (!Object.keys(getters.popupDownload).length) {
-      await dispatch('popupDownloadInit')
     }
     if (!Object.keys(getters.popupNews).length) {
       await dispatch('popupNewsInit')
@@ -163,10 +156,6 @@ export const actions = {
     const data = await this.$strapi.$popup_cookies.find()
     commit('setPopupCookies', data)
   },
-  async popupDownloadInit ({ commit }) {
-    const data = await this.$strapi.$popup_download.find()
-    commit('setPopupDownload', data)
-  },
   async popupNewsInit ({ commit }) {
     const data = await this.$strapi.$popup_news.find()
     commit('setPopupNews', data)
@@ -194,7 +183,6 @@ export const getters = {
   donationAmount: state => state.donationAmount,
   footer: state => state.footer,
   popupCookies: state => state.popupCookies,
-  popupDownload: state => state.popupDownload,
   popupNews: state => state.popupNews,
   wasNavigate: state => state.wasNavigate,
   isScrollOver230: state => state.isScrollOver230
