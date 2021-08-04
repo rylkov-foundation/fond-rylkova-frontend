@@ -55,7 +55,7 @@ export default {
     // clickmap: true,
     // trackLinks: true,
     // accurateTrackBounce: true
-  // },
+  },
 
   // настройка google Аналитики
   googleAnalytics: {
