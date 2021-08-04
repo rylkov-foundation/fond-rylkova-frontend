@@ -49,8 +49,8 @@ export default {
     }
   ],
   // настройка Yandex Метрики
-  // yandexMetrika: {
-  //  id: 'XXXXXXXX',
+  yandexMetrika: {
+    id: '83632696',
     // webvisor: true,
     // clickmap: true,
     // trackLinks: true,
