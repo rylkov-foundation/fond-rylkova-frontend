@@ -49,13 +49,13 @@ export default {
     }
   ],
   // настройка Yandex Метрики
-  yandexMetrika: {
-    // id: 'XXXXXX',
+  // yandexMetrika: {
+  //  id: 'XXXXXXXX',
     // webvisor: true,
     // clickmap: true,
     // trackLinks: true,
     // accurateTrackBounce: true
-  },
+  // },
 
   // настройка google Аналитики
   googleAnalytics: {
