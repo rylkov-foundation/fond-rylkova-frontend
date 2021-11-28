@@ -23,32 +23,32 @@
         >
         <span class="form__payment-options-button">{{ $t('donateForm.card') }}</span>
       </label>
-      <label class="form__payment-options">
-        <input
-          v-model="paymentType"
-          type="radio"
-          class="form__payment-options-radio-button"
-          name="payment-options"
-          value="yoo_money"
-        >
-        <span class="form__payment-options-button">{{ $t('donateForm.yooMoney') }}</span>
-      </label>
-      <label class="form__payment-options">
-        <input
-          v-model="paymentType"
-          type="radio"
-          class="form__payment-options-radio-button"
-          name="payment-options"
-          value="cash"
-          :disabled="isRegularPayment"
-        >
-        <span
-          class="form__payment-options-button"
-          :class="isRegularPayment && 'form__payment-options-button_disabled'"
-        >
-          {{ $t('donateForm.cash') }}
-        </span>
-      </label>
+<!--      <label class="form__payment-options">-->
+<!--        <input-->
+<!--          v-model="paymentType"-->
+<!--          type="radio"-->
+<!--          class="form__payment-options-radio-button"-->
+<!--          name="payment-options"-->
+<!--          value="yoo_money"-->
+<!--        >-->
+<!--        <span class="form__payment-options-button">{{ $t('donateForm.yooMoney') }}</span>-->
+<!--      </label>-->
+<!--      <label class="form__payment-options">-->
+<!--        <input-->
+<!--          v-model="paymentType"-->
+<!--          type="radio"-->
+<!--          class="form__payment-options-radio-button"-->
+<!--          name="payment-options"-->
+<!--          value="cash"-->
+<!--          :disabled="isRegularPayment"-->
+<!--        >-->
+<!--        <span-->
+<!--          class="form__payment-options-button"-->
+<!--          :class="isRegularPayment && 'form__payment-options-button_disabled'"-->
+<!--        >-->
+<!--          {{ $t('donateForm.cash') }}-->
+<!--        </span>-->
+<!--      </label>-->
     </div>
     <div class="form__amount-container">
       <label class="form__amount-options">
@@ -167,15 +167,15 @@ export default {
   },
   data () {
     return {
-      isRegularPayment: true,
-      radioAmount: 200,
+      isRegularPayment: false,
+      radioAmount: 1000,
       differentAmount: '',
-      amount: 200,
+      amount: 1000,
       paymentType: 'bank_card',
       isContractAgreed: false,
       name: '',
       email: '',
-      minAmount: 1
+      minAmount: 100
     }
   },
   computed: {
@@ -323,10 +323,11 @@ export default {
 }
 
 .form__payment-options-container {
-  display: flex;
-  justify-content: center;
-  margin: 26px auto 0;
-  width: fit-content;
+  display: none;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*margin: 26px auto 0;*/
+  /*width: fit-content;*/
 }
 
 .form__payment-options {

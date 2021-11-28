@@ -70,7 +70,7 @@ export default {
 
   .donation-page__title {
     font-family: Vollkorn, Times, serif;
-    font-size: 46px;
+    font-size: 20px;
     line-height: 32px;
     font-weight: 600;
     color: #b23438;
@@ -144,8 +144,8 @@ export default {
 
   @media screen and (min-width: 768px) {
     .donation-page__title {
-      font-size: 91px;
-      line-height: 62px;
+      font-size: 45px;
+      line-height: 52px;
       margin: 0 0 0 47px;
       padding-top: 54px;
       word-break: break-word;
@@ -270,7 +270,7 @@ export default {
       position: absolute;
       top: 0;
       left: -18px;
-      font-size: 112px;
+      font-size: 60px;
       line-height: 71px;
       width: 828px;
       word-break: break-all;

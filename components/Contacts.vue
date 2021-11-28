@@ -149,7 +149,7 @@ export default {
 
 .contacts__title {
   font-family: Vollkorn, Times, serif;
-  font-size: 101px;
+  font-size: 50px;
   line-height: 56px;
   font-style: italic;
   word-break: break-all;
@@ -217,7 +217,7 @@ export default {
 
 .contacts__title-text {
   font-family: Vollkorn, Times, serif;
-  font-size: 101px;
+  font-size: 50px;
   line-height: 56px;
   font-style: italic;
   word-break: normal;
@@ -334,18 +334,18 @@ export default {
 
 @media screen and (min-width: 768px) {
   .contacts__title {
-    font-size: 220px;
+    font-size: 120px;
     line-height: 122px;
     margin: 88px 0 41px 43px;
   }
 
   .contacts__title-text {
-    font-size: 220px;
+    font-size: 120px;
     line-height: 122px;
   }
 
   .contacts__title-text::after {
-    height: 38px;
+    height: 20px;
   }
 
   .contacts__text {
@@ -466,13 +466,14 @@ export default {
   }
 
   .contacts__title-text {
-    font-size: 175px;
-    line-height: 104px;
+    font-size: 90px;
+    line-height: 94px;
     z-index: 5;
+    left: 60%;
   }
 
   .contacts__title-text::after {
-    height: 40px;
+    height: 20px;
   }
 
   .contacts__form {

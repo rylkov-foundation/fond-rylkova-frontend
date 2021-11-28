@@ -142,8 +142,8 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   font-family: Vollkorn, Times, serif;
-  font-size: 110px;
-  line-height: 69px;
+  font-size: 50px;
+  line-height: 80px;
   color: #fff;
   font-style: italic;
   word-break: break-all;
@@ -151,8 +151,8 @@ export default {
 
 .text-with-line {
   font-family: Vollkorn, Times, serif;
-  font-size: 110px;
-  line-height: 69px;
+  font-size: 50px;
+  line-height: 80px;
   color: #fff;
   font-style: italic;
   position: relative;
@@ -174,14 +174,15 @@ export default {
 }
 
 .meta__subtitle {
-  font-family: Vollkorn, Times, serif;
-  font-size: 18px;
-  line-height: 19px;
-  font-style: italic;
-  font-weight: 600;
-  max-width: 72%;
-  margin-left: 22px;
-  margin-bottom: 18px;
+  display: none;
+  /*font-family: Vollkorn, Times, serif;*/
+  /*font-size: 18px;*/
+  /*line-height: 19px;*/
+  /*font-style: italic;*/
+  /*font-weight: 600;*/
+  /*max-width: 72%;*/
+  /*margin-left: 22px;*/
+  /*margin-bottom: 18px;*/
 }
 
 .meta__data {
@@ -192,15 +193,15 @@ export default {
 
 @media screen and (min-width: 768px) {
   .meta__title {
-    font-size: 220px;
-    line-height: 137px;
+    font-size: 70px;
+    line-height: 120px;
     width: 87%;
     margin: 63px 0 30px 45px;
   }
 
   .text-with-line {
-    font-size: 220px;
-    line-height: 137px;
+    font-size: 70px;
+    line-height: 120px;
   }
 
   .text-with-line::after {
@@ -209,12 +210,13 @@ export default {
   }
 
   .meta__subtitle {
-    font-size: 36px;
-    line-height: 38px;
-    font-style: normal;
-    max-width: 72%;
-    margin-left: 52px;
-    margin-bottom: 52px;
+    display: none;
+    /*font-size: 36px;*/
+    /*line-height: 38px;*/
+    /*font-style: normal;*/
+    /*max-width: 72%;*/
+    /*margin-left: 52px;*/
+    /*margin-bottom: 52px;*/
   }
 }
 
@@ -259,20 +261,21 @@ export default {
   }
 
   .meta__title {
-    font-size: 247px;
-    line-height: 178px;
+    font-size: 90px;
+    line-height: 140px;
     width: 92%;
   }
 
   .text-with-line {
-    font-size: 247px;
-    line-height: 178px;
+    font-size: 90px;
+    line-height: 140px;
   }
 
   .meta__subtitle {
-    font-size: 40px;
-    line-height: 42px;
-    max-width: 80%;
+    display: none;
+    /*font-size: 40px;*/
+    /*line-height: 42px;*/
+    /*max-width: 80%;*/
   }
 
   .meta__wrapper {
