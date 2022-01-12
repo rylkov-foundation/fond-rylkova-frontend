@@ -109,7 +109,7 @@
           <span class="form__checkbox-agree" />
           <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
           <span class="form__text-agree">
-            {{ $t('donateForm.agreeWith') }} <NuxtLink :to="donationAmount.offer" class="form__link-offer">{{ $t('donateForm.offer') }}</NuxtLink>
+            {{ $t('donateForm.agreeWith') }} <NuxtLink :to="'/offer'" class="form__link-offer">{{ $t('donateForm.offer') }}</NuxtLink>
           </span>
         </label>
       </div>
@@ -218,11 +218,13 @@ export default {
     },
     onSwitchIsRegularPayment (e) {
       if (e.target.name === 'toTrue') {
-        this.isRegularPayment = true
+        window.open( 'https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/' );
+        //this.isRegularPayment = true
       } else if (e.target.name === 'toFalse') {
         this.isRegularPayment = false
       } else if (e.target.name === 'switch') {
-        this.isRegularPayment = !this.isRegularPayment
+        window.open( 'https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/' );
+        //this.isRegularPayment = !this.isRegularPayment
       }
       if (this.isRegularPayment === true && this.paymentType === 'cash') {
         this.paymentType = 'bank_card'
@@ -254,6 +256,7 @@ export default {
 
 <style scoped>
 .switch {
+  visibility: hidden;
   position: relative;
   left: 3px;
   top: 13px;
@@ -274,6 +277,7 @@ export default {
 }
 
 .switch__slider {
+  pointer-events: none;
   position: absolute;
   cursor: pointer;
   top: 0;

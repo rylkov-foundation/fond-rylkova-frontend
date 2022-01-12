@@ -13,7 +13,7 @@
           {{ pageData.donation[`title_${$i18n.locale}`] }}
         </h2>
         <DonationForm class="donation-page__form" :is-donation-page="true" :donation-amount="donationAmount" />
-        <NuxtLink :to="donationAmount.policy_link" class="donation-page__privacy-policy">
+        <NuxtLink :to="'/privacy-policy'" class="donation-page__privacy-policy">
           {{ $t('links.privacyPolicy') }}
         </NuxtLink>
       </div>
@@ -24,7 +24,6 @@
     <div class="donation-page__grid-container-donations">
       <div class="donation-page__container-donations">
         <DonateNeedHelp :page-data="pageData.donation_need_help" />
-        <DonateYandex :page-data="pageData.donation_yandex_money" />
       </div>
       <div class="donation-page__container-requisites">
         <h3 class="donation-page__requisites-title">
