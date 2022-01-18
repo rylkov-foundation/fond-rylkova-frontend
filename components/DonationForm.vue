@@ -1,14 +1,14 @@
 <template>
   <form class="form" @submit.prevent="onSubmit">
     <div class="form__slider-container">
-      <button class="form__slider-button" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
+      <button class="form__slider-button" :class="{ button_active: !isRegularPayment }" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
         {{ $t('donateForm.once') }}
       </button>
       <label class="switch">
         <input v-model="isRegularPayment" type="checkbox" class="switch__input" @change="onSwitchIsRegularPayment">
         <span class="switch__slider" />
       </label>
-      <button class="form__slider-button" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
+      <button class="form__slider-button" :class="{ button_active: isRegularPayment }" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
         {{ $t('donateForm.regularly') }}
       </button>
     </div>
@@ -23,32 +23,32 @@
         >
         <span class="form__payment-options-button">{{ $t('donateForm.card') }}</span>
       </label>
-<!--      <label class="form__payment-options">-->
-<!--        <input-->
-<!--          v-model="paymentType"-->
-<!--          type="radio"-->
-<!--          class="form__payment-options-radio-button"-->
-<!--          name="payment-options"-->
-<!--          value="yoo_money"-->
-<!--        >-->
-<!--        <span class="form__payment-options-button">{{ $t('donateForm.yooMoney') }}</span>-->
-<!--      </label>-->
-<!--      <label class="form__payment-options">-->
-<!--        <input-->
-<!--          v-model="paymentType"-->
-<!--          type="radio"-->
-<!--          class="form__payment-options-radio-button"-->
-<!--          name="payment-options"-->
-<!--          value="cash"-->
-<!--          :disabled="isRegularPayment"-->
-<!--        >-->
-<!--        <span-->
-<!--          class="form__payment-options-button"-->
-<!--          :class="isRegularPayment && 'form__payment-options-button_disabled'"-->
-<!--        >-->
-<!--          {{ $t('donateForm.cash') }}-->
-<!--        </span>-->
-<!--      </label>-->
+      <!--      <label class="form__payment-options">-->
+      <!--        <input-->
+      <!--          v-model="paymentType"-->
+      <!--          type="radio"-->
+      <!--          class="form__payment-options-radio-button"-->
+      <!--          name="payment-options"-->
+      <!--          value="yoo_money"-->
+      <!--        >-->
+      <!--        <span class="form__payment-options-button">{{ $t('donateForm.yooMoney') }}</span>-->
+      <!--      </label>-->
+      <!--      <label class="form__payment-options">-->
+      <!--        <input-->
+      <!--          v-model="paymentType"-->
+      <!--          type="radio"-->
+      <!--          class="form__payment-options-radio-button"-->
+      <!--          name="payment-options"-->
+      <!--          value="cash"-->
+      <!--          :disabled="isRegularPayment"-->
+      <!--        >-->
+      <!--        <span-->
+      <!--          class="form__payment-options-button"-->
+      <!--          :class="isRegularPayment && 'form__payment-options-button_disabled'"-->
+      <!--        >-->
+      <!--          {{ $t('donateForm.cash') }}-->
+      <!--        </span>-->
+      <!--      </label>-->
     </div>
     <div class="form__amount-container">
       <label class="form__amount-options">
@@ -147,6 +147,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import validator from 'validator'
 
 export default {
@@ -200,6 +201,12 @@ export default {
       this.amount = val
     }
   },
+  mounted() {
+    const cloudpaymentsScript = document.createElement('script')
+    cloudpaymentsScript.setAttribute('src', 'https://widget.cloudpayments.ru/bundles/cloudpayments.js')
+    cloudpaymentsScript.async = true
+    document.head.appendChild(cloudpaymentsScript)
+  },
   methods: {
     onAmountInput (e) {
       this.radioAmount = 0
@@ -218,37 +225,60 @@ export default {
     },
     onSwitchIsRegularPayment (e) {
       if (e.target.name === 'toTrue') {
-        window.open( 'https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/' );
-        //this.isRegularPayment = true
+        // window.open('https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/')
+        this.isRegularPayment = true
+        console.log('toTrue', this.isRegularPayment)
       } else if (e.target.name === 'toFalse') {
         this.isRegularPayment = false
+        console.log('toFalse', this.isRegularPayment)
       } else if (e.target.name === 'switch') {
-        window.open( 'https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/' );
-        //this.isRegularPayment = !this.isRegularPayment
+        // window.open('https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/')
+        this.isRegularPayment = !this.isRegularPayment
+        console.log('switch', this.isRegularPayment)
       }
       if (this.isRegularPayment === true && this.paymentType === 'cash') {
         this.paymentType = 'bank_card'
       }
     },
     onSubmit () {
-      this.error = ''
-      this.$axios
-        .post(
-          `${this.$config.constants.baseUrl}/donation-query/donations`,
-          {
-            isRegularPayment: this.isRegularPayment,
-            paymentType: this.paymentType,
-            amount: this.amount,
-            name: this.name,
-            email: this.email
-          }
+      const widget = new cp.CloudPayments();
+      if (this.isRegularPayment) {
+        widget.charge(
+          { // options
+            publicId: 'test_api_00000000000000000000001', // id из личного кабинета
+            description: 'Пожертвование в фонд имени Андрея Рылькова', // назначение
+            amount: Number(this.amount), // сумма
+            currency: 'RUB', // валюта
+            accountId: `${this.email}_${this.amount}_${Date.now()}`, // идентификатор плательщика (необязательно)
+            email: this.email, // email плательщика (необязательно)
+            skin: 'modern', // дизайн виджета (необязательно)
+            data: {
+              CloudPayments: {
+                recurrent: {
+                  interval: 'Month',
+                  period: 1,
+                }
+              }
+            }
+          },
+          'https://rylkov-fond.org',
+          'https://rylkov-fond.org',
         )
-        .then((res) => {
-          window.location.href = res.data.url
-        })
-        .catch((err) => {
-          this.error = err.message
-        })
+      } else {
+        widget.charge(
+          { // options
+            publicId: 'test_api_00000000000000000000001', // id из личного кабинета
+            description: 'Пожертвование в фонд имени Андрея Рылькова', // назначение
+            amount: Number(this.amount), // сумма
+            currency: 'RUB', // валюта
+            accountId: `${this.email}_${this.amount}_${Date.now()}`, // идентификатор плательщика (необязательно)
+            email: this.email, // email плательщика (необязательно)
+            skin: 'modern', // дизайн виджета (необязательно)
+          },
+          'https://rylkov-fond.org',
+          'https://rylkov-fond.org',
+        )
+      }
     }
   }
 }
@@ -326,12 +356,23 @@ export default {
   margin-left: 6px;
 }
 
+.button_active {
+  background: #000;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 50%;
+}
+
 .form__payment-options-container {
   display: none;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*margin: 26px auto 0;*/
-  /*width: fit-content;*/
+
+  /* display: flex; */
+
+  /* justify-content: center; */
+
+  /* margin: 26px auto 0; */
+
+  /* width: fit-content; */
 }
 
 .form__payment-options {
