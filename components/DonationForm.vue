@@ -245,7 +245,7 @@ export default {
       if (this.isRegularPayment) {
         widget.charge(
           { // options
-            publicId: 'test_api_00000000000000000000001', // id из личного кабинета
+            publicId: 'pk_f69ea5b81a5c550303e78170236ef', // id из личного кабинета
             description: 'Пожертвование в фонд имени Андрея Рылькова', // назначение
             amount: Number(this.amount), // сумма
             currency: 'RUB', // валюта
@@ -267,7 +267,7 @@ export default {
       } else {
         widget.charge(
           { // options
-            publicId: 'test_api_00000000000000000000001', // id из личного кабинета
+            publicId: 'pk_f69ea5b81a5c550303e78170236ef', // id из личного кабинета
             description: 'Пожертвование в фонд имени Андрея Рылькова', // назначение
             amount: Number(this.amount), // сумма
             currency: 'RUB', // валюта
