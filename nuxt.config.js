@@ -63,7 +63,12 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+      proxy: {
+        // '/mail/send': { target: 'https://rylkov-fond.org/', pathRewrite: {'^/mail/send': ''} }
+        '/mail/send': { target: process.env.DOMEN || 'http://0.0.0.0:7777/', pathRewrite: {'^/mail/send': ''} }
+      }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
