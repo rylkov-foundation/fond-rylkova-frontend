@@ -1,14 +1,14 @@
 <template>
   <form class="form" @submit.prevent="onSubmit">
     <div class="form__slider-container">
-      <button class="form__slider-button" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
+      <button class="form__slider-button" :class="{ button_active: !isRegularPayment }" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
         {{ $t('donateForm.once') }}
       </button>
       <label class="switch">
         <input v-model="isRegularPayment" type="checkbox" class="switch__input" @change="onSwitchIsRegularPayment">
         <span class="switch__slider" />
       </label>
-      <button class="form__slider-button" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
+      <button class="form__slider-button" :class="{ button_active: isRegularPayment }" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
         {{ $t('donateForm.regularly') }}
       </button>
     </div>
@@ -23,32 +23,32 @@
         >
         <span class="form__payment-options-button">{{ $t('donateForm.card') }}</span>
       </label>
-      <label class="form__payment-options">
-        <input
-          v-model="paymentType"
-          type="radio"
-          class="form__payment-options-radio-button"
-          name="payment-options"
-          value="yoo_money"
-        >
-        <span class="form__payment-options-button">{{ $t('donateForm.yooMoney') }}</span>
-      </label>
-      <label class="form__payment-options">
-        <input
-          v-model="paymentType"
-          type="radio"
-          class="form__payment-options-radio-button"
-          name="payment-options"
-          value="cash"
-          :disabled="isRegularPayment"
-        >
-        <span
-          class="form__payment-options-button"
-          :class="isRegularPayment && 'form__payment-options-button_disabled'"
-        >
-          {{ $t('donateForm.cash') }}
-        </span>
-      </label>
+      <!--      <label class="form__payment-options">-->
+      <!--        <input-->
+      <!--          v-model="paymentType"-->
+      <!--          type="radio"-->
+      <!--          class="form__payment-options-radio-button"-->
+      <!--          name="payment-options"-->
+      <!--          value="yoo_money"-->
+      <!--        >-->
+      <!--        <span class="form__payment-options-button">{{ $t('donateForm.yooMoney') }}</span>-->
+      <!--      </label>-->
+      <!--      <label class="form__payment-options">-->
+      <!--        <input-->
+      <!--          v-model="paymentType"-->
+      <!--          type="radio"-->
+      <!--          class="form__payment-options-radio-button"-->
+      <!--          name="payment-options"-->
+      <!--          value="cash"-->
+      <!--          :disabled="isRegularPayment"-->
+      <!--        >-->
+      <!--        <span-->
+      <!--          class="form__payment-options-button"-->
+      <!--          :class="isRegularPayment && 'form__payment-options-button_disabled'"-->
+      <!--        >-->
+      <!--          {{ $t('donateForm.cash') }}-->
+      <!--        </span>-->
+      <!--      </label>-->
     </div>
     <div class="form__amount-container">
       <label class="form__amount-options">
@@ -109,7 +109,7 @@
           <span class="form__checkbox-agree" />
           <img src="~/assets/images/check-mark.svg" alt="Галочка" class="form__checkbox-agree-mark">
           <span class="form__text-agree">
-            {{ $t('donateForm.agreeWith') }} <NuxtLink :to="donationAmount.offer" class="form__link-offer">{{ $t('donateForm.offer') }}</NuxtLink>
+            {{ $t('donateForm.agreeWith') }} <NuxtLink :to="'/offer'" class="form__link-offer">{{ $t('donateForm.offer') }}</NuxtLink>
           </span>
         </label>
       </div>
@@ -147,6 +147,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import validator from 'validator'
 
 export default {
@@ -167,15 +168,15 @@ export default {
   },
   data () {
     return {
-      isRegularPayment: true,
-      radioAmount: 200,
+      isRegularPayment: false,
+      radioAmount: 1000,
       differentAmount: '',
-      amount: 200,
+      amount: 1000,
       paymentType: 'bank_card',
       isContractAgreed: false,
       name: '',
       email: '',
-      minAmount: 1
+      minAmount: 100
     }
   },
   computed: {
@@ -200,6 +201,12 @@ export default {
       this.amount = val
     }
   },
+  mounted() {
+    const cloudpaymentsScript = document.createElement('script')
+    cloudpaymentsScript.setAttribute('src', 'https://widget.cloudpayments.ru/bundles/cloudpayments.js')
+    cloudpaymentsScript.async = true
+    document.head.appendChild(cloudpaymentsScript)
+  },
   methods: {
     onAmountInput (e) {
       this.radioAmount = 0
@@ -218,35 +225,60 @@ export default {
     },
     onSwitchIsRegularPayment (e) {
       if (e.target.name === 'toTrue') {
+        // window.open('https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/')
         this.isRegularPayment = true
+        console.log('toTrue', this.isRegularPayment)
       } else if (e.target.name === 'toFalse') {
         this.isRegularPayment = false
+        console.log('toFalse', this.isRegularPayment)
       } else if (e.target.name === 'switch') {
+        // window.open('https://www.globalgiving.org/projects/harm-reduction-services-for-1000-moscow-drug-users/')
         this.isRegularPayment = !this.isRegularPayment
+        console.log('switch', this.isRegularPayment)
       }
       if (this.isRegularPayment === true && this.paymentType === 'cash') {
         this.paymentType = 'bank_card'
       }
     },
     onSubmit () {
-      this.error = ''
-      this.$axios
-        .post(
-          `${this.$config.constants.baseUrl}/donation-query/donations`,
-          {
-            isRegularPayment: this.isRegularPayment,
-            paymentType: this.paymentType,
-            amount: this.amount,
-            name: this.name,
-            email: this.email
-          }
+      const widget = new cp.CloudPayments();
+      if (this.isRegularPayment) {
+        widget.charge(
+          { // options
+            publicId: 'pk_f69ea5b81a5c550303e78170236ef', // id из личного кабинета
+            description: 'Пожертвование в фонд имени Андрея Рылькова', // назначение
+            amount: Number(this.amount), // сумма
+            currency: 'RUB', // валюта
+            accountId: `${this.email}_${this.amount}_${Date.now()}`, // идентификатор плательщика (необязательно)
+            email: this.email, // email плательщика (необязательно)
+            skin: 'modern', // дизайн виджета (необязательно)
+            data: {
+              CloudPayments: {
+                recurrent: {
+                  interval: 'Month',
+                  period: 1,
+                }
+              }
+            }
+          },
+          'https://rylkov-fond.org',
+          'https://rylkov-fond.org',
         )
-        .then((res) => {
-          window.location.href = res.data.url
-        })
-        .catch((err) => {
-          this.error = err.message
-        })
+      } else {
+        widget.charge(
+          { // options
+            publicId: 'pk_f69ea5b81a5c550303e78170236ef', // id из личного кабинета
+            description: 'Пожертвование в фонд имени Андрея Рылькова', // назначение
+            amount: Number(this.amount), // сумма
+            currency: 'RUB', // валюта
+            accountId: `${this.email}_${this.amount}_${Date.now()}`, // идентификатор плательщика (необязательно)
+            email: this.email, // email плательщика (необязательно)
+            skin: 'modern', // дизайн виджета (необязательно)
+          },
+          'https://rylkov-fond.org',
+          'https://rylkov-fond.org',
+        )
+      }
     }
   }
 }
@@ -254,6 +286,7 @@ export default {
 
 <style scoped>
 .switch {
+  visibility: hidden;
   position: relative;
   left: 3px;
   top: 13px;
@@ -274,6 +307,7 @@ export default {
 }
 
 .switch__slider {
+  pointer-events: none;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -322,11 +356,23 @@ export default {
   margin-left: 6px;
 }
 
+.button_active {
+  background: #000;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 50%;
+}
+
 .form__payment-options-container {
-  display: flex;
-  justify-content: center;
-  margin: 26px auto 0;
-  width: fit-content;
+  display: none;
+
+  /* display: flex; */
+
+  /* justify-content: center; */
+
+  /* margin: 26px auto 0; */
+
+  /* width: fit-content; */
 }
 
 .form__payment-options {
