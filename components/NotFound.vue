@@ -41,7 +41,7 @@ export default {
 }
 
 .not-found__title {
-  font-family: 'Vollkorn', 'Times', serif;
+  font-family: 'RussoOne', 'Times', serif;
   font-size: 55px;
   font-weight: 500;
   line-height: 1;
@@ -51,7 +51,7 @@ export default {
 }
 
 .not-found__text {
-  font-family: 'Vollkorn', 'Times', serif;
+  font-family: 'RussoOne', 'Times', serif;
   font-size: 35px;
   font-weight: 500;
   font-style: italic;

@@ -531,7 +531,7 @@ export default {
   padding-left: 11px;
   font-size: 18px;
   display: block;
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
 }
 
 .form__input_personal:last-of-type {
@@ -539,7 +539,7 @@ export default {
 }
 
 .form__input_personal::placeholder {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   color: #b23438;
   font-size: 19px;
   line-height: 20px;

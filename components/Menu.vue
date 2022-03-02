@@ -193,7 +193,7 @@ export default {
 .menu__text {
   text-transform: uppercase;
   transform: rotate(270deg);
-  font-family: 'Vollkorn', 'Times', serif;
+  font-family: 'RussoOne', 'Times', serif;
   font-size: 29px;
   font-weight: 400;
   line-height: 26px;

@@ -108,7 +108,7 @@ export default {
     font-weight: bold;
     font-size: 26px;
     line-height: 22px;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     width: 95px;
     display: flex;
     flex-direction: column;
@@ -121,7 +121,7 @@ export default {
     position: relative;
     font-size: 27px;
     line-height: 22px;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     color: #484848;
     word-break: keep-all;
   }

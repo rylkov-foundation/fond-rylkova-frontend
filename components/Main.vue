@@ -145,7 +145,7 @@ export default {
   }
 
   .link {
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: calc(0.037 * 100vw + 3.4286px);
     line-height: calc(0.0446 * 100vw + 5.7143px);
     font-weight: bold;

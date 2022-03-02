@@ -73,7 +73,7 @@ export default {
   }
 
   .report__title {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 23px;
     line-height: 23px;
     text-transform: uppercase;
@@ -87,7 +87,7 @@ export default {
   }
 
   .report__date {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 16px;
     line-height: 13px;
     color: #000;
@@ -103,7 +103,7 @@ export default {
   }
 
   .report__text {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 13px;
     line-height: 16px;
     color: #fff;

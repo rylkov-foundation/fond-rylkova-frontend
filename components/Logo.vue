@@ -186,6 +186,9 @@ export default {
 .logo__image {
   width: 100%;
   height: 100%;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -199,9 +202,6 @@ export default {
 
 @media screen and (min-width: 1280px) {
   .logo {
-    width: 147px;
-    height: 104px;
-    right: 110px;
     bottom: 53px;
   }
 }

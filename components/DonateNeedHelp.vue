@@ -30,7 +30,7 @@ export default {
 .donate-need-help__title {
   text-transform: uppercase;
   color: #b23438;
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 22px;
   font-weight: 600;
   line-height: 34px;
@@ -40,7 +40,7 @@ export default {
 }
 
 .donate-need-help__text {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;

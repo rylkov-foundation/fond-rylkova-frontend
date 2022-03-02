@@ -95,7 +95,7 @@ export default {
   }
 
   .reports__title {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 37px;
     line-height: 36px;
     font-weight: 700;
@@ -110,7 +110,7 @@ export default {
   }
 
   .reports__title-text {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 37px;
     line-height: 36px;
     font-weight: 700;
@@ -130,7 +130,7 @@ export default {
   }
 
   .reports__subtitle {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 19px;
     line-height: 18px;
     font-style: italic;

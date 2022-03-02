@@ -50,7 +50,7 @@ export default {
 }
 
 .team__title {
-  font-family: 'Vollkorn', 'Times', serif;
+  font-family: 'RussoOne', 'Times', serif;
   font-size: 102px;
   line-height: 90px;
   word-break: break-word;

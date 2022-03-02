@@ -65,7 +65,7 @@ export default {
 
   .project__title {
     text-transform: uppercase;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 26px;
     line-height: 24px;
     font-weight: 700;
@@ -75,7 +75,7 @@ export default {
   }
 
   .project__date {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 16px;
     line-height: 14px;
     font-weight: 700;
@@ -84,7 +84,7 @@ export default {
   }
 
   .project__description {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 14px;
     line-height: 16px;
     font-weight: 400;

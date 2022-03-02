@@ -97,7 +97,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     color: #b23438;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 20px;
     line-height: 20px;
     font-style: normal;
@@ -114,7 +114,7 @@ export default {
     border-radius: 10px;
     min-width: 170px;
     width: 64%;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 15px;
     line-height: 15px;
     font-style: normal;
@@ -129,7 +129,7 @@ export default {
     width: 100%;
     height: 62px;
     resize: none;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 16px;
     line-height: 20px;
     font-style: normal;
@@ -146,7 +146,7 @@ export default {
   }
 
   .email-form__label {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 13px;
     line-height: 4px;
     font-style: normal;

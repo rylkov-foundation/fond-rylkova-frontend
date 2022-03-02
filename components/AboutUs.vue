@@ -97,7 +97,7 @@ export default {
     position: absolute;
     top: 100px;
     left: 19px;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 115px;
     font-style: italic;
     font-weight: 400;
@@ -110,7 +110,7 @@ export default {
 
   .about-us__title-text {
     color: #fff;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 115px;
     font-style: italic;
     font-weight: 400;
@@ -129,7 +129,7 @@ export default {
   }
 
   .about-us__text {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 16px;

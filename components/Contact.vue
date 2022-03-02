@@ -50,7 +50,7 @@ export default {
 
   .contact__name {
     color: #b23438;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-weight: 700;
     font-size: 22px;
     line-height: 20px;
@@ -66,7 +66,7 @@ export default {
 
   .contact__description {
     color: #000;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-weight: 600;
     font-size: 15px;
     line-height: 28px;
@@ -77,7 +77,7 @@ export default {
     border-radius: 50%;
     color: #fff;
     text-decoration: none;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-weight: 900;
     font-size: 16px;
     line-height: 12px;

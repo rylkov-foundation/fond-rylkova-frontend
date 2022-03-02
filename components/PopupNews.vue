@@ -108,7 +108,7 @@ export default {
 
 <style>
   .popup__title {
-    font-family: 'Vollkorn', Times, serif;
+    font-family: 'RussoOne', Times, serif;
     font-size: 17px;
     font-weight: bold;
     font-style: normal;
@@ -129,7 +129,7 @@ export default {
   }
 
   .popup__link {
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: 17px;
     line-height: 24px;
     font-weight: bold;
@@ -145,7 +145,7 @@ export default {
   }
 
   .popup__button {
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: 17px;
     line-height: 24px;
     font-weight: bold;

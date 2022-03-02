@@ -73,7 +73,7 @@ export default {
   }
 
   .info__title {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-weight: 600;
     font-size: 47px;
     line-height: 34px;
@@ -90,7 +90,7 @@ export default {
 
   .info__title-rylkov {
     display: block;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-weight: 600;
     line-height: 36px;
     text-transform: uppercase;
@@ -197,7 +197,7 @@ export default {
         2px -2px 0 #000,
         -2px 2px 0 #000,
         2px 2px 0 #000;
-      font-family: 'Vollkorn', Times, serif;
+      font-family: 'RussoOne', Times, serif;
       color: #b23438;
       text-align: right;
       text-transform: uppercase;

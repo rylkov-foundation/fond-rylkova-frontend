@@ -148,8 +148,8 @@ export default {
 }
 
 .contacts__title {
-  font-family: Vollkorn, Times, serif;
-  font-size: 101px;
+  font-family: RussoOne, Times, serif;
+  font-size: 50px;
   line-height: 56px;
   font-style: italic;
   word-break: break-all;
@@ -209,15 +209,15 @@ export default {
 .email-result_text {
   display: block;
   margin: auto;
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 36px;
   font-weight: bold;
   color: #7f7f7f;
 }
 
 .contacts__title-text {
-  font-family: Vollkorn, Times, serif;
-  font-size: 101px;
+  font-family: RussoOne, Times, serif;
+  font-size: 50px;
   line-height: 56px;
   font-style: italic;
   word-break: normal;
@@ -250,7 +250,7 @@ export default {
 }
 
 .contacts__text {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 18px;
   line-height: 16px;
   font-style: italic;
@@ -297,7 +297,7 @@ export default {
 
 .contacts__email {
   color: #fff;
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-weight: bold;
   font-size: 15px;
   line-height: 28px;
@@ -319,7 +319,7 @@ export default {
 }
 
 .contacts__info {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -334,22 +334,22 @@ export default {
 
 @media screen and (min-width: 768px) {
   .contacts__title {
-    font-size: 220px;
+    font-size: 120px;
     line-height: 122px;
     margin: 88px 0 41px 43px;
   }
 
   .contacts__title-text {
-    font-size: 220px;
+    font-size: 120px;
     line-height: 122px;
   }
 
   .contacts__title-text::after {
-    height: 38px;
+    height: 20px;
   }
 
   .contacts__text {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 36px;
     line-height: 32px;
     font-style: normal;
@@ -466,13 +466,14 @@ export default {
   }
 
   .contacts__title-text {
-    font-size: 175px;
-    line-height: 104px;
+    font-size: 90px;
+    line-height: 94px;
     z-index: 5;
+    left: 60%;
   }
 
   .contacts__title-text::after {
-    height: 40px;
+    height: 20px;
   }
 
   .contacts__form {

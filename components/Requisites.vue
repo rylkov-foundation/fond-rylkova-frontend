@@ -76,7 +76,7 @@ export default {
 }
 
 .requisites__organization {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 11px;
   font-weight: 400;
   line-height: 12px;
@@ -95,7 +95,7 @@ export default {
 }
 
 .requisites__title {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 19px;
   font-weight: 600;
   line-height: 18px;
@@ -110,7 +110,7 @@ export default {
 }
 
 .requisites__name {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 11px;
   font-weight: 400;
   line-height: 12px;
@@ -120,7 +120,7 @@ export default {
 }
 
 .requisites__detail {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 11px;
   font-weight: 800;
   line-height: 12px;

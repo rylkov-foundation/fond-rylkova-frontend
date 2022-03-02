@@ -43,7 +43,7 @@ export default {
 
 .donate-global-giving__title {
   color: #b23438;
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 28px;
@@ -55,7 +55,7 @@ export default {
 }
 
 .donate-global-giving__text {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;

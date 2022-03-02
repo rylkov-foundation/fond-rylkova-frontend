@@ -28,7 +28,7 @@ export default {
 
 .donate-yandex__title {
   color: #b23438;
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 22px;
   font-weight: 600;
   line-height: 28px;
@@ -38,7 +38,7 @@ export default {
 }
 
 .donate-yandex__text {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;

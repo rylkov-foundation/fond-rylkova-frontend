@@ -29,10 +29,10 @@ export default {
     display: block;
     position: absolute;
     z-index: 13;
-    right: 17px;
-    width: 117px;
-    height: 86px;
-    top: 445px;
+    right: 5px;
+    width: 20%;
+    height: auto;
+    top: 20%;
   }
 
   .logo:hover {
@@ -41,8 +41,8 @@ export default {
 
   .logo__image {
     object-fit: cover;
-    width: 117px;
-    height: 86px;
+    width: 100%;
+    height: auto;
   }
 }
 </style>

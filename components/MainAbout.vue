@@ -35,7 +35,7 @@ export default {
   }
 
   .about__name {
-    font-family: Vollkorn, serif;
+    font-family: RussoOne, serif;
     font-weight: bold;
     position: relative;
   }
@@ -51,7 +51,7 @@ export default {
   }
 
   .about__text {
-    font-family: Vollkorn, serif;
+    font-family: RussoOne, serif;
     font-style: italic;
     font-size: 25px;
     text-align: left;

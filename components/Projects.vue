@@ -99,7 +99,7 @@ export default {
 }
 
 .projects__title {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 80px;
   line-height: 70px;
   font-weight: 600;
@@ -113,7 +113,7 @@ export default {
 }
 
 .projects__title-text {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 70px;
   line-height: 70px;
   font-weight: 600;
@@ -133,7 +133,7 @@ export default {
 }
 
 .projects__subtitle {
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 19px;
   line-height: 18px;
   font-style: italic;

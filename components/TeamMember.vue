@@ -62,7 +62,7 @@ export default {
   }
 
   .team-member__title {
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: 31px;
     line-height: 27px;
     font-weight: bold;
@@ -76,7 +76,7 @@ export default {
   }
 
   .team-member__title-text {
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: 31px;
     line-height: 27px;
     font-weight: bold;
@@ -98,7 +98,7 @@ export default {
   }
 
   .team-member__text {
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: 13px;
     line-height: 18px;
     font-weight: bold;

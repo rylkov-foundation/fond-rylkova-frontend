@@ -52,7 +52,7 @@ export default {
 .support__text {
   text-transform: uppercase;
   color: #fff;
-  font-family: Vollkorn, Times, serif;
+  font-family: RussoOne, Times, serif;
   font-size: 19px;
   line-height: 18px;
   font-weight: 400;

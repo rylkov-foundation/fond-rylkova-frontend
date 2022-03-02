@@ -75,7 +75,7 @@ export default {
   .result__title {
     grid-area: title;
     color: #b23438;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 28px;
     line-height: 25px;
     text-transform: uppercase;
@@ -88,7 +88,7 @@ export default {
 
   .result__text {
     align-self: start;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: calc(0.035714286 * 100vw + 2.57142848px);
     font-weight: 400;
     line-height: calc(0.033482143 * 100vw + 4.28571424px);

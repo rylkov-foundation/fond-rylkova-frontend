@@ -69,7 +69,7 @@ export default {
 
 <style>
   html {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 16px;
     color: #313131;
     word-spacing: 1px;

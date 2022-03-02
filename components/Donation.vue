@@ -70,7 +70,7 @@ export default {
     color: #cbcbcb;
     font-size: 38px;
     line-height: 30px;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     letter-spacing: 3px;
     word-spacing: 0;
     text-shadow:
@@ -92,7 +92,7 @@ export default {
     font-weight: 900;
     font-size: 42px;
     letter-spacing: 0;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     text-shadow: none;
   }
 

@@ -69,7 +69,7 @@ export default {
   }
 
   .donation-page__title {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 46px;
     line-height: 32px;
     font-weight: 600;
@@ -104,7 +104,7 @@ export default {
   }
 
   .donation-page__how-to-donate {
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 19px;
@@ -121,7 +121,7 @@ export default {
 
   .donation-page__requisites-title {
     text-transform: uppercase;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: 50px;
     font-weight: 400;
     line-height: 47px;

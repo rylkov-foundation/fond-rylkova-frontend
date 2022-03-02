@@ -85,7 +85,7 @@ export default {
     color: #cbcbcb;
     font-size: 40px;
     line-height: 28px;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     letter-spacing: 1px;
     word-spacing: 0;
     text-shadow:
@@ -164,7 +164,7 @@ export default {
   }
 
   .link {
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: calc(0.037946429 * 100vw + 4.85714272px);
     line-height: calc(0.055803571 * 100vw + 2.14285728px);
     font-weight: bold;

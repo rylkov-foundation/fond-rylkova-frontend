@@ -66,7 +66,7 @@ export default {
       1px -1px 0 #fff,
       -1px 1px 0 #fff,
       1px 1px 0 #fff;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: calc(0.1116 * 100vw + 4.2857px);
     line-height: calc(0.0692 * 100vw + 8.8571px);
     padding: 17px 0 0 13px;
@@ -90,7 +90,7 @@ export default {
 
   .help__text {
     max-width: 71%;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-size: calc(0.0357 * 100vw + 4.5714px);
     line-height: calc(0.0402 * 100vw + 5.1429px);
     margin-left: 17px;
@@ -98,7 +98,7 @@ export default {
 
   .link {
     display: block;
-    font-family: 'Vollkorn', 'Times', serif;
+    font-family: 'RussoOne', 'Times', serif;
     font-size: calc(0.037946429 * 100vw + 4.85714272px);
     line-height: calc(0.055803571 * 100vw + 2.14285728px);
     font-weight: bold;
@@ -150,7 +150,7 @@ export default {
 
   .help__email {
     color: #000;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-weight: bold;
     font-size: calc(0.0513 * 100vw + 0.5714px);
     line-height: calc(0.096 * 100vw + 0.2857px);
@@ -168,7 +168,7 @@ export default {
     position: absolute;
     top: 54%;
     right: -220px;
-    font-family: Vollkorn, Times, serif;
+    font-family: RussoOne, Times, serif;
     font-weight: bold;
     font-style: normal;
     color: rgba(0, 0, 0, 0);
@@ -176,10 +176,6 @@ export default {
     font-size: 34px;
     line-height: 30px;
     text-transform: uppercase;
-  }
-
-  .logo {
-    bottom: 50px;
   }
 
   @media screen and (min-width: 370px) {
@@ -320,7 +316,7 @@ export default {
 
     .logo {
       display: block;
-      top: 381px;
+      top: 320px;
       right: 41px;
       width: 149px;
     }
