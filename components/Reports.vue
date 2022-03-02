@@ -4,7 +4,6 @@
     <div class="reports__colour-container reports__colour-container_position_left-bottom" />
     <div class="reports__colour-container reports__colour-container_position_right-top" />
     <div class="reports__colour-container reports__colour-container_position_right-bottom">
-      <Drop class="reports__drop" />
     </div>
     <Support />
     <LogoWhite />
@@ -26,14 +25,11 @@
 </template>
 
 <script>
-import Drop from '@/components/Drop'
 import splitLine from '@/utilites/splitLine'
 
 export default {
   name: 'Reports',
-  components: {
-    Drop
-  },
+
   props: {
     pageData: {
       default: () => {},

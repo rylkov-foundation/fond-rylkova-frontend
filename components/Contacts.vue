@@ -4,9 +4,7 @@
     <div class="contacts__colour-container contacts__colour-container_position_left-top" />
     <div class="contacts__colour-container contacts__colour-container_position_right-top" />
     <div class="contacts__colour-container contacts__colour-container_position_left-bottom" />
-    <div class="contacts__colour-container contacts__colour-container_position_right-bottom">
-      <Drop class="contacts__drop" />
-    </div>
+    <div class="contacts__colour-container contacts__colour-container_position_right-bottom" />
     <LogoWhite />
     <div class="contacts__grid-title-container">
       <div class="contacts__container">
@@ -64,14 +62,14 @@
 </template>
 
 <script>
-import Drop from '@/components/Drop'
+// import Drop from '@/components/Drop'
 import splitLine from '@/utilites/splitLine'
 
 export default {
   name: 'Contacts',
-  components: {
-    Drop
-  },
+  // components: {
+  //   Drop
+  // },
   props: {
     pageData: {
       default: () => {},
@@ -230,7 +228,7 @@ export default {
   bottom: -2px;
   left: 0;
   width: 100%;
-  height: 18px;
+  height: 15px;
   background-color: #b23438;
 }
 
@@ -345,7 +343,7 @@ export default {
   }
 
   .contacts__title-text::after {
-    height: 20px;
+    height: 15px;
   }
 
   .contacts__text {
@@ -473,7 +471,7 @@ export default {
   }
 
   .contacts__title-text::after {
-    height: 20px;
+    height: 15px;
   }
 
   .contacts__form {

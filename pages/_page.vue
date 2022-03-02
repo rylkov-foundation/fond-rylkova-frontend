@@ -5,7 +5,6 @@
       <div class="meta__colour-container meta__colour-container_position_left-top" />
       <div class="meta__colour-container meta__colour-container_position_right-top" />
       <div class="meta__colour-container meta__colour-container_position_right-bottom">
-        <Drop class="meta__drop" />
       </div>
       <div class="meta__colour-container meta__colour-container_position_left-bottom" />
       <LogoWhite />

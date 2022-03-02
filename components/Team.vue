@@ -4,7 +4,6 @@
     <div class="team__colour-container team__colour-container_position_right-top" />
     <div class="team__colour-container team__colour-container_position_left-bottom" />
     <div class="team__colour-container team__colour-container_position_right-bottom">
-      <Drop class="team__drop" />
     </div>
     <Support />
     <div class="team__container">
@@ -25,13 +24,10 @@
 </template>
 
 <script>
-import Drop from '@/components/Drop'
 
 export default {
   name: 'Team',
-  components: {
-    Drop
-  },
+
   props: {
     pageData: {
       default: () => {},

@@ -16,20 +16,16 @@
     <div class="about-us__colour-container about-us__colour-container_position_right-top" />
     <div class="about-us__colour-container about-us__colour-container_position_left-bottom" />
     <div class="about-us__colour-container about-us__colour-container_position_right-bottom">
-      <Drop class="about-us__drop" />
     </div>
   </section>
 </template>
 
 <script>
-import Drop from '@/components/Drop'
 import splitLine from '@/utilites/splitLine'
 
 export default {
   name: 'AboutUs',
-  components: {
-    Drop
-  },
+
   props: {
     pageData: {
       default: () => {},

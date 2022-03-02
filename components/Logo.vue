@@ -203,6 +203,7 @@ export default {
 @media screen and (min-width: 1280px) {
   .logo {
     bottom: 53px;
+    right: 85px;
   }
 }
 </style>

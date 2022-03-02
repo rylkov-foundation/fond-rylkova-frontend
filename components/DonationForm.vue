@@ -4,10 +4,10 @@
       <button class="form__slider-button" :class="{ button_active: !isRegularPayment }" type="button" name="toFalse" @click="onSwitchIsRegularPayment">
         {{ $t('donateForm.once') }}
       </button>
-      <label class="switch">
-        <input v-model="isRegularPayment" type="checkbox" class="switch__input" @change="onSwitchIsRegularPayment">
-        <span class="switch__slider" />
-      </label>
+<!--      <label class="switch">-->
+<!--        <input v-model="isRegularPayment" type="checkbox" class="switch__input" @change="onSwitchIsRegularPayment">-->
+<!--        <span class="switch__slider" />-->
+<!--      </label>-->
       <button class="form__slider-button" :class="{ button_active: isRegularPayment }" type="button" name="toTrue" @click="onSwitchIsRegularPayment">
         {{ $t('donateForm.regularly') }}
       </button>

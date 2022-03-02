@@ -4,7 +4,6 @@
     <div class="donation-page__colour-container donation-page__colour-container_position_right-top" />
     <div class="donation-page__colour-container donation-page__colour-container_position_left-bottom" />
     <div class="donation-page__colour-container donation-page__colour-container_position_right-bottom">
-      <Drop class="donation-page__drop" />
     </div>
     <div class="donation-page__grid-container-title">
       <div class="donation-page__container">
@@ -37,13 +36,10 @@
 </template>
 
 <script>
-import Drop from '@/components/Drop'
 
 export default {
   name: 'DonationAll',
-  components: {
-    Drop
-  },
+
   props: {
     pageData: {
       default: () => {},

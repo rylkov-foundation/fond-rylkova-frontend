@@ -6,7 +6,6 @@
     <div class="info__colour-container info__colour-container_position_left-top" />
     <div class="info__colour-container info__colour-container_position_left-bottom" />
     <div class="info__colour-container info__colour-container_position_right-bottom">
-      <Drop class="info__drop" />
     </div>
     <div class="info__wrapper">
       <div class="info__container">
@@ -41,13 +40,10 @@
 </template>
 
 <script>
-import Drop from '@/components/Drop'
 
 export default {
   name: 'Rylkov',
-  components: {
-    Drop
-  },
+
   props: {
     pageData: {
       default: () => {},

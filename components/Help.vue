@@ -316,7 +316,7 @@ export default {
 
     .logo {
       display: block;
-      top: 320px;
+      top: 345px;
       right: 41px;
       width: 149px;
     }
