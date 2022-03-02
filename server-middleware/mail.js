@@ -25,7 +25,10 @@ app.post('/send',
       text: `from: ${email} \n${text}`
     })
       .then(() => res.status(200).send())
-      .catch(err => res.status(500).send(err))
+      .catch(err => {
+        console.log(err)
+        res.status(500).send(err)
+      })
   }
 )
 
