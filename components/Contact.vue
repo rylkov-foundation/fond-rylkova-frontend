@@ -11,13 +11,13 @@
     <p class="contact__description">
       {{ contact[`position_${$i18n.locale}`] }}
     </p>
-    <a
-      class="contact__telephone-number"
-      :class="{ 'contact__telephone-number_number_two': ($attrs.index+1)%2 === 0,
-                'contact__telephone-number_number_three': ($attrs.index+1)%3 === 0}"
-      :href="'tel:'+contact.phone_number"
-    >{{ contact.phone_number }}
-    </a>
+<!--    <a-->
+<!--      class="contact__telephone-number"-->
+<!--      :class="{ 'contact__telephone-number_number_two': ($attrs.index+1)%2 === 0,-->
+<!--                'contact__telephone-number_number_three': ($attrs.index+1)%3 === 0}"-->
+<!--      :href="'tel:'+contact.phone_number"-->
+<!--    >{{ contact.phone_number }}-->
+<!--    </a>-->
   </li>
 </template>
 

@@ -33,11 +33,11 @@
       <div class="contacts__black-container">
         <div class="contacts__image" />
         <div class="contacts__text" v-html="pageData[`description_${$i18n.locale}`]" />
-        <div class="contacts__telephone-block">
-          <a class="contacts__telephone-number" :href="`tel:${pageData.phone_number}`">
-            {{ pageData.phone_number }}
-          </a>
-        </div>
+<!--        <div class="contacts__telephone-block">-->
+<!--          <a class="contacts__telephone-number" :href="`tel:${pageData.phone_number}`">-->
+<!--            {{ pageData.phone_number }}-->
+<!--          </a>-->
+<!--        </div>-->
         <div class="contacts__email-block">
           <a class="contacts__email" :href="`mailto:${pageData.email}`" target="_blank">
             {{ pageData.email }}

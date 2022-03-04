@@ -12,11 +12,11 @@
         {{ $t('links.moreDetailed') }}
         <span class="link__arrow">&gt;</span>
       </NuxtLink>
-      <div class="help__telephone-block">
-        <a class="help__telephone-number" :href="`tel:${pageData.help.phone_number}`">
-          {{ pageData.help.phone_number }}
-        </a>
-      </div>
+<!--      <div class="help__telephone-block">-->
+<!--        <a class="help__telephone-number" :href="`tel:${pageData.help.phone_number}`">-->
+<!--          {{ pageData.help.phone_number }}-->
+<!--        </a>-->
+<!--      </div>-->
       <div class="help__email-block">
         <a class="help__email" :href="`mailto:${pageData.help.email}`" target="_blank">
           {{ pageData.help.email }}
